@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="64dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="120dp"
+            android:letterSpacing="0.03"
+            android:lineSpacingExtra="2dp"
+            android:text="Enter your \nDetails"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border"
+                android:hint="Full Name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:letterSpacing="0.03"
+                android:maxLength="30"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/gray979797"
+                android:hint="Date of Birth"
+                android:clickable="true"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                android:letterSpacing="0.03"
+                android:maxLength="10"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border"
+                android:hint="Email ID"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:letterSpacing="0.03"
+                android:maxLength="30"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/wyh_round_black"
+                android:gravity="center"
+                android:paddingHorizontal="36dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

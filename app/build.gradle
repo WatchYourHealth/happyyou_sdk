@@ -1,0 +1,124 @@
+plugins {
+    id 'com.android.application'
+//    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'maven-publish'
+    // id 'kotlin-android-extensions'
+}
+
+
+/*def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))*/
+
+apply plugin: StringCare
+// default config
+stringcare {
+    debug false
+    assetsFiles = ["*.json"]
+    stringFiles = ['strings.xml']
+    srcFolders = ['src/main']
+}
+
+android {
+    namespace 'com.wyh.happyyousdktest'
+    compileSdk 34
+    signingConfigs {
+        release {
+            v1SigningEnabled false
+            v2SigningEnabled true
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.wyh.happyyousdktest"
+        minSdk 26
+
+        targetSdk 34
+        versionCode 83
+        versionName "1.5.6"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        /*// should correspond to key/value pairs inside the file
+        buildConfigField("String", "PUBLIC_KEY", apikeyProperties['PUBLIC_KEY'])
+        buildConfigField("String", "PRIVATE_KEY", apikeyProperties['PRIVATE_KEY'])*/
+
+        /* ndk {
+             abiFilters "armeabi-v7a", "arm64-v8a"
+         }*/
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding = true
+        buildConfig = true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        uat {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    packagingOptions {
+        pickFirst 'lib/arm64-v8a/libopencv_java4.so'
+        pickFirst 'lib/x86_64/libopencv_java4.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libopencv_java4.so'
+        pickFirst 'lib/x86/libopencv_java4.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst "lib/x86/libc++_shared.so"
+        jniLibs {
+            useLegacyPackaging = false
+            exclude "**/libc++_shared.so"
+        }
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+}
+
+configurations.all {
+    exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    implementation 'com.google.firebase:firebase-config:21.2.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+//apply plugin: 'com.google.gms.google-services'
+

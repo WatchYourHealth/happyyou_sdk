@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.AddUserDetails"
+        android:background="@drawable/splash_bg">
+
+        <LinearLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/includeBack"
+                layout="@layout/layout_back" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_below="@+id/header_layout">
+
+
+            <EditText
+                android:id="@+id/edtUserDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:hint="Full Name"
+                android:digits="@string/alphabets"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:letterSpacing="0.03"
+                android:maxLength="30"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtUserDetailsEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:clickable="true"
+                android:drawableTint="@color/edittext_blue_round"
+                android:hint="Email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:letterSpacing="0.03"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtUserDetailsDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/edittext_blue_round"
+                android:focusable="false"
+                android:hint="Date of Birth"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                android:letterSpacing="0.03"
+                android:maxLength="10"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:layout_marginTop="16dp">
+
+                <Spinner
+                    android:id="@+id/userDataGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/gender"
+                    android:padding="16dp"/>
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/wyh_round_btn_dark_red"
+                android:gravity="center"
+                android:paddingHorizontal="64dp"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+    </RelativeLayout>
+
+</layout>

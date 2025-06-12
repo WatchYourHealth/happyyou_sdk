@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_32dp">
+
+            <ImageView
+                android:id="@+id/iv_close_record"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:background="@drawable/ic_close_red_bg"/>
+
+            <ImageView
+                android:id="@+id/iv_delete_record"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:background="@drawable/ic_thought_icon"/>
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_share"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:layout_alignParentEnd="true"
+                app:tint="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_thought"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/iv_delete_record"
+                android:layout_marginBottom="10dp"
+                tools:itemCount="1"
+                android:layout_above="@+id/btnOk"
+                tools:listitem="@layout/thought_item_adapter"
+                android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_thought_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                tools:listitem="@layout/indicators_adapter"
+                tools:itemCount="5"
+                android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+            <Button
+                android:id="@+id/btnOk"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="150dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:layout_above="@+id/rv_thought_indicator"
+                android:background="@drawable/blue_rc_bg_8dp"
+                android:fontFamily="@font/roboto_black"
+                android:text="OK!"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</layout>

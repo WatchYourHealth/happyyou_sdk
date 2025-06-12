@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_32dp">
+
+        <ImageView
+            android:id="@+id/iv_delete_record"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:background="@drawable/ic_thought_icon"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:src="@drawable/ic_share"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_unwind"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY" />
+
+        <Button
+            android:id="@+id/btnOk"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:background="@drawable/blue_rc_bg_8dp"
+            android:fontFamily="@font/roboto_black"
+            android:text="OK!"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</LinearLayout>

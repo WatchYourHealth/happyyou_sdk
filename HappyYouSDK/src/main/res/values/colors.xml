@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="semi_trans">#33000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#c62828</color>
+    <color name="colorPrimaryLight">#ff5f52</color>
+    <color name="colorPrimaryDark">#8e0000</color>
+    <color name="green">#1daa43</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="new_hra_incomplete">#FFBF00</color>
+    <color name="red">#ed1c24</color>
+    <color name="transperent">#00000000</color>
+    <color name="colorSecondary">#003975</color>
+    <color name="colorSecondaryLight">#4363a4</color>
+    <color name="colorSecondaryDark">#001449</color>
+    <color name="kotakLightBlueNew">#dbe3eb</color>
+    <color name="kotakDarkBrown">#AD7035</color>
+    <color name="gray979797">#979797</color>
+    <color name="grayLight">#c7c7c7</color>
+    <color name="grayDark">#C0CED9</color>
+    <color name="btn_blue">#68BFC9</color>
+    <color name="light_blue">#97e1e0</color>
+    <color name="blue_cyan">#4486A8</color>
+    <color name="blue">#39c0c4</color>
+    <color name="light_pink">#ffb9b9</color>
+    <color name="dark_pink">#f97373</color>
+    <color name="pink">#f97373</color>
+    <color name="baby_pink">#F777A7</color>
+    <color name="light_orange">#EFB874</color>
+    <color name="orange">#f4a23e</color>
+    <color name="orange_new">#f49242</color>
+    <color name="joke_blue">#36759D</color>
+    <color name="affirmation_skyblue">#A7DFDF</color>
+    <color name="happy_dark_grey">#adc2cd</color>
+    <color name="happy_dark_grey_transpa">#33a9a9a9</color>
+    <color name="happy_light_grey">#E7EEF1</color>
+    <color name="edittext_blue_round">#DAE3E5</color>
+    <color name="edittext_bg">#10FFB9B9</color>
+    <color name="resend_color">#4DFF9292</color>
+    <color name="score_green_light">#ddffde</color>
+    <color name="score_green_dark">#268822</color>
+    <color name="score_red_light">#ffe5ee</color>
+    <color name="score_red_dark">#f02926</color>
+    <color name="drawer_bg">#fffaf6</color>
+    <color name="popup_bg">#80000000</color>
+    <color name="banner_color">#FCE8D8</color>
+    <color name="banner_border_color">#F29143</color>
+    <color name="cyan_blue">#7ED6D9</color>
+    <color name="card_grey">#339A9A9A</color>
+    <color name="Armada_grey">#EDEDED</color>
+    <color name="policy_inactive">#4DFF9292</color>
+    <color name="policy_active">#D7ECD7</color>
+    <color name="dark_card_grey">#333333</color>
+    <array name="dot_on_page_not_active">
+        <item>#4A148C</item>
+        <item>#4A148C</item>
+        <item>#4A148C</item>
+        <item>#4A148C</item>
+        <item>#80CBC4</item>
+    </array>
+
+    <array name="dot_on_page_active">
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+
+    </array>
+    <integer-array name="dot_on_page_not_active1">
+        <item>@drawable/ic_indicator_unselected</item>
+        <item>@drawable/ic_indicator_unselected</item>
+        <item>@drawable/ic_indicator_unselected</item>
+        <item>@drawable/ic_indicator_unselected</item>
+        <item>@drawable/ic_indicator_unselected</item>
+    </integer-array>
+    <integer-array name="dot_on_page_active1">
+        <item>@drawable/ic_indicator_selected</item>
+        <item>@drawable/ic_indicator_selected</item>
+        <item>@drawable/ic_indicator_selected</item>
+        <item>@drawable/ic_indicator_selected</item>
+        <item>@drawable/ic_indicator_selected</item>
+    </integer-array>
+
+    <array name="dot_on_page_active2">
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+
+    </array>
+    <integer-array name="dot_on_page_not_active2">
+        <item>@drawable/ic_tribe_avatar</item>
+        <item>@drawable/ic_tribe_avatar</item>
+        <item>@drawable/ic_tribe_avatar</item>
+        <item>@drawable/ic_tribe_avatar</item>
+        <item>@drawable/ic_tribe_avatar</item>
+    </integer-array>
+
+    <!--NV push logo-->
+    <color name="push_small_icon_background">#00000000</color>
+    <color name="selected">#212121</color>
+    <color name="unselected">#9E9E9E</color>
+    <color name="gray">#595959</color>
+</resources>

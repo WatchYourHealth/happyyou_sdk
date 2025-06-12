@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="200dp"
+    android:padding="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/goal_parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/grey_btn_bg">
+
+        <LinearLayout
+            android:id="@+id/goal_img_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:id="@+id/goal_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trailblazer_badge"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/goal_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:hint="Challenge"
+            android:textColor="@color/white"
+            android:layout_below="@+id/goal_img_parent"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/challenge_complete_img"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:background="@drawable/blue_circle"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/goal_progress_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/goal_progress_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:max="100"
+                    android:progress="25"
+                    android:layout_margin="8dp"
+                    android:progressDrawable="@drawable/custom_progress_bar"
+                    app:trackCornerRadius="4dp"
+                    app:trackThickness="30dp">
+
+                </ProgressBar>
+
+                <TextView
+                    android:id="@+id/goal_points_tv"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="0 points"
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_10sp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

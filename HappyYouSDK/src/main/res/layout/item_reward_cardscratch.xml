@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clParentdata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/scratch_card_orange_new"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivRewardIcon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_image_holder_reward"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvRewardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:maxEms="5"
+                android:minLines="2"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="14dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/tvRedeemed"
+                app:layout_constraintStart_toStartOf="@id/ivRewardIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivRewardIcon"
+                tools:text="Complimentary Services" />
+
+            <TextView
+                android:id="@+id/tvRedeemed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:drawablePadding="8dp"
+                android:fontFamily="sans-serif"
+                android:lineHeight="11dp"
+                android:text="Redeem Now"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="10dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvShowRedeemedBanner"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:background="@color/happy_light_grey"
+                android:backgroundTint="@color/Armada_grey"
+                android:gravity="center"
+                android:text="Redeemed"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clParentInvisible"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTintMode="multiply"
+            android:backgroundTint="@color/happy_dark_grey"
+            android:background="@drawable/scratch_card_orange_new"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

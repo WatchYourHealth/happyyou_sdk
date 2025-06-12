@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:layout_marginStart="-1dp"
+            android:src="@drawable/profile_bg" />
+
+        <RelativeLayout
+            android:id="@+id/llName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="@dimen/margin_32dp">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/font_20sp_roboto_medium_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <ImageView
+                android:id="@+id/llClosed"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_close_red_bg" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/drawer_level_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llName"
+            android:layout_marginStart="@dimen/margin_32dp"
+            android:layout_marginTop="@dimen/margin_32dp">
+
+            <LinearLayout
+                android:id="@+id/llLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_level_hamburger" />
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        style="@style/font_16sp_roboto_regular_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_8dp" />
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/level_progress"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    app:indicatorColor="@color/white"
+                    app:trackColor="@color/blue_cyan"
+                    app:trackCornerRadius="@dimen/margin_8dp"
+                    app:trackThickness="6dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_32dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_points_hamburger" />
+
+                    <TextView
+                        style="@style/font_16sp_roboto_regular_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_8dp"
+                        android:text="Points " />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_32dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+
+                    <TextView
+                        android:id="@+id/tv_points"
+                        style="@style/font_18sp_roboto_regular_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/drawer_level_layout"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:id="@+id/tvReferralName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/referral_code"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto_bold"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textColor="@color/black"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llReferral"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/carousel_bg">
+
+                <TextView
+                    android:id="@+id/referral_code_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.8"
+                    android:text=""
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/referral_copy_img"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="16sp">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/referral_copy_img"
+                    android:layout_width="@dimen/margin_32dp"
+                    android:layout_height="@dimen/margin_32dp"
+                    android:layout_weight="0.2"
+                    app:layout_constraintEnd_toStartOf="@+id/referral_share_img"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_copy"
+                    android:layout_marginEnd="5dp"
+                    app:tint="@color/light_pink"/>
+
+                <ImageView
+                    android:id="@+id/referral_share_img"
+                    android:layout_width="@dimen/margin_32dp"
+                    android:layout_height="@dimen/margin_32dp"
+                    android:layout_weight="0.2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_share">
+
+                </ImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

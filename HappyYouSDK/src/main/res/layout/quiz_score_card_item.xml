@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvScoreItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/score_green_light"
+        app:cardCornerRadius="@dimen/margin_10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/scoreQuestion"
+                style="@style/font_14sp_roboto_medium_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/app_name" />
+
+            <LinearLayout
+                android:id="@+id/layoutScoreYourAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtScoreYourAnswer"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="YOUR ANSWER"
+                    android:textColor="@color/gray979797" />
+
+                <TextView
+                    android:id="@+id/scoreYourAnswer"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/app_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutScoreAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtScoreAnswer"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CORRECT ANSWER"
+                    android:textColor="@color/gray979797" />
+
+                <TextView
+                    android:id="@+id/scoreAnswer"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/app_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/explainScoreAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAnswerExplain"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Did you know"
+                    android:textColor="@color/gray979797" />
+
+                <TextView
+                    android:id="@+id/answerExplain"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/app_name" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

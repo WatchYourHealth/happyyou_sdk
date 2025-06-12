@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/viewAll"
+        android:title="Feedback" />
+
+    <item
+        android:id="@+id/viewRewardList"
+        android:title="Feedback Activity" />
+
+    <item
+        android:id="@+id/viewScratchList"
+        android:title="View Scratch List"
+        android:visible="false"/>
+    <item
+        android:id="@+id/viewFileList"
+        android:title="View File"
+        android:visible="false"
+        />
+    <item
+        android:id="@+id/claimReclaim"
+        android:title="Claim Reclaim"
+        android:visible="false"
+        />
+
+</menu>

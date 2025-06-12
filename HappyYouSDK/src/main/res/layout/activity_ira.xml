@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CDCBCB"
+        tools:context=".ira.IraActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/ira_question_1"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ll_yes_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <Button
+                android:id="@+id/btn_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/string_yes" />
+
+            <Button
+                android:id="@+id/btn_no"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/margin_8dp"
+                android:text="@string/string_no" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_yes_no"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/string_ok"
+            android:textSize="30sp" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_ok"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_16dp" />
+
+    </RelativeLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+            <!--android:text="@string/ira_question_1"-->
+            <LinearLayout
+                android:id="@+id/ll_question_bg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/ic_hra_blue_bg">
+
+                <TextView
+                    android:id="@+id/tv_hra_que"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="32dp"
+                    style="@style/font_28sp_roboto_medium_white"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!-- <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="0dp"
+                 android:layout_weight="0.7" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-95dp"
+                android:layout_weight="1.5"
+                android:paddingBottom="64dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/ll_yes_no"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="@dimen/margin_8dp">
+
+                    <ImageView
+                        android:id="@+id/iv_no_answer_bear_ic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="180dp"
+                        android:visibility="gone"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_hra_bear_do_not_know_new" />
+                    <ImageView
+                        android:id="@+id/iv_bear_ic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="220dp"
+                        android:src="@drawable/ic_hra_bear_yes" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_yes_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <Button
+                        android:id="@+id/btn_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/light_gray_border_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/string_yes"
+                        android:textColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/btn_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/margin_32dp"
+                        android:background="@drawable/light_gray_border_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/string_no"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnOk"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_above="@id/hraProgress"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/light_blue_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="64dp"
+                    android:text="OK"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/hraProgress"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:progress="0"
+                    app:indicatorColor="@color/blue"
+                    app:trackCornerRadius="16dp"
+                    app:trackThickness="6dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

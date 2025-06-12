@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/cl_verticaMenuMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:gravity="right|bottom"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <!--<com.akki.circlemenu.CircleMenu
+            android:id="@+id/add_alarm_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            app:menu_background_color="@array/fab_menu_colors"
+            app:menu_icons="@array/fab_menu_icons"
+            app:menu_open_duration="200"
+            app:menu_close_duration="300"
+            app:menu_orientation="half_circle"
+            app:menu_radius="90dp" />-->
+
+        <!--<com.imangazaliev.circlemenu.CircleMenu
+            android:id="@+id/add_person_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="right|bottom"
+            android:layout_marginTop="5dp"
+            app:buttonColors="@array/fab_menu_colors"
+            app:buttonIcons="@array/fab_menu_icons"
+            app:maxAngle="200"
+            app:startAngle="110" />-->
+
+
+    </RelativeLayout>
+</layout>

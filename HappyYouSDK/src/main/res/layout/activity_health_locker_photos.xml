@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/includeBack"
+                layout="@layout/layout_back" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHLPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/health_locker_photos_adapter" />
+
+            <LinearLayout
+                android:id="@+id/ll_no_record_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/anim_bear_404" />
+
+                <TextView
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="No Records Found"
+                    android:textAlignment="center"
+                    android:textColor="@color/btn_blue"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Sonde.Activities.AlertActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Sonde.Activities.RespiratoryCheck">
+
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="320dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_hra_pink_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp"
+                    android:layout_below="@id/alert_back_layout">
+
+
+                    <ImageView
+                        android:id="@+id/alert_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sonde_alert_icon"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="32dp"
+                        app:tint="@color/red" />
+
+
+                    <ImageView
+                        android:id="@+id/alert_bear_imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="52dp"
+                        android:src="@drawable/sonde_alert_bear" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/alert_back_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/alert_ivBackImg"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/ic_arrow_back"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/alert_back"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.03"
+                        android:text="@string/respiratory_check"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/alert_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:layout_marginStart="16dp"
+                android:text="@string/direction"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="16sp"
+                android:layout_marginEnd="32dp"
+                android:textColor="@color/red"/>
+
+            <TextView
+                android:id="@+id/alert_info_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_below="@+id/alert_tv"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/alert_message"
+                android:textColor="@color/black"
+                android:textSize="16sp">
+
+            </TextView>
+
+
+            <Button
+                android:id="@+id/alert_proceed"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/blue_rc_bg_8dp"
+                android:text="@string/ok"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+
+            <ImageView
+                android:id="@+id/alert_ivHome"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="src_atop"
+                android:clickable="true"
+                android:elevation="@dimen/margin_8dp"
+                android:focusable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/home" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>

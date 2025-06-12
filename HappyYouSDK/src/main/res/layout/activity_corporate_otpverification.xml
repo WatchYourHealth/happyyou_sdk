@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/wheel_screen_bg"
+            android:orientation="vertical"
+            android:weightSum="8">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.3"
+                android:weightSum="2"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/logoImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="30dp"
+                        android:layout_marginHorizontal="38dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/bg_policy_kgi_bottom"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/new_icon" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/new_login_bear" />
+
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5.5"
+                android:weightSum="2">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="38dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/golden_border_bg"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:background="@drawable/spin_wheel_layout_bg"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:visibility="visible"
+                                android:orientation="vertical"
+                                android:background="@drawable/spin_reward_name_bg"
+                                >
+                                <TextView
+                                    android:id="@+id/tvTitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Get More Benefits"
+                                    android:textSize="22sp"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="8dp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:id="@+id/tvTitle2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Do You Wish To Link You \nCorporate Account"
+                                    android:textSize="16sp"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:id="@+id/llActions"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:visibility="gone"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/btnYes"
+                                        style="?android:attr/borderlessButtonStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="34dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:background="@drawable/blue_rc_bg_8dp"
+                                        android:fontFamily="@font/roboto_medium"
+                                        android:text="Yes"
+                                        android:textAllCaps="false"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="16dp" />
+
+
+                                    <Button
+                                        android:id="@+id/btnNo"
+                                        style="?android:attr/borderlessButtonStyle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="34dp"
+                                        android:layout_marginStart="@dimen/margin_10dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/margin_10dp"
+                                        android:background="@drawable/pink_rc_bg_8dp"
+                                        android:fontFamily="@font/roboto_medium"
+                                        android:text="No"
+                                        android:textAllCaps="false"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="16dp"
+                                        android:visibility="visible" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/time_out_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center_horizontal|center_vertical"
+                                    android:layout_marginHorizontal="32dp"
+                                    android:layout_marginTop="20dp"
+                                    android:src="@drawable/time_up_img">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/time_up_desc"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llSpinWheel"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:alpha="0.5"
+                                android:clickable="false"
+                                android:visibility="gone"
+                                android:background="@drawable/reward_mobile_num_bg"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/mobile_timer_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/timer_background"
+                                    android:text="@string/timer"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+
+                                <TextView
+                                    android:id="@+id/reward_hurry_up"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="6dp"
+                                    android:text="@string/hurry_up"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/reward_login_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/claim_reward"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <LinearLayout
+                                    android:id="@+id/skip_to_login"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/mobile_num_bg"
+                                    android:gravity="center">
+
+                                    <EditText
+                                        android:id="@+id/edtSpinWheelEmail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:backgroundTint="@color/white"
+                                        android:hint="Enter Your Corporate Email ID"
+                                        android:inputType="textEmailAddress"
+                                        android:textAlignment="center"
+                                        android:enabled="false"
+                                        android:textColorHint="#C5BABA"
+                                        android:textSize="14sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llSpinWheelSendOTP"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:clickable="false"
+                                    android:background="@drawable/cream_background"
+                                    android:gravity="center">
+
+                                    <TextView
+                                        android:id="@+id/tvSpinWheelSendOTP"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="16dp"
+                                        android:text="@string/continue_login"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp">
+
+                                    </TextView>
+
+
+                                </LinearLayout>
+                                <TextView
+                                    android:id="@+id/tvSkip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:padding="5dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="10dp"
+                                    android:text="Skip"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+
+                                    android:textSize="14sp"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/llSpinWheelOTP"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:background="@drawable/reward_mobile_num_bg"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/otp_countdown"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/timer_background"
+                                    android:text="@string/timer"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+
+                                <TextView
+                                    android:id="@+id/hurry_up_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="6dp"
+                                    android:text="@string/hurry_up"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/log_in_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/claim_reward"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                                <TextView
+                                    android:id="@+id/tvSpinWheel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="An OTP will send to your email ID:\nabc@abc.com"
+                                    android:textAlignment="center"
+                                    android:visibility="gone"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    >
+                                    <LinearLayout
+                                        android:id="@+id/llSpinEmail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        >
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="start"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginStart="15dp"
+                                            android:text="Enter Email OTP"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/black"
+                                            android:visibility="visible"
+                                            android:textSize="12sp" />
+                                    <LinearLayout
+                                        android:id="@+id/llSpinWheelOTPForm"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:layout_gravity="center"
+                                        android:visibility="visible"
+                                       >
+
+                                        <in.aabhasjindal.otptextview.OtpTextView
+                                            android:id="@+id/edtOTPSpinWheel"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            app:height="30dp"
+                                            app:length="6"
+                                            app:otp_box_background_active="@drawable/reward_otp_active_box"
+                                            app:otp_box_background_inactive="@drawable/reward_otp_active_box"
+                                            app:otp_text_size="12sp"
+                                            app:width="30dp" />
+
+
+                                    </LinearLayout>
+                                    <TextView
+                                        android:id="@+id/tvResendOTPSpinWheel"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAlignment="textEnd"
+                                        android:text="@string/resend_otp"
+                                        android:visibility="visible"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:id="@+id/llSpinMobile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_marginTop="10dp"
+                                        >
+                                        <TextView
+                                            android:id="@+id/tvOTPMobileMessageSpin"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="5dp"
+                                            android:text=""
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:visibility="visible"
+                                            android:textSize="14sp" />
+                                        <TextView
+                                            android:id="@+id/tvMobileOTPSpin"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="start"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginStart="15dp"
+                                            android:text="Enter Mobile OTP"
+                                            android:textAlignment="textStart"
+                                            android:textColor="@color/black"
+                                            android:visibility="visible"
+                                            android:textSize="12sp" />
+                                        <LinearLayout
+                                            android:id="@+id/llSpinWheelOTPFormMobile"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:gravity="center"
+                                            android:layout_gravity="center">
+
+                                            <in.aabhasjindal.otptextview.OtpTextView
+                                                android:id="@+id/edtOTPSpinWheelMobile"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal"
+                                                app:height="30dp"
+                                                app:length="6"
+                                                app:otp_box_background_active="@drawable/reward_otp_active_box"
+                                                app:otp_box_background_inactive="@drawable/reward_otp_active_box"
+                                                app:otp_text_size="12sp"
+                                                app:width="30dp" />
+
+
+                                        </LinearLayout>
+                                        <TextView
+                                            android:id="@+id/tvResendOTPSpinWheelMobile"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textAlignment="textEnd"
+                                            android:text="@string/resend_otp"
+                                            android:visibility="visible"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+                                    </LinearLayout>
+                                    <LinearLayout
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginBottom="15dp"
+                                        android:weightSum="2"
+                                        android:orientation="horizontal"
+                                        android:gravity="start">
+                                        <TextView
+                                            android:id="@+id/tvSpinWheelEditEmail"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:padding="10dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginEnd="5dp"
+                                            android:text="Edit Data"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:background="@drawable/cream_background"
+                                            android:textSize="14sp">
+
+                                        </TextView>
+                                        <TextView
+                                            android:id="@+id/tvSpinWheelContinue"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:padding="10dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginStart="5dp"
+                                            android:text="@string/continue_login"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+
+                                            android:background="@drawable/cream_background"
+                                            android:textSize="14sp">
+
+                                        </TextView>
+
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvSkip2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="30dp"
+                                        android:padding="5dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        android:text="Skip"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/black"
+
+                                        android:textSize="14sp"/>
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginStart="20dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/edit_text_border"
+                                    android:backgroundTint="@color/blue"
+
+                                    >
+                                    <androidx.appcompat.widget.AppCompatSpinner
+                                        android:id="@+id/spinnerSpinWheel"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:background="@drawable/new_login_edit_text_bg"
+                                        android:padding="8dp" />
+                                    <ImageView
+                                        android:id="@+id/imSpinnerSpinWheel"
+                                        android:layout_height="18dp"
+                                        android:layout_width="18dp"
+                                        android:src="@drawable/dropdown_blue_arrow"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_marginEnd="10dp"
+                                        android:visibility="invisible"
+                                        app:tint="@color/black" />
+                                </RelativeLayout>
+
+
+
+
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivCelebration"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/llNonSpinWheel"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:background="@drawable/new_login_bottom"
+            android:padding="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/getStartedHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Corporate Email ID"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/new_login_edit_text_bg"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/edtNonSpinWheelEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="Enter Your Corporate Email ID"
+                    android:inputType="textEmailAddress"
+                    android:textAlignment="center"
+                    android:enabled="false"
+                    android:textColorHint="#C5BABA"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnNonSpinWheelSendOTP"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Continue"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="false"
+                android:enabled="false"
+                android:alpha="0.5"
+                android:background="@drawable/ic_policy_search_btn"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/tvSkipNonSpinWheel"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="Skip"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+
+                android:textSize="14sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/llNonSpinWheelOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/new_login_bottom"
+            android:padding="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <TextView
+                android:id="@+id/tvNonSpinWheel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="An OTP will send to your email ID:\nabc@abc.com"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:visibility="visible"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:id="@+id/llEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                >
+                <TextView
+                    android:id="@+id/tvEmailOTP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="5dp"
+                    android:text="Enter Email OTP"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:visibility="visible"
+                    android:textSize="14sp" />
+                <LinearLayout
+                    android:id="@+id/llNonSpinWheelOTPForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <in.aabhasjindal.otptextview.OtpTextView
+                        android:id="@+id/edNonSpinWheelOTP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        app:height="30dp"
+                        app:length="6"
+                        app:otp_box_background_active="@drawable/reward_otp_active_box"
+                        app:otp_box_background_inactive="@drawable/reward_otp_active_box"
+                        app:otp_text_size="12sp"
+                        app:width="30dp" />
+
+
+                </LinearLayout>
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:visibility="gone"
+                    android:background="@drawable/edit_text_border"
+                    android:backgroundTint="@color/blue"
+
+                    >
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerNonSpinWheel"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/new_login_edit_text_bg"
+                        android:padding="8dp" />
+                    <ImageView
+                        android:id="@+id/imSpinnerNonSpinWheel"
+                        android:layout_height="18dp"
+                        android:layout_width="18dp"
+                        android:src="@drawable/dropdown_blue_arrow"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="invisible"
+                        android:layout_marginEnd="10dp"
+                        app:tint="@color/black" />
+                </RelativeLayout>
+
+
+
+                <TextView
+                    android:id="@+id/tvResendOTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resend_otp"
+
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:visibility="visible"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+
+            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            >
+            <TextView
+                android:id="@+id/tvOTPMobileMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:visibility="visible"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tvMobileOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:text="Enter Mobile OTP"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:visibility="visible"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:id="@+id/llNonSpinWheelOTPFormMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <in.aabhasjindal.otptextview.OtpTextView
+                    android:id="@+id/edNonSpinWheelOTPMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:height="30dp"
+                    app:length="6"
+                    app:otp_box_background_active="@drawable/reward_otp_active_box"
+                    app:otp_box_background_inactive="@drawable/reward_otp_active_box"
+                    app:otp_text_size="12sp"
+                    app:width="30dp" />
+
+
+
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvResendOTPMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resend_otp"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:visibility="visible"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:id="@+id/llMobileActionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:weightSum="2"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNonSpinWheelEditMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
+                    android:text="Edit Data"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:background="@drawable/ic_policy_search_btn"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvNonSpinWheelContinueMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/continue_login"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:background="@drawable/ic_policy_search_btn"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNonSpinWheelEditEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
+                    android:text="Edit Data"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:background="@drawable/ic_policy_search_btn"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvNonSpinWheelContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/continue_login"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:background="@drawable/ic_policy_search_btn"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvSkipNonSpinWheelOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="Skip"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

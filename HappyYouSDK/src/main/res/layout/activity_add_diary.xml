@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".diary.AddDiaryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_unwind_bg"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_back" />
+
+            <RelativeLayout
+                android:id="@+id/activity_spinner_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:background="@drawable/btn_bg">
+
+                <Spinner
+                    android:id="@+id/activity_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:entries="@array/level"
+                    android:backgroundTint="@color/btn_blue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:background="@drawable/btn_bg">
+
+                <Spinner
+                    android:id="@+id/levelSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:entries="@array/activities"
+                    android:backgroundTint="@color/btn_blue" />
+
+            </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="26dp"
+                android:inputType="text"
+                android:layout_weight="0"
+                android:padding="@dimen/margin_10dp"
+                android:hint="Title" />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_marginBottom="10dp">
+               <EditText
+                   android:id="@+id/editContent"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="26dp"
+                   android:gravity="top"
+                   android:layout_weight="2"
+                   android:background="@null"
+                   android:layout_marginBottom="@dimen/margin_10dp"
+                   android:inputType="text|textMultiLine"
+                   android:padding="@dimen/margin_10dp"
+                   android:hint="Please write more than 15 characters about the activity" />
+
+               <RelativeLayout
+                   android:id="@+id/llFileImage"
+                   android:visibility="gone"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@drawable/white_rc_bg_12dp"
+                   android:padding="@dimen/margin_5dp"
+                   android:layout_marginHorizontal="26dp"
+                   tools:visibility="visible">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginEnd="20dp"
+                       android:orientation="horizontal">
+
+                       <ImageView
+                           android:id="@+id/imageView"
+                           android:layout_width="80dp"
+                           android:layout_height="80dp"
+                           android:scaleType="fitXY"
+                           tools:src="@drawable/ic_bear_hi_new" />
+
+                       <TextView
+                           android:id="@+id/tvFileName"
+                           style="@style/font_16sp_roboto_regular_black"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                           android:letterSpacing="0.03"
+                           android:layout_marginStart="10dp"
+                           android:maxLines="3"
+                           android:ellipsize="end"
+                           tools:text="SampleJPGImage_10mbmb(1).jpgasjgj"
+                           android:textColor="@color/grey" />
+
+                   </LinearLayout>
+
+                   <ImageView
+                       android:id="@+id/ivClosed"
+                       android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       android:layout_alignParentRight="true"
+                       android:layout_centerVertical="true"
+                       android:scaleType="fitCenter"
+                       android:src="@drawable/ic_close_red_bg"
+                       />
+
+               </RelativeLayout>
+           </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/addImage"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_32dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pink_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Add Image"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/save"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_32dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pink_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <Button
+                    android:layout_width = "80dp"
+                    android:layout_weight = "0"
+                    android:layout_height = "wrap_content"
+                    android:text="&lt;"/>
+                <TextView
+                    android:layout_width = "fill_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_weight = "1"/>
+                <Button
+                    android:layout_width = "80dp"
+                    android:layout_weight = "0"
+                    android:layout_height = "wrap_content"
+                    android:text="&gt;"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+
+    </RelativeLayout>
+
+</layout>

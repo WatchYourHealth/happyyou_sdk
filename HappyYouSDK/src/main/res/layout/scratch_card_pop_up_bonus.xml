@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/one_sided_curved_border"
+        android:elevation="0dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:elevation="30dp"
+            android:visibility="visible"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_red_bg"
+            android:orientation="horizontal"/>
+
+
+        <dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout
+            android:id="@+id/scratchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:scratchDrawable="@drawable/scratch_card_orange_new"
+            app:scratchEnabled="true"
+            app:cardElevation="0dp"
+            app:scratchRevealFullAtPercent="60"
+            app:scratchWidth="50dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/llActions"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/margin_32dp"
+                    android:paddingTop="@dimen/margin_16dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivScratch"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_32dp"
+                        android:src="@drawable/ic_won_points_new" />
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        style="@style/font_22sp_roboto_medium_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ivScratch"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:gravity="center"
+                        android:text="Congratulations!" />
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvTitle"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        tools:text="Congratulations! You have earned" />
+
+                    <TextView
+                        android:id="@+id/tvDescription2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvDescription"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="@dimen/margin_16sp"
+                        android:gravity="center"
+                        tools:text="Congratulations! You have earned" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPositive"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:background="@drawable/blue_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="OK"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+
+                    <Button
+                        android:id="@+id/btnNegative"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/margin_8dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:background="@drawable/pink_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Close"
+                        android:visibility="gone"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout>
+    </RelativeLayout>
+</layout>

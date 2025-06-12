@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        tools:context=".SpinWheel.Activities.spinwheelreward.RewardsListActivity">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBackPressed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/back_icon"
+                app:tint="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+
+                android:drawablePadding="16dp"
+                android:drawableTint="@color/black"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:text="Shared Files"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollRewardList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/tvActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="Active"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+                    <ImageView
+                        android:id="@+id/imActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:src="@drawable/ic_forward_black"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:itemCount="5"
+                    android:visibility="gone"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/adapter_file_share_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridActiveIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlExpired"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/tvExpired"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="16dp"
+                    android:drawableTint="@color/black"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_vertical"
+                    android:text="Expired"
+                    android:textColor="@color/black"
+                    android:textFontWeight="500"
+                    android:textSize="18dp" />
+                    <ImageView
+                        android:id="@+id/imExpired"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:src="@drawable/ic_forward_black"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridExpired"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridExpiredIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/tvNDF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                android:src="@drawable/bear_pink_sad"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="No Data found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

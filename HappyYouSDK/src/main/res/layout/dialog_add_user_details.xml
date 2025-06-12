@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:background="@drawable/bg_round_white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <EditText
+                android:id="@+id/edtUserDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:hint="Full Name"
+                android:digits="@string/alphabets"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:letterSpacing="0.03"
+                android:maxLength="30"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtUserDetailsEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:clickable="true"
+                android:drawableTint="@color/edittext_blue_round"
+                android:hint="Email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:letterSpacing="0.03"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtUserDetailsDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/edittext_blue_round"
+                android:focusable="false"
+                android:hint="Date of Birth"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                android:letterSpacing="0.03"
+                android:maxLength="10"
+                android:padding="16dp"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_blue_new"
+                android:layout_marginTop="16dp">
+
+                <Spinner
+                    android:id="@+id/userDataGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/gender"
+                    android:padding="16dp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/wyh_round_btn_dark_red"
+                android:gravity="center"
+                android:paddingHorizontal="64dp"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

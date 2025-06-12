@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@drawable/ic_tree_cloud_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/ic_top_blue_bg"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_bear_flag"
+                        android:layout_centerVertical="true">
+
+                    </ImageView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/challenge_rank_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/challenge_name_tv"
+                            android:text="Level- 6"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:padding="6dp"/>
+
+
+                        <TextView
+                            android:id="@+id/challenge_name_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Challenge Name"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:padding="6dp"/>
+
+
+
+                        <TextView
+                            android:id="@+id/challenge_participant_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/challenge_rank_tv"
+                            android:text="Level- 6"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:padding="6dp"/>
+
+                        <TextView
+                            android:id="@+id/complete_activity_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Completed Activity: 1/4"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_below="@+id/challenge_participant_tv"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:padding="6dp"/>
+
+                        <TextView
+                            android:id="@+id/badge_count_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Completed Activity: 1/4"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_below="@+id/complete_activity_tv"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:padding="6dp"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentBottom="true">
+
+                        <Button
+                            android:id="@+id/challenge_invite_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/wyh_round_btn_dark_red"
+                            android:text="Invite"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/llMoreGraphData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="8dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/margin_16dp">
+
+                    <ImageView
+                        android:id="@+id/banner_prev"
+                        android:visibility="visible"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_back" />
+
+
+                    <ImageView
+                        android:id="@+id/banner_next"
+                        android:visibility="visible"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_back"
+                        android:rotation="180" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/banner_recycler"
+                    android:layout_marginTop="8dp">
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Activities"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp">
+
+                </TextView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/challengee_activities_recycler"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+</RelativeLayout>

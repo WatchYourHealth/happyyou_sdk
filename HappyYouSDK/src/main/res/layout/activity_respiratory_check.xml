@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Sonde.Activities.RespiratoryCheck">
+
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="320dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/respiratory_check_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/sonde_respiratory_lungs_img" />
+
+
+
+            <include
+                android:id="@+id/includeBack"
+                layout="@layout/layout_back" />
+
+
+            <ImageView
+                android:id="@+id/Dashboard_history_img"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:src="@drawable/sonde_history_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="32dp"/>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/light_mike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sonde_mike"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/light_spring"
+                android:layout_marginStart="32dp"
+                android:layout_toRightOf="@+id/light_mike"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/respiratory_info_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/respiratory_details"
+            android:textColor="@color/black"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/respiratory_steps_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/respiratory_info_tv"
+            android:text="@string/respiratory_step"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16sp"
+            android:layout_margin="16dp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/respiratory_proceed_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/respiratory_steps_tv"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/blue_rc_bg_8dp"
+            android:text="@string/proceed"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+
+
+        <ImageView
+            android:id="@+id/respiratory_ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cpb_background_progressbar_width="4dp"
+                app:cpb_progress="10"
+                app:cpb_progress_max="10"
+                app:cpb_progressbar_color="@color/blue"
+                app:cpb_progressbar_width="3dp"
+                app:cpb_round_border="true" />
+
+            <TextView
+                android:id="@+id/tvHormoneName"
+                style="@style/font_14sp_roboto_medium_black"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="Hormone"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            style="@style/font_12sp_roboto_medium_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="8dp"
+            android:layout_toStartOf="@id/ivHormone"
+            android:layout_toEndOf="@id/rlStart"
+            android:lineSpacingExtra="1dp"
+            android:textSize="14dp"
+            android:text="desc" />
+
+        <ImageView
+            android:id="@+id/ivHormone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+</layout>

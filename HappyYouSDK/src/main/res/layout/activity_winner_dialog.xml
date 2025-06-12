@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ChallangesModule.Walkathon.Activities.WinnerDialogActivity"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="100dp">
+
+        <LinearLayout
+            android:id="@+id/llDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rc_bg_8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Congratulations"
+                android:textSize="28sp"
+                android:textStyle="bold|italic"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Walkathon event winners are"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/winnerTabs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="@dimen/margin_8dp"
+                app:tabBackground="@drawable/tab_indicator_color"
+                app:tabIndicatorColor="@color/blue_cyan"
+                app:tabIndicatorHeight="4dp"
+                app:tabInlineLabel="true"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/blue_cyan"
+                app:tabTextAppearance="@style/TabLayoutCustomTextAppearance"
+                app:tabTextColor="@color/happy_dark_grey" />
+
+            <com.wyh.happyyousdk.utils.NonSwipeAbleViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:layout_marginBottom="@dimen/_40sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_12sdp"
+            android:layout_alignParentStart="true">
+
+            <Button
+                android:id="@+id/cancelBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/wyh_round_btn"
+                android:fontFamily="@font/roboto_black"
+                android:paddingHorizontal="36dp"
+                android:text="Close"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>

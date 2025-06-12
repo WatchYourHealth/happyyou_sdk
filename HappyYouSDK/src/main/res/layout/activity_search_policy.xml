@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".policyDetails.SearchPolicyActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_top_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="320dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_activity_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_hra_blue_bg" />
+
+                    <ImageView
+                        android:id="@+id/la_bear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="48dp"
+                        android:src="@drawable/policy_bear_mobile" />
+                </RelativeLayout>
+
+                <include
+                    android:id="@+id/includeToolbar"
+                    layout="@layout/layout_back" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:orientation="vertical">
+
+                    <!-- <EditText
+                         android:id="@+id/edtMobileNumber"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="center_horizontal"
+                         android:layout_marginTop="16dp"
+                         android:background="@drawable/wyh_btn_grey_border"
+                         android:fontFamily="@font/roboto_regular"
+                         android:hint="Add Mobile Number"
+                         android:textSize="@dimen/margin_16sp"
+                         android:importantForAutofill="no"
+                         android:inputType="number"
+                         android:letterSpacing="0.03"
+                         android:maxLength="10"
+                         android:padding="16dp"
+                         android:paddingStart="20dp"
+                         android:singleLine="true"
+                         android:textColor="@color/black"
+                         android:textStyle="bold" />
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="center"
+                         android:layout_marginVertical="@dimen/margin_16dp"
+                         android:fontFamily="@font/roboto_regular"
+                         android:text="Or"
+                         android:textSize="18sp" />-->
+
+                    <EditText
+                        android:id="@+id/edtPolicyNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/wyh_btn_grey_border"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Add Policy Number"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margin_16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtPolicyDob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/wyh_btn_grey_border"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawableTint="@color/edittext_blue_round"
+                        android:focusable="false"
+                        android:hint="Date of Birth"
+                        android:importantForAutofill="no"
+                        android:inputType="none"
+                        android:letterSpacing="0.03"
+                        android:maxLength="10"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_search_policy"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="@dimen/margin_32dp"
+                        android:layout_marginTop="@dimen/margin_32dp"
+                        android:background="@drawable/wyh_round_btn"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:text="Search"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+
+</layout>

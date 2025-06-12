@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <GridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="6dp"
+        android:numColumns="3"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:verticalSpacing="6dp" />
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:id="@+id/rlMain1"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/light_blue_button_bg"
+                android:clipChildren="true"
+                android:clipToPadding="true">
+
+                <ImageView
+                    android:id="@+id/ivGoalIcon1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:elevation="4dp"
+                    android:src="@drawable/ic_bell"/>
+
+                <ImageView
+                    android:id="@+id/ivHeart1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="4dp"
+                    android:src="@drawable/ic_heart" />
+
+
+
+                <LinearLayout
+                    android:id="@+id/disable_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/happy_dark_grey"
+                    android:visibility="gone"
+                    android:padding="@dimen/margin_10dp">
+
+                    <TextView
+                        android:id="@+id/disable_layout_tv"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_article_1"
+                        android:layout_marginHorizontal="5dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="8007748906"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/referral_contest_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/referral_contest"/>
+
+                    <TextView
+                        android:id="@+id/referral_tile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Reminder"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/referral_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tvGoal1Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ivGoalIcon1"
+                    android:layout_marginTop="4dp"
+                    android:layout_above="@id/progressGoal1"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvGoal1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Reminder"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvGoalDesc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+
+                    <TextView
+                        android:id="@+id/tvStepGoal1"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        tools:text="0" />
+
+                    <TextView
+                        android:id="@+id/tvStepGoalUnit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:text="steps"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    android:background="@drawable/white_rc_bg_8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_done" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Done"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressGoal1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:max="100"
+                    android:progress="20"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:trackColor="#176C8F"
+                    app:trackCornerRadius="16dp"
+                    app:trackThickness="6dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/addFamily"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_hub_add_bg"
+                android:clipChildren="true"
+                android:clipToPadding="true">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <ImageView
+                        android:id="@+id/iv_add_family"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/add_challenge_hub"
+                        android:visibility="visible" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="0.5"
+                        android:background="@drawable/transparent_dark_rc_bg_8dp"
+                        android:gravity="center"
+                        android:paddingVertical="2dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/font_12sp_roboto_medium_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:textSize="10sp"
+                            android:layout_centerHorizontal="true"
+                            android:text="Add/Family\nMember"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlMain2"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_light_pink_button_bg">
+
+                <RelativeLayout
+                    android:id="@+id/rlRiddle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivGoalIconRiddle"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="4dp"
+                        android:src="@drawable/ic_riddle_bulb"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ivHeartRiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:elevation="4dp"
+                        android:src="@drawable/ic_heart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ivGoalIconRiddle"
+                        android:layout_marginTop="4dp"
+                        android:layout_above="@id/progressGoal2"
+                        android:layout_marginHorizontal="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvGoalRiddle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:text="Riddle"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvGoalDescRiddle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:layout_marginHorizontal="@dimen/margin_8dp"
+                            android:gravity="center"
+                            android:text="Can you solve these?"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+
+
+                        <TextView
+                            android:id="@+id/tvStepGoal2"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            tools:text="0" />
+
+                        <TextView
+                            android:id="@+id/tvStepGoalUnit2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:text="steps"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressGoal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:max="100"
+                        android:progress="20"
+                        android:visibility="gone"
+                        app:indicatorColor="@color/white"
+                        app:trackColor="#FF7D60"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="6dp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlMain3"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_light_orange_button_bg">
+
+                <RelativeLayout
+                    android:id="@+id/rlGoals"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivGoalIcon2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="4dp"
+                        android:src="@drawable/ic_flag"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ivHeart2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:elevation="4dp"
+                        android:src="@drawable/ic_heart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/progressGoal3"
+                        android:layout_below="@id/ivGoalIcon2"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvGoal2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:text="Goals"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvGoalDesc2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:text="Today's goal"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvStepGoal3"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            tools:text="0" />
+
+                        <TextView
+                            android:id="@+id/tvStepGoalUnit3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:text="steps"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressGoal3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:max="10000"
+                        android:visibility="gone"
+                        app:indicatorColor="@color/white"
+                        app:trackColor="#F78C32"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="6dp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>-->
+</layout>

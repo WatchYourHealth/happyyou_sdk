@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="@dimen/margin_10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_red_bg"
+            android:visibility="gone" />
+
+        <dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout
+            android:id="@+id/scratchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_260sdp"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:cardElevation="0dp"
+            app:scratchDrawable="@drawable/scratch_card_blue_new"
+            app:scratchEnabled="true"
+            app:scratchRevealFullAtPercent="60"
+            app:scratchWidth="50dp">
+
+            <LinearLayout
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="@drawable/one_sided_curved_border"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/llActions"
+                    android:paddingTop="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivScratch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:src="@drawable/ic_won_points_new" />
+
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivScratch"
+                            android:layout_marginTop="@dimen/margin_8dp"
+                            android:gravity="center"
+                            android:text="Hurray!! You won" />
+
+                        <TextView
+                            android:id="@+id/tvPoints"
+                            style="@style/font_24sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvTitle"
+                            android:gravity="center"
+                            android:textColor="@color/pink"
+                            android:textSize="40sp"
+                            android:textStyle="bold"
+                            tools:text="Points" />
+
+                        <TextView
+                            android:id="@+id/label_points"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvPoints"
+                            android:gravity="center"
+                            android:text="Points" />
+
+                        <TextView
+                            android:id="@+id/tv_eventName"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/label_points"
+                            android:gravity="center"
+                            android:text="Reward Points" />
+
+                    </RelativeLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/llActions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_32dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPositive"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/blue_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="View"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+
+                    <Button
+                        android:id="@+id/btnNegative"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:background="@drawable/pink_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Close"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout>
+
+    </RelativeLayout>
+</layout>

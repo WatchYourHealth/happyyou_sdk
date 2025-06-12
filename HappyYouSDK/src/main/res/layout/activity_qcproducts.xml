@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/includeBack"
+            layout="@layout/layout_back" />
+
+        <EditText
+            android:id="@+id/edtComName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvHeading"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="@drawable/light_gray_border_rc_bg_8dp"
+            android:drawableEnd="@drawable/ic_round_search_24px"
+            android:drawableTint="@color/grayLight"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Brand name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:paddingStart="20dp"
+            android:singleLine="true"
+            android:textColor="@color/black" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVouchers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_no_record_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim_bear_404" />
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="No Voucher Found"
+                android:textAlignment="center"
+                android:textColor="@color/btn_blue"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

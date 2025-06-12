@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_32dp">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:src="@drawable/common_full_open_on_phone" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_family_hub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/sv_msgs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            app:cardCornerRadius="400dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/btn_blue"
+                app:cardCornerRadius="400dp">
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/ic_delete_popup"
+                    android:scaleType="fitXY" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/iv_delete_record"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_above="@+id/sv_msgs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:background="@drawable/iv_delete_record"
+            android:visibility="gone">
+
+        </ImageView>
+
+        <ScrollView
+            android:id="@+id/sv_msgs"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_above="@+id/llActions"
+            android:fadeScrollbars="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_msg"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/tv_msg_1"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@string/create_family_hub_msg"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tv_msg_1"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@string/create_family_hub_msg"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/llActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnOk"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:background="@drawable/light_blue_rc_bg_8dp"
+                android:fontFamily="@font/roboto_black"
+                android:text="OK"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btn_no"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/wyh_round_btn_dark_red"
+                android:fontFamily="@font/roboto_black"
+                android:text="No"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

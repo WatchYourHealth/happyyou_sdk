@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_article1"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/ic_rewards_gray_button_bg"
+        android:clipChildren="true"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="true">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_lock"
+            android:layout_marginEnd="8dp"
+            android:shadowRadius="2"
+            android:elevation="@dimen/margin_10dp"
+            android:layout_alignParentEnd="true"/>
+
+        <ImageView
+            android:id="@+id/ivImage1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_32dp" />
+
+        <TextView
+            android:id="@+id/tv_article_1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivImage1"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Article Name"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvStarted1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_article_1"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center"
+            android:text="Started"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.5"
+            android:background="@drawable/transparent_dark_rc_bg_8dp"
+            android:gravity="center"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/tvTokens1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="0 points"
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin_10sp" />
+
+    </RelativeLayout>
+</layout>

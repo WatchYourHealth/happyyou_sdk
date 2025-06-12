@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/margin_16dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/llEmptyMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:elevation="@dimen/margin_16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivHomeMenuClicked"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="16dp"
+                    android:clickable="true"
+                    android:elevation="@dimen/margin_8dp"
+                    android:focusable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_bear_menu_blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/llServices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/margin_16dp"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="315"
+                    app:layout_constraintCircleRadius="120dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_service_menu" />
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Services" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="6dp"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="0"
+                    app:layout_constraintCircleRadius="120dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_activities_menu" />
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Zone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMyZone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="6dp"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="270"
+                    app:layout_constraintCircleRadius="120dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_my_zone" />
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Zone" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLifestyle"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_16dp"
+                    android:text="Lifestyle"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="353"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvZenZone"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Zen Zone"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="315"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvKnowYourWellBeing"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/margin_16dp"
+                    android:text="Know\nYour\nWellbeing"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="278"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvDigiCoach"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="@dimen/margin_8dp"
+                    android:text="Digi\nCoach\n(Coming\nSoon)"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="275"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvHappyMart"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="@dimen/margin_8dp"
+                    android:text="Happy\nMart"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="302"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvHealthLocker"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="@dimen/margin_8dp"
+                    android:text="Health\nLocker"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="328"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvHealthHacks"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="@dimen/margin_8dp"
+                    android:text="Health\nHacks"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="355"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvChallanges"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Challenges"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="358"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvMyTribe"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_16dp"
+                    android:text="Tribes"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="335"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvGoals"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Goals"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="314"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvMyWinnings"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="@dimen/margin_8dp"
+                    android:text="Winnings"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="292"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvUnwind"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/margin_8dp"
+                    android:paddingVertical="8dp"
+                    android:text="Unwind"
+                    android:visibility="gone"
+                    app:layout_constraintCircle="@id/ivHomeMenuClicked"
+                    app:layout_constraintCircleAngle="272"
+                    app:layout_constraintCircleRadius="220dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivEmptyCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/white_menuwheel"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ivServicesCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/pink_menuwheel"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivActivitiesCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/sky_menuwheel"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivMyZoneCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/lightorange_menuwheel"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

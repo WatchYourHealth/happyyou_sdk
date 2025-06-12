@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">rppg-prod.xyz</domain>
+        <pin-set>
+            <pin digest="SHA-256">C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</pin>
+        </pin-set>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">happyyouapi.watchyourhealth.com</domain>
+       <!-- <pin-set>
+            <pin digest="SHA-256">ggCKZ0l23O+Mgo8h4amKSSEJ9hi5Y2GX0qN62jUmjWU=</pin>
+        </pin-set>-->
+        <pin-set>
+            <pin digest="SHA-256">ggCKZ0l23O+Mgo8h4amKSSEJ9hi5Y2GX0qN62jUmjWU=</pin>
+            <pin digest="SHA-256">7EIVAOHPlEQsDwJ1Yo68k0VXf+jr2spjJM8nVEA4bss=</pin>
+            <pin digest="SHA-256">VzztHaxlYHG1CTL5zaUd6vFCyI6YoQlQw3AgaXZBDBk=</pin>
+        </pin-set>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">fitnessapi.kotaklifeinsurance.com</domain>
+        <pin-set>
+            <pin digest="SHA-256">i7WTqTvh0OioIruIfFR4kMPnBqrS2rdiVPl/s2uC/CY=</pin>
+            <pin digest="SHA-256">n5+mwIPRIoP+WR0HrSbhmSwqr6J355F7NQU+XE79K2k=</pin>
+        </pin-set>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">fitnessuatapi.kotaklifeinsurance.com</domain>
+        <pin-set>
+            <pin digest="SHA-256">i7WTqTvh0OioIruIfFR4kMPnBqrS2rdiVPl/s2uC/CY=</pin>
+            <pin digest="SHA-256">n5+mwIPRIoP+WR0HrSbhmSwqr6J355F7NQU+XE79K2k=</pin>
+            <pin digest="SHA-256">7wcLwQG5s6cJwpz5NHnxT4TRw7XFqOqkWWyKY8E8lZA=</pin>
+        </pin-set>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">api.sondeservices.com</domain>
+        <pin-set>
+            <pin digest="SHA-256">zmIUzlI8Tn2n0WZfz31C90hThVB0h0mFmCUB8kjrPak=</pin>
+        </pin-set>
+    </domain-config>
+    <!--<domain-config>
+        <domain includeSubdomains="true">testwyhb2c.watchyourhealth.com</domain>
+        <pin-set>
+            <pin digest="SHA-256">ggCKZ0l23O+Mgo8h4amKSSEJ9hi5Y2GX0qN62jUmjWU=</pin>
+        </pin-set>
+    </domain-config>-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">testwyhb2c.watchyourhealth.com</domain>
+    </domain-config>
+</network-security-config>

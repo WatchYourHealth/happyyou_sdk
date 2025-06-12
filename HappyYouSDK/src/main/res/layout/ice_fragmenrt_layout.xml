@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/splash_bg"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <include
+                android:id="@+id/includeBack"
+                layout="@layout/layout_back"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:id="@+id/ll_ambulance"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_blue_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_ambulance" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Ambulance"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ll_police"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_pink_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_police" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Police"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/llFirebrigade"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_orange_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_fire_brigade" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Fire Brigade"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llSOs"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:background="@drawable/sos"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_sos_1"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:letterSpacing="0.03"
+                                android:text="SOS"
+                                android:textColor="@color/white"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_emergency_contact"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_orange_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_emergency_contact"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="32dp"
+                            android:text="Emergency\n Contact"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlDrOnCall"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_pink_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_doctor_on_call"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="32dp"
+                            android:text="Doctor On\n Call"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_first_aid"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="33"
+                        android:background="@drawable/ic_light_blue_button_bg"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:src="@drawable/ic_first_aid"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            style="@style/textViewWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:paddingTop="32dp"
+                            android:text="Tutorials"
+                            android:textAllCaps="false" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:visibility="gone"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+
+
+</layout>

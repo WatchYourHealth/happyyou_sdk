@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:id="@+id/rl_article1"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/scratch_card_orange_new"
+                android:clipChildren="true"
+                android:clipToPadding="true"
+                android:paddingHorizontal="@dimen/margin_8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvLogo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardElevation="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_32dp">
+
+                    <ImageView
+                        android:id="@+id/ivVendorLogo1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvArticleHead1"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cvLogo1"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_article_1"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvArticleHead1"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_article2"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/scratch_card_orange_new"
+                android:paddingHorizontal="@dimen/margin_8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvLogo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardElevation="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_32dp">
+
+                    <ImageView
+                        android:id="@+id/ivVendorLogo2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvArticleHead2"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cvLogo2"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_article_2"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvArticleHead2"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_article3"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/scratch_card_orange_new"
+                android:paddingHorizontal="@dimen/margin_8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvLogo3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardElevation="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_32dp">
+
+                    <ImageView
+                        android:id="@+id/ivVendorLogo3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvArticleHead3"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cvLogo3"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_article_3"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvArticleHead3"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

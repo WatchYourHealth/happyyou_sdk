@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_round_white"
+    android:padding="16dp"
+    android:elevation="8dp"
+    android:layout_margin="20dp"
+    android:clipToOutline="true"
+
+    android:backgroundTint="@android:color/white">
+
+    <!-- Search bar -->
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Search city"
+        android:padding="12dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:inputType="text"
+        android:background="@drawable/edit_text_border"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
+    <!-- List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_border"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+</LinearLayout>

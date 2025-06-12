@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="320dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_activity_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-24dp"
+                            android:src="@drawable/bg_img_curve" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:background="@color/black"
+                        android:alpha="0.2"/>
+
+                    <include
+                        android:id="@+id/includeToolbar"
+                        layout="@layout/layout_back" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_blog_description"
+                    style="@style/font_14sp_roboto_regular_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:text="Sourced from:"
+                    android:layout_marginTop="@dimen/margin_8dp"/>
+
+                <TextView
+                    android:id="@+id/tvSourceLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:background="@drawable/ic_baseline_bookmark_border_24"
+                android:backgroundTint="@color/orange"
+                android:backgroundTintMode="src_atop"
+                android:clickable="true"
+                android:elevation="@dimen/margin_8dp"
+                android:focusable="true"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="src_atop"
+                android:clickable="true"
+                android:elevation="@dimen/margin_8dp"
+                android:focusable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/home" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

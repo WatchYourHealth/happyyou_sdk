@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/winnings_btn_layout"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_32dp"
+            android:paddingTop="@dimen/margin_16dp">
+
+            <RelativeLayout
+                android:id="@+id/winnings_logo_layout"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/pink_circle">
+
+                <ImageView
+                    android:id="@+id/winnings_logo_img"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitCenter" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/winnings_dialog_title_tv"
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/winnings_logo_layout"
+                android:fontFamily="@font/roboto_bold"
+                android:text="sample"
+                android:textSize="@dimen/margin_16dp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/winnings_dialog_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/winnings_dialog_title_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:max="100"
+                android:progress="0"
+                app:indicatorColor="@color/pink"
+                app:trackColor="#66000000"
+                app:trackCornerRadius="24dp"
+                app:trackThickness="5dp" />
+
+            <TextView
+                android:id="@+id/tvSteps"
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:visibility="gone"
+                android:layout_below="@id/winnings_dialog_progressbar"
+                android:text="Your steps: 0 / 1000"
+                android:textSize="@dimen/margin_12dp" />
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/winnings_journal_desp_layout"
+                android:layout_below="@id/winnings_dialog_progressbar"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:paddingBottom="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/margin_10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/winnings_dialog_ques_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Description"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/journal_desc"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Description"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="What to do?"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/winnings_dialog_whattodo_tv"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="sample"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="How to do?"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/winnings_dialog_tvhowtodo_tv"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="sample"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Why to do?"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/winnings_dialog_tvwhytodo"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="sample"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/share_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_tele_consultation">
+
+                    </ImageView>
+                </LinearLayout>
+
+
+
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/winnings_complete_dialoge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="32dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/close_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:background="@drawable/pink_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Close"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/winnings_journal_desp_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLabel"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/write_something" />
+
+                <EditText
+                    android:id="@+id/winnings_journal_et"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:gravity="top"
+                    android:hint="@string/at_least_15_char"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="1000"
+                    android:maxLines="2"
+                    android:padding="8dp"
+                    android:singleLine="false" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/winnings_btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/start_cancel_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
+
+                    <Button
+                        android:id="@+id/challenge_dialog_start_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/blue_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Start"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+                    <Button
+                        android:id="@+id/challenge_dialoge_close_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_10dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:background="@drawable/pink_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Close"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/challenge_dialog_start_btn"
+                        app:layout_constraintTop_toTopOf="@id/buy_btn" />
+
+
+                    <Button
+                        android:id="@+id/dialog_close_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/blue_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Close"
+                        android:visibility="gone"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

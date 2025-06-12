@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rlMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/scratch_card_pink_new"
+        android:clipChildren="true"
+        android:clipToPadding="true">
+
+        <ImageView
+            android:id="@+id/ivCheck1"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:background="@drawable/blue_circle"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_check"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llbanner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/happy_dark_grey"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp">
+
+            <TextView
+                android:id="@+id/tvBanner1"
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_article_1"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="Coming Soon"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivUpload1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_upload"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivImage1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_32dp" />
+
+        <TextView
+            android:id="@+id/tv_article_1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivImage1"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:visibility="gone"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Article Name"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvStarted1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_article_1"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center"
+            android:text="Started"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvCompleted1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_article_1"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center"
+            android:text="Completed"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvTokens1"
+            style="@style/TextStyleBlack16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:drawableEnd="@drawable/ic_stamp"
+            android:drawablePadding="4dp"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="Win Stamp "
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin_10sp" />
+
+
+    </RelativeLayout>
+</layout>

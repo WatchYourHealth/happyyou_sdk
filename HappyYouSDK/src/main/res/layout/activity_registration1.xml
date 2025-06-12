@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/splash_bg"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="38">
+
+                <LinearLayout
+                    android:id="@+id/ll_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@drawable/ic_hra_pink_bg"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="42dp"
+                        android:layout_marginBottom="@dimen/margin_32dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Hey, I want to\nget to know \nyou better."
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_8dp"
+                    android:layout_marginBottom="@dimen/margin_8dp"
+                    android:layout_toRightOf="@+id/ll_msg_away"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/happy_9_registartion" />
+
+                <LinearLayout
+                    android:id="@+id/ll_msg_away"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_top"
+                    android:layout_marginTop="-40dp"
+                    android:orientation="horizontal"
+                    android:weightSum="60">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="60"
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingLeft="32dp"
+                        android:text="We are just a few \nsteps away from a\nthrilling journey!"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"></TextView>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-50dp"
+                android:layout_weight="65"
+                android:orientation="vertical"
+                android:paddingHorizontal="32dp"
+                android:paddingTop="64dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Full Name"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawableTint="@color/edittext_blue_round"
+                        android:focusable="false"
+                        android:hint="Date of Birth"
+                        android:importantForAutofill="no"
+                        android:inputType="none"
+                        android:letterSpacing="0.03"
+                        android:maxLength="10"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtMail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Email ID (Optional)"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"
+                        android:letterSpacing="0.03"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/refeeral_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="@string/do_you_have_any_referral_code_optional"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"
+                        android:letterSpacing="0.03"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_tandc"
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10dp"
+                            android:letterSpacing="0.03"
+                            android:layout_marginBottom="@dimen/margin_16dp"
+                            android:text="I accept the Terms of Use and Privacy policy"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="200dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/wyh_round_btn"
+                        android:backgroundTint="@color/blue"
+                        android:gravity="center"
+                        android:paddingHorizontal="36dp"
+                        android:text="Submit"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

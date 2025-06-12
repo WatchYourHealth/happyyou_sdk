@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:id="@+id/rlChallenge1"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/challenges_blue_bg">
+
+            <RelativeLayout
+                android:id="@+id/kwb_parent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/challange_name_tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/health_risk"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="12sp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/challange_image1"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="14dp"
+                    android:fontFamily="@font/roboto_regular"/>
+
+                <ImageView
+                    android:id="@+id/challange_image1"
+                    android:layout_width="37dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_tele_consultation" />
+
+                <ImageView
+                    android:id="@+id/challenge_complete_img1"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:background="@drawable/blue_circle"
+                    android:backgroundTint="@color/green"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_check"/>
+
+                <ImageView
+                    android:id="@+id/info_icon1"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="14dp"
+                    android:src="@drawable/ic_info"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/progress_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/started_tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Started"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_bold">
+
+
+                    </TextView>
+
+                    <ProgressBar
+                        android:id="@+id/challenge_progress_bar1"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/challange_points_tv1"
+                        android:layout_height="8dp"
+                        android:max="100"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginHorizontal="18dp"
+                        android:progress="25"
+                        android:progressDrawable="@drawable/challenge_progress_bar"
+                        app:trackCornerRadius="4dp">
+
+                    </ProgressBar>
+
+                     <TextView
+                         android:id="@+id/challange_points_tv1"
+                         android:layout_below="@+id/started_tv1"
+                         style="@style/TextStyleBlack16sp"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_centerVertical="true"
+                         android:gravity="center"
+                         android:text="0 points"
+                         android:textColor="@color/white"
+                         android:textSize="@dimen/margin_10sp" />
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <LinearLayout
+                    android:id="@+id/join_now_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:background="@drawable/challenge_view">
+
+                    <TextView
+                        android:id="@+id/join_enroll_tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Enroll"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:fontFamily="@font/roboto_bold"/>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlChallenges2"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:background="@drawable/challenges_pink_bg"
+            android:clipChildren="true"
+            android:layout_marginEnd="8dp"
+            android:clipToPadding="true">
+
+            <ImageView
+                android:id="@+id/challange_image2"
+                android:layout_width="37dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_tele_consultation"/>
+
+
+            <TextView
+                android:id="@+id/challange_name_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/health_risk"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_below="@+id/challange_image2"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/roboto_regular" />
+
+
+
+            <ImageView
+                android:id="@+id/challenge_complete_img2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@drawable/blue_circle"
+                android:backgroundTint="@color/green"
+                android:visibility="gone"
+                android:src="@drawable/ic_check"/>
+
+            <ImageView
+                android:id="@+id/info_icon2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_margin="14dp"
+                android:src="@drawable/ic_info"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/progress_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/started_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Started"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_bold">
+
+
+                </TextView>
+
+                <ProgressBar
+                    android:id="@+id/challenge_progress_bar2"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/challange_points_tv2"
+                    android:layout_height="8dp"
+                    android:max="100"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="18dp"
+                    android:progress="25"
+                    android:progressDrawable="@drawable/challenge_progress_bar"
+                    app:trackCornerRadius="4dp">
+
+                </ProgressBar>
+
+                <TextView
+                    android:id="@+id/challange_points_tv2"
+                    android:layout_below="@+id/started_tv2"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="0 points"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_10sp" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <LinearLayout
+                    android:id="@+id/join_now_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/challenge_view">
+
+                    <TextView
+                        android:id="@+id/join_enroll_tv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enroll"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:fontFamily="@font/roboto_bold"/>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlChallenges3"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:background="@drawable/challenges_sky_blue_bg"
+            android:clipChildren="true"
+            android:layout_marginEnd="8dp"
+            android:clipToPadding="true">
+
+            <ImageView
+                android:id="@+id/challange_image3"
+                android:layout_width="37dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_tele_consultation"/>
+
+
+            <TextView
+                android:id="@+id/challange_name_tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/health_risk"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_below="@+id/challange_image3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/roboto_regular" />
+
+
+
+
+            <ImageView
+                android:id="@+id/challenge_complete_img3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:background="@drawable/blue_circle"
+                android:backgroundTint="@color/green"
+                android:visibility="gone"
+                android:src="@drawable/ic_check"/>
+
+            <ImageView
+                android:id="@+id/info_icon3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_margin="14dp"
+                android:src="@drawable/ic_info"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/progress_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/started_tv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Started"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_bold">
+
+
+                </TextView>
+
+                <ProgressBar
+                    android:id="@+id/challenge_progress_bar3"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/challange_points_tv3"
+                    android:layout_height="8dp"
+                    android:max="100"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginHorizontal="18dp"
+                    android:progress="25"
+                    android:progressDrawable="@drawable/challenge_progress_bar"
+                    app:trackCornerRadius="4dp">
+
+                </ProgressBar>
+
+                <TextView
+                    android:id="@+id/challange_points_tv3"
+                    android:layout_below="@+id/started_tv3"
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="0 points"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_10sp" />
+
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+
+
+                <LinearLayout
+                    android:id="@+id/join_now_layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/challenge_view">
+
+                    <TextView
+                        android:id="@+id/join_enroll_tv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enroll"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:fontFamily="@font/roboto_bold"/>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</layout>

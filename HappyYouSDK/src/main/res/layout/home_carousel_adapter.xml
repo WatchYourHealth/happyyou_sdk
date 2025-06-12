@@ -1,0 +1,2992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginHorizontal="@dimen/margin_16dp"
+        android:background="@drawable/white_rc_bg_16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/banner_layout_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/banner_img_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:scaleType="fitXY" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/banner_layout_two"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/banner_img_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:scaleType="fitXY" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llActOMeter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="ACT-O-METER"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/margin_8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tree" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_actometer_progress_path" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_active_bg"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/margin_16dp"
+                        android:paddingVertical="2dp"
+                        android:text="Active"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/ic_inactive_bg"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/margin_16dp"
+                        android:paddingVertical="2dp"
+                        android:text="Inactive"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:weightSum="11">
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress0"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress20"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress30"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress40"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress50"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress60"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress70"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress90"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+
+                    <ImageView
+                        android:id="@+id/ivAOMProgress100"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="-14dp">
+
+                <LinearLayout
+                    android:id="@+id/steps_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_steps_blue"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvSteps"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="0 / 10000"
+                        android:textSize="12dp"
+                        app:drawableTint="@color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/calories_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calories_burnt"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvCalBurnt"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="0 cal"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/water_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_water"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvWaterCount"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="0Ltr / 4Ltr"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvTip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/blue_rc_bg_8dp"
+                android:ellipsize="marquee"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:paddingHorizontal="@dimen/margin_8dp"
+                android:paddingVertical="4dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="YAY! Just a little more effort to reach your goal"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llActOMeterAddTribes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadCommunity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="ACT-O-METER: Add Tribes"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tree" />
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_add_tribe"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_hub_add_bg"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvComName"
+                            style="@style/font_14sp_roboto_medium_white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textAlignment="center" />
+
+                        <ImageView
+                            android:id="@+id/iv_add_family"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/add_challenge_hub"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/community_status"
+                            style="@style/Happy_You_Roboto_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#2D6088"
+                            android:gravity="center"
+                            android:text="@string/ongoing_challenges"
+                            android:textSize="@dimen/margin_10sp"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_members_count"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvMembers"
+                            style="@style/font_12sp_roboto_medium_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Add Tribe"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_add_remove_widget"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_hub_add_bg"
+                        android:visibility="visible">
+
+                        <TextView
+                            style="@style/font_14sp_roboto_medium_white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textAlignment="center" />
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/add_challenge_hub"
+                            android:visibility="visible" />
+
+                        <TextView
+                            style="@style/Happy_You_Roboto_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#2D6088"
+                            android:gravity="center"
+                            android:text="@string/ongoing_challenges"
+                            android:textSize="@dimen/margin_10sp"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingVertical="2dp">
+
+                            <TextView
+                                style="@style/font_12sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:text="Add/Remove\nWidget"
+                                android:textAlignment="center"
+                                android:textSize="10sp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--new_family_actometer-->
+        <LinearLayout
+            android:id="@+id/new_family_actometer"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/carousel_bg_in"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/llSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="6dp"
+                    android:text="TRIBE-O-METER"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/spinnerTextValue"
+                        style="@style/font_15sp_roboto_medium_black"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:singleLine="false"
+                        android:scrollHorizontally="true"
+                        tools:text="Test Tribe Test" />
+
+
+                    <ImageView
+                        android:id="@+id/dropdwonImg"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/dropdown_blue_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/spinnerTextValue"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tree" />
+
+                <ImageView
+                    android:id="@+id/acto_progress_path_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_actometer_progress_path_pink" />
+
+                <LinearLayout
+                    android:id="@+id/acto_images_parent_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="18dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:weightSum="11">
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress0"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress20"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress30"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress40"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress50"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress60"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress70"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress90"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+
+                    <ImageView
+                        android:id="@+id/ivTribeAOMProgress100"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_progress_human"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:visibility="visible"
+                android:layout_marginTop="-18dp">
+
+                <TextView
+                    android:id="@+id/acto_zero_progress_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:visibility="invisible"
+                    android:textSize="12sp">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@+id/acto_middle_progress_tv"
+                    android:layout_toEndOf="@+id/acto_zero_progress_tv"
+                    android:orientation="horizontal"
+                    android:visibility="invisible"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="10"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="20"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="30"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="40"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/acto_middle_progress_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/pink_bg_8dp"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:paddingHorizontal="@dimen/margin_8dp"
+                    android:paddingVertical="4dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="** Keep going to improve your rank.**"
+                    android:textColor="@color/black"
+                    android:textSize="12dp">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@+id/acto_final_progress_tv"
+                    android:layout_toEndOf="@+id/acto_middle_progress_tv"
+                    android:orientation="horizontal"
+                    android:visibility="invisible"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="60"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="70"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="80"
+                        android:textAlignment="center"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="90"
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/acto_final_progress_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="100"
+                    android:visibility="invisible"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp">
+
+                <LinearLayout
+                    android:id="@+id/tribeSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_steps_blue"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvStepsFamily"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="1/3"
+                        android:textSize="12dp"
+                        app:drawableTint="@color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tribeCalCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calories_burnt"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvCalFamily"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tribeWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_water"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvWaterFamily"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:drawablePadding="@dimen/margin_8dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--new_banner_design-->
+        <LinearLayout
+            android:id="@+id/new_banner_widgets"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/widgets_bg_new"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:weightSum="3">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:weightSum="2">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="8dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/llPillowTimeWidget"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/orange" />
+
+                                    <ImageView
+                                        android:id="@+id/banner_sleep_img"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="8dp"
+                                        android:src="@drawable/widget_sleep">
+
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_toEndOf="@+id/banner_sleep_img"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/banner_sleep_tv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:text="Sleep"
+                                            android:textSize="8sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvPillowTimeWidget"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_bold"
+                                            android:text="0 Hrs"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+
+                                    <TextView
+                                        android:id="@+id/banner_sleep_goal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_regular"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="4dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:text="0"
+                                        android:textSize="6sp" />
+
+
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="8dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/llCalCountWidget"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/baby_pink" />
+
+                                    <ImageView
+                                        android:id="@+id/banner_cal_intake_img"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="8dp"
+                                        android:src="@drawable/widget_cal_intake">
+
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_toEndOf="@+id/banner_cal_intake_img"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/banner_cal_intake_tv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:text="Cal-Intake"
+                                            android:textSize="8sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvCalCountWidget"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_bold"
+                                            android:text="0 Cal"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/banner_calcount_goal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_regular"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="4dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:text="0"
+                                        android:textSize="6sp" />
+
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:weightSum="2">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="8dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/llzenzoneWidget"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_blue" />
+
+                                    <ImageView
+                                        android:id="@+id/banner_zen_zone_img"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="8dp"
+                                        android:src="@drawable/widget_zen_zone">
+
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_toEndOf="@+id/banner_zen_zone_img"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/banner_zen_zone_tv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:text="Zen Zone"
+                                            android:textSize="8sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvZenZoneWidget"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_bold"
+                                            android:text="0 Hrs"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/banner_zenzone_goal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_regular"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="4dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:text="0"
+                                        android:textSize="6sp" />
+
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="8dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/llHealthHacksWidget"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="match_parent"
+                                        android:background="#F6C9A8" />
+
+                                    <ImageView
+                                        android:id="@+id/banner_health_hacks_img"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="8dp"
+                                        android:src="@drawable/widget_health_hack">
+
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_toEndOf="@+id/banner_health_hacks_img"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/banner_health_hacks_tv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:text="Health Hack"
+                                            android:textSize="8sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvHealthHacksWidget"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_bold"
+                                            android:text="0"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/banner_healthhack_goal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_regular"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="4dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:text="0"
+                                        android:textSize="6sp" />
+
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            android:weightSum="2">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="8dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/llActiveHrWidget"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <View
+                                        android:layout_width="4dp"
+                                        android:layout_height="match_parent"
+                                        android:background="#EF6262" />
+
+                                    <ImageView
+                                        android:id="@+id/banner_active_hrs_img"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="8dp"
+                                        android:src="@drawable/widget_active_hr">
+
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_toEndOf="@+id/banner_active_hrs_img"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/banner_active_hrs_tv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:text="Active Hrs"
+                                            android:textSize="8sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvActiveHrWidget"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/roboto_bold"
+                                            android:text="0 Hrs"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold" />
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/banner_activeHr_goal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_regular"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginEnd="4dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:text="0"
+                                        android:textSize="6sp" />
+
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+
+                                    app:cardBackgroundColor="@color/transparent">
+
+                                    <LinearLayout
+                                        android:id="@+id/llDynamicCard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/widget_challengs_bg"
+                                        android:orientation="horizontal"
+                                        android:weightSum="2">
+
+                                        <TextView
+                                            android:id="@+id/dynamicLabel"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1.5"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:gravity="center_vertical|center"
+                                            android:textColor="@color/black"
+                                            android:textSize="8sp"
+                                            android:text="Challenges" />
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="15dp"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="0.5"
+                                            android:src="@drawable/widget_challengs_next" />
+
+
+                                    </LinearLayout>
+
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_marginTop="4dp"
+                                    app:cardBackgroundColor="@color/transparent"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:id="@+id/llWinningCard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/widget_winning_bg"
+                                        android:weightSum="2">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1.5"
+                                            android:fontFamily="@font/roboto_medium"
+                                            android:gravity="center_vertical|center"
+                                            android:text="Winnings"
+                                            android:textColor="@color/white"
+                                            android:textSize="8sp" />
+
+                                        <ImageView
+                                            android:layout_width="0dp"
+                                            android:layout_height="15dp"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="0.5"
+                                            android:src="@drawable/widget_winning_next" />
+
+
+                                    </LinearLayout>
+
+
+                                </androidx.cardview.widget.CardView>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.9"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:id="@+id/llWidgetProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/progressSleep"
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:layout_centerInParent="true"
+                                app:cpb_background_progressbar_color="#4DE5E4E2"
+                                app:cpb_background_progressbar_width="10dp"
+                                app:cpb_progress_max="21"
+                                app:cpb_progressbar_color="@color/orange"
+                                app:cpb_progressbar_width="10dp"
+                                app:cpb_round_border="true" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/CircularCalCount"
+                                android:layout_width="match_parent"
+                                android:layout_height="115dp"
+                                android:layout_centerInParent="true"
+                                app:cpb_background_progressbar_color="#4DE5E4E2"
+                                app:cpb_background_progressbar_width="10dp"
+                                app:cpb_progress_max="21"
+                                app:cpb_progressbar_color="@color/baby_pink"
+                                app:cpb_progressbar_width="10dp"
+                                app:cpb_round_border="true" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/circularProgressZenZone"
+                                android:layout_width="match_parent"
+                                android:layout_height="90dp"
+                                android:layout_centerInParent="true"
+                                app:cpb_background_progressbar_color="#4DE5E4E2"
+                                app:cpb_background_progressbar_width="10dp"
+                                app:cpb_progress_max="21"
+                                app:cpb_progressbar_color="@color/blue"
+                                app:cpb_progressbar_width="10dp"
+                                app:cpb_round_border="true" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/circularProgressHealthHacks"
+                                android:layout_width="match_parent"
+                                android:layout_height="65dp"
+                                android:layout_centerInParent="true"
+                                app:cpb_background_progressbar_color="#4DE5E4E2"
+                                app:cpb_background_progressbar_width="10dp"
+                                app:cpb_progress_max="21"
+                                app:cpb_progressbar_color="#F6C9A8"
+                                app:cpb_progressbar_width="10dp"
+                                app:cpb_round_border="true" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/CircularProgressActiveHr"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_centerInParent="true"
+                                app:cpb_background_progressbar_color="#4DE5E4E2"
+                                app:cpb_background_progressbar_width="10dp"
+                                app:cpb_progress_max="21"
+                                app:cpb_progressbar_color="#FF6666"
+                                app:cpb_progressbar_width="10dp"
+                                app:cpb_round_border="true" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llActOMeterTribe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadTribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="ACT-O-METER: Tribe Name"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tree" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_steps"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_blue_button_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_steps_blue"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvStepsLeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center"
+                                android:paddingHorizontal="4dp"
+                                android:text="Jayesh is leading"
+                                android:textColor="@color/white"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_calories"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_orange_button_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_calories_burnt"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvCaloriesLeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center"
+                                android:paddingHorizontal="4dp"
+                                android:text="You are leading"
+                                android:textColor="@color/white"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_water"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/light_blue_button_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_water"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvWaterLeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center"
+                                android:paddingHorizontal="4dp"
+                                android:text="Smita is leading"
+                                android:textColor="@color/white"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_sleep"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_pink_button_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/moon"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvSleepLeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center"
+                                android:paddingHorizontal="4dp"
+                                android:text="Sameer is leading"
+                                android:textColor="@color/white"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llActOMeterGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tree" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/trailblazer_badge" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Goal for the day"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/tvGoalDesc"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Run 2 kilometers"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--Active Hr-->
+        <LinearLayout
+            android:id="@+id/llActOMeterZenZone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/active_hours_widget"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadZenZone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Zen Zone"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="30dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvZenZoneMins"
+                            style="@style/font_32sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:text="0 mins"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tvZenZoneTotalMins"
+                            style="@style/font_20sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:gravity="bottom"
+                            android:text="/0 mins"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicator"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:progress="0"
+                        android:visibility="visible"
+                        app:indicatorColor="@color/pink"
+                        app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:trackColor="#66000000"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="15dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--Happy footprint-->
+        <LinearLayout
+            android:id="@+id/llHappyfootprint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/happy_footprints_widget"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHappyfootprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Happy Footprint"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/amHappyfootprint"
+                            style="@style/font_32sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:text="0 mins"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tmHappyfootprint"
+                            style="@style/font_20sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:gravity="bottom"
+                            android:text="/0 mins"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicatorHappyfootprint"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:progress="0"
+                        android:visibility="visible"
+                        app:indicatorColor="@color/pink"
+                        app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:trackColor="#66000000"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="15dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--Zen Zone-->
+        <LinearLayout
+            android:id="@+id/llzenzone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/zen_zone_widget"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadllzenzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Zen Zone"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/amzenzone"
+                            style="@style/font_32sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:text="0 mins"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tmzenzone"
+                            style="@style/font_20sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:gravity="bottom"
+                            android:text="/0 mins"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicatorllzenzone"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:progress="0"
+                        android:visibility="visible"
+                        app:indicatorColor="@color/pink"
+                        app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:trackColor="#66000000"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="15dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--H2o-->
+        <LinearLayout
+            android:id="@+id/llh2o"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/water_widget"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvh2o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="H2O"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="30dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/alh2o"
+                            style="@style/font_32sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:text="0 mins"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/tlh2o"
+                            style="@style/font_20sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:gravity="bottom"
+                            android:text="/0 mins"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicatorh2o"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:progress="0"
+                        android:visibility="visible"
+                        app:indicatorColor="@color/pink"
+                        app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:trackColor="#66000000"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="15dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--Pillow Time-->
+        <LinearLayout
+            android:id="@+id/llpillowTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_pillow_time_widgets"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadpillowTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Pillow Time"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/ampillowTime"
+                            style="@style/font_32sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom"
+                            android:text="0 Hrs"
+                            android:textSize="26dp" />
+
+                        <TextView
+                            android:id="@+id/tmpillowTime"
+                            style="@style/font_20sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:gravity="bottom"
+                            android:text="/0 Hrs"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicatorpillowTime"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:progress="0"
+                        android:visibility="visible"
+                        app:indicatorColor="@color/pink"
+                        app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:trackColor="#66000000"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="15dp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--Leader Board-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/tree"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <RelativeLayout
+                android:id="@+id/rlLeaderBoard"
+                android:layout_width="90dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:background="@drawable/ic_light_orange_button_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_steps_blue"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardStep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="Steps"
+                        android:textColor="@color/white"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_14dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLeaderBoard"
+                    style="@style/font_26sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Leader Borad" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardOne"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="1. Jayesh" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardOnePoint"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="0 steps" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardOneTotalPoint"
+                        style="@style/font_12sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="/0k" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:alpha="0.5"
+                    android:background="@color/gray979797" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardTwo"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="1. Jayesh" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardTwoPoint"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="0 steps" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardTwoTotalPoint"
+                        style="@style/font_12sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="/0k" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:alpha="0.5"
+                    android:background="@color/gray979797" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardThree"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="1. Jayesh" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardThreePoint"
+                        style="@style/font_16sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="0 steps" />
+
+                    <TextView
+                        android:id="@+id/tvLeaderBoardThreeTotalPoint"
+                        style="@style/font_12sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:text="/0k" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--only Image-->
+        <LinearLayout
+            android:id="@+id/llActOMeterOnlyImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carousel_bg"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivActOMeterOnlyImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:scaleType="fitXY"
+                android:src="@drawable/abrob_widget" />
+        </LinearLayout>
+
+        <!--Cal Count-->
+        <LinearLayout
+            android:id="@+id/llActOMeterCalCount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cal_count_widget"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadCalCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Cal-Count"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gv25"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.28" />
+
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/gv25">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvCalCount"
+                                    style="@style/font_26sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="0"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    style="@style/font_20sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginStart="@dimen/margin_10dp"
+                                    android:gravity="bottom"
+                                    android:text="cal\nconsumed"
+                                    android:textSize="10dp" />
+                            </LinearLayout>
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progressIndicatorCalCount"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="@dimen/margin_16dp"
+                                android:progress="0"
+                                android:visibility="visible"
+                                app:indicatorColor="@color/pink"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:trackColor="#66000000"
+                                app:trackCornerRadius="16dp"
+                                app:trackThickness="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvBurnCount"
+                                    style="@style/font_26sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="0"
+                                    android:textSize="20dp" />
+
+                                <TextView
+                                    style="@style/font_20sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginStart="@dimen/margin_10dp"
+                                    android:gravity="bottom"
+                                    android:text="cal\nburned"
+                                    android:textSize="10dp" />
+                            </LinearLayout>
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progressIndicatorCalBurnedCount"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="@dimen/margin_16dp"
+                                android:progress="0"
+                                android:visibility="visible"
+                                app:indicatorColor="@color/pink"
+                                app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:trackColor="#66000000"
+                                app:trackCornerRadius="16dp"
+                                app:trackThickness="15dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:gravity="bottom"
+                                android:text="Protein"
+                                android:textColor="@color/gray979797"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tvProtein"
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="bottom"
+                                android:text="0.0 gm"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:gravity="bottom"
+                                android:text="Carbs"
+                                android:textColor="@color/gray979797"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tvCarbs"
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="bottom"
+                                android:text="0.0 gm"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:gravity="bottom"
+                                android:text="Fat"
+                                android:textColor="@color/gray979797"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tvFat"
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="bottom"
+                                android:text="0.0 gm"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:gravity="bottom"
+                                android:text="Calories"
+                                android:textColor="@color/gray979797"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tvCalories"
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="bottom"
+                                android:text="0.0 gm"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <!--Stand/Sit-->
+        <LinearLayout
+            android:id="@+id/llActOMeterStandSit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tree"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvHeadStandSit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_bottom_only_rc_bg_8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Stand/Sit"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvStandHr"
+                                    style="@style/font_32sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="00" />
+
+                                <TextView
+                                    style="@style/font_22sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="hours" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvStandMins"
+                                    style="@style/font_32sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="00" />
+
+                                <TextView
+                                    style="@style/font_22sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="mins" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressIndicatorStand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/margin_16dp"
+                            android:progress="0"
+                            android:visibility="visible"
+                            app:indicatorColor="@color/pink"
+                            app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:trackColor="#66000000"
+                            app:trackCornerRadius="16dp"
+                            app:trackThickness="15dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvSitHr"
+                                    style="@style/font_32sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="00" />
+
+                                <TextView
+                                    style="@style/font_22sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="hours" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginStart="@dimen/margin_10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvSitMins"
+                                    style="@style/font_32sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="00" />
+
+                                <TextView
+                                    style="@style/font_22sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="bottom"
+                                    android:text="mins" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressIndicatorSit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/margin_16dp"
+                            android:progress="0"
+                            android:visibility="visible"
+                            app:indicatorColor="@color/pink"
+                            app:layout_constraintBottom_toTopOf="@+id/LayoutBtn"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:trackColor="#66000000"
+                            app:trackCornerRadius="16dp"
+                            app:trackThickness="15dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRemoveWidget"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_red_bg"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/carousel_refresh_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:src="@drawable/ic_refresh"
+            android:visibility="gone"
+            app:tint="@color/blue" />
+
+
+    </RelativeLayout>
+</layout>
+

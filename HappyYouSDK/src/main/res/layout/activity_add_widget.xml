@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".addWidget.AddWidgetActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivAddWidgetMenuImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_widget_1"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/ivAddWidgetMenuClicked"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/calCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="360"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cal-Count" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activeHr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="315"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Active\nHours" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pillowTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="270"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Pillow\nTime" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zenzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="225"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Zen Zone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="180"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Happy\nFootprints" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/h2o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="130"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="H2O" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/healthvault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="90"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Health\nVault" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            app:layout_constraintCircle="@id/ivAddWidgetMenuClicked"
+            app:layout_constraintCircleAngle="45"
+            app:layout_constraintCircleRadius="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Tribe" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/qr_abha_menu"
+        android:title="@string/qr"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_linked_facility_abha"
+        android:title="@string/view_linked_facility"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_consent_abha"
+        android:title="@string/view_consent"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".dashboard.PostLoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="280dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_activity_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_hra_orange_bg" />
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_back"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/font_18sp_roboto_medium_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:text="You've come really far!"
+                    android:textAlignment="center"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_activity_bear"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:src="@drawable/ic_happy_bear" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="70dp"
+                >
+
+                <TextView
+                    style="@style/font_26sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Congratulations\non your first steps!"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvActivities"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_login_bounce"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/login_bonus_claimed"
+                        android:clipChildren="true"
+                        android:clipToPadding="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="8dp"
+                            android:elevation="@dimen/margin_10dp"
+                            android:shadowRadius="2"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_lock" />
+
+                        <ImageView
+                            android:id="@+id/ivImage1"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_32dp"
+                            android:background="@drawable/ic_login_bonus" />
+
+                        <TextView
+                            android:id="@+id/tv_article_1"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivImage1"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="Login Bonus"
+                            android:textColor="@color/grey"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvStarted1"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_article_1"
+                            android:layout_marginHorizontal="8dp"
+                            android:gravity="center"
+                            android:text="Started"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:padding="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLock1"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Claimed"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_10sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_know_health"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_rewards_gray_button_bg">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_lock"
+                            android:layout_marginEnd="8dp"
+                            android:shadowRadius="2"
+                            android:elevation="@dimen/margin_10dp"
+                            android:layout_alignParentEnd="true"/>
+
+                        <ImageView
+                            android:id="@+id/ivImage2"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_32dp"
+                            android:background="@drawable/ic_health_know_lock" />
+
+                        <TextView
+                            android:id="@+id/tv_activity_2"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivImage2"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="Know\nyour health"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:padding="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLock2"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Locked"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_10sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_sync_app"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_rewards_gray_button_bg">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="8dp"
+                            android:elevation="@dimen/margin_10dp"
+                            android:shadowRadius="2"
+                            android:src="@drawable/ic_lock" />
+
+                        <ImageView
+                            android:id="@+id/ivImage3"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_32dp"
+                            android:background="@drawable/ic_sync_apps"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tv_activity_3"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivImage3"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="Sync Apps"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:padding="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLock3"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Locked"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_10sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_my_tribe"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_blue_button_bg"
+                        android:clipChildren="true"
+                        android:clipToPadding="true">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="8dp"
+                            android:elevation="@dimen/margin_10dp"
+                            android:shadowRadius="2"
+                            android:src="@drawable/ic_unlocked_pink" />
+
+                        <ImageView
+                            android:id="@+id/ivImage4"
+                            android:layout_width="50dp"
+                            android:layout_height="32dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_32dp"
+                            android:background="@drawable/ic_family_hub" />
+
+                        <TextView
+                            android:id="@+id/tv_article_4"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivImage4"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="My Tribe"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.5"
+                            android:background="@drawable/transparent_dark_rc_bg_8dp"
+                            android:gravity="center"
+                            android:padding="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvTokens4"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Unlocked"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/margin_10sp" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/llSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom|right"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Skip"
+                style="@style/font_18sp_roboto_medium_black" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/ic_arrow_forward" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

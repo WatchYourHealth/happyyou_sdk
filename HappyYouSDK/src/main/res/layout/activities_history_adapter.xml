@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/font_14sp_roboto_regular_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="Name"
+            android:textColor="@color/gray979797"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvDetails"
+            style="@style/font_14sp_roboto_regular_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="Detail"
+            android:textColor="@color/gray979797"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            style="@style/font_14sp_roboto_regular_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="Status"
+            android:textColor="@color/gray979797"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/font_14sp_roboto_regular_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:gravity="start"
+                android:text="Date"
+                android:textColor="@color/gray979797"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/imgInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_weight="0.3"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/ic_info_black"
+                 />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+</LinearLayout>
+</layout>

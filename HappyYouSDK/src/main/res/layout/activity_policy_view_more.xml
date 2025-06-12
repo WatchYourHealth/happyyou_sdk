@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root">
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlUpperCard"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_policy_header"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_policy_back"
+            />
+        <ImageView
+            android:id="@+id/imKotakLogo"
+            android:layout_toEndOf="@+id/imBack"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_policy_kotak_logo"
+            />
+        <TextView
+            android:layout_toEndOf="@+id/imKotakLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:textSize="16sp"
+            android:text="Policy Details"
+            android:textColor="@color/white"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/edit_text_border"
+            android:backgroundTint="@color/blue"
+
+            >
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edit_text_border"
+            android:backgroundTint="@color/blue"
+            android:padding="8dp" />
+            <ImageView
+                android:layout_height="20dp"
+                android:layout_width="20dp"
+                android:src="@drawable/ic_policy_spinner_drop_blue"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_below="@+id/rlUpperCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+    <LinearLayout
+        android:id="@+id/llPolicyInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        >
+        <TextView
+            android:id="@+id/tvTitlePolicyInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Policy Information"
+            android:textColor="#43A1B8"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/imPolicyInformation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_policy_arrow_drop_up"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/indicator_line"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <LinearLayout
+        android:id="@+id/llPolicyInformationExpand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#D7ECD7"
+        android:visibility="visible"
+        android:paddingVertical="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/llPolicyInformation1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/llPlanName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Plan Name"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPlanName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPolicyViewMore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Policy Number"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPolicyNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPolicyInformation2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/llInsuranceCover"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insurance Cover"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvInsuranceCover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPolicyTerm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Policy Term"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPolicyTerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPolicyInformation3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+            <LinearLayout
+                android:id="@+id/llDateofIssue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Issue"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvDateofIssue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llInsuredName"
+                android:layout_width="0dp"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insured Name"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvInsuredName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMaturityDate"
+                android:visibility="visible"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maturity Date"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvMaturityDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPolicyInformation4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+
+            <LinearLayout
+                android:id="@+id/llPremiumAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premium Amount"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPremiumAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llPremiumDueDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premium Due Date"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+                <LinearLayout
+                    android:id="@+id/llPolicyPremiumDueDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    >
+                <TextView
+                    android:id="@+id/tvPolicyPremiumDueDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+                    <ImageView
+                        android:id="@+id/ImPolicyPremiumDueDateStatus"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:background="@drawable/ic_policy_green_active"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPolicyInformation5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/llPremiumPayingTerm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premium Paying Term"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPremiumPayingTerm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPremiumFrequency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premium Frequency"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPremiumFrequency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llPolicyInfomation6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/llAccountNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Number (Auto-Debit)"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    >
+                <TextView
+                    android:id="@+id/tvAccountNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NA"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+                <ImageView
+                    android:id="@+id/tvAccountNumberStatus"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@drawable/ic_policy_green_active"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llRiderDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        >
+        <TextView
+            android:id="@+id/tvRiderDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Rider Details"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/imRiderDetail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_policy_arrow_drop_down"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rlRiderDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D7ECD7"
+        tools:itemCount="2"
+        android:visibility="gone"
+        android:paddingVertical="10dp"
+        tools:listitem="@layout/adapter_policy_ride_detail" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/indicator_line"
+        android:layout_marginEnd="20dp"
+        android:visibility="gone"
+        android:layout_marginStart="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        >
+        <TextView
+            android:id="@+id/tvProposerDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Proposer Details"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/imProposerDetails"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_policy_arrow_drop_down"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/indicator_line"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <LinearLayout
+        android:id="@+id/llProposerDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#D7ECD7"
+        android:visibility="gone"
+        android:paddingVertical="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/llProposerNameMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/llProposerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvProposerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llProposerDob"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvProposerDob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llProp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:visibility="visible"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+            <LinearLayout
+                android:id="@+id/llAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llMobile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvMobileNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Permanent Account Number"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvPermanentAccountNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email ID"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvEmailID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client ID"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvClientID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvDateofBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llInsuredDetailsMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        >
+        <TextView
+            android:id="@+id/tvInsuredDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Insured Details"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/imIsuredDetails"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_policy_arrow_drop_down"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/indicator_line"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <LinearLayout
+        android:id="@+id/llInsuredDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#D7ECD7"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:paddingVertical="10dp"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/llInsuredDetailsName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvInsuredDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llInsuredDetailsDOB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tvInsuredDateOfBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llNomineeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        >
+        <TextView
+            android:id="@+id/tvNomineeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Nominee Details"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/imNomineeDetails"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_policy_arrow_drop_down"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/indicator_line"
+        android:layout_marginEnd="20dp"
+        android:visibility="gone"
+        android:layout_marginStart="20dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rlNomineeDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D7ECD7"
+        tools:itemCount="2"
+        android:visibility="gone"
+        tools:listitem="@layout/adapter_policy_nominee_detail"
+        android:paddingVertical="10dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/getStartedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:background="@drawable/new_login_bottom"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/getStartedHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter OTP"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter OTP sent to XXXXXXX633"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"/>
+
+        <in.aabhasjindal.otptextview.OtpTextView
+            android:id="@+id/edtOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:height="42dp"
+            app:length="6"
+            app:otp_box_background_active="@drawable/otp_active_box_new"
+            app:otp_box_background_inactive="@drawable/otp_active_box_new"
+            app:otp_text_size="16sp"
+            app:width="42dp" />
+        <TextView
+            android:id="@+id/tvResendOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:text="Resend"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnSendOTP"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Verify OTP"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"
+            android:background="@drawable/ic_policy_search_btn"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imTransparent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/getStartedLayout"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/t1"
+        android:visibility="invisible" />
+</RelativeLayout>
+</layout>

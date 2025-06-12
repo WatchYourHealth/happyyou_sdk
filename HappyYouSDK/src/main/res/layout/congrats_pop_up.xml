@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margin_32dp"
+            android:paddingTop="@dimen/margin_16dp">
+
+            <ImageView
+                android:id="@+id/ivScratch"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:src="@drawable/ic_won_points_new" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/font_22sp_roboto_medium_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivScratch"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:gravity="center"
+                android:text="Congratulations!" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/tvTitle"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="You have moved to the" />
+
+                <TextView
+                    android:id="@+id/tvLevel"
+                    style="@style/font_20sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="level" />
+
+                <TextView
+                    android:id="@+id/tvDescription2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="points for completing this event." />
+
+                <LinearLayout
+                    android:id="@+id/llActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnPositive"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:background="@drawable/blue_rc_bg_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="OK"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

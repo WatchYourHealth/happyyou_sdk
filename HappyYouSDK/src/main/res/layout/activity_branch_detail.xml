@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        tools:context=".ChallangesModule.Walkathon.Activities.BranchDetailActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/branch_detail_bg">
+
+            <RelativeLayout
+                android:id="@+id/branch_details_parent"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:id="@+id/branch_cancel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/branch_cancel_img">
+
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/teddy_img"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/walkhaton_bear" />
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/all_India_rank_layout"
+                            android:layout_width="95dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/rank_grey_bg">
+
+                            <TextView
+                                android:id="@+id/branch_detail_all_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@string/walkhaton_rank"
+                                android:layout_above="@+id/branch_detail_total_all_rank_tv"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/branch_detail_total_all_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/walkhaton_total_rank"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/all_india_rank"
+                                android:padding="4dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/branch_rank_layout"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_toRightOf="@id/all_India_rank_layout"
+                            android:background="@drawable/rank_blue_bg">
+
+                            <TextView
+                                android:id="@+id/branch_detail_branch_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@string/walkhaton_rank"
+                                android:layout_above="@+id/branch_detail_total_branch_rank_tv"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/branch_detail_total_branch_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/walkhaton_total_rank"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/branch_rank"
+                                android:padding="4dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/branch_detail_rank_layout"
+                            android:layout_width="95dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@+id/branch_rank_layout"
+                            android:background="@drawable/rank_bg">
+
+                            <TextView
+                                android:id="@+id/branch_detail_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="@string/walkhaton_rank"
+                                android:layout_above="@+id/branch_detail_total_rank_tv"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/branch_detail_total_rank_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/walkhaton_total_rank"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/walkhaton_rank_text"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp">
+
+                            </TextView>
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/branch_detail_list_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/branch_details_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:padding="8dp"
+                        android:text="@string/rank_info"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:id="@+id/walkhaton_rank_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:padding="8dp"
+                            android:text="@string/rank"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/walkhaton_name_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:padding="8dp"
+                            android:text="@string/name"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/walkhaton_branch_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:padding="8dp"
+                            android:text="@string/kli_branch"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/walkhaton_total_steps_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:padding="8dp"
+                            android:text="@string/steps"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/branch_detail_pink_bg"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:id="@+id/own_rank_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:hint="@string/rank"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/own_name_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:hint="@string/name"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/own_branch_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:padding="8dp"
+                        android:text="@string/branch"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/own_total_steps_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:hint="@string/steps"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/branch_rank_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <Button
+                    android:id="@+id/branch_detail_load_more_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/button_pink_bg"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/load_more"
+                    android:textAllCaps="false"
+                    android:textSize="18sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/close_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/branch_rank_bg"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/close"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:textSize="18sp">
+
+                </Button>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_no_record_found"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/branch_details_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/anim_bear_404" />
+
+                <TextView
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="No Records Found"
+                    android:textAlignment="center"
+                    android:textColor="@color/btn_blue"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>

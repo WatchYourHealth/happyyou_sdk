@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/includeToolbar"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_all"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight=".3"
+                    android:background="@drawable/ic_blue_button_bg"
+                    android:text="All"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_level"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight=".4"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:text="Level"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_eng"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight=".6"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:text="Earn and Grab"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnActivity"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:text="Activity"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_filter_all"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_blue_button_bg"
+                    android:text="All"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_filter_earn"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:text="Earned"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_filter_burn"
+                    style="@style/Happy_You_Roboto_black"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginHorizontal="@dimen/margin_8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:text="Burned"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/margin_12sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_10dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:visibility="gone"
+                android:background="@drawable/gray_bg_with_border_8dp">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerHistoryType"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:backgroundTint="@color/btn_blue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_10dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:background="@drawable/gray_bg_with_border_8dp">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerHistoryFilterType"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:backgroundTint="@color/btn_blue" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerActivityRewardsHistoryFilterType"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:visibility="gone"
+                    android:backgroundTint="@color/btn_blue" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/earnAndBurnedPoints"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textStart"
+                    android:text="Available points" />
+
+                <TextView
+                    android:id="@+id/earnAndBurnedStamps"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:layout_weight="1"
+                    android:text="Available Stamps" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_data_available"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginVertical="@dimen/margin_8dp"
+                    android:background="@color/gray979797" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="Name" />
+
+                    <TextView
+                        android:id="@+id/tvPointsHeading"
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="Points" />
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="Status" />
+
+                    <TextView
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="Date" />
+
+                    <View
+                        android:id="@+id/imgInfoSpace"
+                        android:visibility="gone"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"/>
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAll"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_no_record_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/anim_bear_404" />
+
+                <TextView
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="No Records Found"
+                    android:textAlignment="center"
+                    android:textColor="@color/btn_blue"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/rlItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/rl_main_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/ic_light_blue_button_bg">
+
+
+            <ImageView
+                android:id="@+id/iv_add_family"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/add_challenge_hub"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_feature_name"
+                style="@style/font_14sp_roboto_medium_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:textAlignment="center" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:gravity="center">
+
+
+        <dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout
+            android:id="@+id/scratchView"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:cardElevation="0dp"
+            app:scratchDrawable="@drawable/square_scratch_orange"
+            app:scratchEnabled="true"
+            app:scratchRevealFullAtPercent="60"
+            app:scratchWidth="50dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toStartOf="@id/reward_logo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/one_sided_curved_border_info"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/headerOne"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:hint="@string/congratulation"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="20sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/headerTwo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:hint="@string/hurry_won"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:id="@+id/tvPoints"
+                                style="@style/font_24sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvTitle"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="2000"
+                                android:textColor="@color/pink"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/offer_title"
+                                style="@style/font_24sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvTitle"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center"
+                                android:text="Hobby"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/description_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvTitle"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="HappyYou Points"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:id="@+id/llCopy"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tvAmount"
+                                android:layout_marginHorizontal="24dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="@dimen/margin_8dp"
+                                android:background="@drawable/gray_rc_bg_16dp"
+                                android:paddingStart="@dimen/margin_16dp"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/tvCouponCode"
+                                    style="@style/font_16sp_roboto_regular_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="4dp"
+                                    android:layout_toStartOf="@+id/view_voucher"
+                                    android:ellipsize="end"
+                                    android:text="sample Code" />
+
+                                <ImageView
+                                    android:id="@+id/view_voucher"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_toStartOf="@+id/tvCopy"
+                                    android:src="@drawable/baseline_remove_red_eye_24">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvCopy"
+                                    style="@style/font_15sp_roboto_regular_white"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@drawable/blue_rc_bg_16dp"
+                                    android:paddingHorizontal="@dimen/margin_16dp"
+                                    android:paddingVertical="4dp"
+                                    android:text="Copy" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/voucher_expiry_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="Will expire by 06/01/2025 05:00 PM"
+                                android:textAlignment="center"
+                                android:textColor="@color/red"
+                                android:textStyle="bold"
+                                android:visibility="gone">
+
+                            </TextView>
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/ivClose"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:elevation="@dimen/margin_10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_close_black_24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/reward_logo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivClose" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reward_logo">
+
+
+                        <Button
+                            android:id="@+id/view_rewards"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/blue_rc_bg_light_8dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="View"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/claim_rewards"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/pink_rc_bg_light_8dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Claim"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>

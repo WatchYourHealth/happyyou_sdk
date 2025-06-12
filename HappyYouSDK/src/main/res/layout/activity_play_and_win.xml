@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".play_and_win.PlayAndWinActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/ivBackPressed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/back_icon"
+                android:tint="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+
+                android:drawablePadding="16dp"
+                android:drawableTint="@color/black"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:text="Play and Win"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollPlayWinList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlPlayWin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="@string/spin_and_win"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridPlayWin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_grrid_playwin" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridPlayWinIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlQuizathon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvQuiz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="Quiz"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+
+                    <ImageView
+                        android:id="@+id/ivQuizViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:drawableTint="@color/black"
+                        android:src="@drawable/ic_three_dots_menu"/>
+
+                    <TextView
+                        android:id="@+id/tvQuizVewAll1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="View All"
+                        android:layout_alignParentEnd="true"
+                        android:textFontWeight="500"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridQuiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridQuizIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/rlOtherNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvOtherNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="Other"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+
+                    <ImageView
+                        android:id="@+id/ivOtherNewViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:drawableTint="@color/black"
+                        android:src="@drawable/ic_three_dots_menu"/>
+
+                    <TextView
+                        android:id="@+id/tvOtherNewVewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="View All"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:textFontWeight="500"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridOthersNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridOthersNewIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvOthers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="Play and Learn"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/tvOthersVewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="View All"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:textFontWeight="500"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridOthersIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlFeedathon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvFeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="Feedback"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18dp" />
+
+                    <ImageView
+                        android:id="@+id/ivFeedViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        android:drawableTint="@color/black"
+                        android:src="@drawable/ic_three_dots_menu"/>
+
+                    <TextView
+                        android:id="@+id/tvFeedVewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_vertical"
+                        android:text="View All"
+                        android:visibility="visible"
+                        android:layout_alignParentEnd="true"
+                        android:textFontWeight="500"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridFeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGridFeedIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="8dp" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/tvNDF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/bear_pink_sad" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="There are no activities found"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

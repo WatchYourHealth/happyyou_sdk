@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources>
+    <string name="app_name">HappyYou</string>
+
+    <string name="test" translatable="false">https://happyyouapi</string>
+    <string name="a" translatable="false">.watchyourhealth.com/</string>
+    <string name="b" translatable="false">huapinew/</string>
+
+
+    <!--    <string name="test" translatable="false">https://fitnessuatapi</string>-->
+    <!--    <string name="a" translatable="false">.kotaklifeinsurance.com/</string>-->
+    <!--    <string name="b" translatable="false">huapi/</string>-->
+
+
+    <!--    <string name="test" translatable="false">https://fitnessapi</string>-->
+    <!--    <string name="a" translatable="false">.kotaklifeinsurance.com/</string>-->
+    <!--    <string name="b" translatable="false">huapi/</string>-->
+
+    <string name="addFoodUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-food</string>
+    <string name="addExerciseUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-workout</string>
+    <string name="viewFoodUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-meal</string>
+    <string name="getVisitURL">https://kli.getvisitapp.net/kli/sso?userId=</string>
+    <string name="viewExerciseUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-workout</string>
+    <string name="webinarURL">https://happyyouapi.watchyourhealth.com/ui/webinar-list</string>
+
+    <!--            <string name="addFoodUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>-->
+    <!--            <string name="addExerciseUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>-->
+    <!--            <string name="viewFoodUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>-->
+    <!--            <string name="getVisitURL">https://kli.getvisitapp.net/kli/sso?userId=</string>-->
+    <!--            <string name="webinarURL">https://fitnessuatapi.kotaklifeinsurance.com/huui/webinar-list</string>-->
+    <!--            <string name="viewExerciseUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>-->
+    <!--KLI  uat url-->
+
+    <!--    web view prod-->
+
+    <!--        <string name="addFoodUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>-->
+    <!--        <string name="addExerciseUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>-->
+    <!--        <string name="viewFoodUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>-->
+    <!--        <string name="getVisitURL">https://kli.getvisitapp.com/kli/sso?userId=</string>-->
+    <!--        <string name="webinarURL">https://fitness.kotaklifeinsurance.com/huui/webinar-list</string>-->
+    <!--        <string name="viewExerciseUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>-->
+
+    <string name="medpayOPD">https://happyyouapi.watchyourhealth.com/ui/medPay/appointments</string>
+    <string name="medpayPharmacy">https://happyyouapi.watchyourhealth.com/ui/pharmacy/index</string>
+    <string name="qcP">https://happyyouapi.watchyourhealth.com/ui/payment-gateway</string>
+
+    <!--    <string name="medpayOPD">https://fitnessuatapi.kotaklifeinsurance.com/huui/medPay/appointments</string>-->
+    <!--    <string name="medpayPharmacy">https://fitnessuatapi.kotaklifeinsurance.com/huui/pharmacy/index</string>-->
+    <!--    <string name="qcP">https://fitnessuatapi.kotaklifeinsurance.com/huui/payment-gateway</string>-->
+
+    <!--    <string name="medpayOPD">https://fitness.kotaklifeinsurance.com/huui/medPay/appointments</string>-->
+    <!--    <string name="medpayPharmacy">https://fitness.kotaklifeinsurance.com/huui/pharmacy/index</string>-->
+    <!--    <string name="qcP">https://fitness.kotaklifeinsurance.com/huui/payment-gateway</string>-->
+
+    <string name="android_update_version" translatable="false">android_update_version</string>
+    <string name="android_force_update_version" translatable="false">android_force_update_version</string>
+    <string name="android_force_update_message" translatable="false">android_force_update_message</string>
+    <string name="android_update_message" translatable="false">android_update_message</string>
+
+    <string name="integration_id">99B7BEFB-8A5A-4870-814F-D6E3397ACFC0</string>
+    <string name="quiz_i_id">F9449300-CF75-4BDE-B711-6ABEDA12FD44</string>
+    <string name="hra_i_id">0B3D7B7D-55A2-4772-ADE2-B35FE368755F</string>
+    <string name="dass21_i_id">D2D66BA5-C08B-4C3F-8638-8C30CA802C19</string>
+    <string name="heartage_i_id">848C7871-DFD5-440E-A00D-A0BEC630DA28</string>
+    <string name="azby_s" translatable="false">QnRhbDk0aTdwQXJCdGFsOTRpN3BBckJ0YWw5NGk3cEE=</string>
+    <string name="azby_k" translatable="false">MDAwMDAwMDAwMDAwMDAwMA==</string>
+
+    <string name="stress_meter">Stress is bad for our health as it affects our lungs, kidneys, liver, digestive system, nervous system and reproductive organs. You need to ensure you live a stress-free life.</string>
+    <string name="biological_info">Biological age, also known as physiological or functional age, denotes how your body changes as a result of nutrition, lifestyle, disease and genetic factors.</string>
+
+    <string name="nutrition_txt_1">Although good, you can still improvise on your eating habits!</string>
+    <string name="nutrition_txt_2"><![CDATA[You can always opt for seasonal fruits & veggies, as it will keep you healthy throughout.]]></string>
+    <string name="nutrition_txt_3">Keep a check! You can also control your junk-eating urge.</string>
+    <string name="nutrition_txt_4">Set your diet plan, follow it rigorously, and you should be fine.</string>
+    <string name="nutrition_txt_5">Allow our experts to guide you how! ed with our program today!</string>
+    <string name="lifestyle_txt_1"><![CDATA[Avoiding alcohol & tobacco promotes great health!]]></string>
+    <string name="lifestyle_txt_2">Looking to quit? Let us help you get rid of such unhealthy habits.</string>
+    <string name="lifestyle_txt_3">Enroll with our life goal programs today!</string>
+    <string name="lifestyle_txt_4">Great! You are under total control of your quality sleep</string>
+    <string name="lifestyle_txt_5">Follow the same routine and keep feeling energetic!</string>
+    <string name="lifestyle_txt_6">To boost happiness, follow your interests!</string>
+    <string name="lifestyle_txt_7">Take time out to engage yourself in things you always wanted to do.</string>
+    <string name="lifestyle_txt_8">It will boost your happiness index! For any guidance, speak to our program experts!</string>
+    <string name="bp_poor_txt1">Get up, Get Moving!</string>
+    <string name="bp_poor_txt2">Just keep your chin up and continue to work hard! Enroll right now to boost your score.</string>
+    <string name="bp_good_txt1">Do it Right!</string>
+    <string name="bp_good_txt2">You\'re doing great! But there\'s always a margin for excellence.</string>
+    <string name="bp_ex_txt1">You have an excellent body profile score!</string>
+    <string name="bp_ex_txt2">You\'re in excellent shape. Keep going…</string>
+    <string name="activity_poor_txt1">Commit to be Fit!</string>
+    <string name="activity_poor_txt2">Get active! Your daily routine can be boosted.</string>
+    <string name="activity_good_txt1">Good, you appear to be quite active!</string>
+    <string name="activity_good_txt2">Well, you can still aim higher though!</string>
+    <string name="activity_ex_txt1">You\'re super active!</string>
+    <string name="activity_ex_txt2">Keep maintaining the benchmarks set by you.</string>
+    <string name="nutrition_poor_txt1">Time to better your nutrition score!</string>
+    <string name="nutrition_poor_txt2">Healthy habits can be inculcated by adding it to your goals.</string>
+    <string name="nutrition_good_txt1">You have a good nutrition score!</string>
+    <string name="nutrition_good_txt2">Make the most of it and aim higher.</string>
+    <string name="nutrition_ex_txt1">You have an excellent nutrition score!</string>
+    <string name="nutrition_ex_txt2">Feel on top of the world! You’re going great.</string>
+    <string name="mw_poor_txt1">Mental health is critical to your overall well-being!</string>
+    <string name="mw_poor_txt2">We’ll get you going, just connect with our Counsellors.</string>
+    <string name="mw_good_txt1">You\'ve got a good mental health score!</string>
+    <string name="mw_good_txt2">Take one step further and reach the pinnacle of mental wellness.</string>
+    <string name="mw_ex_txt1">Your mental wellness score is excellent!</string>
+    <string name="mw_ex_txt2">You’ve got a clean bill of health! Keep it up.</string>
+    <string name="lifestyle_poor_txt1">Time to revive your lifestyle!</string>
+    <string name="lifestyle_poor_txt2">Get a spring into your step! Get in touch with our Experts.</string>
+    <string name="lifestyle_good_txt1">You have a pretty decent lifestyle score!</string>
+    <string name="lifestyle_good_txt2">Fight tooth and nail to raise the bar.</string>
+    <string name="lifestyle_ex_txt1">Wow! You have an excellent lifestyle score!</string>
+    <string name="lifestyle_ex_txt2">Continue the great conduct with same dedication.</string>
+
+    <string name="do_you_feel_fit_and_full_of_energy">Do you feel fit and full of energy?</string>
+    <string name="health_screening">Do you undergo a complete body/health screening at least once in a year?</string>
+    <string name="suffer_from_disease">Do you suffer from any of the below diseases?</string>
+    <string name="health_disease_degree">Does any of your first** or second **degree relative has a history of any of the below diseases?</string>
+    <string name="body_profile_immunity">How do you rate your immunity/immune response to seasonal changes or allergies?</string>
+    <string name="activity_que_1">How active are you as a part of your daily routine?</string>
+    <string name="activity_question_2"><![CDATA[How frequently do you engage in physical activities that include yoga , swimming, aerobic activity, strength training, playing sports(outdoor & indoor), etc.]]></string>
+    <string name="nutrition_question_1">Do you maintain a healthy diet with adequate amounts (at least 2 servings) of fruits and vegetables on a daily basis?</string>
+    <string name="nutrition_question_2">How often do you snack without noticing that you are eating?</string>
+    <string name="nutrition_question_3">How often do you have meals on your scheduled times(Breakfast, Lunch, Dinner)?</string>
+    <string name="nutrition_question_4">How often do you consume sweet/salty foods including junk food?</string>
+    <string name="nutrition_question_5">Do you drink more than 1 glass of sugary drinks (soft drinks, packaged juices, sports drinks) per day?</string>
+    <string name="mentalW_que1">Does your emotional status interfere with your daily activities?</string>
+    <string name="mentalW_que2">Do you share your problems with your friends/families/colleagues?</string>
+    <string name="mentalW_que3">Do you feel good about your social interactions?</string>
+    <string name="mentalW_que4">How well are you able to handle/manage stressful situations?</string>
+    <string name="mentalW_que5">Are you working towards a better version of yourself?</string>
+    <string name="lifestyle_que1">Do you consume tobacco products(cigarettes, smokeless tobacco, cigars, and pipes) and drink alcohol(beer, liquor, wine)?</string>
+    <string name="lifestyle_que2">Are you able to spare time to pursue your interests or hobbies?</string>
+    <string name="lifestyle_que4">Do you feel good about the quality of your sleep?</string>
+    <string name="lifestyle_que3">How do you rate your work life balance on scale of 1 to 5?</string>
+    <string name="hra_analysis_water_string">Quench your body\'s thirst for vitality with a perfect 10 glasses of water to fuel your daily triumphs! </string>
+    <string name="click_here"><u>Click Here</u></string>
+
+
+    <string name="sunday">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="week1">Week 1</string>
+    <string name="week2">Week 2</string>
+    <string name="week3">Week 3</string>
+    <string name="week4">Week 4</string>
+    <string name="week5">Week 5</string>
+
+    <string name="quarter1">Jan-March</string>
+    <string name="quarter2">April-June</string>
+    <string name="quarter3">July-Sept</string>
+    <string name="quarter4">Oct-Dec</string>
+
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+    <string name="error_string">Something went wrong, please try again.</string>
+    <string name="sync_your_app">Sync your App</string>
+    <string name="google_fit_connection">Google Fit</string>
+    <string name="session_time_out">Your session got expired, please login again</string>
+    <string name="string_no">No</string>
+    <string name="string_yes">Yes</string>
+    <string name="string_ok">Ok</string>
+    <string name="ira_question_1">I am super energetic!\nBut do you get tired/\nexhausted quickly?</string>
+    <string name="title_immunity_review">Immunity Score</string>
+    <string name="title_health_locker">Health Locker</string>
+    <string name="title_abha_login">ABHA Login</string>
+    <string name="title_abha_address_selection">ABHA Address Selection</string>
+    <string name="title_abha_number_selection">ABHA Number Selection</string>
+    <string name="recommendation">Recommendations</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet,consectetuer adipiscing elit,seddiam nonummy nibh euismodtincidunt ut laoreet dolore magnaaliquam erat volutpat. Ut wisi enimad minim veniam, quis nostrudexerci tation ullamcorper</string>
+    <string name="last_assessment">Last Assessment:\ </string>
+    <string name="diagnostics">Diagnostics</string>
+    <string name="doctor_s_prescription">Doctor\'s\nPrescription</string>
+    <string name="doctor_prescription">Doctor\nPrescription</string>
+    <string name="add_new_record">Add New Record</string>
+    <string name="create_family_hub_msg">Create a Hub with your your friends or family and unlock this reward</string>
+    <string name="ongoing_challenges">Ongoing Challenges</string>
+    <string name="health_score_mean">What does Health Score mean?</string>
+    <string name="health_score_mean_text"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Where do we start our journey to getting healthier?\nYour Health Score is a starting point. It distills your health status into a single number. Based on parameters covering your body, your feelings, stress levels, your family&rsquo;s medical history and your lifestyle, it is expressed as a number from 1 to 900 and it changes depending on how you move the needle on these.</p>
+    </div>
+</div>]]></string>
+
+    <string name="health_score_mean_texter"><![CDATA[<body style="margin: 0; padding: 0"><div align="justify" class="container">
+<b>Heart Age</b> <br><br>  Your heart age is a way of assessing your risk of developing heart disease by comparing the  age of your heart to your actual chronological age. Based on your test results, your heart  age is determined as follows: <br><br>  If your heart age is younger than your actual age, it means that you are at a lower risk of  developing heart disease than the average person of your age. <br><br>  If your heart age is the same as your actual age, it means that you have an average risk of  developing heart disease compared to the average person of your age. <br><br>  If your heart age is older than your actual age, it means that you are at a higher risk of  developing heart disease than the average person of your age. <br><br>     <u>Additional Information: </u> <br><br>  <b>Blood Pressure: </b> <br>  Your blood pressure is an important risk factor for heart disease. High blood pressure can  damage your arteries and increase your risk of developing heart disease. If your blood  pressure is high, it&#39;s important to work with your healthcare provider to manage it and reduce  your risk of heart disease. <br><br>  <b>Cholesterol: </b><br>  High levels of cholesterol can increase your risk of developing heart disease. In India, the  recommended levels of total cholesterol are less than 200 mg/dL, while LDL cholesterol  levels should be less than 100 mg/dL. If your cholesterol levels are not within the healthy  range, it&#39;s important to work with your healthcare provider to manage them and reduce your  risk of heart disease.<br><br>    <b>Lifestyle Habits: </b><br>  Your lifestyle habits can also impact your risk of developing heart disease. Adopting healthy  habits such as exercising regularly, eating a heart-healthy diet, managing your weight, not  smoking, and managing stress levels can help reduce your risk of heart disease. If you have  additional risk factors such as high blood pressure or high cholesterol, it&#39;s important to work  with your healthcare provider to develop a plan to manage these conditions and reduce your  risk of heart disease. Additionally, you can include more fibre-rich foods like lentils,  chickpeas, fruits, and vegetables in their diet, as well as consume traditional Indian spices  like turmeric and ginger, which have been found to have heart-protective benefits.
+</div>]]></string>
+
+    <string name="stress_text"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>We all know stress is bad. But do you know that it also has ill effects on the heart, lungs, kidneys, liver, stomach, nervous system and reproductive organs?</p>
+    </div>
+</div>]]>
+</string>
+    <string name="WHtRDescription"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Waist to Height Ratio (WHtR) is a way to measure distribution of body weight and an indicator of cardiovascular health risk. A value greater than 0.5 indicates higher health risks associated with obesity.</p>
+    </div>
+</div>]]>
+    </string>
+    <string name="waterDescription"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Quench your body\'s thirst for vitality with a perfect 10 glasses of water to fuel your daily triumphs!</p>
+    </div>
+</div>]]>
+    </string>
+    <string name="txt_intro_screen_one">Yay, it\'s so great to finally meet you. I was looking for a \n
+        partner to start my wel being\n
+        journey. How About we \n
+        become better  together?\n
+        Woohoo!Follow me, Chief   </string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="quarterly">Quarterly</string>
+    <string name="week6">Week 6</string>
+    <string name="my_winnings">My Winnings</string>
+    <string name="your_total_immunity_score">Your Total Immunity Score</string>
+    <string name="my_tribes">My Tribes</string>
+    <string name="quick_reads">Quick Reads</string>
+    <string name="tribe_1">Tribe 1</string>
+    <string name="health_vault_history">Health Locker History</string>
+    <string name="delete">Delete</string>
+    <string name="peaceful_time">Peaceful Time</string>
+    <string name="cpr_tips">Chest compressions are the priority in CPR. If you can\'t to do rescue breathing (mouth-to-mouth) chest compressions alone may still be life-saving. Try to minimise interruptions to chest compressions until help arrives. CPR is a life-saving skill that everyone should learn.</string>
+    <string name="otp_msg">Thanks, I have sent you an OTP.\nSimply enter the same.</string>
+    <string name="today_s_workout">Today\'s Workout</string>
+    <string name="health_score_mean_low"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Your Health Score indicates that your health is at risk.</br>You need to take urgent steps towards improving your health.</p>
+    </div>
+</div>]]></string>
+    <string name="health_score_mean_med"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Your Health Score isn’t bad but you surely need to work on improving it to get into the healthy spectrum.</p>
+    </div>
+</div>]]></string>
+    <string name="health_score_mean_good"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Great. You are in a good shape but you can still improve your diet, activity and lifestyle to get into the optimum zone.</p>
+    </div>
+</div>]]></string>
+    <string name="health_score_mean_great"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>You are in a great condition and should be proud of yourself. Ensure you follow your current health routine to stay in this zone.</p>
+    </div>
+</div>]]></string>
+    <string name="whtr_lesser"><![CDATA[<0.34]]></string>
+    <string name="whtr_greater"><![CDATA[>0.58]]></string>
+    <string name="join_now">Join Now</string>
+    <string name="scratch_and_win">Scratch and Win</string>
+    <string name="grab_opportunities">Grab Opportunities</string>
+    <string name="redeem">Redeem</string>
+    <string name="internet_connection">Please chek your internet connection and try again</string>
+    <string name="your_reminders">Your Reminders</string>
+    <string name="happy_insights">Happy Insights</string>
+    <string name="happy_services">Happy Services</string>
+    <string name="no_blogs_available">No blogs Available</string>
+    <string name="android_channel_id">kotak_channel_02</string>
+    <string name="points_earned_msg">Points earned successfully</string>
+    <string name="write_something">Write something about this activity...</string>
+    <string name="invite_via_sms">Invite via SMS</string>
+    <string name="invite">Invite</string>
+    <string name="invite_via_whatsapp">Invite via WhatsApp</string>
+    <string name="invite_via_email">Invite via Email</string>
+    <string name="water_note">Note: 1 glass = 250 ml</string>
+    <string name="fitness_nnutrition"><![CDATA[Fitness &\nNutrition]]></string>
+    <string name="submit">Submit</string>
+    <string name="no_msgs">No messages yet</string>
+    <string name="your_selection">Your selection</string>
+    <string name="unwind">Unwind</string>
+    <string name="add_title">Add Title</string>
+
+    <string name="ideal_min_sys_value_new">Ideal min(Sys)</string>
+    <string name="ideal_max_sys_value_new">Ideal max(Sys)</string>
+    <string name="ideal_min_dia_value_new">Ideal min(Dia)</string>
+    <string name="ideal_max_dia_value_new">Ideal max(Dia)</string>
+    <string name="ideal_min_glucose_f_new">Ideal min glucose(F &amp; PP)</string>
+    <string name="ideal_max_glucose_f_new">Ideal max glucose(F)</string>
+    <string name="ideal_min_glucose_pp_new">Ideal min glucose(PP)</string>
+    <string name="ideal_max_glucose_pp_new">Ideal max glucose(PP)</string>
+    <string name="ideal_min_oxy">Ideal min SpO2 value</string>
+    <string name="ideal_max_oxy">Ideal max SpO2 value</string>
+    <string name="ideal_min_hr">Ideal min pulse value</string>
+    <string name="ideal_max_hr">Ideal max pulse value</string>
+    <string name="ideal_min_rr">Ideal min respiratory rate</string>
+    <string name="ideal_max_rr">Ideal max respiratory rate</string>
+    <string name="ideal_min_ag">Ideal min umbilicus value</string>
+    <string name="ideal_max_ag">Ideal max umbilicus value</string>
+    <string name="ideal_min_w">Ideal min weight</string>
+    <string name="ideal_max_w">Ideal max weight</string>
+    <string name="cpr_tips_all"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p><b>Stay calm:</b> Try to remain as calm and composed as possible to assess the situation and provide appropriate care.
+			<br/>
+     <b>Call for help:</b> If the situation is serious, call emergency services or seek medical assistance immediately.
+			<br/>
+     <b>Stop any bleeding:</b> Apply direct pressure to a wound using a clean cloth or gauze to stop bleeding.
+			<br/>
+     <b>Protect the injured area:</b> Immobilize the injured area with a splint or sling to prevent further damage.
+			<br/>
+     <b>Administer CPR:</b> If the person is unresponsive and not breathing, start cardiopulmonary resuscitation (CPR) immediately.
+			<br/>
+     <b>Check for breathing and pulse:</b> If the person is unresponsive, check for breathing and pulse and call emergency services if necessary.
+			<br/>
+     <b>Treat for shock:</b> If the person is in shock, lie them down with their feet elevated and keep them warm.
+			<br/>
+     <b>Remove any foreign objects:</b> Remove any foreign objects, such as glass or splinters, from the wound if it is safe to do so.
+			<br/>
+     <b>Clean and cover the wound:</b> Clean the wound with soap and water, then cover it with a sterile dressing or bandage.
+			<br/>
+     <b>Keep an updated first-aid kit:</b> Keep a first-aid kit readily available, and make sure it is regularly updated with essential supplies such as adhesive bandages, sterile dressings, and over-the-counter pain medication.
+		</p>
+    </div>
+</div>]]></string>
+    <string name="life_style_welcome"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Tune in to understand and improve your lifestyle. Equipped with the latest tools and trackers, this section is dedicated to help you monitor your daily activities.<br /><br /><strong>Top Features</strong><br /><br />i.<strong>H2O:</strong> Not sure if you&rsquo;ve been drinking enough Water? Or are you having too much? Tap on the H2O tile to input your water intake and update your hydration levels.</p>
+<p>ii.<strong>Pillow Time:</strong> Sure, laughter is the best medicine. The next best? Sleep. So, let&rsquo;s make sure you get enough shuteye. Follow Ko-B&rsquo;s advice to sleep your troubles away.</p>
+<p>iii.<strong>Happy Footprints:</strong> It&rsquo;s time to Walk the talk&hellip;quite literally! Monitor how far you have come with this step counter.</p>
+<p>iv.<strong>Cal-Count:</strong> Identify your eating habits and patterns with our very own food diary. Keep a daily log of what you ate (Calories Consumed) and what you have shed (Calories Burned).</p>
+<p>v.<strong>Active Hours:</strong> Trust Ko-B to have your back at all times. This tile will tell you exactly how active you&rsquo;ve been during the day.</p>
+<p>vi.<strong>Weight Watcher:</strong> Accelerate your wellbeing goals by monitoring how your lifestyle impacts your weight.<br /><br />And don&rsquo;t you worry, we&rsquo;re here in this journey together. What&rsquo;s more? I&rsquo;ll make sure you stay on track with timely reminders! Cheers to a Happier You!</p>
+<p>With Love,<br />Ko-B</p>
+    </div>
+</div>]]>
+</string>
+    <string name="rewards_kotak_benefit_popup"><![CDATA[<ol>
+    <li style="list-style-type:lower-alpha;font-size:11pt;">
+        <p style="text-align: justify;"><span style="font-size:11pt;">The number of days specified in the table above should fall within Policy Year. The activities undertaken towards this benefit during the last 2 (two) months of the Policy tenure shall not be considered for reward calculation.</span></p>
+    </li>
+    <li style="list-style-type:lower-alpha;font-size:11pt;">
+        <p style="text-align: justify;"><span style="font-size:11pt;">This wellness program is available only for the adult members with age 18 years and above. However, in a Floater policy, this program shall be available only to the independent adult members and shall not be available to dependent children.</span></p>
+    </li>
+    <li style="list-style-type:lower-alpha;font-size:11pt;">
+        <p style="text-align: justify;"><span style="font-size:11pt;">The above benefit will be applicable on Individual basis. In case of floater, average of number of Healthy days earned by all Insured Members shall be considered for calculating renewal discount. For example,&apos; A&apos; has attained 260 Healthy days and &apos; B&apos; has attained 230 Healthy days, average of the Healthy days is 245 and accordingly the discount calculated is 20%.In case of multi tenure, average of number of Healthy days earned over the policy tenure shall be considered for discount.</span></p>
+    </li>
+    <li style="list-style-type:lower-alpha;font-size:11pt;">
+        <p style="text-align: justify;"><span style="font-size:11pt;">Redemption against renewal premium will be available only at the time such renewal is due. Any earned rewards will lapse at the end of the grace period if the policy is not renewed with us.</span></p>
+    </li>
+</ol>]]>
+</string>
+    <string name="tandc_consent"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>CONTENT FOUND ON THE KOTAK LIFE PLATFORM IS FOR INFORMATIONAL PURPOSES ONLY AND IS NOT INTENDED TO REPLACE THE RELATIONSHIP BETWEEN YOU AND YOUR PHYSICIAN OR OTHER MEDICAL PROVIDER. WE ARE NOT A LICENSED MEDICAL CARE PROVIDER AND HAVE NO EXPERTISE IN DIAGNOSING, EXAMINING, OR TREATING MEDICAL CONDITIONS OF ANY KIND, OR IN DETERMINING THE EFFECT OF ANY SPECIFIC EXERCISE ON A MEDICAL CONDITION. YOU SHOULD ALWAYS CONSULT A PHYSICIAN BEFORE STARTING A FITNESS PROGRAM, CHANGING YOUR DIET OR IF YOU HAVE ANY QUESTIONS REGARDING A MEDICAL CONDITION.</p>
+<p>Never disregard professional medical advice or delay in seeking it because of something you have read on or through the Kotak Life Platform. You should consult with your physician before following any training instructions you receive or participating in any event or missions or any other program on the platform.</p>
+<p>The information collected by us includes information such as your name, date of birth, email address, physical, psychological and mental health conditions, Gender, sexual orientation, medical records Family history, lifestyle habits and other details as given in the registration page of our Platform or in any subsequent information provided by you.</p>
+<p>&nbsp;</p>
+<p>The data that is being captured would be used non-personally identifiable aggregated user data, such as aggregated gender, age, height, weight, and usage data gathered from the Kotak Life Platform (without the inclusion of a user&apos;s name or other identifying information) to:</p>
+<p>o&nbsp; &nbsp;Organizations approved by Kotak Life that conduct consumer research into health and wellbeing;</p>
+<p>o&nbsp; &nbsp;Users of the Platform for purposes of comparison of their personal health and wellbeing situation relative to the broader community; and</p>
+<p>o &nbsp; Understanding of health trends for Kotak Life customers and comparison with other customers and/or non-Kotak Life customers.</p>
+    </div>
+</div>]]></string>
+    <string name="terms_and_condition_content"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>THIS IS A LEGAL AGREEMENT BETWEEN YOU AND KOTAK LIFE INSURANCE COMPANY LTD (KOTAK LIFE) &amp; ITS AFFILIATES AND GOVERNS YOUR USE OF THE KOTAK LIFE PLATFORM AND SERVICES. Subject to your acceptance of and adherence to these Terms of Use, Kotak Life hereby grants you a limited, non-exclusive license to utilize the Kotak Life Platform and Services as set forth herein. The terms &quot;you&quot; and &quot;user&quot; shall refer to all individuals and entities that access the Kotak Life Platform and Services.</p>
+<p>By your affirmative actions of registering for and/or using the Kotak Life Platform, you signify your agreement to these Terms of Use and our Privacy Policy and consent to allow Kotak Life to communicate with you electronically regarding the Kotak Life Platform and Services.</p>
+<p><strong>Modification of the Terms of Use:</strong></p>
+<p>We may make changes to the Terms of Use from time to time. The most current Terms of Use will be available on the Kotak Life Platform under Terms and Conditions. We may also place a special notice on the Kotak Life Platform or communicate significant changes by email. Your continued use of the Kotak Life Platform following the posting of such changes constitutes your deemed acceptance of the amended Terms of Use.</p>
+<p><strong>Requirement for the use of the Kotak Life Platform: </strong></p>
+<p>Full use of the Kotak Life Platform requires compatible Devices and Trackers, Internet access, Location Permission and certain software, may require periodic updates, and may be affected by the performance of these factors. Kotak Life is not a guaranteed part of any third party product or service offering, and no purchase or obtaining of any third party product or service shall be construed to represent or guarantee you access to the Kotak Life Products and Services. Please see the section entitled &quot;Precautions&quot; below for recommended precautions related to your use of the Kotak Life Products and Services including the Kotak Life Platform.&nbsp;</p>
+<p><strong>Precautions (Medical Waiver and Disclaimer):</strong></p>
+<p>CONTENT FOUND ON THE KOTAK LIFE PLATFORM IS FOR INFORMATIONAL PURPOSES ONLY AND IS NOT INTENDED TO REPLACE THE RELATIONSHIP BETWEEN YOU AND YOUR PHYSICIAN OR OTHER MEDICAL PROVIDER. WE ARE NOT A LICENSED MEDICAL CARE PROVIDER AND HAVE NO EXPERTISE IN DIAGNOSING, EXAMINING, OR TREATING MEDICAL CONDITIONS OF ANY KIND, OR IN DETERMINING THE EFFECT OF ANY SPECIFIC EXERCISE ON A MEDICAL CONDITION. YOU SHOULD ALWAYS CONSULT A PHYSICIAN BEFORE STARTING A FITNESS PROGRAM, CHANGING YOUR DIET OR IF YOU HAVE ANY QUESTIONS REGARDING A MEDICAL CONDITION.&nbsp;</p>
+<p>Never disregard professional medical advice or delay in seeking it because of something you have read on or through the Kotak Life Platform. You should consult with your physician before following any training instructions you receive or participating in any event or missions or any other program on the platform. Not all exercises or activities described on the Kotak Life Platform are suitable for everyone. You should understand that when participating in any exercise or exercise program, there is a possibility of physical injury and/or &nbsp;any medical situation even death. If you think you may have a medical situation or emergency, call your physician immediately. If you feel any discomfort or pain, immediately stop the activity causing such discomfort or pain. By using the Kotak Life Platform, you represent that you have received consent from your physician to participate in the programs, workouts, and exercises described on the Kotak Life Platform.</p>
+<p>We are not responsible for any health problems that may result from training programs, products, activities or events you learn about through the Kotak Life Platform. If you engage in any exercise program you receive or learn about through the Kotak Life Platform you agree that you do so at your own risk and are voluntarily participating in these activities.</p>
+<p><strong>Information on the Kotak Life Services: </strong></p>
+<p>We try to provide helpful and accurate information on the Kotak Life Platform, but we make no endorsement, representation or warranty of any kind about any information, services or recommendations made available through the Kotak Life Platform. We are not responsible for the accuracy, reliability, effectiveness, or correct use of information you receive through the Platform. If you rely on any information provided by Kotak Life, its employees, or others appearing on or contributing content to the Kotak Life Platform, you do so solely at your own risk.</p>
+<p><strong>User-Generated Content:</strong></p>
+<p>You hereby grant to Kotak Life &amp; Its Affiliates, a perpetual, irrevocable, non-exclusive, worldwide, royalty-free license, with the right to sublicense, to reproduce, distribute, transmit, publicly perform, publicly display, digitally perform, modify, create derivative works of, and otherwise use and commercially make use of any text, photographs or other data and information you submit to Kotak Life (collectively, &quot;User-Generated Content&quot;) in any media now existing or hereafter developed, including without limitation on websites, in audio format, and in any print media format. User-Generated Content includes but is not limited to content posted on message board posts, blogs, journals, activity submissions, food and recipe submissions and user comments. You hereby waive any rights of publicity and privacy with respect to the User-Generated Content and any other legal or moral rights that might preclude Kotak Life&rsquo;s use of the User-Generated Content or require your permission for Kotak Life to use the User-Generated Content. You agree not to assert any claim, whether based on tort, contract, or other legal theory, against Kotak Life or its affiliates&rsquo; use of the User-Generated Content in accordance with your privacy settings, and you hereby release Kotak Life and its affiliates&rsquo; from any such claims. You represent that your User-Generated Content: (1) will not infringe any third party&apos;s copyright, patent, trademark, trade secret or other proprietary rights; (2) will not violate any law, statute, ordinance or regulation; (3) will not be obscene or contain child pornography; (4) will not contain any viruses, worms, time bombs or other computer programming code that is intended to damage, detrimentally interfere with, surreptitiously intercept or expropriate any system, data or information; (5) will not violate any third party&apos;s rights of publicity or privacy; and (6) will not be defamatory, unlawfully threatening or harassing, harmful to minors in any way, or otherwise offensive or inappropriate. You are responsible for complying with all laws applicable to your User-Generated Content.</p>
+<p><strong>Ownership of Services:</strong></p>
+<p>Except for the User-Generated Content, Kotak Life Platform and all aspects thereof, including all copyrights, trademarks, and other intellectual property rights therein, are owned by Kotak Life Insurance Company Ltd or its affiliates. You may not reproduce, distribute, modify or create derivative works of, publicly display (including by framing any content), or commercially exploit any part of the Kotak Life Platform &nbsp;except as necessary to view the content therein and to create a reasonable number of copies of portions of such content (without modification) for your personal, non-commercial use.</p>
+<p>If you violate any of these Terms of Use, your permission to use Kotak Life Platform automatically terminates and you must immediately destroy any copies you have made of any portion of Kotak Life Services including the Kotak Life Platform.</p>
+<p><strong>User Conduct:</strong></p>
+<p>If we determine that any user is not using the Kotak Life Platform responsibly, we have the right (but not the obligation) to remove, edit, block, or delete such user&apos;s transmissions, User-Generated Content, or use of the Kotak Life Products and Services. We also have the right (but not the obligation) to suspend or terminate your access to the Kotak Life Platform, or delete information you have posted to the Kotak Life Platform, without prior notice if you engage in any conduct that we believe, in our sole discretion: (1) violates any provision of the Terms of Use, (2) violates the Community Guidelines, (3) is offensive to other users, (4) violates the rights of Kotak Life or its affiliates, or (e) could cause Kotak Life any liability. Without limiting the foregoing, upon any termination of your Account or access to Kotak Life Products and Services including Kotak Life Platform we may delete all User-Generated Content. If Kotak Life suspects that your registered data is inaccurate or incomplete, we may suspend or terminate your Account.</p>
+<p><strong>Changes in Services:</strong></p>
+<p>Kotak Life may change or discontinue, temporarily or permanently, any feature or component of the Kotak Life Platform at any time without further notice. In addition, we may, without notice to the applicable user, terminate individual pages that have been inactive for more than 30 days, but have no obligation to do so. You agree that Kotak Life shall not be liable to you or to any third party for any modification, suspension or discontinuance of any feature or component of the Kotak Life Platform.</p>
+<p><strong>T</strong><strong>hird Party Services:</strong></p>
+<p>The Kotak Life Platform may provide links or references to websites operated by third parties. We do not monitor or investigate such websites and we are not responsible for the content, functionality, or practices of such websites. Inclusion of links to third party websites on Kotak Life Platform does not imply approval or endorsement of the linked website by us. If you decide to leave our Kotak Life Platform and access these third party websites, you do so at your own risk. Kotak Life suggests that you read the terms of use and privacy policies (if any) on those third party websites. You agree that Kotak Life has no liability for any damage or loss of any type that is a result of your use of a third party website.</p>
+<p><strong>Payment Instruction:</strong></p>
+<p>When Kotak Life receives transaction instructions from you through the payment mode, Kotak Life will be entitled to debit any payment plus any charges payable for the transaction from the Account you have specified. Kotak Life shall not be liable if any transaction does not fructify or may not be completed or for any failure on part of the bank or the credit card agency to perform any of its obligations.</p>
+<p>Kotak Life shall have no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any transaction, on account of the cardholder having exceeded the pre-set limit mutually agreed to by the cardholder with the card issuing entity.</p>
+<p>Evidence of transaction: In respect of any transactions which may be permitted by Kotak Life via its Platform from time to time, Kotak Life&apos;s own records of such transactions, maintained through computer systems or otherwise, shall be accepted as conclusive evidence and binding on you for all purposes. More particularly, the records of Kotak Life, generated by the transaction(s), including the recording of the time of the transaction(s), shall be conclusive proof of the genuineness and accuracy of such transactions.</p>
+<p><br></p>
+<p><strong>Force Majeure:</strong></p>
+<p>Kotak Life shall not be liable if any transaction does not materialize or may not be completed or for any failure on its part to perform any of its obligations under these terms and conditions or those applicable specifically to any services, if the same is prevented, hindered or delayed by a Force Majeure and in such case its obligations shall be suspended for so long as the Force Majeure event continues. &quot;Force Majeure&quot; means any event due to any cause beyond the reasonable control of the Kotak Life, including without limitations, sabotage, fire, flood, explosion, acts of god, civil commotion, strikes or industrial action of any kind, riots, insurrection, war, acts of government, faults or failures in telecommunication, unavailability of any communication systems, breach, or virus in the processes or payment or delivery mechanism, computer hacking, computer crashes, malfunctioning in the computer terminal or the systems getting affected by any malicious code, unauthorized access to computer data and storage devices, destructive or corrupting code or program, mechanical or technical errors/failures or power outage, etc.</p>
+<p><strong>Content and Warranty Disclaimer:</strong></p>
+<p>The Kotak Life Platform is developed by Kotak Life Insurance Company Ltd. Neither Kotak Life Insurance Company Ltd nor its partners, suppliers, affiliates make any representations or warranties of any kind, express or implied, as to the operation of the Platform, its contents, or any information made available by or through the Platform. In addition, Kotak Life disclaims all warranties with respect to the Platform, express or implied, including but not limited to the implied warranties of merchantability, title, fitness and wellbeing for a purpose and non-infringement.&nbsp;</p>
+<p><strong>Indemnity:</strong></p>
+<p>You shall indemnify, defend and hold harmless Kotak Life (including its officers, directors, employees, affiliates, group/promoter companies, agents/ intermediaries, representatives or subcontractors) from any and all claims and losses imposed on, incurred by or asserted as a result of or related to: (1) your access and use of this Platform, (2) any non-compliance with the Terms of Use, (3) any third party actions related to your receipt and use of the Information without authorization, (4) misuse of your login ID and password, (5) any unauthorized use of your Account and/or this Platform by you or someone using your Device.</p>
+<p>You shall be liable to pay any and all costs, damages and expenses, including but not limited to, reasonable attorneys&apos; fees and costs awarded against or otherwise incurred by or in connection with or arising from any such claim, suit, action or proceeding attributable to any such claim.</p>
+<p><strong>Limitation of Liability:</strong></p>
+<p>Kotak Life expressly disclaims any liability, whether in contract, tort, strict liability or otherwise, for any direct, indirect, incidental, consequential, punitive or special damages arising out of or in any way connected with your access or use or inability to access or use of the Kotak Life Platform or reliance on its content, or any failure of performance, interruption, defect, delay in transmission, computer viruses or other harmful components, or line or system failure associated with the Kotak Life Platform, regardless of our knowledge thereof. Kotak Life shall not be liable for, any damages to, or viruses that may infect, your computer or mobile equipment or other property as a result of your access to, use of, or browsing in the Platform or your downloading of any materials, data, text, images, video, or audio from this Platform.</p>
+<p>The Services offered by Kotak Life are of facilitation of medical and health services through its Platform only. Therefore, in no event is Kotak Life to be considered or deemed responsible for or with regards to the provision or non-provision/deficiency in provision of Services by any of the third party providers or experts that Kotak Life facilitates your access to through its Platform.</p>
+<p>Kotak Life follows generally accepted industry standards to protect the Personal Information submitted to us. However, no method of transmission over the internet, or method of electronic storage, is 100% secure. Therefore, while we strive to use industry best practices to protect your Personal Information, we do not guarantee its absolute security. Further, we disclaim any liabilities to that effect.&nbsp;</p>
+<p><strong>General:</strong></p>
+<p>The Terms of Use and the resolution of any dispute related to the Terms of Use or the Kotak Life Platform shall be governed by and construed in accordance with the laws of Government of India without respect to its conflict of laws principles. You shall bring any legal action or proceeding against Kotak Life Insurance Company Ltd related to the Kotak Life Platform exclusively in a state court of competent jurisdiction sitting in Mumbai, and you agree to submit to the personal and exclusive jurisdiction of such courts. If any provision(s) of the Terms of Use is found to be contrary to law, then such provision(s) will be construed, as nearly as possible, to reflect the intentions of the parties with the other provisions remaining in full force and effect. These Terms of Use constitute the entire agreement between you and Kotak Life Insurance Company Ltd with respect to the subject matter herein and supersede any and all prior or contemporaneous oral or written agreements. You may not assign this agreement to any other party and any attempt to do so is void.</p>
+    </div>
+</div>]]></string>
+    <string name="privacy_policy_content"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p style="text-align: justify;">All information submitted by the visitors to this Platform of Kotak Life Insurance Company Ltd (further on referred to as &ldquo;Kotak Life&rdquo;) shall be safeguarded and protected. Kotak Life is committed to protecting the privacy, confidentiality, accuracy and security of the Personal Information that it collects, uses, retains and discloses in the course of conducting business. This Privacy Policy (further on referred to as &ldquo;Policy&rdquo;) will protect the data provided by you and will be used for purposes of processing your application, the assessment and processing of requests and any other administration purposes relevant to any Products or Services provided by Kotak Life. By using this Platform, you agree to the terms of this Policy.</p>
+<p style="text-align: justify;"><strong>What Personal Information we collect:</strong></p>
+<p style="text-align: justify;">The information collected by us includes information such as your name, date of birth, email address, physical, psychological and mental health conditions, Gender, sexual orientation, medical records Family history, lifestyle habits and other details as given in the registration page of our Platform or in any subsequent information provided by you.&nbsp;</p>
+<p style="text-align: justify;">All Kotak Life Products work in conjunction with a User Account on the Kotak Life Platform.</p>
+<ul>
+    <li style="text-align: justify;">&nbsp;When you sign up for a User Account, you are required to provide your Mobile Number, Date of Birth, Full Name</li>
+    <li style="text-align: justify;">&nbsp;To benefit fully from the Kotak Life Platform, you also need to add additional personal details to your User Account, such as Height, Weight, Gender, and Age.</li>
+    <li style="text-align: justify;">&nbsp;Information sent wirelessly from your Kotak Life Product to the Platform is stored in your User Account.</li>
+    <li style="text-align: justify;">I&nbsp;nformation that you add manually to the Platform is stored in your Kotak Life User Account.</li>
+</ul>
+<p style="text-align: justify;">We collect industry standard log data about the browser and the operating system you are using, the address of the external or internal page that referred you, your IP address at the time of User Account creation and keep a log of the pages that you visit on the Platform in association with your IP address. We also collect the IP address associated with the device running the Kotak Life Platform each time you sync.</p>
+<p style="text-align: justify;">We collect location data provided by your mobile device post consent. You must first enable location services when you download the Kotak Life Platform or an updated version of the same. You can then turn location on and off within the Platform to activate optional features. You can opt out of location services at any time.</p>
+<p style="text-align: justify;"><strong>How we use Personal Information:</strong></p>
+<p style="text-align: justify;">Kotak Life will not use your Personal Information for purposes other than those listed in this Privacy Policy unless we obtain your consent first. Kotak Life uses your Personal Information to:</p>
+<ul>
+    <li style="text-align: justify;">&nbsp;Provide you with the Platform;</li>
+    <li style="text-align: justify;">&nbsp;Analyze Platform usage and improve it;</li>
+    <li style="text-align: justify;">&nbsp;Deliver to you any administrative notices and communications relevant to your use of the Kotak Life Products and Services;</li>
+    <li style="text-align: justify;">&nbsp;Provide you with updates regarding Kotak Life Products and Services;</li>
+    <li style="text-align: justify;">&nbsp;Perform internal market research, project planning, troubleshooting problems, and to detect and protect against error, fraud or other criminal activity;</li>
+    <li style="text-align: justify;">&nbsp;Enforce the Kotak Life Insurance Company Ltd Terms of Use.</li>
+</ul>
+<p style="text-align: justify;"><strong>Disclosure to Third Parties</strong></p>
+<p style="text-align: justify;">Kotak Life makes certain Personal Information available to strategic partners that work with Kotak Life to provide Services to you. In such cases, your account with such third parties will continue to be subject to that third party&apos;s Privacy Policy and your Kotak Life User Account will continue to be governed by this Policy.</p>
+<p style="text-align: justify;">Kotak Life may also share your Personal Information with companies who have developed the Platform for Kotak Life and provide services such as information processing, rewards fulfillment, customer data management, customer research and others. These companies are obligated to protect your Information.</p>
+<p style="text-align: justify;">We may also disclose Information about you if we determine that disclosure is reasonably necessary to enforce our Terms of Use or protect our operations or users or if we are required to do so by any applicable law, rule, regulation, subpoena or other legal process. Additionally, in the event of a reorganization, merger, we may transfer any and all Personal Information we collect to the relevant party or affiliate.</p>
+<p style="text-align: justify;"><strong>Use of Aggregated Anonymous User Data:</strong></p>
+<p style="text-align: justify;">Kotak Life may disclose non-personally identifiable aggregated user data, such as aggregated gender, age, height, weight, and usage data gathered from the Kotak Life Platform (without the inclusion of a user&apos;s name or other identifying information) to:</p>
+<ul>
+    <li style="text-align: justify;">&nbsp;Organizations approved by Kotak Life that conduct consumer research into health and wellbeing;</li>
+    <li style="text-align: justify;">&nbsp;Users of the Platform for purposes of comparison of their personal health and wellbeing situation relative to the broader community; and</li>
+    <li style="text-align: justify;">&nbsp;Understanding of health trends for Kotak Life customers and comparison with other customers and/or non-Kotak Life customers.</li>
+</ul>
+    </div>
+</div>]]></string>
+    <string name="know_your_vitals_content"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>Here are some tips for getting an accurate measurement:</p>
+    <li>Find a well-lit area and stand or sit still during the measurement.</li>
+    <li>Make sure your face is fully visible and not covered by anything like a mask or hat.</li>
+    <li>Try to stay quiet and focused while the measurement is taken.</li>
+    <li>Don&apos;t let direct sunlight shine on the camera or the area in the frame.</li>
+    <li>Place your phone on a stable surface or use a stand to get a reliable reading.</li>
+    <li>It would take 2-3 minutes to complete the scan.</li>
+    </div>
+</div>]]></string>
+    <string name="face_scan_msg">Welcome to the face scan vital check. This innovative technology allows you to check your vital signs, such as heart rate, respiratory rate, and blood pressure, simply by scanning your face with your phone. By using this technology, you can monitor your health from the comfort of your own home and identify potential health concerns before they become serious.\n\nWhat is Face Scan?\n\nFace Scan is a non-invasive technology that uses a technology called PPG at the surface of skin to measure the volumetric variations of blood circulation What is Photoplethysmography (PPG)?\n\nPPG is a non-invasive method of measuring blood flow and oxygen saturation in tissues.\n\nIt\'s commonly used in medical settings, such as hospitals, to monitor patients\' vital signs.\n\nThe technology works by shining a light through the skin and measuring the amount of light absorbed by the blood. When the heart pumps blood through the body, the volume of blood in the tissue changes, causing the amount of light absorbed to vary. This variation in light absorption is measured by a sensor and used to calculate blood flow and oxygen saturation levels.\n\nHow Does PPG Work?\n\nThe technology uses the front-facing camera on your smartphone, laptop or tablet to take a video of your face. The video is processed in real-time using advanced algorithms that analyze the subtle changes in skin color caused by blood flow.\n\nThis allows it to extract PPG signals and calculate your vital signs, such as heart rate, oxygen saturation and respiratory rate, without any physical contact or invasive procedures.\n\nTo get started, all you need is a smartphone with a front-facing camera and a stable internet connection. You\'ll be prompted to take a short video of your face, which the software will analyze to determine your vital signs.\n\nThe process is quick and non-invasive, so you can check your vitals anytime, anywhere, without the need for specialized equipment or medical expertise. However, it\'s important to note that the results are not a substitute for a professional medical diagnosis, and any concerns should be discussed with your healthcare provider.\n\nAfter the scan is complete, you\'ll receive a report with your vital signs and any recommendations for improving your health. You can use this information to make informed decisions about your health, such as adjusting your diet, increasing your exercise, or seeking medical advice if necessary.\n\nSo, let\'s get started and check your vitals with a simple face scan.\n\nIt would take 2-3 minutes to complete the scan</string>
+    <string name="face_scan_msg_new"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+<p dir="ltr"><span>Face Scan uses an innovative technology called PPG that analyses the surface of your skin to measure your vitals.&nbsp;</span></p>
+<p dir="ltr"><strong>What is Photoplethysmography (PPG)?</strong></p>
+<p dir="ltr"><span>PPG is a non-invasive method of measuring blood flow and oxygen saturation in tissues. It is commonly used in medical settings to monitor patients\' vital signs.</span></p>
+<p dir="ltr"><strong>How does PPG work?</strong></p>
+<p dir="ltr"><span>The technology uses the front-facing camera on your device to take a video of your face. The video is processed in real-time using advanced algorithms that analyze the subtle changes in skin colour caused by blood flow.</span></p>
+<p dir="ltr"><span>It then generates a report on your vital signs, such as heart rate, oxygen saturation (SpO2), blood pressure and respiratory rate, without any physical contact or invasive procedures.</span></p>
+<p dir="ltr"><span>It will take 2-3 minutes to complete the face scan.</span></p>
+<p dir="ltr"><span>You can use this information to make informed decisions about your health, like making changes to your diet or exercise routine.</span></p>
+<p><strong>Please note:</strong> Face scan reports are only meant to be used as an indicator and are not as accurate as other clinically calibrated devices.<br />This scan is not a substitute for professional medical advice or testing. If you have any concerns about your vitals, it is advisable to consult a healthcare professional.</p>
+</div>
+</div>]]></string>
+    <string name="das_msg"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p dir="ltr">In Depression, Anxiety, Stress(DAS) Score, you will be asked a series of questions centred around your lifestyle. The questionnaire is divided into 3 subscales: the depression subscale, the anxiety subscale and the stress subscale.</p>
+<p dir="ltr">Please read each statement carefully and answer all the questions. There are no right or wrong answers.&nbsp;</p>
+<p dir="ltr">Do not spend too much time on any statement. Choose the response you relate with the most.&nbsp;</p>
+<p dir="ltr">A report will be generated on your mental and emotional wellbeing. Along with the ratings, you will also receive recommendations on how to improve your mental health.</p>
+    </div>
+</div>]]></string>
+    <string name="heart_age_msg">Welcome to the heart age test. This quick and easy test will help you determine your heart age and identify your risk for heart disease. Heart disease is a serious condition that can lead to heart attacks, strokes, and other life-threatening complications. However, many risk factors for heart disease can be managed or even prevented with healthy lifestyle choices.\n\nBefore you take the test, it\'s important to know that your heart age is not your actual age. Your heart age is a measure of your risk for heart disease based on factors like your blood pressure, cholesterol levels, smoking status, and family history. By knowing your heart age, you can take steps to reduce your risk and improve your overall health.To get the most accurate results from the heart age test, be sure to answer all of the questions honestly and to the best of your ability. After you complete the test, you will receive a report that includes your heart age and recommendations for improving your heart health. Remember, even small changes to your lifestyle can have a big impact on your heart health.\n\nSo, let\'s get started and find out your heart age.</string>
+    <string name="heart_age_msg_new"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+<p dir="ltr"><span>This heart age calculator is a quick and easy way to determine your heart age and identify potential health risks.&nbsp;</span></p>
+<p dir="ltr"><span>Your heart age is different from your chronological age. Your heart age is a measure of your risk for heart diseases based on factors like cholesterol levels, blood pressure, smoking habits, and family history.&nbsp;</span></p>
+<p dir="ltr"><strong>How is my Heart Age calculated?</strong><span><br /></span><span>Heart Age is calculated using validated scientific research into the factors that improve heart health, using published research from the Framingham Heart Study in Boston. Estimating the heart age is very simple. Before doing the calculation, we would need user to be ready with the following important heart health measures:</span><span><br /></span><span>&middot; Systolic blood pressure, which is the &ldquo;top number&rdquo; of blood pressure and Diastolic blood pressure, which is the &ldquo;lower number.&rdquo;</span><span><br /></span><span>&middot; Body mass index (BMI), which is a measure of body fat based on height and weight.</span><span><br /></span><span>&middot; Lipid Profile (Total Cholesterol, HDL), which measures the total cholesterol and Good cholesterol.&nbsp;</span></p>
+<p dir="ltr"><strong>Applicable for:</strong></p>
+<p dir="ltr"><span>Individuals between 30 to 74 years old and without CVD at the baseline examination.</span></p>
+<p dir="ltr"><strong>Who should not use this tool?</strong><span><br /></span><span>Individuals with existing heart conditions must avoid using this tool.</span></p>
+<p dir="ltr"><span>Please answer all questions honestly for an accurate result. After the test, you will receive recommendations on how to improve your health. This test is not intended as a substitute for professional medical diagnostics and/or medical opinion.</span></p>
+<p dir="ltr"><span>Many risk factors can be easily managed and even prevented by making simple lifestyle changes that will contribute to your overall wellbeing.</span></p>
+<p><span>&nbsp;</span></p>
+    </div>
+</div>]]></string>
+    <string name="hra_msg"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p dir="ltr"><span>It&rsquo;s time for a quick health checkup.&nbsp;</span></p>
+<p dir="ltr"><span>This assessment is designed to evaluate your health status and identify potential areas of concern like weight, stress levels, diet and lifestyle.</span></p>
+<p dir="ltr"><span>To get the most accurate results, please answer honestly and to the best of your ability.</span></p>
+<p dir="ltr"><span>After your response is recorded, you will receive a report that expresses your health status as a number between 1 to 900.</span></p>
+<p dir="ltr"><span>This is will give you a brief overview on your overall health and some recommendations on how to improve it. </span></p>
+<p><span>&nbsp;</span></p>
+    </div>
+</div>]]>
+    </string>
+    <string name="know_your_immunity_msg"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p dir="ltr">A strong and healthy immune system protects us from harmful microbes and diseases. It is also important for one&rsquo;s overall wellbeing.&nbsp;</p>
+<p dir="ltr">This questionnaire assesses the respondent&rsquo;s immunity score that is based on one&rsquo;s lifestyle habits and other health conditions.</p>
+<p dir="ltr">There are no right or wrong answers; we are only interested in accurately calibrating your immunity score.&nbsp;</p>
+<p dir="ltr">After your response is recorded, you will receive personalized recommendations on how you can improve your immunity. This could include changes to your diet, exercise routine or sleep schedule.</p>
+<p dir="ltr">&nbsp;</p>
+    </div>
+</div>]]></string>
+    <string name="download_app_msg">Download HappyYou app to know more\n</string>
+    <string name="download_app_msg_joke">I found this on HappyYou! There is more such hilarious content to explore. Read it here on HappyYou:</string>
+    <string name="download_app_msg_affirmation">I found this on HappyYou! Find more such life-affirming content on HappyYou. Read it here on HappyYou:</string>
+    <string name="download_app_msg_thought">I loved this thought, hope you would like it too. Many more such thoughts to brighten up your day. Discover it now on HappyYou:</string>
+    <string name="download_app_msg_my_rank">With HappyYou, not only can I track my progress but also see my ranks against others every day. Come join me on this wellbeing journey:</string>
+    <string name="download_app_msg_riddle">I get amazing riddles every day to exercise and challenge my Mind on HappyYou. See if you can solve these too:</string>
+    <string name="download_app_msg_share_invite">I\'m excited to share that I\'ve started my wellbeing journey with HappyYou! With this app, I can track my health vitals, adopt good habits and be rewarded for doing all of it for myself and my loved ones. Why don\'t you join me too? Join me today at:</string>
+    <string name="download_app_msg_powered_by">\n-Powered by Kotak Life</string>
+    <string name="at_least_15_char">Please write more than 15 characters about the activity</string>
+    <string name="at_least_35_char">Please write at least 35 characters about the activity</string>
+    <string name="about_us"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p>HappyYou is a state of the art, fully featured, one-stop solution for all your…
+    <br/> <br/>Nope, no jargon! This is a simple app with the aim of making your life even simpler.
+    Our app’s objective lies in its very name, HappyYou! It is a culmination of everything you may require to elevate and enrich
+     your lifestyle! By the way, we are also very persistent… even if you think of quitting your wellbeing journey,
+      we will make the ends of the world meet for you to meet your goals! <br/><br/> What do we offer? <br/><br/>
+       HappyYou is a complete wellbeing app that offers you trackers, content, and insights for your physical, mental, and emotional wellbeing.
+       <br/><br/> What’s more? Well, how about you get to make groups with your loved ones, and that too as many as you want!
+       Moreover, you can even start challenges with them and make your journey exciting! We could explain more but the true essence lies in its experience… Explore the world of wellbeing a little more and choose a HappyYou. </p>
+    </div>
+</div>]]></string>
+    <string name="disclaimer" translatable="false"><![CDATA[<div align="justify" class="container">
+    <div class="container-body">
+    <p style="font-size:12px">You are entering a Third-Party environment. Any purchases you make through Third-Party Partners will be exclusively between you and the applicable partner. The HappyYou Points you collect will be based on the laws that govern the Third-Party Website and point conversions might differ from those of Kotak Life.</span></p>
+    </div>
+</div>]]></string>
+    <string name="age_note">Note : Applicable to individuals 30 to 74 years old</string>
+    <string name="support_number">+91 98200 00000</string>
+    <string name="support_email">contact@kotak.com</string>
+    <string name="kotak_email">happy-2help@kotak.com</string>
+    <string name="alphabets">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="alphabets_number">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
+    <string name="alphabets_without_space">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="nickname_validation_digit">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="set_as_primary_tribe">Set as Primary Tribe</string>
+
+
+    //NDHM
+    <string name="NDHMClientId">WYHCIPL_662494</string>
+    <string name="NDHMClientSecret">b7a5e424-fc0a-4ebc-9196-91f9f932dbec</string>
+    <string name="NDHMBaseUrl">https://healthidsbx.abdm.gov.in/</string>
+    <string name="NDHMBaseUrlAccessToken">https://dev.abdm.gov.in/</string>
+    <string name="abha_registration">ABHA Registration</string>
+    <string name="abha_profile">ABHA Profile</string>
+
+
+    <string name="healthTV_share_message">Hi! I loved this video. Hope you like it too. You can find many such informative content on HappyYou. Check it now!\n\n</string>
+    <string name="you_have_successfully_logged_in_for_this_event">You have successfully logged in for this event.</string>
+    <string name="bookmark_health_tv">Bookmark TV</string>
+    <string name="_0_20"><![CDATA[0 <= 20]]></string>
+    <string name="_21_40"><![CDATA[21 <= 40]]></string>
+    <string name="_41_60"><![CDATA[41 <= 60]]></string>
+    <string name="_60"><![CDATA[61 <= 100]]></string>
+    <string name="challenges_text">Challenges</string>
+    <string name="search_bar_txt">What are you looking for?</string>
+    <string name="referral_code">Your Referral Code</string>
+    <string name="copy_paste">Copied to clipboard</string>
+    <string name="referral_code_value">AQUEQ3</string>
+    <string name="tribe_challenge_rank">Rank: %s</string>
+    <string name="challenge">Challenge</string>
+    <string name="enrolled">Enrolled</string>
+    <string name="enroll">Enroll</string>
+    <string name="tribe_challenge_total_member">Total Participate: %s</string>
+    <string name="set_text_2_item">%1s - %2s</string>
+
+    <string-array name="arr">
+        <item>Please select Item</item>
+        <item>Second</item>
+        <item>...</item>
+        <item>Tenth</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_more">View More</string>
+    <string name="close">Close</string>
+    <string name="respiratory_check">Respiratory Check</string>
+    <string name="respiratory_direction">In this activity, I want you to take a breath and hold the vowel sound \'Ahh\', like in the word father. \n\nPlease hold that sound for 6 seconds or until you run out of breath. \n\nWe will perform the same procedure 2 times for better result</string>
+    <string name="respiratory_details">Respiratory Symptom Risk score is calculated from your voice by using shifts in vocal patterns, similar to how a thermometer measures changes in body temperature.</string>
+    <string name="respiratory_step">Find a quiet place to record your audio!</string>
+    <string name="proceed">Proceed</string>
+    <string name="alert_message">Your voice sample can\'t be processed.Please try again in a quite place and make sure to say \"Ahh\" clearly without pausing.</string>
+    <string name="ok">Ok</string>
+    <string name="alert">Alert!</string>
+    <string name="direction">Direction</string>
+    <string name="lets_begin">Let\'s Begin</string>
+    <string name="instruction_text">Hold the sound \'Ahh\' as long as you  can or until the timer ends</string>
+    <string name="health_score">Your Health \nScore</string>
+    <string name="result_hint"><![CDATA[0-64 low risk, >= 65 high risk]]></string>
+    <string name="analysis_tip_1">Increase score mean that  you are more likely to experience an increase in respiratory symptoms.</string>
+    <string name="analysis_tip_2">Scores of 65 or above indicate a higher likelihood that you are experiencing some level of symptoms.</string>
+    <string name="mental_fitness">Mental Wellness is measured by analyzing subtle changes in your voice, such as its liveliness, energy, and clarity, similar to how a thermometer measures changes in body temperature.</string>
+    <string name="question_hint">Lorem Ipsum Lorem Ipsum Lorem Ipsum</string>
+    <string name="question_refresh_text">Get a different topic</string>
+    <string name="own_topic">I\'ll use my own topic</string>
+    <string name="mental_wellness_note">Remember to find  a quiet place to record your 30 seconds journal</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="loader_text">Analyzing the acoustics of your voice.This technology was developed at Sonde Health by a team of speech pathologists, audio signal processing engineers, and data scientists.</string>
+    <string name="sonde_score">Score</string>
+    <string name="sonde_feature">Feature</string>
+    <string name="sonde_date">Date</string>
+    <string name="mental_socre_text">Consider to practice meditation or breathing exercises for improving mental wellbeing</string>
+    <string name="m3_assesment">Start M3 Assessment</string>
+    <string name="m3_note">Your voice shows no evidence of a higher or lower risk for mental Wellness related symptoms</string>
+    <string name="reminder">Set Reminder</string>
+    <string name="home">Home</string>
+    <string name="mental_health_question">When do you feel most energized?</string>
+    <string name="speak_for_30_sec">Please speak for 30 second\'s</string>
+    <string name="wrong_voice">Your voice sample can\'t be processed. Please try again in a quite place and make sure to say \"Ahh\" clearly without pausing.</string>
+    <string name="voice_feature">Voice Feature</string>
+    <string name="mental_wellness_score_heading">Your Mental Wellness \nScore</string>
+    <string name="respiratory_score_heading">Your Respiratory \nSymptoms Risk Score</string>
+    <string name="mental_health_back_heading">Mental Wellness</string>
+    <string name="respiratory_health_back_heading">Respiratory Health</string>
+    <string name="mental_wellness_dialoge_text">Do you want to save your journal?</string>
+    <string name="low_risk">Low Risk</string>
+    <string name="high_risk">High Risk</string>
+    <string name="mental_wellness_heading">Mental Wellness</string>
+    <string name="respiratory_heading">Respiratory Health</string>
+    <string name="get_ready">Get ready...</string>
+    <string name="recording">Recording...</string>
+    <string name="mental_fitness_failed_response">Your voice sample can\'t be processed.Please try again in a quite place and make sure to speak clearly without pausing</string>
+    <string name="add_referral_code">Add Referral Code</string>
+    <string name="search">Search</string>
+    <string name="search_your_record">Search your record</string>
+    <string name="do_you_have_any_referral_code_optional">Do you have any referral code (Optional)</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="enter_mobile_num">Enter mobile number</string>
+    <string name="add">Add</string>
+    <string name="count">Count</string>
+    <string name="name">Name</string>
+    <string name="rank">Rank</string>
+    <string name="rank_info">Leaderboard for My Branch</string>
+    <string name="set_as_primary">Set as Primary</string>
+    <string name="sonde_time">Time</string>
+    <string name="pay_attention">Pay attention</string>
+    <string name="sonde_good">Good</string>
+    <string name="sinde_excellent">Excellent</string>
+    <string name="sonde_retake">Retake</string>
+    <string name="enjoying_kli_happy_you_app">Enjoying KLI Happy You App?</string>
+    <string name="excellent">Excellent</string>
+    <string name="poor">Poor</string>
+    <string name="please_write_your_feedback_here">Please write your feedback here...</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="sonde_quality">Quality</string>
+    <string name="sonde_remark">Remark</string>
+    <string name="api_error">Oops! Something went wrong, please try again</string>
+    <string name="test_api_url_abha" translatable="false">http://testwyhb2c.watchyourhealth.com/phr/api/</string>
+    <string name="uat_api_url_abha" translatable="false">http://testwyhb2c.watchyourhealth.com/phr/api/</string>
+    <string name="prod_api_url_abha" translatable="false">http://testwyhb2c.watchyourhealth.com/phr/api/</string>
+    <string name="abha_option">Select the ABHA address through which you wish to login</string>
+    <string name="abha_option_number">Select the ABHA number through which you wish to login</string>
+    <string name="abha_address">ABHA Address</string>
+    <string name="abha_id">ABHA number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="qr">QR</string>
+    <string name="view_linked_facility">View Linked Facility</string>
+    <string name="view_consent">View Consent</string>
+    <string name="title_activity_ndhmprofile_details">NDHMProfileDetailsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+
+    <string name="abha_link">Login with ABHA and link with your profile to access all your medical records</string>
+    <string name="abha_desc">ABHA is a hassle free method of accessing and sharing your health records digitally.</string>
+    <string name="aadhar_desc">Create ABHA number using your Aadhaar</string>
+    <string name="aadhar_desc2">An OTP will be sent to the mobile number linked with Aadhaar</string>
+    <string name="user_agreement">I agree to voluntary share my identity information with NHA to create my ABHA Address.</string>
+    <string name="title_abha">ABHA</string>
+    <string name="m3_excellent_tv">" Aspects of your voice show a lower risk for mental health related symptoms"</string>
+    <string name="m3_good_tv">Your voice shows no evidence of a higher or lower risk for mental health related symptoms</string>
+    <string name="m3_attention_tv">Aspects of your voice show a higher risk for mental health related symptoms</string>
+    <string name="save_journal">Save to diary</string>
+
+
+    <string name="kli_kgi_policy">KLI &amp; KGI Policy</string>
+    <string name="kotak_policy">Kotak Policy</string>
+    <string name="kli_policy">KLI Policy</string>
+    <string name="kgi_policy">KGI Policy</string>
+    <string name="edit_family_member">Edit Family Member</string>
+    <string name="my_earning_rewards">My Earning Rewards</string>
+    <string name="result">Result</string>
+    <string name="select_policy">Select Policy</string>
+    <string name="no_result_found">No result found</string>
+    <string name="pick_one">Choose one</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="consent1"><![CDATA[<p>I am voluntarily sharing my Aadhaar Number / Virtual ID issued by the Unique Identification Authority of India(\"<b>UIDAI</b>\"), and my demographic information for the purpose of creating an Ayushman Bharat Health Account number (\"<b>ABHA number</b>\") and Ayushman Bharat Health Account address (\"<b>ABHA Address</b>\"). I authorize NHA to use my Aadhaar number / Virtual ID for performing Aadhaar based authentication with UIDAl as per the provisions of the Aadhaar (Targeted Delivery of Financial and other Subsidies, Benefits and Services) Act, 2016 for the aforesaid purpose. I understand that UIDAl will share my e-KYC details, or response of \"Yes\" with NHA upon successful authentication.</p>\n]]></string>
+
+    <string name="consent2"><![CDATA[I intend to create Ayushman Bharat Health Account Number (\"<b>ABHA number</b>\") and Ayushman Bharat Health Account address (\"<b>ABHA Address</b>\") using a document other than Aadhaar. (Click here to proceed further).\n]]></string>
+
+    <string name="consent3"><![CDATA[I consent to usage of my ABHA address and ABHA number for linking of my legacy (past) government health records and those which will be generated during this encounter. \n]]></string>
+
+    <string name="consent4"><![CDATA[I authorize the sharing of all my health records with healthcare provider(s) for the purpose of providing healthcare services to me during this encounter.\n]]></string>
+
+    <string name="consent5"><![CDATA[I consent to the anonymization and subsequent use of my government health records for public health purposes.\n]]></string>
+
+    <string name="consent6"><![CDATA[that I have duly informed and explained the beneficiary of the contents of consent for aforementioned purposes.\n]]></string>
+
+    <string name="consent7"><![CDATA[about the consent as stated above and hereby provide my consent for the aforementioned purposes.\n]]></string>
+    <string name="i">"I, "</string>
+    <string name="consent_7">, have been explained about the consent as stated above and hereby provide my consent for the aforementioned purposes.\n</string>
+    <string name="optional_i">"(Optional) I, "</string>
+    <string name="consent_6">, confirm that I have duly informed and explained the beneficiary of the contents of consent for aforementioned purposes.\n</string>
+    <string name="consent_6_without_name">(Optional) I confirm that I have duly informed and explained the beneficiary of the contents of consent for aforementioned purposes.\n</string>
+    <string name="consent_7_without_name">I have been explained about the consent as stated above and hereby provide my consent for the aforementioned purposes.\n</string>
+
+
+    <string name="tribe">Tribe</string>
+    <string name="reference">Referecence</string>
+    <string name="no_data_found">No data found</string>
+    <string name="goals">Goals</string>
+    <string name="upcoming_badges">Upcoming Badges</string>
+    <string name="recommended_goals">Recommended Goals</string>
+    <string name="add_individual_goal">Add Individual goal</string>
+    <string name="winnings">Winnings</string>
+    <string name="goal_of_the_day">Goal of the day</string>
+    <string name="goal_tv_hint">Goal</string>
+    <string name="enter_dob">Enter your date of birth</string>
+    <string name="self">Self</string>
+    <string name="others">Others</string>
+    <string name="complete">Complete</string>
+    <string name="start">Start</string>
+    <string name="goal_title">Set Water Goal</string>
+    <string name="goal_text">Number of Days</string>
+    <string name="goal_count">Goal Count</string>
+    <string name="sleep_tv">Number of Days</string>
+    <string name="water_target">Number of Glasses</string>
+    <string name="sleep_target">Total Number of Hrs</string>
+    <string name="step_target">Total Step Count</string>
+    <string name="calories_target">Total Calories Burn</string>
+    <string name="calories_consume_target">Total Calories Intake</string>
+    <string name="meditation_target">Total Number of Hrs</string>
+    <string name="current_weight_tv">Your Current Weight</string>
+    <string name="weight_target">Set Target Weight</string>
+    <string name="weight_days">Total Num Of Days</string>
+    <string name="see_all">See All</string>
+    <string name="water_title">Set Water Goal</string>
+    <string name="sleep_goal">Set Sleep Goal</string>
+    <string name="steps_goal">Set Steps Goal</string>
+    <string name="calories_goal">Set Calories Burn Goal</string>
+    <string name="calories_consume_goal">Set Calories Consume Goal</string>
+    <string name="meditation_goal">Set Meditation Goal</string>
+    <string name="weight_goal">Set Weight Goal</string>
+    <string name="goal_add_success">Goal Added</string>
+    <string name="indiviual_goal">Individual Goals</string>
+    <string name="no_goals">No Goals Were Added</string>
+    <string name="goal_info_tv">Please complete HRA to get recommendations for daily health goals</string>
+    <string name="goal_history">History</string>
+    <string name="pending_goal">Pending Goals</string>
+    <string name="completed_goal">Completed Goals</string>
+    <string name="deleted_goal">Deleted Goals</string>
+    <string name="update_username">Update Username</string>
+    <string name="enter_username">Please enter name</string>
+    <string name="no_individual_goal">There is no individual goal added</string>
+    <string name="upload">Upload</string>
+    <string name="yes">Yes</string>
+    <string name="branch_code">Branch Code</string>
+    <string name="branch_name">Branch Name</string>
+    <string name="kli_branch_name">Branch Name</string>
+    <string name="walkathon">Walkathon Event</string>
+    <string name="walkathon_event_text">Walkathon event will start on </string>
+    <string name="walkathon_event_enroll_text">To enroll in walkathon</string>
+    <string name="address">Address</string>
+    <string name="walkathon_date">21st Sept 2024</string>
+    <string name="enrolled_text">You have successfully enrolled in the Walkathon event</string>
+    <string name="walkhaton_rank">0</string>
+    <string name="walkhaton_total_rank">/0</string>
+    <string name="walkhaton_rank_text">My Rank in \nBranch</string>
+    <string name="all_rank_tv">My All India \nRank</string>
+    <string name="branch_total_steps">My Branch Team \nTotal Steps</string>
+    <string name="avg_steps">My Average Steps</string>
+    <string name="individual">Individual</string>
+    <string name="my_branch">My Branch</string>
+    <string name="branch">Branch</string>
+    <string name="kli_branch">Branch</string>
+    <string name="load_more">Load More</string>
+    <string name="total_steps">Total Steps</string>
+    <string name="avgSteps">Avg Steps</string>
+    <string name="avgStepsOfBranch">Avg steps of Branch</string>
+    <string name="participation">Participation%</string>
+    <string name="enrollment_per_branch">Enrollment % of Branch</string>
+    <string name="branch_rank">My Branch \nRank</string>
+    <string name="all_india_rank">My All India \nRank</string>
+    <string name="branch_total_steps_tv">My Branch Total Steps</string>
+    <string name="avg_steps_tv">My Branch Average Steps</string>
+    <string name="all_India_steps">Total all India steps</string>
+    <string name="total_participaint_India">Total all India participation </string>
+    <string name="retry_enrolled_text">"Are you sure, you want to rescan ? "</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="walkathon_congrats_text">You have enrolled in walkathon event which starts on</string>
+    <string name="code">Participation Code</string>
+    <string name="india_count">All India Enrollment Count</string>
+    <string name="india_count_hint">100 out of 100</string>
+    <string name="branch_enrollment_txt">My Branch Enrollment (%)</string>
+    <string name="branch_enrollment_hint">10% out of 100</string>
+    <string name="branch_enrollment_count_txt">My Branch Enrollment Count</string>
+    <string name="date_of_enroll">Date of Enrollment</string>
+    <string name="branch_participation">Branch Participation</string>
+    <string name="branch_participation_with_perce">Branch Participation (%)</string>
+    <string name="kli_branch_participation_with_perce">Branch Participation (%)</string>
+    <string name="referred_mobile_number">Enter Mobile Number</string>
+    <string name="referred_by_text">*HY Registered Mobile Number</string>
+    <string name="consultations">Consultations</string>
+    <string name="tele_consultation">Tele- \nConsultations</string>
+    <string name="physical_consultation">Physical \nConsultation</string>
+    <string name="find_a_provider">Find a Provider</string>
+    <string name="diagnostics_lab"><![CDATA[Diagnostics & \nLAB Tests]]></string>
+    <string name="pharmacy">Pharmacy</string>
+    <string name="ambulance">Ambulance</string>
+    <string name="mental_wellness">Mental \nWellness</string>
+    <string name="fitness_nutrition"><![CDATA[Fitness &\nNutrition]]></string>
+    <string name="view_happy_mart">View\nHappy Mart</string>
+    <string name="policy_number">Policy Number</string>
+    <string name="policy_exp_date">Policy\nMaturity Date</string>
+    <string name="exp_date">31st Dec 2024</string>
+    <string name="abha_id_tv">ABHA ID</string>
+    <string name="view_linked_policy">View Linked\nPolicies</string>
+    <string name="view_policy_benefits">View Policy Benefits</string>
+    <string name="know_your_wellbeing">Know Your Wellbeing</string>
+    <string name="health_risk">Health Risk</string>
+    <string name="assessment">Assessments</string>
+    <string name="task_complete">Tasks to Complete</string>
+    <string name="dialy_goals">Daily Goals</string>
+    <string name="my_profile">My Profile</string>
+    <string name="level_txt">Level 2</string>
+    <string name="points_txt">Available Points: 1325</string>
+    <string name="see_all_activities">See all activities</string>
+    <string name="steps">Steps</string>
+    <string name="steps_value">0</string>
+    <string name="steps_out_of_value">/10000</string>
+    <string name="zen_zone_tv">Zen Zone</string>
+    <string name="zen_zone_value">0</string>
+    <string name="zen_zone_min">min</string>
+    <string name="view_all_trackers">View All Trackers</string>
+    <string name="my_tribe">My Tribes</string>
+    <string name="health_hacks">Health Hacks</string>
+    <string name="health_tv_hint">Undersanding Cardio Exercises and their effects</string>
+    <string name="duration">Duration :</string>
+    <string name="min">2min</string>
+    <string name="sec">30seconds</string>
+    <string name="stamp_count">Your Stamps count is </string>
+    <string name="activity_name">Activity Name</string>
+    <string name="earned_stamps">Earned Stamps</string>
+    <string name="date">Date</string>
+    <string name="badge_name">Badge Name</string>
+    <string name="voucher_name">Voucher \nName</string>
+    <string name="voucher_code">Voucher \nCode</string>
+    <string name="voucher_count">"Your Voucher Count is "</string>
+    <string name="mental_wellbeing">Mental \nWellbeing</string>
+    <string name="sync_your_device">Sync Your \n Device</string>
+    <string name="sending">Sending...</string>
+    <string name="spin_win">Spin To Win</string>
+    <string name="click_to_spin">Tap To Spin</string>
+    <string name="spin_info">Spin The Wheel To Get Assured \n Health Rewards</string>
+    <string name="congratulation">Congratulations!</string>
+    <string name="won">You Have Won</string>
+    <string name="prize_detail">Amazon Voucher</string>
+    <string name="prize_desc">Description: You have won an Amazon voucher \n worth XXXXX INR. You can find the code to use \n when you login.</string>
+    <string name="skip_to_login">Skip to Login</string>
+    <string name="claim_reward">Log in now to claim your reward</string>
+    <string name="claim_reward2">Log in now to claim your rewards before \nit expires</string>
+    <string name="timer">29:46</string>
+    <string name="amazon">Amazon Voucher</string>
+    <string name="login_to_claim">Login To Claim</string>
+    <string name="continue_login">Continue</string>
+    <string name="resend_otp">Resend</string>
+    <string name="navigation_tv">You can view your voucher detail by navigating to</string>
+    <string name="rewards_not_eligible">You are not eligible to claim rewards as you have already claimed once before.</string>
+    <string name="rewards_expired">You are not eligible to claim rewards since it is expired. </string>
+    <string name="voucher_status">Voucher \nStatus</string>
+    <string name="hurry_up">Hurry Up!</string>
+    <string name="time_up_desc">Don’t worry, we will give you a chance to win this gift again with in the app.</string>
+    <string name="hurry_won">Hurray!! You Won</string>
+    <string name="no_worries">No Worries!</string>
+    <string name="voucher_navigation">Dashboard --&gt; Rewards &gt; Voucher</string>
+    <string name="badge_navigation">Dashboard --&gt; Rewards --&gt; Badge</string>
+    <string name="stamp_navigation">Dashboard --&gt; Rewards --&gt; Stamps</string>
+    <string name="points_navigation">Dashboard --&gt; Points --&gt; Level</string>
+    <string name="expiry_date">Voucher \nExpiry Date</string>
+    <string name="spin_the_wheel">Spin the Wheel</string>
+    <string name="spin_and_win">Spin &amp; Win</string>
+    <string name="play_and_win">Play &amp; Win</string>
+    <string name="information">Information</string>
+    <string name="device_merchendise"><![CDATA[Devices & Merchandise]]></string>
+    <string name="quiz_reg_over">Quiz registration is now closed. You are not eligible to participate in the quiz</string>
+
+    //Meta Removed 17/03/2025
+    <!--    <string name="facebook_app_id">971024678288343</string>
+    <string name="facebook_client_token">bee6ceb6ac0d7719afa7e714db571f19</string>-->
+
+    <string-array name="level">
+        <item>Select your category</item>
+        <item>Level</item>
+        <item>Earn and Grab</item>
+        <item>TopUp</item>
+    </string-array>
+
+    <string-array name="activities">
+        <item>Select activity</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Select your gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="goals">
+        <item>Select your Goals</item>
+    </string-array>
+
+
+</resources>

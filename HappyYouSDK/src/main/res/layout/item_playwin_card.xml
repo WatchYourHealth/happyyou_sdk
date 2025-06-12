@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlPlayWinCard"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:background="@drawable/spin_win_dashboard_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/tvQuizTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="8dp"
+                android:text="@string/spin_and_win"
+                android:textFontWeight="500"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tvQuizCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/spin_and_win"
+                android:textFontWeight="500"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/ivQuizLogo"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/spin_reward_circle" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clStreak"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:cardCornerRadius="20sp"
+                    app:cardElevation="2sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="4dp">
+
+                        <ImageView
+                            android:layout_width="16sp"
+                            android:layout_height="16sp"
+                            android:layout_marginVertical="4sp"
+                            android:layout_marginStart="4sp"
+                            android:src="@drawable/ic_hu_flame" />
+
+                        <TextView
+                            android:id="@+id/tvStreak"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="4sp"
+                            android:layout_marginLeft="4sp"
+                            android:layout_marginRight="4sp"
+                            android:fontFamily="sans-serif"
+                            android:lineHeight="16sp"
+                            android:text="10/10"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvQuizButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FB7373"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvQuizButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginVertical="8dp"
+                    android:text="Play Now"
+                    android:textColor="@color/white" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/pink_circle_bg"
+            android:src="@drawable/ic_check"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/one_sided_curved_border_info"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/suggestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_med_1"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_ten"
+                style="@style/font_12sp_roboto_medium_black"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/wyh_round_btn_light_red"
+                android:backgroundTint="@color/orange_new"
+                android:text="10 mins"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_twenty"
+                style="@style/font_12sp_roboto_medium_black"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/wyh_round_btn_light_red"
+                android:backgroundTint="@color/orange_new"
+                android:text="20 mins"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_forty"
+                style="@style/font_12sp_roboto_medium_black"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/wyh_round_btn_light_red"
+                android:backgroundTint="@color/orange_new"
+                android:text="40 mins"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMed2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:layout_marginVertical="@dimen/margin_32dp">
+
+            <TextView
+                android:id="@+id/tvAddNew"
+                style="@style/font_15sp_roboto_medium_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="Add New" />
+
+            <EditText
+                android:id="@+id/etMins"
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/wyh_btn_grey_8dp"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="2"
+                android:paddingLeft="8dp"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMins"
+                style="@style/font_12sp_roboto_medium_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="0.3"
+                android:text="mins" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/wyh_round_btn"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Add"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnViewMore"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wyh_round_btn"
+                android:text="@string/view_more"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnClosed"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wyh_round_btn_dark_red"
+                android:text="@string/close"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

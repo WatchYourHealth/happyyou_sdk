@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="fab_menu_icons">
+        <item>@drawable/ic_group_add</item>
+        <item>@drawable/ic_my_hub</item>
+        <item>@drawable/ic_my_hub</item>
+        <item>@drawable/ic_my_hub</item>
+        <item>@drawable/ic_my_hub</item>
+        <item>@drawable/ic_my_hub</item>
+
+    </array>
+
+    <array name="fab_menu_colors">
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+        <item>#80CBC4</item>
+
+    </array>
+
+</resources>

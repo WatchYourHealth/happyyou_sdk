@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_profile"
+        android:iconTint="@color/black"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/menu_addUserDetails"
+        android:icon="@drawable/ic_edit"
+        android:iconTint="@color/black"
+        android:title="Update Details" />
+
+    <item
+        android:id="@+id/menu_addFamily"
+        android:icon="@drawable/ic_family_hub"
+        android:iconTint="@color/black"
+        android:title="Add Family" />
+
+    <item
+        android:id="@+id/menu_sync_device"
+        android:icon="@drawable/ic_sync_device"
+        android:iconTint="@color/black"
+        android:title="Sync Your Device" />
+
+    <!--<item
+        android:id="@+id/menu_happy_mart"
+        android:icon="@drawable/ic_happy_mart"
+        android:iconTint="@color/black"
+        android:title="Happy Mart" />-->
+    <item
+        android:id="@+id/menu_corporate_account"
+        android:icon="@drawable/add_user"
+        android:iconTint="@color/black"
+        android:title="Link Your Corporate" />
+    <item
+        android:id="@+id/menu_eye_checkup"
+        android:icon="@drawable/baseline_remove_red_eye_24"
+        android:iconTint="@color/black"
+        android:visible="false"
+        android:title="Eye Checkup" />
+    <item
+        android:id="@+id/menu_kotak_policy"
+        android:icon="@drawable/ic_kotak_policy_icon"
+        android:iconTint="@color/black"
+        android:title="Kotak Policy" />
+
+    <item
+        android:id="@+id/menu_add_referral_code"
+        android:icon="@drawable/add_user"
+        android:iconTint="@color/black"
+        android:title="@string/add_referral_code" />
+
+    <item
+        android:id="@+id/menu_contacts"
+        android:icon="@drawable/ic_contacts"
+        android:iconTint="@color/black"
+        android:visible="false"
+        android:title="Share Invite" />
+    <!--
+        <item
+            android:id="@+id/menu_abha"
+            android:icon="@drawable/ic_abha_create_id"
+            android:iconTint="@color/black"
+            android:title="ABHA" />-->
+
+    <!--  <item
+          android:id="@+id/menuAtAGlance"
+          android:icon="@drawable/ic_at_a_glance"
+          android:iconTint="@color/black"
+          android:title="At a Glance" />
+
+
+
+      <item
+          android:id="@+id/menuSettings"
+          android:icon="@drawable/ic_settings"
+          android:iconTint="@color/black"
+          android:title="Settings" />
+
+      <item
+          android:id="@+id/menuFaq"
+          android:icon="@drawable/ic_faq"
+          android:iconTint="@color/black"
+          android:title="FAQ" />-->
+    <item
+        android:id="@+id/menuReminders"
+        android:icon="@drawable/ic_reminders"
+        android:iconTint="@color/black"
+        android:title="Reminders" />
+    <item
+        android:id="@+id/menuSupport"
+        android:icon="@drawable/ic_need_support"
+        android:iconTint="@color/black"
+        android:title="Need Support" />
+
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_filter"
+        android:iconTint="@color/black"
+        android:title="Notification" />
+
+    <item
+        android:id="@+id/scanqr"
+        android:icon="@drawable/ic_qrscaner"
+        android:iconTint="@color/black"
+        android:title="Scan QR" />
+
+    <item
+        android:id="@+id/aboutUs"
+        android:icon="@drawable/ic_faq"
+        android:iconTint="@color/black"
+        android:title="About Us" />
+
+
+</menu>

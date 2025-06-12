@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/splash_bg"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/includeBack"
+                    layout="@layout/layout_back" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvCPRVideo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvIndicators"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivCallHelp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/ic_call_for_help" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:gravity="center"
+                                android:text="Be Prepared"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="27"
+                            android:orientation="horizontal"
+                            android:padding="16dp"
+                            android:weightSum="3">
+
+                            <RelativeLayout
+                                android:id="@+id/llFirstAidKit"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="5dp"
+                                android:background="@drawable/ic_light_blue_button_bg"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginVertical="16dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_margin="24dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_first_aid"
+                                    app:tint="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/tvBePrepared1"
+                                    style="@style/font_14sp_roboto_medium_white"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="@dimen/margin_16dp"
+                                    android:paddingTop="32dp"
+                                    android:text="First Aid Kit \nComponents"
+                                    android:textAllCaps="false"
+                                    android:textSize="13dp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/llEmergencyKit"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ic_light_pink_button_bg"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginVertical="16dp"
+                                    android:layout_marginStart="8dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_emergency_kit"
+                                    app:tint="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/tvBePrepared2"
+                                    style="@style/font_14sp_roboto_medium_white"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="@dimen/margin_16dp"
+                                    android:paddingTop="32dp"
+                                    android:text="Emergency Kit\nComponents"
+                                    android:textAllCaps="false"
+                                    android:textSize="13dp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/llFirebrigade"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_weight="33"
+                                android:background="@drawable/ic_fire_brigade_bg"
+                                android:orientation="vertical"
+                                android:visibility="invisible">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="32dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginVertical="16dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/ic_fire_brigade"
+                                    app:tint="#FFFDAD56" />
+
+                                <TextView
+                                    style="@style/textViewWhite"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:paddingTop="32dp"
+                                    android:text="Fire\nBrigade" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivTips"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/ic_tips" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:gravity="center"
+                                android:text="Tips"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cvFuelLog"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            app:cardCornerRadius="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/wyh_round_btn_grey"
+                                android:orientation="horizontal"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/tvTip"
+                                    style="@style/font_14sp_roboto_regular_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/cpr_tips" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/tvKnowMore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="-8dp"
+                            android:layout_marginEnd="@dimen/margin_16dp"
+                            android:text="Know More"
+                            style="@style/font_16sp_roboto_medium_black"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivFirstAid"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/ic_first_aid" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:gravity="center"
+                                android:text="First Aid"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvInjuries"
+                            android:layout_width="match_parent"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvInjuriesIndicators"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10dp"
+                            android:layout_gravity="center_horizontal" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:gravity="center|left"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivDisasterManagement"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/disaster_management_ice" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:gravity="center"
+                                android:text="Disaster Management"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvDisasterManagement"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_8dp"
+                            android:layout_marginStart="16dp" />
+
+                        <!-- <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="0dp"
+                             android:layout_weight="27"
+                             android:orientation="horizontal"
+                             android:padding="16dp">
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_ambulance_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_dog_bite" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Dog Bite" />
+
+
+                             </RelativeLayout>
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_fire_brigade_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_snake_bite" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Snake Bite" />
+
+
+                             </RelativeLayout>
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_police_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_injury_wound" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Injury &amp;\n Wound" />
+
+
+                             </RelativeLayout>
+                         </LinearLayout>
+
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="0dp"
+                             android:layout_weight="27"
+                             android:orientation="horizontal"
+                             android:padding="16dp">
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_fire_brigade_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_epilepsy" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Epilepsy" />
+
+
+                             </RelativeLayout>
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_police_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_blood_loss" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Blood loss" />
+
+
+                             </RelativeLayout>
+
+                             <RelativeLayout
+                                 android:layout_width="0dp"
+                                 android:layout_height="wrap_content"
+                                 android:layout_weight="33"
+                                 android:background="@drawable/ic_ambulance_bg"
+                                 android:orientation="vertical">
+
+                                 <ImageView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="32dp"
+                                     android:layout_alignParentLeft="true"
+                                     android:layout_alignParentTop="true"
+                                     android:layout_marginVertical="16dp"
+                                     android:layout_marginLeft="16dp"
+                                     android:src="@drawable/ic_dehydration" />
+
+                                 <TextView
+                                     style="@style/textViewWhite"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_centerInParent="true"
+                                     android:gravity="center"
+                                     android:paddingTop="32dp"
+                                     android:text="Dehydration" />
+
+
+                             </RelativeLayout>
+                         </LinearLayout>-->
+
+                        <Button
+                            android:id="@+id/btnSubmit"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16sp"
+                            android:background="@drawable/wyh_round_btn_dark_red"
+                            android:gravity="center"
+                            android:paddingHorizontal="64dp"
+                            android:text="Done"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

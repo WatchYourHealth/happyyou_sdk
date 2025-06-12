@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/rlItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/ic_light_blue_button_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivImage1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/margin_32dp" />
+
+                <TextView
+                    android:id="@+id/tvWinningName1"
+                    style="@style/font_14sp_roboto_medium_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ivImage1"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="4dp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.5"
+                android:background="@drawable/dark_gray_rc_bg_8dp"
+                android:gravity="center"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/tvPointsCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Members: 0"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivComIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_group"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="1dp"
+            app:civ_circle_background_color="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/ivComIcon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvComName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Community Name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvComMembers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3 Members"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>-->
+
+    </LinearLayout>
+</layout>

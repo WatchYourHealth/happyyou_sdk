@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_history"
+        android:title="History"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_badges"
+        android:title="Badges"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_collectible"
+        android:title="Collectible"
+        app:showAsAction="never" />
+
+   <item
+       android:id="@+id/menu_share_and_earn"
+       android:title="Share and Earn"
+       app:showAsAction="never">
+
+       <!--<menu>
+           <item
+               android:id="@+id/menu_level"
+               android:title="Level"
+               app:showAsAction="never" />
+           <item
+               android:id="@+id/menu_eng"
+               android:title="Earn and Grab"
+               app:showAsAction="never" />
+           <item
+               android:id="@+id/menu_topup"
+               android:title="TopUp"
+               app:showAsAction="never" />
+       </menu>-->
+
+   </item>
+</menu>

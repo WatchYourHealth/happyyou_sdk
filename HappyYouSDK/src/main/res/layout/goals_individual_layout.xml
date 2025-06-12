@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/goal_individual_parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_light_pink_button_bg">
+
+        <LinearLayout
+            android:id="@+id/winning_goal_img_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/individual_goal_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tele_consultation"
+                android:layout_marginStart="8dp"
+                app:tint="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/individual_goal_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="Help a new friend"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <ImageView
+            android:id="@+id/winning_goal_complete_check_img"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:background="@drawable/blue_circle"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"/>
+
+
+        <ImageView
+            android:id="@+id/deleteGoal"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/delete_icon"
+            app:tint="@color/white" />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wheel_screen_bg"
+        tools:context=".SpinWheel.Activities.spinwheelreward.SpinWheelRewardsActivity">
+
+        <TextView
+            android:id="@+id/tvRewardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:drawableLeft="@drawable/back_icon"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/black"
+            android:fontFamily="sans-serif"
+            android:text="@string/spin_and_win"
+            android:textColor="@color/black"
+            android:textFontWeight="500"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvMyRewards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/cyan_blue"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvRewardTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvRewardTitle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                android:fontFamily="sans-serif"
+                android:text="My Activities"
+                android:textFontWeight="500"
+                android:textSize="10dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="42dp"
+            android:background="@drawable/golden_border_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRewardTitle">
+
+            <TextView
+                android:id="@+id/tvSpinTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textFontWeight="600"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Event Title" />
+
+            <ImageView
+                android:id="@+id/ivCelebration"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/luckyWheel"
+                app:layout_constraintTop_toTopOf="@id/tvSpinTitle" />
+
+            <ImageView
+                android:id="@+id/ivSpinArrowout"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/spin_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpinTitle" />
+
+            <ImageView
+                android:id="@+id/ivOuterCircler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:outlineAmbientShadowColor="#FFF655"
+                android:src="@drawable/ic_spin_circle_background_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivSpinArrowout" />
+
+            <com.wyh.happyyousdk.utils.wheelview.LuckyWheel
+                android:id="@+id/luckyWheel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                app:background_color="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@id/ivOuterCircler"
+                app:layout_constraintEnd_toEndOf="@id/ivOuterCircler"
+                app:layout_constraintStart_toStartOf="@id/ivOuterCircler"
+                app:layout_constraintTop_toTopOf="@id/ivOuterCircler"
+                app:showArrow="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="@dimen/_32sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/luckyWheel">
+
+                <Button
+                    android:id="@+id/btn_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/spin_btn_img"
+                    android:fontFamily="sans-serif"
+                    android:text="Tap"
+                    android:textAllCaps="false"
+                    android:textFontWeight="600"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvEvent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:fontFamily="sans-serif"
+                    android:text="1 Weekly Free spin &amp; 2 Bonus Spins"
+                    android:textAlignment="center"
+                    android:textFontWeight="400"
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_event" />
+
+                <Button
+                    android:id="@+id/btn_weekly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/spin_btn_img"
+                    android:fontFamily="sans-serif"
+                    android:textAllCaps="false"
+                    android:textFontWeight="600"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tvEvent"
+                    tools:text="Free Spin in 21h 15m 04s" />
+
+                <TextView
+                    android:id="@+id/tvWeekly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="center"
+                    android:textFontWeight="400"
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_weekly"
+                    tools:text="1 Weekly Free spin &amp; 2 Bonus Spins 1 Weekly Free spin &amp; 2 Bonus Spins" />
+
+                <Button
+                    android:id="@+id/btn_burn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/spin_btn_img"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/click_to_spin"
+                    android:textAllCaps="false"
+                    android:textFontWeight="600"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWeekly" />
+
+                <LinearLayout
+                    android:id="@+id/llBurn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_burn"
+                    android:layout_marginHorizontal="16dp">
+                    <TextView
+                        android:id="@+id/tvBurn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="sans-serif"
+                        android:textAlignment="center"
+                        android:textFontWeight="400"
+                        android:textSize="12dp"
+                        tools:text="1 Weekly Free spin" />
+
+                    <ImageView
+                        android:id="@+id/ivSpinInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_info"
+                        android:visibility="gone"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/grey"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llGeneral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/llBurn"
+                    android:layout_marginHorizontal="16dp">
+                    <TextView
+                        android:id="@+id/tvGeneral"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="sans-serif"
+                        android:textAlignment="center"
+                        android:textFontWeight="400"
+                        android:textSize="12dp"
+                        tools:text="1 Weekly Free spin" />
+
+                    <ImageView
+                        android:id="@+id/ivGeneralSpinInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_info"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/grey"/>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

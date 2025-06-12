@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:elevation="@dimen/margin_10dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_black_24dp"/>
+
+        <dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout
+            android:id="@+id/scratchView"
+            android:layout_marginHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:cardElevation="0dp"
+            app:scratchDrawable="@drawable/scratch_card_orange_new"
+            app:scratchEnabled="true"
+            app:scratchRevealFullAtPercent="60"
+            app:scratchWidth="50dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/one_sided_curved_border_info"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/ivVendorLogo"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/reward_expire_img" />
+
+
+                <LinearLayout
+                    android:id="@+id/wellness_diary_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivVendorLogo">
+
+                    <TextView
+                        android:id="@+id/reward_status_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_worries"
+                        android:textSize="21sp"
+                        android:textColor="@color/pink"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_medium">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/navigation_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/wellness_diary_layout"
+                    android:text="@string/navigation_tv"
+                    android:importantForAutofill="no"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toEndOf="@id/ivVendorLogo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/navigation_tv"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/voucher_navigation"
+                    android:importantForAutofill="no"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toEndOf="@id/ivVendorLogo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/navigation_desc"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtVoucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="Enter Coupon Code"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:letterSpacing="0.03"
+                    android:maxLength="10"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/llActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_10dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/view_rewards"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/blue_rc_bg_light_8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="View"
+                        android:layout_marginTop="16dp"
+                        android:textAllCaps="false"
+                        android:visibility="gone"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout>
+
+
+    </RelativeLayout>
+
+</layout>

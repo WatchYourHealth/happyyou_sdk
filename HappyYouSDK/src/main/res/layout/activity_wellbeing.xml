@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/includeBack"
+                    layout="@layout/layout_back" />
+
+                <ImageView
+                    android:id="@+id/ivHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="340dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/know_your_wellbeing_bg" />
+
+                <LinearLayout
+                    android:id="@+id/llButtons1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ivHead"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="-16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rlKnowYourHealth"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_pink_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivInfo1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_know_your_health"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvIdealWeight"
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Health\nScore" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlKnowYourImmunity"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/light_blue_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivInfo2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_immunity" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Immunity\nScore" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlDass21"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_orange_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivInfo3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_dass_21" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="DAS\nScore" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llButtons2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/llButtons1"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rlFaceScan"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/light_blue_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivInfo4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_facescan"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Face Scan" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlMentalWellness"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/ic_light_orange_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivMentalWellnessInfo"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/mental_health"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Mental Wellness" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlRespiratory"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_pink_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivRespiratoryInfo"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/respiratory_"
+                                android:tint="@color/white" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Respiratory Health" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llButtons3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/llButtons2"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <RelativeLayout
+                        android:id="@+id/rlHeartAge"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_light_pink_button_bg">
+
+                        <ImageView
+                            android:id="@+id/ivInfo5"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_5dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_heart_age" />
+
+                            <TextView
+                                style="@style/font_14sp_roboto_medium_white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="Heart Age" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+
+    </RelativeLayout>
+</layout>

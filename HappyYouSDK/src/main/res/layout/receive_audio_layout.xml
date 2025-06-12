@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1.7"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl1"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:padding="18dp"
+                        android:background="@drawable/ic_receive_msg_bg">
+
+                        <LinearLayout
+                            android:id="@+id/receive_audio_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <SeekBar
+                                android:id="@+id/receiver_audio_seekbar"
+                                android:layout_width="150dp"
+                                android:layout_height="match_parent"
+                                android:max="30"
+                                android:progress="0" />
+
+                            <ImageView
+                                android:id="@+id/receiver_audio_play_btn"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/play">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_message"
+                            style="@style/font_15sp_roboto_regular_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/receive_audio_layout"
+                            android:paddingStart="30dp"
+                            android:text="bkjvdh gjth"
+                            />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/recievearow"
+                        android:scaleType="fitXY"
+                        android:layout_below="@+id/rl1"/>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_below="@+id/rl1"
+                        android:layout_toStartOf="@+id/rl1"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:text="12:12"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginStart="4dp"
+                            android:text="By User"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

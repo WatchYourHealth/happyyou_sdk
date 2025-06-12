@@ -1,0 +1,352 @@
+plugins {
+    id 'com.android.library'
+//    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'maven-publish'
+    // id 'kotlin-android-extensions'
+}
+
+/*tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['-Xlint:all', '-Werror', '-Xmaxwarns']
+}*/
+
+
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+println "Looking for API key at: ${apikeyPropertiesFile.absolutePath}"
+println "File exists? " + apikeyPropertiesFile.exists()
+
+apply plugin: StringCare
+// default config
+stringcare {
+    debug false
+    assetsFiles = ["*.json"]
+    stringFiles = ['strings.xml']
+    srcFolders = ['src/main']
+}
+
+android {
+    namespace 'com.wyh.happyyousdk'
+    compileSdk 34
+    signingConfigs {
+        release {
+            v1SigningEnabled false
+            v2SigningEnabled true
+        }
+    }
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        // should correspond to key/value pairs inside the file
+        buildConfigField("String", "PUBLIC_KEY", apikeyProperties['PUBLIC_KEY'])
+        buildConfigField("String", "PRIVATE_KEY", apikeyProperties['PRIVATE_KEY'])
+
+        consumerProguardFiles 'proguard-rules.pro'
+
+        /* ndk {
+             abiFilters "armeabi-v7a", "arm64-v8a"
+         }*/
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding = true
+        buildConfig = true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        uat {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    packagingOptions {
+        pickFirst 'lib/arm64-v8a/libopencv_java4.so'
+        pickFirst 'lib/x86_64/libopencv_java4.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libopencv_java4.so'
+        pickFirst 'lib/x86/libopencv_java4.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst "lib/x86/libc++_shared.so"
+        jniLibs {
+            useLegacyPackaging = false
+            exclude "**/libc++_shared.so"
+        }
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    /*afterEvaluate {
+        task androidReleaseAar(type: Copy) {
+            from "$buildDir/outputs/aar/$project.name-release.aar"
+            into "$rootDir/my_library_release.aar"
+            // You can add further tasks here to copy to a specified location
+        }
+    }*/
+
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.arunSriramulaWYH'
+                artifactId = 'happyyou_sdk'
+                version = '1.0.3'
+
+                from components.release
+
+                pom {
+                    name = "HappyYou SDK"
+                    description = "Android SDK for HappyYou app"
+                    url = "https://github.com/arunSriramulaWYH/happyyou_sdk"
+
+                    licenses {
+                        license {
+                            name = "The MIT License"
+                            url = "https://opensource.org/licenses/MIT"
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = "arun"
+                            name = "Arun Sriramula"
+                            email = "contact@watchyourhealth.com"
+                        }
+                    }
+
+                    scm {
+                        connection = "scm:git:git://github.com/arunSriramulaWYH/happyyou_sdk.git"
+                        developerConnection = "scm:git:ssh://git@github.com/arunSriramulaWYH/happyyou_sdk.git"
+                        url = "https://github.com/arunSriramulaWYH/happyyou_sdk"
+                    }
+                }
+
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/arunSriramulaWYH/happyyou_sdk")
+                credentials {
+                    username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                    password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
+                }
+//                url = uri("${rootProject.projectDir}/repo")
+            }
+        }
+    }
+}
+
+configurations.all {
+    exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+
+    api 'androidx.appcompat:appcompat:1.6.1'
+    api 'com.google.android.material:material:1.12.0'
+    api 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    api 'com.google.firebase:firebase-config:21.2.1'
+//    implementation project(':app')
+    //implementation files('libs\\watchyourhealthSDK.jar')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+
+    api 'com.mikhaellopez:circularprogressbar:3.1.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.balysv:material-ripple:1.0.2'
+    api 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    api "io.github.stringcare:library:4.2.1"
+
+
+    //Include Jar file
+    implementation files('libs/watchyourhealthSDK.jar')
+//    implementation files('libs/rppg_core-0.1.0.aar')
+//    implementation(files("libs/wyhsdk.aar"))
+
+    //Authorization & fitness API (GoogleFit)
+    api 'com.google.android.gms:play-services-fitness:20.0.0'
+    api 'com.google.android.gms:play-services-auth:19.2.0'
+
+    //For OTP field
+    api 'com.github.aabhasr1:OtpView:v1.1.2'
+
+    // For OTP auto read
+    api 'com.google.android.gms:play-services-auth:20.4.0'
+    api 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
+
+    //Expandable view
+    api 'com.github.cachapa:ExpandableLayout:2.9.2'
+
+    //Circle Image View
+    api 'de.hdodenhof:circleimageview:3.1.0'
+
+    api 'com.github.esafirm.android-image-picker:imagepicker:2.4.7'
+
+    //Contact Picker
+    api 'com.1gravity:android-contactpicker:1.3.2'
+    api 'com.google.android.material:material:1.2.1'
+
+    api 'com.github.bumptech.glide:glide:4.13.0'
+
+//    api platform('com.google.firebase:firebase-bom:31.1.1')
+//    api 'com.google.firebase:firebase-messaging'
+//    api 'com.google.firebase:firebase-crashlytics'
+//    api 'com.google.firebase:firebase-analytics'
+
+    //object wrapper
+    api 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+    api 'com.fasterxml.jackson.core:jackson-core:2.8.5'
+    api 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
+//    api 'com.google.firebase:firebase-storage'
+//    api 'com.google.firebase:firebase-database'
+
+//    api 'com.google.firebase:firebase-dynamic-links'
+//    api 'com.google.firebase:firebase-auth:21.1.0'
+//    api 'com.google.firebase:firebase-analytics:21.2.0'
+
+    //Glide
+    api 'jp.wasabeef:glide-transformations:4.3.0'
+
+    //Android YT video player
+    //implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    api 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.1'
+
+    api 'com.airbnb.android:lottie:5.2.0'
+
+    //Tool Tip
+    //implementation 'com.github.florent37:viewtooltip:1.2.0'
+    api 'com.github.florent37:viewtooltip:f79a8955ef'
+
+//    api platform('com.google.firebase:firebase-bom:28.0.1')
+
+    api 'com.google.android.gms:play-services-location:21.0.1'
+
+    // camerax
+    def camerax_version = '1.0.0-rc01'
+    def camerax_view_version = '1.0.0-alpha20'
+    api "androidx.camera:camera-core:${camerax_version}"
+    api "androidx.camera:camera-camera2:${camerax_version}"
+    api "androidx.camera:camera-lifecycle:${camerax_version}"
+    api "androidx.camera:camera-view:${camerax_view_version}"
+
+    //mlkit
+    def mlkit_version = '16.0.3'
+    api "com.google.mlkit:face-detection:${mlkit_version}"
+
+    //socket
+    api "com.neovisionaries:nv-websocket-client:2.4"
+
+    //opencv
+    def opencv_version = '4.3.0'
+    api "com.github.iamareebjamal:opencv-android:${opencv_version}"
+
+    //Scratch View
+    //implementation 'in.codeshuffle.scratchcardlayout:ScratchCardLayout:1.0.8'
+    api 'com.github.skymansandy:scratchCardLayout:v1.0.8'
+
+    //Exo Player
+    api 'com.google.android.exoplayer:exoplayer:2.18.0'
+
+    //screen size
+    api 'com.intuit.sdp:sdp-android:1.1.0'
+
+    api "com.squareup.okhttp3:okhttp:3.9.0"
+    api "com.squareup.okhttp3:logging-interceptor:3.9.0"
+
+    //To detect emulator
+    api 'com.github.mofneko:EmulatorDetector:1.1.0'
+
+    api 'com.scottyab:rootbeer-lib:0.1.0' //To detect Device is Rooted or not
+
+    //api "com.github.barteksc:android-pdf-viewer:2.8.2"
+    api 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
+
+    api 'org.greenrobot:eventbus:3.2.0'
+
+    //QRSCANNER
+    api 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+    //Implementation 'io.github.g00fy2.quickie:quickie-bundled:1.6.0'
+
+
+    api 'com.journeyapps:zxing-android-embedded:3.6.0'
+    api 'com.google.zxing:core:3.2.0'
+    api 'com.google.android.flexbox:flexbox:3.0.0'
+
+
+    //implementation 'com.rowland.strippedprogressbar:StrippedProgressBar:0.0.3'
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
+
+    //api 'com.github.iammert:MultiSearchView:0.3'
+    api 'androidx.security:security-crypto:1.1.0-alpha06' //For encrypted shared preference
+    //api 'com.github.iammert:MultiSearchView:0.3'
+//    api(files("libs/MultiSearchView-0.3.aar"))
+    //api 'com.devlomi.hidely:hidely:1.0.0'
+    api 'com.github.3llomi:hidely:1.0'
+    api 'com.karumi:dexter:6.2.2'
+    api 'com.github.squti:Android-Wave-Recorder:1.7.0'
+    api 'com.github.squti:Android-Wave-Recorder:1.7.0'
+
+
+    //api 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
+    api 'com.github.BelooS:ChipsLayoutManager:v0.3.7'
+
+    api 'com.android.installreferrer:installreferrer:2.2'
+    api 'androidx.cardview:cardview:1.0.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    api("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    api 'androidx.biometric:biometric:1.2.0-alpha05'
+
+    //HealthConnect
+    api "androidx.health.connect:connect-client:1.1.0-alpha07"
+    //Meta SDK
+//    implementation 'com.facebook.android:facebook-android-sdk:latest.release' ///// Meta Removed 17/03/2025
+
+    //Apptrove SDK
+    api 'com.trackier:android-sdk:1.6.64'  // Add this Trackier SDK dependency in the build.gradle
+    api 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+
+}
+
+//apply plugin: 'com.google.gms.google-services'
+

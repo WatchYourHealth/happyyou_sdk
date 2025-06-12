@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@drawable/ic_tree_cloud_bg"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLevel"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Level 0"
+                        android:textAlignment="center"
+                        android:textSize="22sp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressLevel"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvLevel"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:max="4"
+                        android:progress="0"
+                        app:indicatorColor="#F8BA00"
+                        app:trackColor="@color/happy_dark_grey"
+                        app:trackCornerRadius="16dp"
+                        app:trackThickness="5dp" />
+
+                    <TextView
+                        android:id="@+id/tv_next_milestone_msg"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progressLevel"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentPoints"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_next_milestone_msg"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/blue_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_top_blue_bg" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_stamp_count"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:id="@+id/llGrabText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:id="@+id/iv_stamp"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginEnd="4dp"
+                                        android:src="@drawable/ic_points_black" />
+
+                                    <TextView
+                                        android:id="@+id/grab_stamps"
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toEndOf="@id/iv_stamp"
+                                        android:text="Available Points"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tv_grab_stamps"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true">
+
+                        <Button
+                            android:id="@+id/btnRedeem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/wyh_round_btn_dark_red"
+                            android:text="@string/redeem"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/ivInfoLevel"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="@dimen/margin_8dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignRight="@+id/btnRedeem"
+                            android:src="@drawable/ic_info"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+
+
+                    <ImageView
+                        android:id="@+id/iv_angle_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_angle_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="95dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_angle_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_angle_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="115dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_angle_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_first"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_above="@+id/iv_angle_4"
+                        android:layout_marginStart="@dimen/margin_8dp"
+                        android:layout_toRightOf="@+id/iv_flag_bear"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_second"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_above="@id/iv_angle_5"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_third"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_above="@+id/iv_angle_4"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_toLeftOf="@+id/iv_fourth"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_fourth"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_above="@id/iv_angle_3"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_toStartOf="@id/iv_fifth"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_fifth"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_above="@id/iv_angle_2"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_toStartOf="@id/iv_sixth"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_sixth"
+                        android:layout_width="17dp"
+                        android:layout_height="19dp"
+                        android:layout_above="@id/iv_angle_1"
+                        android:layout_marginRight="7dp"
+                        android:layout_toLeftOf="@id/iv_flag"
+                        android:src="@drawable/ic_lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_flag_bear"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="34dp"
+                        android:src="@drawable/ic_bear_flag" />
+
+                    <ImageView
+                        android:id="@+id/iv_flag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_above="@id/iv_angle_1"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_straight_flag" />
+
+                    <TextView
+                        android:id="@+id/tvNextLevel"
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/iv_flag"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="Level: 1"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/iv_scratch"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_above="@id/tvNextLevel"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/scratch_card_orange_new"
+                        android:visibility="gone" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_grab_opportunities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/scracthWinLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:background="?attr/selectableItemBackground">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_scratch_and_win" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="32dp"
+                                android:text="@string/scratch_and_win"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvScratchAndWin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvScratchAndWinIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_activities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_activities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:background="?attr/selectableItemBackground">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_activities" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="32dp"
+                                android:text="Activities"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_activities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_activities_indicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llTopUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/rlTopUps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:background="?attr/selectableItemBackground">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_top_ups" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="32dp"
+                                android:text="Top-Ups"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTopUps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTopUpsIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llUpcomingActivities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <RelativeLayout
+                            android:id="@+id/rlUpcomingActivities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:background="?attr/selectableItemBackground">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_upcoming_activities" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="32dp"
+                                android:text="Upcoming Activities"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvUpcomingActivities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_16dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvUpcomingActivitiesIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginHorizontal="@dimen/margin_16dp"
+                            android:layout_marginTop="8dp" />
+
+                        <View
+                            android:id="@+id/extraHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp">
+
+                        </View>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

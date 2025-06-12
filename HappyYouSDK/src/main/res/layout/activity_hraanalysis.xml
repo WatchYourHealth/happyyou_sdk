@@ -1,0 +1,2138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/includeBack"
+            layout="@layout/layout_back"
+            android:layout_width="match_parent"
+            android:layout_height="54dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/includeBack"
+            android:layout_above="@+id/retakeButtonLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="32dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/llSectionScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/bottom_curve_blend"
+                            android:elevation="4dp"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ivBearBodyProfile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/ic_hra_body_profile_0" />
+
+                                <TextView
+                                    style="@style/font_15sp_roboto_regular_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Body" />
+
+                                <TextView
+                                    android:id="@+id/tvBodyProfileScore"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0%"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ivBearStress"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/ic_hra_lifestyle_0" />
+
+                                <TextView
+                                    style="@style/font_15sp_roboto_regular_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Lifestyle" />
+
+                                <TextView
+                                    android:id="@+id/tvLifestyleScore"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0%"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ivBearLifestyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/ic_hra_stress_0" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        style="@style/font_15sp_roboto_regular_black"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:text="Stress" />
+
+                                    <ImageView
+                                        android:id="@+id/ivInfoStress"
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:layout_gravity="bottom"
+                                        android:tint="@color/black"
+                                        android:layout_marginStart="4dp"
+                                        android:src="@drawable/ic_info" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tvStressScore"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0%"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ivBearDiet"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/ic_hra_diet_0" />
+
+                                <TextView
+                                    style="@style/font_15sp_roboto_regular_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Diet" />
+
+                                <TextView
+                                    android:id="@+id/tvDietScore"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0%"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tvHealthScoreMean"
+                            android:layout_marginBottom="-37dp">
+
+                            <LinearLayout
+                                android:layout_width="260dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="110dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/font_16sp_roboto_regular_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="32dp"
+                                    android:layout_marginTop="32dp"
+                                    android:gravity="center"
+                                    android:text="Your Total Health Score" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/tvScore"
+                                        style="@style/font_32sp_roboto_medium_black"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0" />
+
+                                    <TextView
+                                        android:id="@+id/tvTotalScore"
+                                        style="@style/font_20sp_roboto_medium_black"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="/900" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/progressHealthScore"
+                                android:layout_width="260dp"
+                                android:layout_height="260dp"
+                                android:layout_centerHorizontal="true"
+                                app:cpb_background_progressbar_color="#ECEFF4"
+                                app:cpb_background_progressbar_width="8dp"
+                                app:cpb_progress_direction="to_left"
+                                app:cpb_progress_max="1800"
+                                app:cpb_progressbar_color="@color/pink"
+                                app:cpb_progressbar_width="8dp"
+                                app:cpb_round_border="true"
+                                app:cpb_start_angle="270" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvHealthScoreMean"
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/llSectionScore"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="48dp"
+                            android:text="@string/health_score_mean"
+                            android:textStyle="bold" />
+
+                        <WebView
+                            android:id="@+id/tvHealthScoreMeanText"
+                            style="@style/font_12sp_roboto_medium_black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvHealthScoreMean"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:justificationMode="inter_word"
+                            android:lineSpacingExtra="1dp"
+                            android:text="@string/health_score_mean_text" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp">
+
+                    <LinearLayout
+                        android:id="@+id/llBMI"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/light_blue_button_bg"
+                            android:clipChildren="true"
+                            android:clipToPadding="true">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="4dp"
+                                android:src="@drawable/ic_body_mass_index_button"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvBMI"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="24sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:alpha="0.5"
+                                android:background="@drawable/transparent_black_rc_bg_8dp"
+                                android:gravity="center"
+                                android:padding="16dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Body Mass Index"
+                                android:textColor="@color/white"
+                                android:textSize="10dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_light_pink_button_bg">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="4dp"
+                                android:src="@drawable/ic_ideal_weight"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvIdealWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvIdealWeight"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="kilograms"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:alpha="0.5"
+                                android:background="@drawable/transparent_black_rc_bg_8dp"
+                                android:gravity="center"
+                                android:padding="16dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Ideal Weight"
+                                android:textColor="@color/white"
+                                android:textSize="10dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_light_orange_button_bg">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="4dp"
+                                android:src="@drawable/ic_body_fat_percentage"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvBFatPercentage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="0%"
+                                android:textColor="@color/white"
+                                android:textSize="24sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:alpha="0.5"
+                                android:background="@drawable/transparent_black_rc_bg_8dp"
+                                android:gravity="center"
+                                android:padding="16dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Estimated Body Fat"
+                                android:textColor="@color/white"
+                                android:textSize="10dp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llVitals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llBMI"
+                        android:visibility="gone"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="90dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_vitals" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Face Scan" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvHeartRate"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Heart Rate"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvRR"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Respiratory Rate" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvOxygen"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:gravity="center"
+                                    android:text="0"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="SpO2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvBP"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:gravity="center"
+                                    android:text="0/0"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Systolic/Diastolic" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <Button
+                                android:id="@+id/btnRetakeVitals"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="36dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/wyh_round_btn"
+                                android:fontFamily="@font/roboto_black"
+                                android:gravity="center"
+                                android:text="Rescan"
+                                android:textAllCaps="false"
+                                android:textColor="@android:color/white" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:alpha="0.1"
+                    android:background="@color/black" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llRisk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="32dp"
+                        android:orientation="vertical">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_risk" />
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="Concern"/>
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/ivInfoConcern"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/ic_info"
+                                android:tint="@color/black"
+                                android:visibility="visible" />
+
+                        </RelativeLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvCardioScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressCardio"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_pink"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Cardiovascular" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvDiabetesScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressDiabetes"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_pink"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Diabetes" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvDepressionScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressDepression"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_orange"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Depression" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvSleepScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressSleep"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_orange"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Sleep" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvNutritionScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressNutrition"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_blue"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Nutritional" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvHydrationScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressHydration"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_blue"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Hydration" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvWeightScore"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="0/10" />
+
+                                    </LinearLayout>
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/progressWeight"
+                                        android:layout_width="90dp"
+                                        android:layout_height="90dp"
+                                        app:cpb_background_progressbar_color="#ECEFF4"
+                                        app:cpb_background_progressbar_width="4dp"
+                                        app:cpb_progress="3"
+                                        app:cpb_progress_max="10"
+                                        app:cpb_progressbar_color="@color/light_blue"
+                                        app:cpb_progressbar_width="4dp"
+                                        app:cpb_round_border="true" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    style="@style/font_12sp_roboto_medium_black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Body Weight" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llHappinessIndex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llAge"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="-34dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_happiness_status" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Your Happiness Status" />
+
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvHappiness"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/llAge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llRisk"
+                        android:layout_marginTop="-50dp"
+                        android:background="@drawable/blue_curved_blend_bg"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="24dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Age:"
+                                android:textColor="@color/white"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvAge"
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 years"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Biological Age:"
+                                android:textColor="@color/white"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvMetabolicAge"
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 years"
+                                android:textColor="@color/white"
+                                android:textSize="20dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvHappinessPercentage"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="40dp"
+                            android:layout_toStartOf="@id/rlProgressHappinessIndex"
+                            android:text="0%"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:textStyle="normal" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlProgressHappinessIndex"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true">
+
+                            <LinearLayout
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:src="@drawable/ic_happiness_index_bear" />
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Happiness\nIndex"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/progressHappinessIndex"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cpb_background_progressbar_color="#58AAB6"
+                                app:cpb_background_progressbar_width="6dp"
+                                app:cpb_progress="0"
+                                app:cpb_progress_max="100"
+                                app:cpb_progressbar_color="@color/white"
+                                app:cpb_progressbar_width="6dp"
+                                app:cpb_round_border="true" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_waist_to_height" />
+
+                        <TextView
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/ivIcon"
+                            android:text="Waist to Height Ratio" />
+
+                        <TextView
+                            android:id="@+id/tvWthrValue"
+                            style="@style/TextStyleBlack16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:text="0.0"
+                            android:textSize="20dp" />
+
+                    </RelativeLayout>
+
+                    <WebView
+                        android:id="@+id/tvWaistDesc"
+                        style="@style/font_12sp_roboto_medium_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:justificationMode="inter_word"
+                        android:letterSpacing="0.02"
+                        android:lineSpacingExtra="1dp"
+                        android:text="@string/WHtRDescription" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_bear_bmi_s" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/light_orange" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="@string/whtr_lesser"
+                                android:textSize="10dp" />
+
+                            <ImageView
+                                android:id="@+id/ivSelectedSmall"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_arrow_drop_up"
+                                android:visibility="gone"
+                                app:tint="@color/light_orange" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_weight="1.2"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_bear_bmi_m" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/light_blue" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="0.34-0.42"
+                                android:textSize="10dp" />
+
+                            <ImageView
+                                android:id="@+id/ivSelectedMedium"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_arrow_drop_up"
+                                android:visibility="gone"
+                                app:tint="@color/light_blue" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1.5"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_bear_bmi_l" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/blue" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="0.43-0.52"
+                                android:textSize="10dp" />
+
+                            <ImageView
+                                android:id="@+id/ivSelectedLarge"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_arrow_drop_up"
+                                android:visibility="gone"
+                                app:tint="@color/blue" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1.6"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_bear_bmi_xl" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/light_pink" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="0.53-0.57"
+                                android:textSize="10dp" />
+
+                            <ImageView
+                                android:id="@+id/ivSelectedXLarge"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_arrow_drop_up"
+                                android:visibility="gone"
+                                app:tint="@color/light_pink" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.8"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_bear_bmi_xxl" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/pink" />
+
+                            <TextView
+                                style="@style/TextStyleBlack16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="@string/whtr_greater"
+                                android:textSize="10dp" />
+
+                            <ImageView
+                                android:id="@+id/ivSelectedXXLarge"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_arrow_drop_up"
+                                android:visibility="gone"
+                                app:tint="@color/pink" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llStress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_stress" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_gravity="center"
+                                android:text="Stress"/>
+
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/ivInfoStressPercentage"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/ic_info"
+                            android:tint="@color/black"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/llSectionStress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/top_curve_blend"
+                            android:elevation="4dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp">
+
+                            <WebView
+                                android:id="@+id/wvStress"
+                                style="@style/font_12sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:justificationMode="inter_word"
+                                android:layout_marginBottom="20dp"
+                                android:letterSpacing="0.02"
+                                android:lineSpacingExtra="1dp"
+                                android:text="@string/stress_text"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="260dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="16dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginHorizontal="32dp"
+                                        android:layout_marginTop="32dp"
+                                        android:gravity="center"
+                                        android:text="Stress Meter" />
+
+                                    <TextView
+                                        android:id="@+id/tvStress"
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="High"
+                                        android:textSize="32dp" />
+
+                                </LinearLayout>
+
+                                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                    android:id="@+id/progressStress"
+                                    android:layout_width="260dp"
+                                    android:layout_height="260dp"
+                                    android:layout_centerHorizontal="true"
+                                    app:cpb_background_progressbar_color="#ECEFF4"
+                                    app:cpb_background_progressbar_width="8dp"
+                                    app:cpb_progress="0"
+                                    app:cpb_progress_max="200"
+                                    app:cpb_progressbar_color="@color/pink"
+                                    app:cpb_progressbar_width="8dp"
+                                    app:cpb_round_border="true"
+                                    app:cpb_start_angle="270" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llWater"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_water" />
+
+                            <TextView
+                                style="@style/font_16sp_roboto_medium_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="H2O"/>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="160dp"
+                                android:layout_centerHorizontal="true"
+                                android:src="@drawable/bear_water_filled" />
+
+                            <View
+                                android:id="@+id/hra_analysis_water_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginHorizontal="64dp"
+                                android:layout_marginTop="160dp"
+                                android:alpha="0.8"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="You are drinking:"
+                                    android:textSize="14dp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:id="@+id/tvDrinkingGlasses"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="X8"
+                                    android:textSize="24dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="glass/day"
+                                    android:textSize="14dp"
+                                    android:textStyle="normal" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:gravity="end"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="You should drink:"
+                                    android:textSize="14dp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:id="@+id/tvShouldDrinkGlasses"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="X8"
+                                    android:textSize="24dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="glass/day"
+                                    android:textSize="14dp"
+                                    android:textStyle="normal" />
+
+                            </LinearLayout>
+
+                            <WebView
+                                android:id="@+id/tvWaterDesc"
+                                style="@style/font_12sp_roboto_medium_black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:justificationMode="inter_word"
+                                android:letterSpacing="0.02"
+                                android:lineSpacingExtra="1dp"
+                                android:layout_below="@+id/hra_analysis_water_view"
+                                android:text="@string/WHtRDescription"
+                                tools:ignore="WebViewLayout" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:visibility="gone"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:layout_marginTop="16dp"
+                                android:layout_below="@+id/hra_analysis_water_view"
+                                android:text="@string/hra_analysis_water_string"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llCaloriesSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rlSleep"
+                        android:layout_marginTop="-36dp"
+                        android:background="@drawable/bottom_curve_blend"
+                        android:elevation="4dp"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="bottom"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_calories" />
+
+                                    <TextView
+                                        style="@style/font_16sp_roboto_medium_black"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:text="Cal-Count" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:gravity="bottom"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Calories Goal: "
+                                        android:textSize="14dp"
+                                        android:textStyle="normal" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/tvCaloriesGoal"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="0"
+                                            android:textSize="20dp" />
+
+                                        <TextView
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=" calories/day"
+                                            android:textSize="14dp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:gravity="bottom"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="RMR : "
+                                        android:textSize="14dp"
+                                        android:textStyle="normal" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/tvRMRCalories"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="500"
+                                            android:textSize="20dp" />
+
+                                        <TextView
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=" calories/day"
+                                            android:textSize="14dp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <com.google.android.material.progressindicator.LinearProgressIndicator
+                                    android:id="@+id/progressCalories"
+                                    android:layout_width="150dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:max="100"
+                                    android:progress="0"
+                                    android:visibility="gone"
+                                    app:trackCornerRadius="16dp"
+                                    app:trackThickness="6dp" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_bear_eating" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlSleep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llWater"
+                        android:layout_marginTop="-50dp"
+                        android:background="@drawable/pink_curved_blend_bg"
+                        android:elevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="0.8"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/moon"
+                                        app:tint="@color/white" />
+
+                                    <TextView
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:text="Pillow Time"
+                                        android:textColor="@color/white"
+                                        android:textSize="18dp" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:layout_marginTop="16dp"
+                                    android:src="@drawable/ic_hra_bear_sleep" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_weight="1.2"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text="You are getting "
+                                        android:textColor="@color/white"
+                                        android:textSize="12dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvSleepHours"
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:textColor="@color/white"
+                                        android:textSize="24dp" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text=" of sleep"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center">
+
+                                    <TextView
+                                        android:id="@+id/tvSleepText"
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:maxLines="6"
+                                        android:ellipsize="end"
+                                        android:lineSpacingExtra="1dp"
+                                        android:text=" of sleep"
+                                        android:textColor="@color/white"
+                                        android:textSize="12dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvSleepTextInVisible"
+                                        style="@style/TextStyleBlack16sp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:lineSpacingExtra="1dp"
+                                        android:text=" of sleep"
+                                        android:visibility="invisible"
+                                        android:textColor="@color/white"
+                                        android:textSize="12dp" />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/tvSleepTextKnowMore"
+                                    style="@style/TextStyleBlack16sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="end"
+                                    android:lineSpacingExtra="1dp"
+                                    android:text="Know More"
+                                    android:visibility="gone"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="-50dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_health_index" />
+
+                        <TextView
+                            style="@style/font_16sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Health Index" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHealthIndex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/retakeButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnRetake"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/wyh_round_btn"
+                android:fontFamily="@font/roboto_black"
+                android:gravity="center"
+                android:text="Retake"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnOk"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/wyh_round_btn"
+                android:fontFamily="@font/roboto_black"
+                android:gravity="center"
+                android:text="OK"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

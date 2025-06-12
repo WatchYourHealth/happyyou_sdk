@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tvEventName"
+        style="@style/font_12sp_roboto_medium_black"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginRight="4dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/btn_bg_color"
+        android:gravity="center"
+        android:textStyle="bold"
+        tools:text="Event Name" />
+
+</layout>

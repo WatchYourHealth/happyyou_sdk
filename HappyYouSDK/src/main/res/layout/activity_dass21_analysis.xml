@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/dasRetakeLayout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <include
+                            android:id="@+id/includeBack"
+                            layout="@layout/layout_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="360dp">
+
+                                <ImageView
+                                    android:id="@+id/ivTopBg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ira_analysis_blue_bg" />
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/margin_16dp"
+                                android:layout_marginTop="-58dp"
+                                android:paddingBottom="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:weightSum="3">
+
+                                        <RelativeLayout
+                                            android:id="@+id/rlDepression"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="Depression"
+                                                    android:textSize="12dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tvDepressionScore"
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="0/10" />
+
+                                            </LinearLayout>
+
+                                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                                android:id="@+id/progressDepression"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="200dp"
+                                                app:cpb_background_progressbar_color="#ECEFF4"
+                                                app:cpb_background_progressbar_width="4dp"
+                                                app:cpb_progress="3"
+                                                app:cpb_progress_max="21"
+                                                app:cpb_progressbar_color="@color/blue"
+                                                app:cpb_progressbar_width="4dp"
+                                                app:cpb_round_border="true" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/rlAnxiety"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginHorizontal="16dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="Anxiety"
+                                                    android:textSize="12dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tvAnxietyScore"
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="0/10" />
+
+                                            </LinearLayout>
+
+                                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                                android:id="@+id/progressAnxiety"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="200dp"
+                                                app:cpb_background_progressbar_color="#ECEFF4"
+                                                app:cpb_background_progressbar_width="4dp"
+                                                app:cpb_progress="3"
+                                                app:cpb_progress_max="21"
+                                                app:cpb_progressbar_color="@color/light_pink"
+                                                app:cpb_progressbar_width="4dp"
+                                                app:cpb_round_border="true" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/rlStress"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:gravity="center">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="Stress"
+                                                    android:textSize="12dp" />
+
+                                                <TextView
+                                                    android:id="@+id/tvStressScore"
+                                                    style="@style/TextStyleBlack16sp"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="0/10" />
+
+                                            </LinearLayout>
+
+                                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                                android:id="@+id/progressStress"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="200dp"
+                                                app:cpb_background_progressbar_color="#ECEFF4"
+                                                app:cpb_background_progressbar_width="4dp"
+                                                app:cpb_progress="3"
+                                                app:cpb_progress_max="21"
+                                                app:cpb_progressbar_color="@color/light_orange"
+                                                app:cpb_progressbar_width="4dp"
+                                                app:cpb_round_border="true" />
+
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:orientation="horizontal"
+                                        android:weightSum="5">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="4dp"
+                                                android:background="@color/light_blue" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/roboto_regular"
+                                                android:text="Normal"
+                                                android:textColor="@color/black"
+                                                android:textSize="10dp" />
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="4dp"
+                                                android:background="@color/blue" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/roboto_regular"
+                                                android:text="Mild"
+                                                android:textColor="@color/black"
+                                                android:textSize="10dp" />
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="4dp"
+                                                android:background="@color/light_orange" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/roboto_regular"
+                                                android:text="Moderate"
+                                                android:textColor="@color/black"
+                                                android:textSize="10dp" />
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="4dp"
+                                                android:background="@color/light_pink" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/roboto_regular"
+                                                android:text="Severe"
+                                                android:textColor="@color/black"
+                                                android:textSize="10dp" />
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="4dp"
+                                                android:background="@color/pink" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/roboto_regular"
+                                                android:text="Extremely Severe"
+                                                android:textColor="@color/black"
+                                                android:textSize="10dp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginVertical="8dp"
+                                        android:background="@color/grayLight" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:visibility="visible">
+
+                                        <TextView
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Recommendations"
+                                            android:textSize="18dp" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="16dp"
+                                            android:gravity="bottom"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="32dp"
+                                                android:layout_height="32dp"
+                                                android:src="@drawable/ic_depression" />
+
+                                            <TextView
+                                                style="@style/TextStyleBlack16sp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="8dp"
+                                                android:text="Depression"
+                                                android:textSize="18dp" />
+
+                                        </LinearLayout>
+
+                                        <WebView
+                                            android:id="@+id/tvDepressionDesc"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:background="@color/transparent"
+                                            android:fontFamily="@font/roboto_regular"
+                                            android:justificationMode="inter_word"
+                                            android:text="Sample"
+                                            android:textSize="14dp" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="16dp"
+                                            android:gravity="bottom"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="32dp"
+                                                android:layout_height="32dp"
+                                                android:src="@drawable/ic_anxiety" />
+
+                                            <TextView
+                                                style="@style/TextStyleBlack16sp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="8dp"
+                                                android:text="Anxiety"
+                                                android:textSize="18dp" />
+
+                                        </LinearLayout>
+
+                                        <WebView
+                                            android:id="@+id/tvAnxietyDesc"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:background="@color/transparent"
+                                            android:fontFamily="@font/roboto_regular"
+                                            android:justificationMode="inter_word"
+                                            android:text="Sample"
+                                            android:textSize="14dp" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="16dp"
+                                            android:gravity="bottom"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="32dp"
+                                                android:layout_height="32dp"
+                                                android:src="@drawable/ic_stress" />
+
+                                            <TextView
+                                                style="@style/TextStyleBlack16sp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="8dp"
+                                                android:text="Stress"
+                                                android:textSize="18dp" />
+
+                                        </LinearLayout>
+
+                                        <WebView
+                                            android:id="@+id/tvStressDesc"
+                                            style="@style/TextStyleBlack16sp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:background="@color/transparent"
+                                            android:fontFamily="@font/roboto_regular"
+                                            android:justificationMode="inter_word"
+                                            android:text="Sample"
+                                            android:textSize="14dp" />
+
+                                    </LinearLayout>
+
+
+
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/dasRetakeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentBottom="true"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnRetake"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/light_blue_rc_bg_8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_black"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Retake"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnOk"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/light_blue_rc_bg_8dp"
+                android:fontFamily="@font/roboto_black"
+                android:gravity="center"
+                android:text="OK"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+    </RelativeLayout>
+
+
+
+</layout>

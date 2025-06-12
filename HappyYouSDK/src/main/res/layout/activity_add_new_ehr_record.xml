@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_back"
+                android:layout_marginHorizontal="-16dp"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"/>
+
+
+
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/font_14sp_roboto_medium_black"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="40dp"
+                android:layout_height="35dp"
+                android:background="@drawable/wyh_btn_grey_8dp"
+                android:hint="Enter Title"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords"
+                android:maxLength="45"
+                android:paddingLeft="16dp"
+                android:singleLine="true" />
+
+
+            <RelativeLayout
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_select_type" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/iv_back"
+                    android:text="Select Type" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/wyh_spinner_bg">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/reportType"
+                    style="@style/font_14sp_roboto_medium_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:backgroundTint="@color/btn_blue" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/ll_upload_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@drawable/wyh_btn_grey_8dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_16dp">
+
+                    <Button
+                        style="@style/font_14sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@null"
+                        android:text="Add File/Multiple Files"
+                        android:textAllCaps="false" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add_files" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_report_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/btn_ehr_record_upload"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ehr_record_upload"
+                    style="@style/font_16sp_roboto_medium_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/wyh_round_btn_dark_red"
+                    android:paddingHorizontal="64dp"
+                    android:text="Upload"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

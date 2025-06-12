@@ -1,0 +1,32 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="368dp"
+    android:height="200dp"
+    android:viewportWidth="368"
+    android:viewportHeight="200">
+
+  <path
+      android:pathData="M0,70.4C0,37.21 0,20.62 10.31,10.31C20.62,0 37.21,0 70.4,0H348.8C357.85,0 362.38,0 365.19,2.81C368,5.62 368,10.15 368,19.2V129.07C368,162.25 368,178.85 357.69,189.16C347.38,199.47 330.79,199.47 297.6,199.47H19.2C10.15,199.47 5.62,199.47 2.81,196.65C0,193.84 0,189.32 0,180.27V70.4Z">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startX="184.06"
+          android:startY="0.02"
+          android:endX="184.06"
+          android:endY="199.47"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFFFB9B9"/>
+        <item android:offset="0.39" android:color="#FFFFB6B6"/>
+        <item android:offset="0.63" android:color="#FFFFAEAE"/>
+        <item android:offset="0.82" android:color="#FFFFA0A0"/>
+        <item android:offset="0.99" android:color="#FFFF8C8C"/>
+        <item android:offset="1" android:color="#FFFF8B8B"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M70.4,1.07H348.8C353.36,1.07 356.67,1.07 359.19,1.41C361.69,1.74 363.26,2.39 364.43,3.57C365.61,4.74 366.26,6.31 366.59,8.81C366.93,11.33 366.93,14.64 366.93,19.2V129.07C366.93,145.69 366.93,158.05 365.65,167.55C364.38,177.02 361.86,183.48 356.94,188.4C352.01,193.33 345.55,195.85 336.08,197.12C326.58,198.4 314.22,198.4 297.6,198.4H19.2C14.64,198.4 11.33,198.4 8.81,198.06C6.31,197.72 4.74,197.07 3.57,195.9C2.39,194.73 1.74,193.15 1.41,190.66C1.07,188.13 1.07,184.82 1.07,180.27V70.4C1.07,53.78 1.07,41.42 2.35,31.92C3.62,22.45 6.14,15.99 11.06,11.06C15.99,6.14 22.45,3.62 31.92,2.35C41.42,1.07 53.78,1.07 70.4,1.07Z"
+      android:strokeAlpha="0.7"
+      android:strokeWidth="2.13333"
+      android:fillColor="#00000000"
+      android:strokeColor="#ffffff"/>
+</vector>

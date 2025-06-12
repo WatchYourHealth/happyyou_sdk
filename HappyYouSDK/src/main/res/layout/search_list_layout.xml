@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/search_text_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/search_key_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Search Text"
+            android:textSize="14sp"
+            android:padding="4dp"
+            android:fontFamily="@font/roboto_medium"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#E6E6E6">
+
+        </View>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

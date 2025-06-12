@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16dp"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/margin_8dp"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/margin_8dp"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/memberName"
+                style="@style/font_12sp_roboto_regular_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="Member Name" />
+
+            <TextView
+                android:id="@+id/memberId"
+                style="@style/font_12sp_roboto_regular_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="Member Id" />
+
+            <TextView
+                android:id="@+id/memberMobileNo"
+                style="@style/font_12sp_roboto_regular_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:text="Mobile No." />
+
+            <TextView
+                android:id="@+id/memberEmail"
+                style="@style/font_12sp_roboto_regular_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-" />
+
+            <LinearLayout
+                android:id="@+id/icAction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/edit_policy" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/margin_10dp"/>
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/one_sided_curved_border_info"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/ll_msg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivMsg1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="4dp"
+                android:paddingTop="2dp"
+                android:src="@drawable/ic_water"
+                app:tint="#f97373" />
+
+            <TextView
+                android:id="@+id/tvMsg1"
+                style="@style/font_15sp_roboto_medium_black"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:text="Add H2O intake" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_water_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_below="@+id/ll_msg1"
+            android:paddingBottom="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/iv_minus"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/light_blue_border_rc_bg_8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_8dp"
+                android:layout_weight="2"
+                android:background="@drawable/green_border_8dp">
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:max="30"
+                    app:indicatorColor="@color/blue"
+                    app:trackColor="#00FFFFFF"
+                    app:trackCornerRadius="8dp"
+                    app:trackThickness="48dp" />
+
+                <EditText
+                    android:id="@+id/tv_glass_amt"
+                    style="@style/font_22sp_roboto_medium_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:layout_centerInParent="true"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:maxLength="6"
+                    android:text="0"
+                    android:textColor="@color/dark_pink"
+                    android:textColorHint="@color/gray979797"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/ivAdd"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/light_blue_rc_bg_8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/ll_water_1"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnAddWater"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wyh_round_btn"
+                android:text="@string/add"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnClosed"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wyh_round_btn_dark_red"
+                android:text="@string/close"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

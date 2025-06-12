@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/splash_bg"
+
+            android:orientation="vertical"
+            android:weightSum="100">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/includeBack"
+                    layout="@layout/layout_back" />
+
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:text="Emergency Contact"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:visibility="gone"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/blue_rc_bg_8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:text="Family Contact Details"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+
+                        <ImageView
+                            android:id="@+id/primaryContact"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_contacts"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/edtNamePrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="Full Name"
+                            android:digits="@string/alphabets"
+                            android:importantForAutofill="no"
+                            android:inputType="textPersonName"
+                            android:letterSpacing="0.03"
+                            android:maxLength="30"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edtMobileNumberPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:clickable="true"
+                            android:drawableTint="@color/edittext_blue_round"
+                            android:hint="Number"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:letterSpacing="0.03"
+                            android:maxLength="10"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:digits="0123456789"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edtRelationShipPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="Relationship"
+                            android:importantForAutofill="no"
+                            android:letterSpacing="0.03"
+                            android:maxLength="10"
+                            android:visibility="gone"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:inputType="textPersonName"
+                            android:digits="@string/alphabets"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="16dp"
+                            >
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/spinnerMemberList"
+                                android:layout_width="match_parent"
+                                android:padding="16dp"
+                                android:background="@drawable/edit_text_border_blue_new"
+                                android:layout_height="wrap_content"
+                                />
+                            <ImageView
+                                android:layout_height="20dp"
+                                android:layout_width="20dp"
+                                android:src="@drawable/ic_policy_spinner_drop_blue"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="10dp"
+                                app:tint="@color/black" />
+                        </RelativeLayout>
+                        <EditText
+                            android:id="@+id/edtOtherPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="Relationship"
+                            android:importantForAutofill="no"
+                            android:letterSpacing="0.03"
+                            android:maxLength="10"
+                            android:visibility="gone"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:inputType="textPersonName"
+                            android:digits="@string/alphabets"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/margin_16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/blue_rc_bg_8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:text="Secondary Contact Details"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/dailer"
+                                android:layout_gravity="center"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/dailernocolor24"
+                                app:tint="@color/black" />
+
+                            <ImageView
+                                android:id="@+id/secondaryContact"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+
+                                android:src="@drawable/ic_contacts"
+                                app:tint="@color/black" />
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/edtNameSecondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="Full Name"
+                            android:inputType="textPersonName"
+                            android:digits="@string/alphabets"
+
+                            android:importantForAutofill="no"
+
+                            android:letterSpacing="0.03"
+                            android:maxLength="30"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edtMobileNumberSecondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:clickable="true"
+                            android:drawableTint="@color/edittext_blue_round"
+                            android:hint="Number"
+                            android:digits="0123456789"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:letterSpacing="0.03"
+                            android:maxLength="10"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edtRelationShipSecondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="Relationship"
+                            android:importantForAutofill="no"
+                            android:inputType="textPersonName"
+                            android:digits="@string/alphabets"
+
+                            android:letterSpacing="0.03"
+                            android:maxLength="30"
+                            android:padding="16dp"
+                            android:paddingStart="20dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/wyh_round_btn_dark_red"
+                        android:gravity="center"
+                        android:paddingHorizontal="64dp"
+                        android:text="Done"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

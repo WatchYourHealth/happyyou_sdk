@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/home" />
+
+        <ImageView
+            android:id="@+id/iv_activity_bg"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_hra_pink_bg" />
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/search_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/includeToolbar"
+            >
+
+
+            <com.devlomi.hidely.hidelyviews.HidelyLinearLayout
+                android:id="@+id/search_bar_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner_back_white"
+                android:layout_weight="1.8"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                android:layout_marginEnd="18dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/search_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:hint="@string/search_bar_txt"
+                    android:layout_margin="10dp"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/white"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/roboto_medium"/>
+
+
+            </com.devlomi.hidely.hidelyviews.HidelyLinearLayout>
+
+            <ImageView
+                android:id="@+id/search_img"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_search_white_24dp" />
+
+        </LinearLayout>
+
+        <!--No Data Found-->
+        <LinearLayout
+            android:id="@+id/ll_no_record_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="-60dp"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/iv_activity_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim_bear_404" />
+
+            <TextView
+                style="@style/TextStyleBlack16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="No Records Found"
+                android:textAlignment="center"
+                android:textColor="@color/pink"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <!--Progressbar-->
+        <ProgressBar
+            android:id="@+id/pBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="-60dp"
+            tools:visibility="visible"
+            android:indeterminateTint="@color/pink"
+            app:layout_constraintTop_toBottomOf="@+id/iv_activity_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--Data List-->
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_activity_bg">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                android:paddingBottom="25dp">
+
+                <!--quickRead-->
+                <LinearLayout
+                    android:id="@+id/quick_read_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_quick_read"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_quick_read" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Quick Reads" />
+
+                        <ImageView
+                            android:id="@+id/qr_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_quick_reads"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_8dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_quick_reads_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--healthTV-->
+
+                <LinearLayout
+                    android:id="@+id/llHealthTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quick_read_layout">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_health_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Health TV" />
+
+                        <ImageView
+                            android:id="@+id/tv_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_health_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_health_tv_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+                <!--happyMart-->
+
+                <LinearLayout
+                    android:id="@+id/llHappyMart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llHealthTv">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_happymart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="HappyMart" />
+
+                        <ImageView
+                            android:id="@+id/hm_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/happy_mart_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_happy_mart_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+                    
+                </LinearLayout>
+
+                <!--lifeStyle-->
+
+                <LinearLayout
+                    android:id="@+id/llLifeStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llHappyMart">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Life Style" />
+
+                        <ImageView
+                            android:id="@+id/ls_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/life_style_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_life_style_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--myzone-->
+
+                <LinearLayout
+                    android:id="@+id/ll_search_my_zone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llLifeStyle">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle_search_my_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="My zone" />
+
+                        <ImageView
+                            android:id="@+id/my_zone_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/search_my_zone_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_search_my_zone_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--wellBeing-->
+                <LinearLayout
+                    android:id="@+id/ll_search_my_well_being"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_search_my_zone">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle_search_my_well_being"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Know your wellbeing" />
+
+                        <ImageView
+                            android:id="@+id/my_well_being_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/search_my_well_being_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_search_my_well_being_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--service-->
+                <LinearLayout
+                    android:id="@+id/ll_search_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_search_my_well_being">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle_search_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Services" />
+
+                        <ImageView
+                            android:id="@+id/search_service_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/search_service_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_search_service_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--activeZone-->
+                <LinearLayout
+                    android:id="@+id/ll_search_active_zone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_search_service">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle_active_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Active Zone" />
+
+                        <ImageView
+                            android:id="@+id/active_zone_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/search_active_zone_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_active_zone_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <!--others-->
+                <LinearLayout
+                    android:id="@+id/ll_search_others"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_search_active_zone">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLifeStyle_search_others"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_health_tv" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:text="Others" />
+
+                        <ImageView
+                            android:id="@+id/search_others_more"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward" />
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/search_others_recyler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/llHealthTv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_search_others_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_8dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,382 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rlUpperCard"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_activity_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/policy_bg" />
+
+            <!-- <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="206dp"
+                 android:layout_below="@id/includeToolbar">
+
+                 <com.airbnb.lottie.LottieAnimationView
+                     android:id="@+id/la_bear"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentBottom="true"
+                     android:layout_centerHorizontal="true"
+                     app:lottie_autoPlay="true"
+                     app:lottie_loop="true"
+                     app:lottie_rawRes="@raw/anim_bear_walking" />
+
+             </RelativeLayout>-->
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_back" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlUpperCard"
+            android:layout_marginTop="-20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+
+
+                    <EditText
+                        android:visibility="gone"
+                        android:id="@+id/edtFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/grey"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="First Name*"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:visibility="gone"
+                        android:id="@+id/edtLName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/grey"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Last Name  (Optional)"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:visibility="gone"
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:textColorHint="@color/grey"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Email  (Optional)"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/edtOtp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:textColorHint="@color/grey"
+                        android:hint="OTP*"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:letterSpacing="0.03"
+                        android:maxLength="6"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:text="Enter the Communication Mobile number below you want to link with ABHA"
+                        />
+                    <EditText
+                        android:id="@+id/edtMobileNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:textColorHint="@color/grey"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Mobile Number*"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:letterSpacing="0.03"
+                        android:maxLength="10"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <RelativeLayout
+                        android:id="@+id/rlAbhaAddress"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_between_8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/height_30dp"
+                            android:background="@drawable/edit_text_border_blue_new"
+                            android:hint="ABHA Address*"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:maxLength="45"
+                            android:padding="@dimen/dimen_16_dp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="24dp"
+                            android:singleLine="true"
+                            android:textColorHint="@color/grey"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/sbx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="\@abdm"
+                            android:layout_toStartOf="@+id/Info"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_18sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/Info"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/baseline_info_24"
+                             />
+
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tvSuggestedMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="@dimen/dimen_16_dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Suggested ABHA address"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        />
+                    <ListView
+                        android:id="@+id/listView"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:background="@drawable/edit_text_border"
+                        android:scrollbars="vertical"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+                        android:layout_height="150dp"/>
+                    <EditText
+                        android:visibility="gone"
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_border_blue_new"
+                        android:hint="Password"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:textColorHint="@color/grey"
+                        android:letterSpacing="0.03"
+                        android:maxLength="30"
+                        android:padding="16dp"
+                        android:paddingStart="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="start"
+                        android:visibility="gone"
+                        android:text="Note: Username will be used for login purpose"
+                        />
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="@dimen/margin_all_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:alpha="0.7"
+                                    android:letterSpacing="0.03"
+                                    android:text="@string/user_agreement"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:letterSpacing="0.03"
+                                    android:text="User Information Agreement"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    style="@style/font_15sp_roboto_medium_white"
+                    android:layout_width="128dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/blue_rc_bg_8dp"
+                    android:gravity="center"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/resendTimingTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="60"
+                    android:layout_marginTop="32dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/black"
+                    android:textAlignment="center">
+
+                </TextView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnResendOtp"
+                    android:layout_width="100dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/blue_rc_bg_8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp"
+                    android:alpha="0.5"
+                    android:paddingHorizontal="32dp"
+                    android:text="Resend OTP"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</layout>

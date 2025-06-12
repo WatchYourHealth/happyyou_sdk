@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clParentdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/reward_card_bg_1">
+
+        <ImageView
+            android:id="@+id/ivRewardIcon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_image_holder_reward"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvRewardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif"
+            android:maxEms="5"
+            android:minLines="2"
+            tools:text="Complimentary Services"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvRedeemed"
+            app:layout_constraintStart_toStartOf="@id/ivRewardIcon"
+            app:layout_constraintTop_toBottomOf="@id/ivRewardIcon" />
+
+        <TextView
+            android:id="@+id/tvRedeemed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            android:lineHeight="11dp"
+            android:text="Redeem Now"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_right_arrow"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tvShowRedeemedBanner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Redeemed"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:backgroundTint="@color/Armada_grey"
+            android:background="@color/happy_light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

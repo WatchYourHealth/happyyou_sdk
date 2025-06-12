@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="150dp">
+
+        <RelativeLayout
+            android:id="@+id/kyw_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/kwn_list_bg">
+
+            <RelativeLayout
+                android:id="@+id/kwb_parent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/wellbeing_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/health_risk"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_regular"/>
+
+                <TextView
+                    android:id="@+id/tvAssessments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assessment"
+                    android:visibility="gone"
+                    android:layout_below="@+id/wellbeing_title_tv"
+                    android:textSize="12sp"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_file"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    app:lottie_loop="true"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="16dp"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/right_arrow"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/bear_img"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:src="@drawable/wellbeing_img"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+
+
+
+</layout>

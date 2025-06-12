@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/goal_title"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:padding="8dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:id="@+id/numOfDaysLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="18dp"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:id="@+id/numOfDaysTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_text"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto_regular">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/numOfDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:letterSpacing="0.03"
+                    android:maxLength="30"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/goalsTargetLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="18dp"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:id="@+id/goalTargetTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_count"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto_regular">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/goalTarget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:letterSpacing="0.03"
+                    android:maxLength="30"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/weightLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="18dp"
+                android:visibility="gone"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:id="@+id/weightTotalDaysTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_text"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto_regular">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/weightTotalDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:letterSpacing="0.03"
+                    android:maxLength="30"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/start_cancel_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+
+                <Button
+                    android:id="@+id/setGoalBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/blue_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Start"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/cancelGoalBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:background="@drawable/pink_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Close"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/challenge_dialog_start_btn"
+                    app:layout_constraintTop_toTopOf="@id/buy_btn" />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</layout>

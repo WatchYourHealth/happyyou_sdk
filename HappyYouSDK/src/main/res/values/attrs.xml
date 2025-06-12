@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <declare-styleable name="CarouselView">
+
+        <attr name="enableSnapping" format="boolean" />
+        <attr name="scaleOnScroll" format="boolean" />
+        <attr name="setAutoPlay" format="boolean" />
+        <attr name="setAutoPlayDelay" format="integer" />
+        <attr name="carouselOffset" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+        </attr>
+        <attr name="indicatorAnimationType" format="enum">
+            <enum name="none" value="0"/>
+            <enum name="fill" value="1"/>
+            <enum name="drop" value="2"/>
+            <enum name="swap" value="3"/>
+            <enum name="worm" value="4"/>
+            <enum name="color" value="5"/>
+            <enum name="scale" value="6"/>
+            <enum name="slide" value="7"/>
+            <enum name="thinWorm" value="8"/>
+            <enum name="scaleDown" value="9"/>
+        </attr>
+        <attr name="indicatorRadius" format="integer" />
+        <attr name="indicatorPadding" format="integer" />
+        <attr name="indicatorSelectedColor" format="reference" />
+        <attr name="indicatorUnselectedColor" format="reference" />
+        <attr name="size" format="integer" />
+        <attr name="spacing" format="integer" />
+        <attr name="resource" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="PageIndicatorView">
+        <attr name="piv_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="piv_viewPager" format="reference" />
+        <attr name="piv_select" format="integer" />
+
+        <attr name="piv_count" format="integer" />
+        <attr name="piv_dynamicCount" format="boolean" />
+
+        <attr name="piv_radius" format="dimension" />
+        <attr name="piv_padding" format="dimension" />
+        <attr name="piv_strokeWidth" format="dimension" />
+        <attr name="piv_scaleFactor" format="float" />
+        <attr name="piv_autoVisibility" format="boolean" />
+
+        <attr name="piv_unselectedColor" format="color" />
+        <attr name="piv_selectedColor" format="color" />
+
+        <attr name="piv_fadeOnIdle" format="boolean" />
+        <attr name="piv_idleDuration" format="integer" />
+
+        <attr name="piv_interactiveAnimation" format="boolean" />
+        <attr name="piv_animationDuration" format="integer" />
+        <attr name="piv_animationType">
+            <enum name="none" value="0" />
+            <enum name="color" value="1" />
+            <enum name="scale" value="2" />
+            <enum name="worm" value="3" />
+            <enum name="slide" value="4" />
+            <enum name="fill" value="5" />
+            <enum name="thinWorm" value="6" />
+            <enum name="drop" value="7" />
+            <enum name="swap" value="8" />
+            <enum name="scale_down" value="9" />
+        </attr>
+        <attr name="piv_rtl_mode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LuckyWheel">
+
+        <attr format="color" name="background_color"/>
+        <attr format="reference" name="arrow_image"/>
+        <attr format="boolean" name="showArrow"/>
+        <attr format="boolean" name="square_layout"/>
+        <attr format="dimension" name="image_padding"/>
+    </declare-styleable>
+    <declare-styleable name="ScrollBar">
+        <attr name="sb_handlerColor" format="color|reference" />
+        <attr name="sb_indicatorColor" format="color|reference" />
+        <attr name="sb_indicatorTextColor" format="color|reference" />
+        <attr name="sb_horizontal" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="YouTubePlayerView">
+        <attr name="enableAutomaticInitialization" format="boolean" />
+        <attr name="videoId" format="string" />
+        <attr name="autoPlay" format="boolean" />
+        <attr name="handleNetworkEvents" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="multi_line_radio_group">
+        <attr name="max_in_row" format="integer" />
+        <attr name="radio_buttons" format="reference" />
+        <attr name="default_button" format="string" />
+    </declare-styleable>
+    <declare-styleable name="RppgCameraView">
+        <attr format="boolean" name="overlayVisible"/>
+        <attr format="color" name="ovelayProcessingColor"/>
+        <attr format="color" name="ovelayAnalysingColor"/>
+        <attr format="enum" name="overlayType">
+            <enum name="none" value="0"/>
+            <enum name="dots" value="1"/>
+            <enum name="delauney" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="PlayerView">
+        <attr name="use_artwork"/>
+        <attr name="shutter_background_color"/>
+        <attr name="default_artwork"/>
+        <attr name="use_controller"/>
+        <attr name="hide_on_touch"/>
+        <attr name="hide_during_ads"/>
+        <attr name="auto_show"/>
+        <attr name="show_buffering"/>
+        <attr name="keep_content_on_player_reset"/>
+        <attr name="player_layout_id"/>
+        <attr name="surface_type"/>
+
+        <attr name="resize_mode"/>
+
+        <attr name="show_timeout"/>
+        <attr name="repeat_toggle_modes"/>
+        <attr name="show_shuffle_button"/>
+        <attr name="time_bar_min_update_interval"/>
+        <attr name="controller_layout_id"/>
+
+        <attr name="bar_height"/>
+        <attr name="touch_target_height"/>
+        <attr name="ad_marker_width"/>
+        <attr name="scrubber_enabled_size"/>
+        <attr name="scrubber_disabled_size"/>
+        <attr name="scrubber_dragged_size"/>
+        <attr name="scrubber_drawable"/>
+        <attr name="played_color"/>
+        <attr name="scrubber_color"/>
+        <attr name="buffered_color"/>
+        <attr name="unplayed_color"/>
+        <attr name="ad_marker_color"/>
+        <attr name="played_ad_marker_color"/>
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_circle_background_color"/>
+    </declare-styleable>
+    <declare-styleable name="CodeScannerView">
+        <attr format="color" name="maskColor"/>
+        <attr format="boolean" name="maskVisible"/>
+        <attr format="color" name="frameColor"/>
+        <attr format="boolean" name="frameVisible"/>
+        <attr format="dimension" name="frameThickness"/>
+        <attr format="dimension" name="frameCornersSize"/>
+        <attr format="dimension" name="frameCornersRadius"/>
+        <attr format="boolean" name="frameCornersCapRounded"/>
+        <attr format="float" name="frameAspectRatioWidth"/>
+        <attr format="float" name="frameAspectRatioHeight"/>
+        <attr format="float" name="frameSize"/>
+        <attr format="float" name="frameVerticalBias"/>
+        <attr format="color" name="autoFocusButtonColor"/>
+        <attr format="boolean" name="autoFocusButtonVisible"/>
+        <attr format="dimension" name="autoFocusButtonPaddingHorizontal"/>
+        <attr format="dimension" name="autoFocusButtonPaddingVertical"/>
+        <attr format="reference" name="autoFocusButtonOnIcon"/>
+        <attr format="reference" name="autoFocusButtonOffIcon"/>
+        <attr format="enum" name="autoFocusButtonPosition">
+            <enum name="topStart" value="0"/>
+            <enum name="topEnd" value="1"/>
+            <enum name="bottomStart" value="2"/>
+            <enum name="bottomEnd" value="3"/>
+        </attr>
+        <attr format="color" name="flashButtonColor"/>
+        <attr format="boolean" name="flashButtonVisible"/>
+        <attr format="dimension" name="flashButtonPaddingHorizontal"/>
+        <attr format="dimension" name="flashButtonPaddingVertical"/>
+        <attr format="reference" name="flashButtonOnIcon"/>
+        <attr format="reference" name="flashButtonOffIcon"/>
+        <attr format="enum" name="flashButtonPosition">
+            <enum name="topStart" value="0"/>
+            <enum name="topEnd" value="1"/>
+            <enum name="bottomStart" value="2"/>
+            <enum name="bottomEnd" value="3"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ScratchCardLayout">
+        <attr format="reference|color" name="scratchDrawable"/>
+        <attr format="dimension" name="scratchWidth"/>
+        <attr format="integer" name="scratchRevealFullAtPercent"/>
+        <attr format="boolean" name="scratchEnabled"/>
+    </declare-styleable>
+    <declare-styleable name="FlexboxLayout">
+        <attr name="flexDirection">
+            <enum name="row" value="0"/>
+            <enum name="row_reverse" value="1"/>
+            <enum name="column" value="2"/>
+            <enum name="column_reverse" value="3"/>
+        </attr>
+
+        <attr name="flexWrap">
+            <enum name="nowrap" value="0"/>
+            <enum name="wrap" value="1"/>
+            <enum name="wrap_reverse" value="2"/>
+        </attr>
+
+        <!--
+            Omitting flex-flow property since it's reflected in the parent flex container.
+            Set the flexDirection and/or flexWrap to the parent flex container explicitly if you
+            want to use the flex-flow similar way to the web.
+         -->
+
+        <attr name="justifyContent">
+            <enum name="flex_start" value="0"/>
+            <enum name="flex_end" value="1"/>
+            <enum name="center" value="2"/>
+            <enum name="space_between" value="3"/>
+            <enum name="space_around" value="4"/>
+            <enum name="space_evenly" value="5"/>
+        </attr>
+
+        <attr name="alignItems">
+            <enum name="flex_start" value="0"/>
+            <enum name="flex_end" value="1"/>
+            <enum name="center" value="2"/>
+            <enum name="baseline" value="3"/>
+            <enum name="stretch" value="4"/>
+        </attr>
+
+        <attr name="alignContent">
+            <enum name="flex_start" value="0"/>
+            <enum name="flex_end" value="1"/>
+            <enum name="center" value="2"/>
+            <enum name="space_between" value="3"/>
+            <enum name="space_around" value="4"/>
+            <enum name="stretch" value="5"/>
+        </attr>
+
+        <attr format="reference" name="dividerDrawable"/>
+        <attr format="reference" name="dividerDrawableHorizontal"/>
+        <attr format="reference" name="dividerDrawableVertical"/>
+
+        <attr name="showDivider">
+            <flag name="none" value="0"/>
+            <flag name="beginning" value="1"/>
+            <flag name="middle" value="2"/>
+            <flag name="end" value="4"/>
+        </attr>
+        <attr name="showDividerHorizontal">
+            <flag name="none" value="0"/>
+            <flag name="beginning" value="1"/>
+            <flag name="middle" value="2"/>
+            <flag name="end" value="4"/>
+        </attr>
+        <attr name="showDividerVertical">
+            <flag name="none" value="0"/>
+            <flag name="beginning" value="1"/>
+            <flag name="middle" value="2"/>
+            <flag name="end" value="4"/>
+        </attr>
+
+        <!--
+            The attribute that specifies the maximum number of flex lines. This attribute is
+            effective only when the flexWrap attribute is "wrap" or "wrap_reverse".
+        -->
+        <attr format="integer" name="maxLine"/>
+
+    </declare-styleable>
+    <color name="zxing_custom_possible_result_points">#903A89CF</color>
+    <color name="zxing_custom_result_view">#b0000000</color>
+    <color name="zxing_custom_viewfinder_laser">#1976D2</color>
+    <color name="zxing_custom_viewfinder_mask">#60000000</color>
+    <color name="zxing_possible_result_points">#c0ffbd21</color>
+    <color name="zxing_result_view">#b0000000</color>
+    <color name="zxing_status_text">#ffffffff</color>
+    <color name="zxing_transparent">#00000000</color>
+    <color name="zxing_viewfinder_laser">#ffcc0000</color>
+    <color name="zxing_viewfinder_mask">#60000000</color>
+    <declare-styleable name="zxing_camera_preview"><attr format="dimension" name="zxing_framing_rect_width"/><attr format="dimension" name="zxing_framing_rect_height"/><attr format="boolean" name="zxing_use_texture_view"/><attr format="enum" name="zxing_preview_scaling_strategy">
+        <enum name="centerCrop" value="1"/>
+        <enum name="fitCenter" value="2"/>
+        <enum name="fitXY" value="3"/>
+    </attr></declare-styleable>
+    <declare-styleable name="zxing_finder"><attr format="color" name="zxing_possible_result_points"/><attr format="color" name="zxing_result_view"/><attr format="color" name="zxing_viewfinder_laser"/><attr format="color" name="zxing_viewfinder_mask"/></declare-styleable>
+    <declare-styleable name="zxing_view"><attr format="reference" name="zxing_scanner_layout"/></declare-styleable>
+    <item name="zxing_back_button" type="id"/>
+    <item name="zxing_camera_closed" type="id"/>
+    <item name="zxing_camera_error" type="id"/>
+    <item name="zxing_decode" type="id"/>
+    <item name="zxing_decode_failed" type="id"/>
+    <item name="zxing_decode_succeeded" type="id"/>
+    <item name="zxing_possible_result_points" type="id"/>
+    <item name="zxing_preview_failed" type="id"/>
+    <item name="zxing_prewiew_size_ready" type="id"/>
+    <string name="zxing_app_name" translatable="false">Barcode Scanner</string>
+    <string name="zxing_button_ok" translatable="false">OK</string>
+    <string name="zxing_msg_camera_framework_bug" translatable="false">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="zxing_msg_default_status" translatable="false">Place a barcode inside the viewfinder rectangle to scan it.</string>
+    <style name="zxing_CaptureTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
+    </style>
+</resources>

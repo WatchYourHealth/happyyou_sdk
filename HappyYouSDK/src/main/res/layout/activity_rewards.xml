@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_back" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="@dimen/margin_32dp"
+            app:tabIndicatorHeight="4dp"
+            app:tabIndicatorColor="@color/blue_cyan"
+            app:tabInlineLabel="true"
+            app:tabMode="fixed"
+            app:tabBackground="@drawable/tab_indicator_color"
+            app:tabSelectedTextColor="@color/blue_cyan"
+            app:tabTextAppearance="@style/TabLayoutCustomTextAppearance"
+            app:tabTextColor="@color/happy_dark_grey" />
+
+        <com.wyh.happyyousdk.utils.NonSwipeAbleViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_parent_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:visibility="gone"
+            android:elevation="10dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_bottom_nav_bg"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/bottom_nav_curve_dashboard"
+                android:clickable="true"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_dash_winnings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_dash_winnings"
+                app:layout_constraintBottom_toBottomOf="@id/iv_dashboard_home"
+                app:layout_constraintStart_toEndOf="@id/iv_dashboard_ice"
+                app:layout_constraintTop_toTopOf="@id/iv_dashboard_home" />
+
+            <ImageView
+                android:id="@+id/iv_dash_happy_mart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="33dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_dash_happy_mart"
+                app:layout_constraintBottom_toBottomOf="@id/iv_dashboard_home"
+                app:layout_constraintEnd_toStartOf="@id/iv_dash_others"
+                app:layout_constraintTop_toTopOf="@id/iv_dashboard_home"/>
+
+            <ImageView
+                android:id="@+id/iv_dashboard_home"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_happy_u_home"
+                app:layout_constraintEnd_toEndOf="@id/rl_bottom_nav_bg"
+                app:layout_constraintStart_toStartOf="@id/rl_bottom_nav_bg"
+                app:layout_constraintTop_toTopOf="@id/rl_bottom_nav_bg" />
+
+
+            <ImageView
+                android:id="@+id/iv_dashboard_ice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="24dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_dash_ice"
+                app:layout_constraintBottom_toBottomOf="@id/iv_dashboard_home"
+                app:layout_constraintStart_toStartOf="@id/rl_bottom_nav_bg"
+                app:layout_constraintTop_toTopOf="@id/iv_dashboard_home"/>
+
+
+
+            <ImageView
+                android:id="@+id/iv_dash_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_dash_others"
+                app:layout_constraintBottom_toBottomOf="@id/iv_dashboard_home"
+                app:layout_constraintEnd_toEndOf="@id/rl_bottom_nav_bg"
+                app:layout_constraintTop_toTopOf="@id/iv_dashboard_home" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+    </RelativeLayout>
+</layout>

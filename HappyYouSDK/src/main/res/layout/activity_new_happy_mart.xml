@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".happyMarket.NewHappyMartActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_top_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="320dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_activity_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_hra_pink_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="38dp">
+
+                    <com.devlomi.hidely.hidelyviews.HidelyLinearLayout
+                        android:id="@+id/happy_mart_search_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/corner_back_white"
+                        android:layout_weight="1.8"
+                        android:visibility="invisible"
+                        android:layout_marginEnd="18dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/happy_mart_search_et"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.8"
+                            android:hint="@string/search_bar_txt"
+                            android:layout_margin="12dp"
+                            android:textSize="16sp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/roboto_medium"/>
+
+                        <ImageView
+                            android:id="@+id/search_cancel"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:visibility="gone"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/search_cancel">
+
+                        </ImageView>
+
+
+                    </com.devlomi.hidely.hidelyviews.HidelyLinearLayout>
+
+                    <ImageView
+                        android:id="@+id/happy_mart_search_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2"
+                        android:src="@drawable/ic_round_search_24px"
+                        android:layout_toEndOf="@id/search_bar_layout"
+                        app:tint="@color/white" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/la_bear"
+                    android:layout_width="200dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_bear_mart" />
+
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_back" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_top_layout"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="-42dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/happyMartNewPurchase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_my_purchases" />
+
+                        <TextView
+                            style="@style/font_15sp_roboto_medium_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="32dp"
+                            android:text="My purchases" />
+
+                        <ImageView
+                            android:id="@+id/more_purchases"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/margin_10dp"
+                            android:src="@drawable/ic_arrow_forward" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/happyMartMyPurchasesRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/happyMartMyPurchasesNoResultTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No Result Found"
+                        android:textAlignment="center"
+                        android:visibility="gone"
+                        android:layout_marginTop="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/happyMartMyPurchasesIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="@dimen/margin_16dp"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_happy_services" />
+
+                    <TextView
+                        style="@style/font_15sp_roboto_medium_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:text="Happy Services" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/happyMartMyRecycler"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/happy_mart_no_result_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Result Found"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_atop"
+            android:clickable="true"
+            android:elevation="@dimen/margin_8dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/home" />
+
+    </RelativeLayout>
+</layout>

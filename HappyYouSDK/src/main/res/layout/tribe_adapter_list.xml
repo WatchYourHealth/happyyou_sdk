@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:id="@+id/rlTribe1"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight="1"
+            android:background="@drawable/light_blue_button_bg"
+            android:clipChildren="true"
+            android:clipToPadding="true">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ivUnRead1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="3dp"
+                app:cardElevation="5sp"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/pink"
+                android:layout_alignParentEnd="true" >
+
+                <TextView
+                    android:id="@+id/tvReadCount1"
+                    style="@style/font_14sp_roboto_regular_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:textSize="10dp"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvComName1"
+                style="@style/font_14sp_roboto_medium_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.5"
+                android:background="@drawable/dark_gray_rc_bg_8dp"
+                android:gravity="center"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/tvComMem1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Members: 0"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlTribe2"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_light_pink_button_bg"
+            >
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ivUnRead2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="3dp"
+                app:cardElevation="5sp"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/pink"
+                android:layout_alignParentEnd="true" >
+
+                <TextView
+                    android:id="@+id/tvReadCount2"
+                    style="@style/font_14sp_roboto_regular_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:textSize="10dp"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/tvComName2"
+                style="@style/font_14sp_roboto_medium_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.5"
+                android:background="@drawable/dark_gray_rc_bg_8dp"
+                android:gravity="center"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/tvComMem2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Members: 0"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlTribe3"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_light_orange_button_bg"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ivUnRead3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="3dp"
+                app:cardElevation="5sp"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/pink"
+                android:layout_alignParentEnd="true" >
+
+                <TextView
+                    android:id="@+id/tvReadCount3"
+                    style="@style/font_14sp_roboto_regular_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:textSize="10dp"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvComName3"
+                style="@style/font_14sp_roboto_medium_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.5"
+                android:background="@drawable/dark_gray_rc_bg_8dp"
+                android:gravity="center"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/tvComMem3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Members: 0"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

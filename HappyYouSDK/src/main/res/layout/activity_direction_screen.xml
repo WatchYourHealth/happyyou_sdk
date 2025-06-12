@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Sonde.Activities.DirectionScreen">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Sonde.Activities.RespiratoryCheck">
+
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="320dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_hra_pink_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp"
+                    android:layout_below="@id/includeBack">
+
+
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/sonde_voice_player"
+                        android:layout_marginStart="16dp"
+                        android:layout_centerVertical="true"/>
+
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="32dp"
+                        android:src="@drawable/sonde_respiratory_alert_bear" />
+
+                </RelativeLayout>
+
+                <include
+                    android:id="@+id/includeBack"
+                    layout="@layout/layout_back" />
+
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/respiratory_direction_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_below="@+id/header">
+
+                <TextView
+                    android:id="@+id/direction_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/direction"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="32dp"
+                    android:textColor="@color/red"/>
+
+                <TextView
+                    android:id="@+id/direction_info_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_below="@+id/direction_tv"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/respiratory_direction"
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+
+                </TextView>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mental_wellness_parent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_below="@+id/header">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_bg"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/mental_wellness_question_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="8dp"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="64dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/mrental_wellness_refresh_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/sonde_question_refresh_img"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/question_refresh_text"
+                            android:textSize="18sp"
+                            android:layout_marginStart="16dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/roboto_medium"/>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center">
+
+                        <CheckBox
+                            android:id="@+id/menatl_wellness_own_topic_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/grey"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/own_topic"
+                            android:textSize="18sp"
+                            android:layout_marginStart="16dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/roboto_medium"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mental_wellness_note_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/direction_proceed"
+                android:text="@string/mental_wellness_note"
+                android:gravity="center"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/direction_proceed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/blue_rc_bg_8dp"
+                android:padding="8dp"
+                android:text="@string/lets_begin"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+
+            <ImageView
+                android:id="@+id/direction_ivHome"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="src_atop"
+                android:clickable="true"
+                android:elevation="@dimen/margin_8dp"
+                android:focusable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/home" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

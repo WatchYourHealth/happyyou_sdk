@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "931674395046",
+    "project_id": "happyyou-sdk",
+    "storage_bucket": "happyyou-sdk.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931674395046:android:5907949b7d9dda27157f67",
+        "android_client_info": {
+          "package_name": "com.wyh.happyyousdk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7uIdbgT1MRwvkPkU6MBFv99QLUi1eszs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931674395046:android:57e6792b348bfa86157f67",
+        "android_client_info": {
+          "package_name": "com.wyh.happyyousdktest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7uIdbgT1MRwvkPkU6MBFv99QLUi1eszs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

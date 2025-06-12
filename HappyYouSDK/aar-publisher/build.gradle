@@ -1,0 +1,16 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.wyh.libs'
+            artifactId = 'HappyYou'
+            version = '1.0.0'
+
+            artifact file('../build/outputs/aar/HappyYouSDK-release.aar')
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}

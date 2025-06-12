@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wyh.happyyousdk">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" /> <!-- Required for apptrove -->
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.google.android.gm" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:networkSecurityConfig="@xml/network_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:windowSoftInputMode="stateAlwaysHidden"
+        tools:replace="android:allowBackup"
+        tools:targetApi="31">
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.AllQuizathonActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizScratchListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizActivityRewardList"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizathonViewAllActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.play_and_win.PlayAndWinActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizathonScoreActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizathonActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.WebinarWebview"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quiz.QuizHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.spinwheelreward.RewardsListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.spinwheelreward.SpinWheelRewardsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.SpinOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.SpinRewardLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Walkathon.Activities.BranchDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Walkathon.Activities.WalkhatonDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Walkathon.Activities.EnrolledChallengeActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.IndividualGoalDetails"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.HistoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.GoalHistory"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.OtherGoals"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.RecommendedGoalsDetails"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.AmahaWebView"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.HappyMartCategory"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.NewHappyMartDisclaimer"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.NewHappyMartActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.profile.AddUserDetails"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.profile.DialogActivity"
+            android:exported="false"
+            android:theme="@style/CustomAlertDialogNew" />
+        <activity
+            android:name="com.wyh.happyyousdk.diary.NewDiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Sonde.Activities.MentalWellnessVoiceFeature"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Activities.TribeChallengeDashboard"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.SetGoal"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.IndividualGoalsDashboard"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.Goals.Activities.GoalsDashboard"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Activities.BadgesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Activities.ChallengeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Activities.ChallangesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.HappyMartKLIActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.addFamily.AddFamilyListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.addFamily.AddFamilyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.HealthTvListingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.ScanQRActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.ScannerIntegrate"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.QrInviteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.RecommandHealthTvDashboradActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.VideoReaderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.MoreQuickReadActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.HealthLockerPhotosActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.diary.ShareAndEarnDiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.PdfReaderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.ImageReaderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.ViewMoreEhrRecord"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.NeedSupportActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.UnscratchedTokensActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.AboutUsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.qc.QCOrderListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.utils.IntroVideosActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.PrivacyPolicyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.TermsAndConditionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.ExoPlayerActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.MoreMyPurchasesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.MyOrderActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.LifeStyleWelcomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.FirstAidOtherDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.addWidget.AddWidgetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.RewardsCollectiblesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.HappyMartDisclaimerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.RewardsHistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.WellBeingDisclaimerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.syncDevice.SyncDeviceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.MoreUpcomingActivities"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.reminders.TribeReminderActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.heartAge.HeartAgeAnalysisActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.PostLoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.notification.NotificationDrawerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.quiz.QuizScoreActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.quiz.QuizCategoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.quiz.QuizActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.diary.ViewDiaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.diary.AddDiaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.diary.DiaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.profile.ActivityLatestWinnings"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.KitDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.LifestyleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.qc.QCCartActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.qc.QCProductDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.qc.QCProductsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.actometer.ActoMeterCommunityActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.HealthTVDashboard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.contacts.ContactsActivityNew"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="mailto" />
+
+                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.MoreTopUpsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.MoreCurrentActivities"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetails.PolicyDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.profile.ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetails.SearchPolicyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.AllEAndGVouchersActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.actometer.ActOMeterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.reminders.RemindersActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.PendingActivityDashboard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.rewards.RewardsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.happyMarket.HappyMartActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.heartAge.HeartAgeQuestionsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dass21.Dass21QuestionsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.dass21.Dass21AnalysisActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.WellBeingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.unwind.UnwindActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.WebinarDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.QuickReadActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.QuickReadDashboard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.absorb.HealthHacksActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wyh.happyyousdk.login.MobileNumberActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ActivityMainIntroScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.HealthRecordTypeWiseReportActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.PhotoViewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.PrescriptionUploadedActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.AddNewEhrRecord"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.trends.TrendsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.HealthLockerHistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!--
+<activity
+            android:name=".ehr.DoctorPrescriptionActivity"
+            android:exported="false" />
+        -->
+        <activity
+            android:name="com.wyh.happyyousdk.ehr.EhrActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.WebActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ira.IRAAnalysisActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ira.IraActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.hra.HRAAnalysisActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.hra.HRAQuestionsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.fitConnect.FitConnectActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.WelcomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.login.RegistrationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.login.OtpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.SplashScreenActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.onegravity.contactpicker.core.ContactPickerActivity"
+            android:enabled="true"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.wyh.happyyousdk.utils.SmsBroadcastReceiver" />
+        <receiver
+            android:name="com.wyh.happyyousdk.sendActivityData.SendDataToServerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.wyh.happyyousdk.ice.CPRAndFirstAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.AddEmergencyContactActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.SOSActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.ICEDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.FirstAidDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.ice.YoutubeActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity android:name="com.wyh.happyyousdk.ChallangesModule.Activities.NewTribeChallengeDashboard" />
+        <activity android:name="com.wyh.happyyousdk.happyMarket.HappyMartOthersSection" />
+        <activity android:name="com.wyh.happyyousdk.happyMarket.OtherSectionDisclaimer" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.DirectionScreen" />
+        <activity
+            android:name="com.wyh.happyyousdk.Sonde.Activities.CountdownActivity"
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.SondeDashboard" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.RespiratoryCheck" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.AlertActivity" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.AnalysisScreen" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.SondeHistory" />
+        <activity android:name="com.wyh.happyyousdk.Sonde.Activities.FailedResponseScreen" />
+        <activity
+            android:name="com.wyh.happyyousdk.ChallangesModule.Walkathon.Activities.WinnerDialogActivity"
+            android:exported="false"
+            android:theme="@style/CustomAlertDialogNew" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.NewDashboardActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.wyh.happyyousdk.dashboard.OtherActivity"
+            android:exported="false"
+            android:theme="@style/CustomAlertDialogNew" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.SpinWheelActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicySearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicyCreateMPIN"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicyLoginMPIN"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicyCreateFingerPrint"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicyListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.policyDetail.PolicyViewMore"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wyh.happyyousdk.SpinWheel.Activities.DashboardWheelActivity"
+            android:exported="false"
+            android:theme="@style/CustomAlertDialogNew" />
+        <activity android:name="com.wyh.happyyousdk.corporateAccount.ActivityCorporateAccountLink" />
+        <activity android:name="com.wyh.happyyousdk.corporateAccount.ActivityCorporateAccountMain" />
+        <activity android:name="com.wyh.happyyousdk.corporateAccount.ActivityCorporateAccountAddEdit" />
+        <activity android:name="com.wyh.happyyousdk.fileshare.ActivityFileShareList" />
+        <activity android:name="com.wyh.happyyousdk.fileshare.ActivityFileShareAllList" />
+        <activity android:name="com.wyh.happyyousdk.fileshare.PhotoViewActivityFileShare" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service android:name="com.wyh.happyyousdk.Sonde.Utilities.BackgroundService" />
+    </application>
+
+</manifest>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/includeBack"
+            layout="@layout/layout_back" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextStyleBlack16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_16dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Details"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="First Name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/edtLName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Last Name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/edit_text_border_blue_new"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Email ID"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="50"
+                    android:padding="16dp"
+                    android:paddingStart="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@drawable/light_gray_border_rc_bg_8dp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16dp">
+
+                    <TextView
+                        style="@style/TextStyleBlack16sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Order Summary"
+                        android:textSize="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.6"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="Product"
+                                android:textSize="@dimen/margin_16dp" />
+
+                            <TextView
+                                android:id="@+id/tvProductName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="Product Name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/margin_16dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_8dp"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="end"
+                                android:text="Qty"
+                                android:textSize="@dimen/margin_16dp" />
+
+                            <TextView
+                                android:id="@+id/tvQuantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="end"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/margin_16dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="end"
+                                android:text="Rs"
+                                android:textSize="@dimen/margin_16dp" />
+
+                            <TextView
+                                android:id="@+id/tvOrderAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:gravity="end"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/margin_16dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/margin_16dp"
+                        android:background="@color/grayLight" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/blue"
+                        android:visibility="gone"
+                        android:layout_marginBottom="@dimen/margin_8dp"
+                        android:text="Redeem from HappyYou points"
+                        style="@style/font_14sp_roboto_medium_black"/>
+
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Total: 0 Rs"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margin_16dp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRedeem"
+                    style="@style/font_16sp_roboto_medium_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:background="@drawable/blue_rc_bg_8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingHorizontal="64dp"
+                    android:text="Redeem Now"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/margin_16dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
