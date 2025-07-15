@@ -118,16 +118,16 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'com.github.arunSriramulaWYH'
+                groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.0.3'
+                version = '1.0.1'
 
                 from components.release
 
                 pom {
                     name = "HappyYou SDK"
                     description = "Android SDK for HappyYou app"
-                    url = "https://github.com/arunSriramulaWYH/happyyou_sdk"
+                    url = "https://github.com/WatchYourHealth/happyyou_sdk"
 
                     licenses {
                         license {
@@ -138,16 +138,16 @@ afterEvaluate {
 
                     developers {
                         developer {
-                            id = "arun"
-                            name = "Arun Sriramula"
+                            id = "WYH"
+                            name = "WatchYourHealth"
                             email = "contact@watchyourhealth.com"
                         }
                     }
 
                     scm {
-                        connection = "scm:git:git://github.com/arunSriramulaWYH/happyyou_sdk.git"
-                        developerConnection = "scm:git:ssh://git@github.com/arunSriramulaWYH/happyyou_sdk.git"
-                        url = "https://github.com/arunSriramulaWYH/happyyou_sdk"
+                        connection = "scm:git:git://github.com/WatchYourHealth/happyyou_sdk.git"
+                        developerConnection = "scm:git:ssh://git@github.com/WatchYourHealth/happyyou_sdk.git"
+                        url = "https://github.com/WatchYourHealth/happyyou_sdk"
                     }
                 }
 
@@ -157,7 +157,7 @@ afterEvaluate {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/arunSriramulaWYH/happyyou_sdk")
+                url = uri("https://maven.pkg.github.com/WatchYourHealth/happyyou_sdk")
                 credentials {
                     username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
                     password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")

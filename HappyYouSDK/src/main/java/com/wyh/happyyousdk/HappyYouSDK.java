@@ -60,10 +60,11 @@ public class HappyYouSDK implements HappyYouInterface {
     Boolean isRegistered;
 
     @Override
-    public void init(Context context, String mobileNumber, String environment, String appVersionName) {
+    public void init(Context context, String mobileNumber, String environment, String appVersionName, String source) {
         SDKConstants.mobileNumber = mobileNumber;
         SDKConstants.environment = environment;
         SDKConstants.appVersionName = appVersionName;
+        SDKConstants.source = source;
         this.context = context;
         apiInterfaceWyh = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
@@ -332,7 +333,7 @@ public class HappyYouSDK implements HappyYouInterface {
         String appVersion = SDKConstants.appVersionName;
         String refferealCode = SharedPref.getReferralCode();
 
-        RegistrationRequest request = new RegistrationRequest(SharedPref.getEncryptedMobileNo(), otp, "", "", "", deviceModel, osVersion, appVersion, SharedPref.getReferralCode(), TrackierSDK.getTrackierId()+"_Android");
+        RegistrationRequest request = new RegistrationRequest(SharedPref.getEncryptedMobileNo(), otp, "", "", "", deviceModel, osVersion, appVersion, SharedPref.getReferralCode(), TrackierSDK.getTrackierId()+"_Android", SDKConstants.source);
         Call<VerifyOtpResponse> call = apiInterfaceWyh.registerUserV4(request);
         Log.d("login request: ", new Gson().toJson(request));
 

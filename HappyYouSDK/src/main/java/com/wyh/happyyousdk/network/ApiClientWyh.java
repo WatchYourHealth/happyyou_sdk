@@ -93,7 +93,6 @@ public class ApiClientWyh {
                     .build();
         } else {
             certPinner = new CertificatePinner.Builder()
-                    //This is wrong need to change once got the correct SHA key and need to be added in network config file
                     .add("fitnessapi.kotaklifeinsurance.com",
                             "sha256/i7WTqTvh0OioIruIfFR4kMPnBqrS2rdiVPl/s2uC/CY=")
                     .add("fitnessuatapi.kotaklifeinsurance.com",

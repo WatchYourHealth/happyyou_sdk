@@ -4,4 +4,5 @@ public class SDKConstants {
     public static String mobileNumber;
     public static String environment;
     public static String appVersionName;
+    public static String source;
 }

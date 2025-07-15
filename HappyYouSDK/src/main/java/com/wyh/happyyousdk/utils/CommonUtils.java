@@ -1005,9 +1005,9 @@ public class CommonUtils {
             url = context.getString(R.string.test) + context.getString(R.string.a) + context.getString(R.string.b);
 //            url = context.getString(R.string.prod_api_url);
         } else if (environment.contentEquals("uat")) {
-            url = context.getString(R.string.test) + context.getString(R.string.a) + context.getString(R.string.b);
+            url = context.getString(R.string.uat) + context.getString(R.string.a1) + context.getString(R.string.b1);
         } else {
-            url = context.getString(R.string.test) + context.getString(R.string.a) + context.getString(R.string.b);
+            url = context.getString(R.string.prod) + context.getString(R.string.a2) + context.getString(R.string.b2);
         }
         return url;
     }
