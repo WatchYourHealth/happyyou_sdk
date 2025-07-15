@@ -51,7 +51,7 @@ import com.wyh.happyyousdk.model.response.absorb.AddBookmarkResponse;
 import com.wyh.happyyousdk.model.response.absorb.FetchBlogResponse;
 
 import com.wyh.happyyousdk.databinding.ActivityQuickReadBinding;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
 import com.wyh.happyyousdk.model.PopUpShowModel;
 import com.wyh.happyyousdk.model.request.FetchRewardsRequest;

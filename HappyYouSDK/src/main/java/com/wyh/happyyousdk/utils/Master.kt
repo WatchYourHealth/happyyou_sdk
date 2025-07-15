@@ -3,30 +3,13 @@ package com.wyh.happyyousdk.utils
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.database.Cursor
-import android.graphics.Bitmap
-import android.graphics.Color
 import android.net.Uri
 import android.provider.OpenableColumns
-import android.util.Log
 import android.widget.Toast
 import com.esafirm.imagepicker.features.ImagePicker
-import com.wyh.happyyousdk.APIEncryption.APIInterface
-import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.R
-import com.wyh.happyyousdk.SpinWheel.Activities.SpinWheelActivity
-import com.wyh.happyyousdk.SpinWheel.Utilities.DownloadImage
-import com.wyh.happyyousdk.login.MobileNumberActivity
-import com.wyh.happyyousdk.model.response.GetQuadrantsResponse
-import com.wyh.happyyousdk.utils.CommonUtils
-import com.wyh.happyyousdk.utils.SharedPref
-import com.wyh.happyyousdk.utils.wheelview.WheelItem
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.File
-import java.io.Serializable
 import java.text.NumberFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -92,95 +75,14 @@ object Master {
 
     fun logOut(context: Context) {
         Toast.makeText(context, context.resources.getString(R.string.session_time_out), Toast.LENGTH_SHORT).show()
-        getQuadrants(context)
+        if (context is Activity) {
+            context.finishAffinity()
+        }
      /*   val intent = Intent(context, MobileNumberActivity::class.java)
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         context.startActivity(intent)
         SharedPref.clearSharedPref()
         (context as Activity).finish()*/
-    }
-
-    private fun getQuadrants(context: Context) {
-        try {
-//            CommonUtils.showProgressDialige(context)
-            val apiInterface: APIInterface = RetrofitHandler.apiInterface()
-            apiInterface.getQuadrant().enqueue(object : Callback<GetQuadrantsResponse?> {
-                override fun onResponse(call: Call<GetQuadrantsResponse?>, response: Response<GetQuadrantsResponse?>) {
-                    if (response.body() != null && response.code() == 200) {
-                        if (response.body()!!.getData() != null && !response.body()!!.getData().getQuadrantData().isEmpty()) {
-                            CommonUtils.wheelItems.clear()
-                            for (i in response.body()!!.getData().getQuadrantData().indices) {
-                                val finalI = i
-                                val imageBitmap = arrayOf<Bitmap?>(null)
-                                DownloadImage { bitmap: Bitmap? ->
-                                    if (bitmap != null) {
-                                        imageBitmap[0] = bitmap
-                                        val scaledBitmap = Bitmap.createScaledBitmap(imageBitmap[0]!!, 80, 80, true)
-
-                                        val wheelItem = WheelItem(
-                                            Color.parseColor(response.body()!!.getData().getQuadrantData()[finalI].getQuadrantColor()),
-                                            scaledBitmap,
-                                            response.body()!!.getData().getQuadrantData()[finalI]
-                                                .getRewardName()
-                                        )
-                                        if (CommonUtils.wheelItems.size < response.body()!!.getData().getQuadrantData().size) {
-                                            CommonUtils.wheelItems.add(wheelItem)
-                                            Log.d("AuthToken", CommonUtils.wheelItems.size.toString())
-                                        }
-
-
-                                        if (CommonUtils.wheelItems.size == response.body()!!.getData().getQuadrantData().size) {
-                                            CommonUtils.dismissDialoge()
-                                            val intent = Intent(context, SpinWheelActivity::class.java)
-                                            intent.putExtra("quadrantData", response.body()!!.getData().getQuadrantData() as Serializable)
-                                            intent.putExtra("description", response.body()!!.getData().getDescription())
-                                            intent.putExtra("timer", response.body()!!.getData().getExpiryInMinutes())
-                                            context.startActivity(intent)
-                                            SharedPref.clearSharedPref()
-                                            (context as? Activity)?.finishAffinity()
-                                        }
-                                    } else {
-//                                        CommonUtils.dismissDialoge()
-                                        //Log.e("DownloadError", "Failed to download image.");
-                                    }
-                                }.execute(
-                                    response.body()!!.getData().getQuadrantData()[i].getRewardIcon()
-                                )
-                            }
-                        } else {
-                            val intent = Intent(context, MobileNumberActivity::class.java)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                            context.startActivity(intent)
-                            SharedPref.clearSharedPref()
-                            (context as? Activity)?.finishAffinity()
-                        }
-                    } else {
-                        val intent = Intent(context, MobileNumberActivity::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        context.startActivity(intent)
-                        SharedPref.clearSharedPref()
-                        (context as? Activity)?.finishAffinity()
-                    }
-                }
-
-                override fun onFailure(call: Call<GetQuadrantsResponse?>, t: Throwable) {
-//                    CommonUtils.dismissDialoge()
-                    val intent = Intent(context, MobileNumberActivity::class.java)
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    context.startActivity(intent)
-                    SharedPref.clearSharedPref()
-                    (context as? Activity)?.finishAffinity()
-                }
-            })
-        } catch (e: java.lang.Exception) {
-//            CommonUtils.dismissDialoge()
-            val intent = Intent(context, MobileNumberActivity::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            context.startActivity(intent)
-            SharedPref.clearSharedPref()
-            (context as? Activity)?.finishAffinity()
-            e.printStackTrace()
-        }
     }
 
     fun numberFormatConverter(amount: String): String {

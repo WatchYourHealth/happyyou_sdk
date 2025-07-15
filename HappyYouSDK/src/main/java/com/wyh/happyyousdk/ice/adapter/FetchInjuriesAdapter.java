@@ -18,7 +18,7 @@ import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.databinding.ItemFetchInjuriesAdapterBinding;
 import com.wyh.happyyousdk.ice.FirstAidDetailsActivity;
 import com.wyh.happyyousdk.ice.FirstAidOtherDetailsActivity;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.response.ice.FetchInjuriesResp;
 
 import java.util.List;

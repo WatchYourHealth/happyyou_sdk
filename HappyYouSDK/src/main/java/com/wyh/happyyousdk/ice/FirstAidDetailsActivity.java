@@ -21,7 +21,7 @@ import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.FirstAidDetailsPageBinding;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.ice.InjuryTypeReq;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.ice.FetchInjuryDetailsResp;

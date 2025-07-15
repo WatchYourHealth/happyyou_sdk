@@ -40,7 +40,7 @@ import com.wyh.happyyousdk.diary.model.DiaryEventListResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListDataResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListResponse;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.NewMyDiaryRequest;
 import com.wyh.happyyousdk.model.request.diary.DeleteDiaryRequest;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;

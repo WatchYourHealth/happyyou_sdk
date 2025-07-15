@@ -11,7 +11,7 @@ import android.view.View;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityVideoReaderBinding;
 import com.wyh.happyyousdk.happyMarket.NewHappyMartActivity;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.utils.SharedPref;
 
@@ -59,12 +59,6 @@ public class VideoReaderActivity extends AppCompatActivity {
             case "HappyMart":
                 SharedPref.putIsHappyMartIntroShown(true);
                 Intent intent = new Intent(VideoReaderActivity.this, NewHappyMartActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case "HappyYou":
-                SharedPref.putIsHappyYouIntroShown(true);
-                intent = new Intent(VideoReaderActivity.this, MobileNumberActivity.class);
                 startActivity(intent);
                 finish();
                 break;

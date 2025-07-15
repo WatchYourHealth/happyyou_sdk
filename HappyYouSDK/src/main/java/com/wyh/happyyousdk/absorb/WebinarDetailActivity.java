@@ -26,7 +26,7 @@ import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.absorb.WebinarIdRequest;
 import com.wyh.happyyousdk.model.response.absorb.WebinarDetailsResponse;
 import com.wyh.happyyousdk.databinding.ActivityWebinarDetailBinding;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.login.RefreshTokenResponse;
 import com.wyh.happyyousdk.network.ApiClientWyh;

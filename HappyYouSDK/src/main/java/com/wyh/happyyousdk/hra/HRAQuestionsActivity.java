@@ -52,7 +52,7 @@ import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityHraquestionsBinding;
 import com.wyh.happyyousdk.databinding.ScratchCardPopUpBinding;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.PopUpShowModel;
 import com.wyh.happyyousdk.model.request.ConversationIdReq;
 import com.wyh.happyyousdk.model.request.hra.GetAnalysisRequest;

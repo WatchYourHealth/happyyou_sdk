@@ -20,15 +20,10 @@ import androidx.viewpager.widget.ViewPager;
 
 ;
 import com.wyh.happyyousdk.databinding.ActivityMainIntroScreenBinding;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
-import com.wyh.happyyousdk.utils.IntroVideosActivity;
 import com.wyh.happyyousdk.utils.SharedPref;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ActivityMainIntroScreen extends AppCompatActivity {
     ActivityMainIntroScreenBinding binding;
@@ -81,34 +76,8 @@ public class ActivityMainIntroScreen extends AppCompatActivity {
                 intent.putExtra("redirectTo", HappyYou);
                 startActivity(intent);
                 finish();
-            } else {
-                Intent intent = new Intent(ActivityMainIntroScreen.this, MobileNumberActivity.class);
-                intent.putExtra("referrerUrl", referrerUrl);
-                startActivity(intent);
             }
         });
-    }
-
-    private void setTimer() {
-        Handler handler = new Handler();
-
-        Runnable update = () -> {
-            if (currentPage != bottomBars.length) {
-                ColoredBars(currentPage);
-                binding.viewPager.setCurrentItem(currentPage++, true);
-            } else {
-//                timer.cancel();
-                binding.tvSkip.setVisibility(View.VISIBLE);
-            }
-        };
-//        timer = new Timer();
-        /*timer.schedule(new TimerTask() {
-
-            @Override
-            public void run() {
-                handler.post(update);
-            }
-        }, 0, 6000);*/
     }
 
     private void ColoredBars(int thisScreen) {
@@ -189,9 +158,6 @@ public class ActivityMainIntroScreen extends AppCompatActivity {
         int i = getItem(+1);
         if (i < screens.length) {
             binding.viewPager.setCurrentItem(i);
-        } else {
-            Intent intent = new Intent(ActivityMainIntroScreen.this, MobileNumberActivity.class);
-            startActivity(intent);
         }
     }
 }

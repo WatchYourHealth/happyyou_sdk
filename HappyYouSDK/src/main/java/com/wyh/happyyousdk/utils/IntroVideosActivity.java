@@ -16,7 +16,7 @@ import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.WellBeingActivity;
 import com.wyh.happyyousdk.databinding.ActivityIntroVideosBinding;
 import com.wyh.happyyousdk.happyMarket.NewHappyMartActivity;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 
 public class IntroVideosActivity extends AppCompatActivity {
@@ -62,12 +62,6 @@ public class IntroVideosActivity extends AppCompatActivity {
             case "HappyMart":
                 SharedPref.putIsHappyMartIntroShown(true);
                 Intent intent = new Intent(IntroVideosActivity.this, NewHappyMartActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case "HappyYou":
-                SharedPref.putIsHappyYouIntroShown(true);
-                intent = new Intent(IntroVideosActivity.this, MobileNumberActivity.class);
                 startActivity(intent);
                 finish();
                 break;

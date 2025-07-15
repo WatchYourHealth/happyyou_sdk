@@ -34,7 +34,7 @@ import com.wyh.happyyousdk.SDKConstants;
 
 import com.wyh.happyyousdk.databinding.ActivityQcproductsBinding;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.QCGetCategoryResponse;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.request.qc.AllQCProductsRequest;

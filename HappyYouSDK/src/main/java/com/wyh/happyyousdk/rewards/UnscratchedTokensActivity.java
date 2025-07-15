@@ -37,7 +37,7 @@ import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityUnscratchedTokensBinding;
 import com.wyh.happyyousdk.databinding.CustomPopupStampsBinding;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
 import com.wyh.happyyousdk.model.PopUpShowModel;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;

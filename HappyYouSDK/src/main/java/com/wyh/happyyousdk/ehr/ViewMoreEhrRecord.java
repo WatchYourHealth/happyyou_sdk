@@ -47,7 +47,7 @@ import com.wyh.happyyousdk.ehr.Interface.ItemRemove;
 import com.wyh.happyyousdk.ehr.adapter.FileUploadListAdapter;
 import com.wyh.happyyousdk.ehr.adapter.ViewMoreEhrAdapter;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
 import com.wyh.happyyousdk.model.request.ehr.FileData;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;

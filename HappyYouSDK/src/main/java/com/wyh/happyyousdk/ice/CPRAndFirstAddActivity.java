@@ -34,7 +34,7 @@ import com.wyh.happyyousdk.ice.adapter.CPRVideosAdapter;
 import com.wyh.happyyousdk.ice.adapter.DisasterManagementAdapter;
 import com.wyh.happyyousdk.ice.adapter.FetchInjuriesAdapter;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 
 import com.wyh.happyyousdk.model.response.ice.FetchCPRDetailsResp;

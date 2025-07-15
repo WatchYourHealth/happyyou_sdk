@@ -52,7 +52,7 @@ import com.wyh.happyyousdk.model.response.AssignRewardsResponse;
 import com.wyh.happyyousdk.model.response.FeedbackResponseData;
 import com.wyh.happyyousdk.model.response.heartAge.HeartAgeAnalysisResponse;
 import com.wyh.happyyousdk.model.response.heartAge.HeartAgeConversationIdResponse;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.login.RefreshTokenResponse;
 import com.wyh.happyyousdk.model.response.playwin.QuizathonRewardData;

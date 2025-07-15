@@ -54,7 +54,7 @@ import com.wyh.happyyousdk.model.request.ira.SaveIraRequest;
 import com.wyh.happyyousdk.model.response.AssignRewardsResponse;
 import com.wyh.happyyousdk.model.response.ira.IRAHealthScoreResponse;
 import com.wyh.happyyousdk.model.response.ira.IRAResponse;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.PopUpShowModel;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.ConversationIdResponse;

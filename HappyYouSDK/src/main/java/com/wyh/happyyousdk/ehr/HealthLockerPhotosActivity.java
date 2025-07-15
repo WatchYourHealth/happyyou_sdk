@@ -28,7 +28,7 @@ import com.wyh.happyyousdk.ehr.adapter.HealthLockerPhotosAdapter;
 import com.wyh.happyyousdk.ehr.adapter.HealthLockerPhotosListAdapter;
 import com.wyh.happyyousdk.ehr.model.ErhPhotosModel;
 import com.wyh.happyyousdk.utils.Master;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.login.RefreshTokenResponse;
 import com.wyh.happyyousdk.network.ApiClientWyh;

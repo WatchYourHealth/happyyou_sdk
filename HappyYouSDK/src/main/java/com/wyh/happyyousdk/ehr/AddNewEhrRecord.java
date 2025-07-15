@@ -55,7 +55,7 @@ import com.wyh.happyyousdk.model.request.quizathon.ActivityRewardRequest;
 import com.wyh.happyyousdk.model.response.FeedbackResponseData;
 import com.wyh.happyyousdk.model.response.ehr.HealthRecordTypeResponse;
 import com.wyh.happyyousdk.model.response.ehr.UploadFileResponse;
-import com.wyh.happyyousdk.login.MobileNumberActivity;
+
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
 import com.wyh.happyyousdk.model.response.login.RefreshTokenResponse;
