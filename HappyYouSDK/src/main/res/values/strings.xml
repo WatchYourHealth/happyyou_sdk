@@ -579,7 +579,7 @@
     <string name="enrolled">Enrolled</string>
     <string name="enroll">Enroll</string>
     <string name="tribe_challenge_total_member">Total Participate: %s</string>
-    <string name="set_text_2_item">%1s - %2s</string>
+    <string name="set_text_2_item" formatted="false">%1s - %2s</string>
 
     <string-array name="arr">
         <item>Please select Item</item>
