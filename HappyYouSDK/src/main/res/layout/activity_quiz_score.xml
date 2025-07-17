@@ -61,6 +61,7 @@
                         android:id="@+id/btnTriviaHistory"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:theme="@style/Theme.MaterialComponents.Light"
                         app:cardCornerRadius="8dp"
                         app:cardBackgroundColor="@color/cyan_blue">
                         <TextView

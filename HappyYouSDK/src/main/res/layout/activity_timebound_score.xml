@@ -231,6 +231,7 @@
                 android:id="@+id/btnRequiz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardCornerRadius="8dp"
                 android:layout_gravity="center"
                 app:cardBackgroundColor="@color/cyan_blue">

@@ -47,6 +47,7 @@
                     android:id="@+id/mcvAudioLayout"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
                     android:layout_marginHorizontal="24dp"
                     android:visibility="gone"
                     app:cardCornerRadius="12dp">
@@ -146,6 +147,7 @@
                     android:id="@+id/mcvQuizCard"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
                     android:layout_marginHorizontal="24dp"
                     android:visibility="gone"
                     app:cardCornerRadius="12dp">
@@ -163,6 +165,7 @@
                     android:id="@+id/mcvVideo"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
                     android:layout_marginHorizontal="24dp"
                     app:cardCornerRadius="12dp">
 
