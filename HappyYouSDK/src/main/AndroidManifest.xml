@@ -49,6 +49,7 @@
         tools:targetApi="31">
         <activity
             android:name="com.wyh.happyyousdk.quizathon.AllQuizathonActivity"
+            android:theme="@style/Theme.HappyYou"
             android:exported="false" />
         <activity
             android:name="com.wyh.happyyousdk.quizathon.QuizScratchListActivity"
@@ -592,6 +593,7 @@
         <activity
             android:name="com.wyh.happyyousdk.dashboard.NewDashboardActivity"
             android:exported="true"
+            android:theme="@style/Theme.HappyYou"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.wyh.happyyousdk.dashboard.OtherActivity"
