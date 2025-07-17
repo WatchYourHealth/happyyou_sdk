@@ -209,7 +209,6 @@
             android:exported="false" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:theme="@style/Theme.HappyYou"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             tools:replace="android:screenOrientation" />
