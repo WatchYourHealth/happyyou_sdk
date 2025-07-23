@@ -73,6 +73,7 @@ public class HappyYouSDK implements HappyYouInterface {
 
         String TR_SDK_KEY = "771d7226-464a-4a0c-9a9a-56babb4f06fc";
         SharedPref.init(context);
+        SharedPreference.init(context);
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(context));
 
         TrackierSDKConfig sdkConfig = new TrackierSDKConfig(context, TR_SDK_KEY, "production");
