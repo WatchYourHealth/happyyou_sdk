@@ -315,7 +315,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
             this@NewDashboardActivity,
             R.layout.activity_new_dashboard
         )
-        context = this
+        context = this@NewDashboardActivity
         claimReclaimDialog = ClaimReClaimDialog(context)
         SharedPref.init(context)
         SharedPreference.init(context)
@@ -352,6 +352,10 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         NewDashboardHelper.watchYourHealth = WatchYourHealth(context, SharedPref.getUuid())
         NewDashboardHelper.watchYourHealth.initializeAPIClient(savedInstanceState)
         sideDrawer()
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
 
         if (intent.getStringExtra("comingFrom").toString() != null) {
             comingFrom = intent.getStringExtra("comingFrom").toString()

@@ -275,11 +275,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.wyh.happyyousdk.utils.IntroVideosActivity"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.wyh.happyyousdk.PrivacyPolicyActivity"
             android:theme="@style/Theme.HappyYou"
             android:exported="false"
@@ -311,11 +306,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.wyh.happyyousdk.ice.FirstAidOtherDetailsActivity"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.wyh.happyyousdk.addWidget.AddWidgetActivity"
             android:theme="@style/Theme.HappyYou"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -548,11 +538,6 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.wyh.happyyousdk.ActivityMainIntroScreen"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
         <activity
             android:name="com.wyh.happyyousdk.ehr.HealthRecordTypeWiseReportActivity"
             android:theme="@style/Theme.HappyYou"

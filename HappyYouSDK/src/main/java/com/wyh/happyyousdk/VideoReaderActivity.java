@@ -80,11 +80,6 @@ public class VideoReaderActivity extends AppCompatActivity {
                     intent.putExtra("referrerUrl", referelURL);
                     startActivity(intent);
                     finish();
-                } else {
-                     intent = new Intent(this, ActivityMainIntroScreen.class);
-                    intent.putExtra("referrerUrl", referelURL);
-                    startActivity(intent);
-                    finish();
                 }
 
 

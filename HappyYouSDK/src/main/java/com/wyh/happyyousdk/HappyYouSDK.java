@@ -60,10 +60,12 @@ public class HappyYouSDK implements HappyYouInterface {
     Boolean isRegistered;
 
     @Override
-    public void init(Context context, String mobileNumber, String environment, String appVersionName, String source) {
+    public void init(Context context, String mobileNumber, String environment, String appVersionName, String source, String userName, String ARNNumber) {
         SDKConstants.mobileNumber = mobileNumber;
         SDKConstants.environment = environment;
         SDKConstants.appVersionName = appVersionName;
+        SDKConstants.userName = userName;
+        SDKConstants.ARNNumber = ARNNumber;
         SDKConstants.source = source;
         this.context = context;
         apiInterfaceWyh = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);
@@ -140,7 +142,7 @@ public class HappyYouSDK implements HappyYouInterface {
             String userKey = RSAEncryption.rsaEncrypt(SDKConstants.mobileNumber + CommonUtils.generateRandonNumber(8));
             String osVersion = Build.VERSION.RELEASE + "(" + Build.VERSION.SDK_INT + ")";
             String appVersion = SDKConstants.appVersionName;
-            Log.d("AuthToken", "MobileNumber - "+mobileNo+", OTP - "+otp);
+            Log.d("AuthToken", "MobileNumber - " + mobileNo + ", OTP - " + otp);
             VerifyOtpRequest request = new VerifyOtpRequest(mobileNo.replaceAll("\\s", ""), otp.replaceAll("\\s", ""), deviceModel.replaceAll("\\s", ""), osVersion.replaceAll("\\s", ""), appVersion.replaceAll("\\s", ""), userKey.replaceAll("\\s", ""));
             APIInterface apiInterface = RetrofitHandler.apiInterface();
 
@@ -199,7 +201,7 @@ public class HappyYouSDK implements HappyYouInterface {
 
                 @Override
                 public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Log.d("AuthToken", "Exception - "+t.getMessage());
+                    Log.d("AuthToken", "Exception - " + t.getMessage());
                     APILogs.INSTANCE.sendLogs(String.valueOf(call.request().url()), t.getMessage(), "onFailure", context);
                     CommonUtils.dismissDialoge();
                 }
@@ -334,8 +336,10 @@ public class HappyYouSDK implements HappyYouInterface {
         String appVersion = SDKConstants.appVersionName;
         String refferealCode = SharedPref.getReferralCode();
 
-        RegistrationRequest request = new RegistrationRequest(SharedPref.getEncryptedMobileNo(), otp, "", "", "", deviceModel, osVersion, appVersion, SharedPref.getReferralCode(), TrackierSDK.getTrackierId()+"_Android", SDKConstants.source);
-        Call<VerifyOtpResponse> call = apiInterfaceWyh.registerUserV4(request);
+        RegistrationRequest request = new RegistrationRequest(SharedPref.getEncryptedMobileNo(), otp, SDKConstants.userName,
+                "", "", deviceModel, osVersion, appVersion, SharedPref.getReferralCode(),
+                TrackierSDK.getTrackierId() + "_Android", SDKConstants.source, SDKConstants.ARNNumber);
+        Call<VerifyOtpResponse> call = apiInterfaceWyh.registerKMAMCUser(request);
         Log.d("login request: ", new Gson().toJson(request));
 
 

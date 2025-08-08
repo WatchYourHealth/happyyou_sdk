@@ -233,16 +233,10 @@ public interface ApiInterfaceWyh {
     Call<EncryptionResponse> encryptAES(@Body EncryptionRequest request);
 
     //Register User
-    @POST("Login/RegisterUserV2")
-    Call<VerifyOtpResponse> registerUser(@Body RegistrationRequest request);
-
-    @POST("Login/RegisterUserV3")
-    Call<VerifyOtpResponse> registerUserV3(@Body RegistrationRequest request);
     @POST("Login/RegisterUserV4")
     Call<VerifyOtpResponse> registerUserV4(@Body RegistrationRequest request);
-    //GetOTP
-    @POST("Login/GetOTP")
-    Call<GetOtpResponse> getOTP(@Body GetOtpRequest request);
+    @POST("Login/RegisterKmamcUserV4")
+    Call<VerifyOtpResponse> registerKMAMCUser(@Body RegistrationRequest request);
 
     //Verify OTP
     @POST("Login/VerifyOTPV2")
@@ -413,12 +407,6 @@ public interface ApiInterfaceWyh {
 
     @POST("DietTracker/GetDashboardData")
     Call<CalorieDataResponse> getCalorieConsumedDashboardData(@Header("Authorization") String Token, @Body GetCalorieDataRequest body);
-
-    @POST("ExerciseTracker/GetDashboardData")
-    Call<CalorieBurnedResponse> getCalorieBurnedDashboardData(@Header("Authorization") String Token, @Body GetCalorieDataRequest body);
-
-    @POST("Community/AddCommunityContents")
-    Call<CommonSuccessResponse> shareWithTribes(@Header("Authorization") String Token, @Body ShareBlogRequest body);
 
     //Rewards Start
 

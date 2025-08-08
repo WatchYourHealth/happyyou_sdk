@@ -5,4 +5,6 @@ public class SDKConstants {
     public static String environment;
     public static String appVersionName;
     public static String source;
+    public static String userName;
+    public static String ARNNumber;
 }

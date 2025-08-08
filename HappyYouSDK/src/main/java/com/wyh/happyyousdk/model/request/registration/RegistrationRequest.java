@@ -52,8 +52,14 @@ public class RegistrationRequest {
     @Expose
     private String source;
 
+    @SerializedName("arnNumber")
+    @Expose
+    private String arnNumber;
 
-    public RegistrationRequest(String mobile, String otp, String name, String dob, String email, String deviceModel, String oSVersion, String appVersion, String referredby,String transactionid, String source) {
+
+    public RegistrationRequest(String mobile, String otp, String name, String dob,
+                               String email, String deviceModel, String oSVersion, String appVersion,
+                               String referredby,String transactionid, String source, String arnNumber) {
         this.mobile = mobile;
         this.otp = otp;
         this.name = name;
@@ -65,6 +71,7 @@ public class RegistrationRequest {
         this.referredby = referredby;
         this.transactionid = transactionid;
         this.source = source;
+        this.arnNumber = arnNumber;
     }
 
     public RegistrationRequest(String mobile, String name, String dob, String email, String deviceModel, String oSVersion, String appVersion, String registrationSource) {

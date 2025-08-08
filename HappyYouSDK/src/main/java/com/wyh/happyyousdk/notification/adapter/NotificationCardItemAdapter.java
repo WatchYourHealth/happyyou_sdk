@@ -65,10 +65,6 @@ public class NotificationCardItemAdapter extends RecyclerView.Adapter<Notificati
             return R.drawable.ic_notification_tribe;
         } else if (s.contains("sleep")) {
             return R.drawable.ic_notification_sleep;
-        } else if (s.contains("poke")) {
-            return R.drawable.ic_poke_notification;
-        } else if (s.contains("like")) {
-            return R.drawable.ic_like_notification;
         } else if (s.contains("riddle")) {
             return R.drawable.ic_bulb_notification;
         } else {

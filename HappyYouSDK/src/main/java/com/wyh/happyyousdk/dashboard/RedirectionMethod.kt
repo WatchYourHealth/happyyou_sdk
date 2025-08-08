@@ -193,8 +193,6 @@ object RedirectionMethod {
             "Vaccination certificates" -> return R.drawable.ic_vaccination_certificate
             "My photos" -> return R.drawable.ic_my_photos
             "Other documents" -> return R.drawable.ic_other_document
-            "Create your abha id" -> return R.drawable.ic_abha_create_id
-            "Face scan reports" -> return R.drawable.ic_facescan
             "Goals" -> return R.drawable.ic_diary_icon // no icon
             "Activities" -> return R.drawable.ic_activities
             "Top up", "EnG/Topup" -> return R.drawable.ic_top_ups

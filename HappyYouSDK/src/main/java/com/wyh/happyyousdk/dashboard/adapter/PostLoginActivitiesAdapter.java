@@ -18,7 +18,6 @@ import com.wyh.happyyousdk.VideoReaderActivity;
 import com.wyh.happyyousdk.dashboard.PostLoginActivity;
 import com.wyh.happyyousdk.databinding.PostLoginActivitiesAdapterBinding;
 import com.wyh.happyyousdk.model.response.rewards.LevelActivity;
-import com.wyh.happyyousdk.utils.IntroVideosActivity;
 
 import java.util.List;
 
