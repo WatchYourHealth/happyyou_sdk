@@ -24,11 +24,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.Activities.spinwheelreward.RewardsListActivity;
 import com.wyh.happyyousdk.SpinWheel.Activities.spinwheelreward.SpinWheelRewardsActivity;
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.DialogRewardsInfoBinding;
 import com.wyh.happyyousdk.model.response.postloginreward.RewardItem;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.dialog.PostSpinDialog;
 
 import java.text.ParseException;
@@ -48,7 +50,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
     boolean isFromQuiz = true;
     String comingFrom = "Quiz";
 
-    String messageNote ="";
+    String messageNote = "";
 
     public String getMessageNote() {
         return messageNote;
@@ -63,7 +65,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
     }
 
     public void setComingFrom(String comingFrom) {
-        if(comingFrom.equalsIgnoreCase(""))
+        if (comingFrom.equalsIgnoreCase(""))
             comingFrom = "Quiz";
         this.comingFrom = comingFrom;
     }
@@ -114,7 +116,8 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_rewards_info, container, false);
         if (!isFromRewardList) {
-            Glide.with(context).load(R.raw.reward_celebration).into(binding.ivCelebration);
+            Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "reward_celebration.gif")
+                    .into(binding.ivCelebration);
             binding.ivCelebration.setVisibility(View.VISIBLE);
             startRewardCelebrationHandler();
         }
@@ -125,7 +128,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
             binding.tvYouHaveWon.setText("You Have Won A");
         }
 
-        if(messageNote != null && !messageNote.isEmpty() && messageNote.equalsIgnoreCase("top")){
+        if (messageNote != null && !messageNote.isEmpty() && messageNote.equalsIgnoreCase("top")) {
             binding.tvYouHaveWon.setText("You're Eligible To Win");
         }
 
@@ -133,9 +136,9 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
         binding.tvVoucherWinMessage.setText(reward.getRewardDescription());
         try {
             if (reward.getRewardType() != null) {
-                if (rewardStatus.equals("Redeemed")||rewardStatus.equals("Completed")||rewardStatus.equals("RewardRedeemed")) {
+                if (rewardStatus.equals("Redeemed") || rewardStatus.equals("Completed") || rewardStatus.equals("RewardRedeemed")) {
                     binding.tvExpiredHours.setText("Completed");
-                } else if (rewardStatus.equals("Expired")||rewardStatus.equals("RewardExpired")) {
+                } else if (rewardStatus.equals("Expired") || rewardStatus.equals("RewardExpired")) {
                     binding.tvExpiredHours.setText("Expired");
                 } else {
                     startCountdownToDate(reward.getExpireOn(), binding.tvExpiredHours);
@@ -148,7 +151,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
                 applyGradientText(binding.tvExpiredHours, expiredcolors);
 
 
-                if (rewardStatus.equalsIgnoreCase("Redeemed")||rewardStatus.equals("Completed")||rewardStatus.equals("RewardRedeemed")) {
+                if (rewardStatus.equalsIgnoreCase("Redeemed") || rewardStatus.equals("Completed") || rewardStatus.equals("RewardRedeemed")) {
                     binding.btnStartevent.setVisibility(View.GONE);
                     binding.btnCompleteevent.setVisibility(View.GONE);
                     binding.btnSubmitEvent.setVisibility(View.GONE);
@@ -157,7 +160,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
                     binding.btnSubmitEvent.setVisibility(View.GONE);
                     binding.edWriteSomethingJournal.setVisibility(View.GONE);
                     binding.tvJournalupload.setVisibility(View.GONE);
-                } else if (rewardStatus.equalsIgnoreCase("Expired")||rewardStatus.equals("RewardExpired")) {
+                } else if (rewardStatus.equalsIgnoreCase("Expired") || rewardStatus.equals("RewardExpired")) {
                     binding.btnStartevent.setVisibility(View.GONE);
                     binding.btnCompleteevent.setVisibility(View.GONE);
                     binding.btnSubmitEvent.setVisibility(View.GONE);
@@ -214,13 +217,12 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
         binding.btnSubmitEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((reward.getRedirectionKey().equalsIgnoreCase("journalUpload") || reward.getRedirectionKey().equalsIgnoreCase("activityimageupload") )&& binding.edWriteSomethingJournal.getText().toString().length() < 15) {
+                if ((reward.getRedirectionKey().equalsIgnoreCase("journalUpload") || reward.getRedirectionKey().equalsIgnoreCase("activityimageupload")) && binding.edWriteSomethingJournal.getText().toString().length() < 15) {
                     Toast.makeText(context, "Please enter more than 15 character.", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (reward.getRedirectionKey().equalsIgnoreCase("journalUpload"))
-                    {
+                    if (reward.getRedirectionKey().equalsIgnoreCase("journalUpload")) {
                         APILogs.INSTANCE.activityTracker("A_PlayAndWinQuizathon_ActivityPopUp_JournalUpload", context);
-                    }else if(reward.getRedirectionKey().equalsIgnoreCase("activityimageupload")){
+                    } else if (reward.getRedirectionKey().equalsIgnoreCase("activityimageupload")) {
                         APILogs.INSTANCE.activityTracker("A_PlayAndWinQuizathon_ActivityPopUpRedirection_activityimageupload", context);
                     }
 
@@ -229,7 +231,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
                     NewDashboardHelper.Companion.setTrasactionId("" + reward.getActivityTransId());
                     if (comingFrom != null && !comingFrom.equalsIgnoreCase("Quiz")) {
                         NewDashboardHelper.Companion.setFeatureName("Feedback");
-                    }else {
+                    } else {
                         NewDashboardHelper.Companion.setFeatureName("Quiz");
                     }
                     onRewardDialogClick.onSubmit(binding.edWriteSomethingJournal.getText().toString());
@@ -246,7 +248,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
                 NewDashboardHelper.Companion.setTrasactionId("" + reward.getActivityTransId());
                 if (comingFrom != null && !comingFrom.equalsIgnoreCase("Quiz")) {
                     NewDashboardHelper.Companion.setFeatureName("Feedback");
-                }else {
+                } else {
                     NewDashboardHelper.Companion.setFeatureName("Quiz");
                 }
                 if (isFromQuiz) {
@@ -279,7 +281,7 @@ public class RewardInfoBottomSheet extends BottomSheetDialogFragment {
                 NewDashboardHelper.Companion.setTrasactionId("" + reward.getActivityTransId());
                 if (comingFrom != null && !comingFrom.equalsIgnoreCase("Quiz")) {
                     NewDashboardHelper.Companion.setFeatureName("Feedback");
-                }else {
+                } else {
                     NewDashboardHelper.Companion.setFeatureName("Quiz");
                 }
                 if (isFromRewardList) {

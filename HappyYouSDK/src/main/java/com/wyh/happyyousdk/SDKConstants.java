@@ -7,4 +7,5 @@ public class SDKConstants {
     public static String source;
     public static String userName;
     public static String ARNNumber;
+    public static String endPointForImages = "Uploads/assets/";
 }
