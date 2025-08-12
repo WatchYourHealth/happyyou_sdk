@@ -22,8 +22,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/health_hack_sample_img">
+            android:scaleType="fitXY">
 
         </ImageView>
 

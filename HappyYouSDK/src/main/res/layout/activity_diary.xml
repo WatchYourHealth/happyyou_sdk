@@ -32,13 +32,13 @@
 
 
                     <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/laBear"
                         android:layout_width="200dp"
                         android:layout_height="140dp"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/bear_rocking_chair_reading_book" />
+                        app:lottie_loop="true"/>
                 </RelativeLayout>
 
                 <LinearLayout

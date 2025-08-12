@@ -1,5 +1,6 @@
 package com.wyh.happyyousdk.ChallangesModule.Walkathon.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.ChallangesModule.Walkathon.Adapters.ChallengeEnrolledAdapter
 import com.wyh.happyyousdk.ChallangesModule.Walkathon.Helper.Master
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.crypto.RSAEncryption
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity
 import com.wyh.happyyousdk.dashboard.ScannerIntegrate
@@ -44,6 +46,7 @@ class EnrolledChallengeActivity : AppCompatActivity() {
     var startDate = ""
     var scanningTime = ""
     var isStarted = 0
+    lateinit var context: Context
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,9 +56,12 @@ class EnrolledChallengeActivity : AppCompatActivity() {
         binding.includeBack.tvBack.text = resources.getString(R.string.walkathon)
         SharedPref.init(this)
         SharedPreference.init(this)
+        context = this
         binding.includeBack.llBack.setOnClickListener {
             finish()
         }
+
+        binding.walkingBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_walking.json")
 
         startDate = intent.getStringExtra("startDate").toString()
         isStarted = intent.getIntExtra("isStarted", 0)

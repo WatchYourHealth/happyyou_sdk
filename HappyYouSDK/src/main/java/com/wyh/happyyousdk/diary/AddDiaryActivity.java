@@ -57,6 +57,7 @@ import com.google.gson.reflect.TypeToken;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.R;
 
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityAddDiaryBinding;
@@ -151,6 +152,10 @@ public class AddDiaryActivity extends AppCompatActivity implements ScratchListen
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_unwind_bg.png")
+                .into(binding.ivBackground);
+
         binding.ivHome.setOnClickListener(view -> {
             Intent intent = new Intent(this, NewDashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -201,7 +206,6 @@ public class AddDiaryActivity extends AppCompatActivity implements ScratchListen
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-            
 
 
             binding.activitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

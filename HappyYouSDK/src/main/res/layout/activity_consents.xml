@@ -19,23 +19,6 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/policy_bg" />
 
-            <!-- <RelativeLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="206dp"
-                 android:layout_below="@id/includeToolbar">
-
-                 <com.airbnb.lottie.LottieAnimationView
-                     android:id="@+id/la_bear"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_alignParentBottom="true"
-                     android:layout_centerHorizontal="true"
-                     app:lottie_autoPlay="true"
-                     app:lottie_loop="true"
-                     app:lottie_rawRes="@raw/anim_bear_walking" />
-
-             </RelativeLayout>-->
-
             <include
                 android:id="@+id/includeToolbar"
                 layout="@layout/layout_back" />

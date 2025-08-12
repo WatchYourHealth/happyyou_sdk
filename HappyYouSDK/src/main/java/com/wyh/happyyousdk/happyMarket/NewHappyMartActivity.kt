@@ -17,6 +17,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.R
@@ -53,15 +54,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.Locale
 
-class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListenerInterface, HappyMartClick {
+class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListenerInterface,
+    HappyMartClick {
 
-    lateinit var binding : ActivityNewHappyMartBinding
-    var happyMartList : ArrayList<HappyMartTilesData> = arrayListOf()
-    lateinit var happyMartListAdapter : HappyMartListAdapter
+    lateinit var binding: ActivityNewHappyMartBinding
+    var happyMartList: ArrayList<HappyMartTilesData> = arrayListOf()
+    lateinit var happyMartListAdapter: HappyMartListAdapter
     var myOrderDataList: List<MyOrderResponse.Data>? = emptyList()
     var myPurchasesList: ArrayList<String>? = arrayListOf()
     var purchaseArray = java.util.ArrayList<String>()
-    var searchList : ArrayList<HappyMartTilesData> = arrayListOf()
+    var searchList: ArrayList<HappyMartTilesData> = arrayListOf()
     var newPurchaseList: ArrayList<String> = ArrayList()
 
     lateinit var myPurchasesAdapter: MyPurchasesAdapter
@@ -70,14 +72,19 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
     lateinit var context: Context
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_new_happy_mart)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_new_happy_mart)
         setContentView(binding.root)
         SharedPref.init(this)
+        SharedPreference.init(this)
+
+        Glide.with(context)
+            .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_bear_mart.json")
+            .into(binding.laBear)
+
         binding.includeToolbar.tvBack.text = "Happy Mart"
         binding.includeToolbar.tvBack.setTextColor(resources.getColor(R.color.white))
         binding.includeToolbar.ivBack.setColorFilter(resources.getColor(R.color.white))
@@ -113,17 +120,18 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
         } catch (e: JSONException) {
             throw RuntimeException(e)
         }
-        
+
 
 
         binding.happyMartSearchImg.setOnClickListener {
             if (binding.happyMartSearchLayout.visibility === View.VISIBLE) {
                 binding.happyMartMyRecycler.visibility = View.VISIBLE
                 binding.happyMartNoResultTv.visibility = View.GONE
-                happyMartListAdapter = HappyMartListAdapter(this,happyMartList , this);
+                happyMartListAdapter = HappyMartListAdapter(this, happyMartList, this);
                 binding.happyMartMyRecycler.adapter = happyMartListAdapter
                 binding.happyMartMyRecycler.setItemViewCacheSize(12)
-                myPurchasesAdapter = MyPurchasesAdapter(this, myPurchasesList, this@NewHappyMartActivity)
+                myPurchasesAdapter =
+                    MyPurchasesAdapter(this, myPurchasesList, this@NewHappyMartActivity)
                 binding.happyMartMyPurchasesRecycler.adapter = myPurchasesAdapter
                 binding.happyMartSearchEt.setText("")
                 binding.happyMartSearchEt.isEnabled = false
@@ -145,25 +153,33 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(p0!!.isEmpty()){
+                if (p0!!.isEmpty()) {
                     binding.happyMartMyRecycler.visibility = View.VISIBLE
                     binding.searchCancel.visibility = View.GONE
                     binding.happyMartNoResultTv.visibility = View.GONE
-                    happyMartListAdapter = HappyMartListAdapter(this@NewHappyMartActivity,happyMartList,this@NewHappyMartActivity);
+                    happyMartListAdapter = HappyMartListAdapter(
+                        this@NewHappyMartActivity,
+                        happyMartList,
+                        this@NewHappyMartActivity
+                    );
                     binding.happyMartMyRecycler.adapter = happyMartListAdapter
                     binding.happyMartMyRecycler.setItemViewCacheSize(12)
-                    if(myOrderDataList!!.isEmpty()){
+                    if (myOrderDataList!!.isEmpty()) {
                         binding.happyMartNewPurchase.visibility = View.GONE
-                    }else {
+                    } else {
                         binding.happyMartNewPurchase.visibility = View.VISIBLE
 
                     }
-                    myPurchasesAdapter = MyPurchasesAdapter(this@NewHappyMartActivity, myPurchasesList, this@NewHappyMartActivity)
+                    myPurchasesAdapter = MyPurchasesAdapter(
+                        this@NewHappyMartActivity,
+                        myPurchasesList,
+                        this@NewHappyMartActivity
+                    )
                     binding.happyMartNoResultTv.visibility = View.GONE
                     binding.happyMartMyPurchasesRecycler.visibility = View.VISIBLE
                     binding.happyMartMyPurchasesIndicator.visibility = View.VISIBLE
                     binding.happyMartMyPurchasesRecycler.adapter = myPurchasesAdapter
-                }else{
+                } else {
                     binding.searchCancel.visibility = View.VISIBLE
                     searchList.clear()
                     newPurchaseList.clear()
@@ -171,7 +187,9 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
                     if (binding.happyMartNewPurchase.visibility === View.VISIBLE) {
                         for (j in myPurchasesList!!.indices) {
                             if (purchaseArray[j].lowercase(Locale.getDefault()).contains(
-                                    p0.toString().lowercase(Locale.getDefault()))) {
+                                    p0.toString().lowercase(Locale.getDefault())
+                                )
+                            ) {
                                 newPurchaseList.add(myPurchasesList!![j])
 
                             }
@@ -187,7 +205,11 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
                         binding.happyMartNewPurchase.visibility = View.VISIBLE
                         binding.happyMartMyPurchasesRecycler.visibility = View.VISIBLE
                         binding.happyMartMyPurchasesIndicator.visibility = View.VISIBLE
-                        myPurchasesAdapter = MyPurchasesAdapter(this@NewHappyMartActivity, newPurchaseList, this@NewHappyMartActivity)
+                        myPurchasesAdapter = MyPurchasesAdapter(
+                            this@NewHappyMartActivity,
+                            newPurchaseList,
+                            this@NewHappyMartActivity
+                        )
                         binding.happyMartMyPurchasesRecycler.adapter = myPurchasesAdapter
                     }
                     getSearchResult(binding.happyMartSearchEt.text.toString())
@@ -219,20 +241,28 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
 
     override fun onPause() {
         super.onPause()
-        Log.d("AuthToken","onPaused")
+        Log.d("AuthToken", "onPaused")
     }
 
 
     private fun getMyOrder() {
-        Log.d("AuthToken","API Called")
+        Log.d("AuthToken", "API Called")
         CommonUtils.showProgressDialige(this)
-        val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(this)).create<ApiInterfaceWyh>(ApiInterfaceWyh::class.java)
+        val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(this))
+            .create<ApiInterfaceWyh>(ApiInterfaceWyh::class.java)
         val call: Call<MyOrderResponse> = apiInterfaceWyh.getAllOrders(SharedPref.getAuthToken())
         call.enqueue(object : Callback<MyOrderResponse?> {
-            override fun onResponse(call: Call<MyOrderResponse?>, response: Response<MyOrderResponse?>) {
+            override fun onResponse(
+                call: Call<MyOrderResponse?>,
+                response: Response<MyOrderResponse?>
+            ) {
                 CommonUtils.dismissDialoge()
                 if (response.code() == 200 && response.body() != null && response.body()!!.success && response.code() == 200) {
-                    Analytics.logEvent(this@NewHappyMartActivity, this@NewHappyMartActivity.javaClass.getName(), getString(R.string.get_all_orders_success))
+                    Analytics.logEvent(
+                        this@NewHappyMartActivity,
+                        this@NewHappyMartActivity.javaClass.getName(),
+                        getString(R.string.get_all_orders_success)
+                    )
                     getHappyMartTiles()
                     Log.d("response", Gson().toJson(response.body()))
                     binding.happyMartMyPurchasesRecycler.visibility = View.VISIBLE
@@ -252,24 +282,43 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
                         binding.happyMartMyPurchasesRecycler.visibility = View.GONE
                     }
                     if (response.body()!!.enGTokens != null && response.body()!!.enGTokens.tokens != null) {
-                        NewDashboardHelper.popUpShowModels.add(PopUpShowModel(Constants.TokenStamp, response.body()!!.enGTokens.tokens))
+                        NewDashboardHelper.popUpShowModels.add(
+                            PopUpShowModel(
+                                Constants.TokenStamp,
+                                response.body()!!.enGTokens.tokens
+                            )
+                        )
                     }
                     if (response.body()!!.enGTokens != null && response.body()!!.enGTokens.bonusTokens != null) {
                         NewDashboardHelper.popUpShowModels.add(
-                            PopUpShowModel(Constants.TokenStampBounce, response.body()!!.enGTokens.bonusTokens))
+                            PopUpShowModel(
+                                Constants.TokenStampBounce,
+                                response.body()!!.enGTokens.bonusTokens
+                            )
+                        )
                     }
                     if (response.body()!!.feedbackDetails != null && response.body()!!.feedbackDetails.feedbackModel != null && response.body()!!
-                            .feedbackDetails.starConfig != null) {
-                        NewDashboardHelper.popUpShowModels.add(PopUpShowModel(Constants.FeedbackPOPUP, ""))
+                            .feedbackDetails.starConfig != null
+                    ) {
+                        NewDashboardHelper.popUpShowModels.add(
+                            PopUpShowModel(
+                                Constants.FeedbackPOPUP,
+                                ""
+                            )
+                        )
                         NewDashboardHelper.feedbackResponseData = response.body()!!.feedbackDetails
                     }
                     HappyMartActivity().showRewardsPopupDialogBox(this@NewHappyMartActivity)
-                }else if(response.code() == 401){
+                } else if (response.code() == 401) {
                     refreshAuthToken()
-                }else {
+                } else {
                     binding.happyMartNewPurchase.visibility = View.GONE
                     getHappyMartTiles()
-                    Analytics.logEvent(context, "", "A_107_${response.code()}_${SharedPref.getEncryptedMobileNo()}")
+                    Analytics.logEvent(
+                        context,
+                        "",
+                        "A_107_${response.code()}_${SharedPref.getEncryptedMobileNo()}"
+                    )
 
                 }
             }
@@ -290,22 +339,34 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
         val osVersion = Build.VERSION.RELEASE + "(" + Build.VERSION.SDK_INT + ")"
         val appVersion = SDKConstants.appVersionName
         val request = RefreshTokenRequest(deviceModel, osVersion, appVersion)
-        val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(context)).create(ApiInterfaceWyh::class.java)
+        val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(context))
+            .create(ApiInterfaceWyh::class.java)
         val call = apiInterfaceWyh.refreshToken(SharedPref.getAuthToken(), request)
         Log.d("AuthToken", SharedPref.getAuthToken() + "URL: " + call.request().url())
         call.enqueue(object : Callback<RefreshTokenResponse?> {
-            override fun onResponse(call: Call<RefreshTokenResponse?>, response: Response<RefreshTokenResponse?>) {
+            override fun onResponse(
+                call: Call<RefreshTokenResponse?>,
+                response: Response<RefreshTokenResponse?>
+            ) {
                 CommonUtils.dismissDialoge()
                 Log.d("AuthToken", "Refresh Res: " + Gson().toJson(response.body()))
                 if (response.code() == 200 && response.body() != null && response.body()!!.isSuccess && response.body()!!.data.authToken != null && response.body()!!.data.authToken != ""
                 ) {
-                    Analytics.logEvent(context, context.javaClass.name, getString(R.string.refresh_token_success))
+                    Analytics.logEvent(
+                        context,
+                        context.javaClass.name,
+                        getString(R.string.refresh_token_success)
+                    )
                     SharedPref.putAuthToken("Bearer " + response.body()!!.data.authToken)
                     SharedPreference.putAuthToken("Bearer " + response.body()!!.data.authToken)
 
                     Log.d("call", "refreshAuthToken")
                 } else {
-                    Analytics.logEvent(context, context.javaClass.name, getString(R.string.refresh_token_failed))
+                    Analytics.logEvent(
+                        context,
+                        context.javaClass.name,
+                        getString(R.string.refresh_token_failed)
+                    )
                     /*Toast.makeText(context, resources.getString(R.string.session_time_out), Toast.LENGTH_SHORT).show()
                     val intent = Intent(context, MobileNumberActivity::class.java)
                     startActivity(intent)
@@ -317,7 +378,11 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
 
             override fun onFailure(call: Call<RefreshTokenResponse?>, t: Throwable) {
                 CommonUtils.dismissDialoge()
-                Analytics.logEvent(context, context.javaClass.name, getString(R.string.refresh_token_failed))
+                Analytics.logEvent(
+                    context,
+                    context.javaClass.name,
+                    getString(R.string.refresh_token_failed)
+                )
                 /*Toast.makeText(context, resources.getString(R.string.session_time_out), Toast.LENGTH_SHORT).show()
                 val intent = Intent(context, MobileNumberActivity::class.java)
                 startActivity(intent)
@@ -344,33 +409,42 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
         }
     }
 
-    fun getHappyMartTiles(){
-        try{
-            Log.d("AuthToken","HappyMartTiles")
+    fun getHappyMartTiles() {
+        try {
+            Log.d("AuthToken", "HappyMartTiles")
             CommonUtils.showProgressDialige(this)
             val apiInertaface = RetrofitHandler.apiInterface()
-            apiInertaface.getHappyMartTiles(SharedPref.getAuthToken()).enqueue(object : Callback<GetHappyMartTiles>{
-                override fun onResponse(call: Call<GetHappyMartTiles>, response: Response<GetHappyMartTiles>) {
-                    CommonUtils.dismissDialoge()
-                    if(response.isSuccessful && response.body() != null){
-                        if(response.body()!!.data.size != 0){
-                            happyMartList = response.body()!!.data
-                            binding.happyMartMyRecycler.hasFixedSize()
-                            binding.happyMartMyRecycler.layoutManager = GridLayoutManager(this@NewHappyMartActivity,3)
-                            happyMartListAdapter = HappyMartListAdapter(this@NewHappyMartActivity,happyMartList,this@NewHappyMartActivity)
-                            binding.happyMartMyRecycler.adapter = happyMartListAdapter
-                            binding.happyMartMyRecycler.setItemViewCacheSize(12)
+            apiInertaface.getHappyMartTiles(SharedPref.getAuthToken())
+                .enqueue(object : Callback<GetHappyMartTiles> {
+                    override fun onResponse(
+                        call: Call<GetHappyMartTiles>,
+                        response: Response<GetHappyMartTiles>
+                    ) {
+                        CommonUtils.dismissDialoge()
+                        if (response.isSuccessful && response.body() != null) {
+                            if (response.body()!!.data.size != 0) {
+                                happyMartList = response.body()!!.data
+                                binding.happyMartMyRecycler.hasFixedSize()
+                                binding.happyMartMyRecycler.layoutManager =
+                                    GridLayoutManager(this@NewHappyMartActivity, 3)
+                                happyMartListAdapter = HappyMartListAdapter(
+                                    this@NewHappyMartActivity,
+                                    happyMartList,
+                                    this@NewHappyMartActivity
+                                )
+                                binding.happyMartMyRecycler.adapter = happyMartListAdapter
+                                binding.happyMartMyRecycler.setItemViewCacheSize(12)
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<GetHappyMartTiles>, t: Throwable) {
-                    CommonUtils.dismissDialoge()
+                    override fun onFailure(call: Call<GetHappyMartTiles>, t: Throwable) {
+                        CommonUtils.dismissDialoge()
 
-                }
+                    }
 
-            })
-        }catch (e: Exception){
+                })
+        } catch (e: Exception) {
             CommonUtils.dismissDialoge()
             e.toString()
         }
@@ -433,50 +507,60 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
         }
     }
 
-    private fun getSearchResult(searchKey: String){
-        try{
+    private fun getSearchResult(searchKey: String) {
+        try {
             val request = SearchRequest(searchKey)
-            val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(this)).create<ApiInterfaceWyh>(ApiInterfaceWyh::class.java)
-            apiInterfaceWyh.dashboardSearch(SharedPref.getAuthToken(),request).enqueue(object : Callback<SearchResponse>{
-                override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>) {
-                    if(response.body() != null && response.isSuccessful){
-                        if(response.body()!!.data.happyMartSearchData.isNotEmpty()){
-                            binding.happyMartMyRecycler.visibility = View.VISIBLE
-                            binding.happyMartNoResultTv.visibility = View.GONE
-                            searchData(response.body()!!.data.happyMartSearchData)
-                        }else{
-                            binding.happyMartMyRecycler.visibility = View.GONE
-                            binding.happyMartNoResultTv.visibility = View.VISIBLE
+            val apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(this))
+                .create<ApiInterfaceWyh>(ApiInterfaceWyh::class.java)
+            apiInterfaceWyh.dashboardSearch(SharedPref.getAuthToken(), request)
+                .enqueue(object : Callback<SearchResponse> {
+                    override fun onResponse(
+                        call: Call<SearchResponse>,
+                        response: Response<SearchResponse>
+                    ) {
+                        if (response.body() != null && response.isSuccessful) {
+                            if (response.body()!!.data.happyMartSearchData.isNotEmpty()) {
+                                binding.happyMartMyRecycler.visibility = View.VISIBLE
+                                binding.happyMartNoResultTv.visibility = View.GONE
+                                searchData(response.body()!!.data.happyMartSearchData)
+                            } else {
+                                binding.happyMartMyRecycler.visibility = View.GONE
+                                binding.happyMartNoResultTv.visibility = View.VISIBLE
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
-                }
+                    override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                    }
 
-            })
-        }catch (e: Exception){
+                })
+        } catch (e: Exception) {
             e.toString()
         }
     }
 
-    private fun searchData(searchListData : List<HappyMartSearchData>){
-        try{
-            searchListData.forEach{ searchData ->
-                happyMartList.forEach {happyMartData ->
-                    try{
-                        Log.d("AuthToken","search${happyMartData.CategoryName}")
-                           if(searchData.result.equals(happyMartData.CategoryName,true)){
-                               if(!searchList.contains(happyMartData))
-                                   searchList.add(happyMartData)
+    private fun searchData(searchListData: List<HappyMartSearchData>) {
+        try {
+            searchListData.forEach { searchData ->
+                happyMartList.forEach { happyMartData ->
+                    try {
+                        Log.d("AuthToken", "search${happyMartData.CategoryName}")
+                        if (searchData.result.equals(happyMartData.CategoryName, true)) {
+                            if (!searchList.contains(happyMartData))
+                                searchList.add(happyMartData)
                         }
                         binding.happyMartMyRecycler.hasFixedSize()
-                        binding.happyMartMyRecycler.layoutManager = GridLayoutManager(this@NewHappyMartActivity,3)
-                        happyMartListAdapter = HappyMartListAdapter(this@NewHappyMartActivity,searchList,this@NewHappyMartActivity)
+                        binding.happyMartMyRecycler.layoutManager =
+                            GridLayoutManager(this@NewHappyMartActivity, 3)
+                        happyMartListAdapter = HappyMartListAdapter(
+                            this@NewHappyMartActivity,
+                            searchList,
+                            this@NewHappyMartActivity
+                        )
                         binding.happyMartMyRecycler.adapter = happyMartListAdapter
                         binding.happyMartMyRecycler.setItemViewCacheSize(12)
 
-                    }catch (e: Exception){
+                    } catch (e: Exception) {
                         e.toString()
                     }
 
@@ -484,7 +568,7 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
             }
 
 
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.toString()
         }
     }
@@ -505,7 +589,8 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
             binding.happyMartMyPurchasesIndicator.setAdapter(indicatorsAdapter)
             binding.happyMartMyPurchasesIndicator.setLayoutManager(linearLayoutManager1)
             binding.happyMartMyPurchasesIndicator.setHasFixedSize(true)
-            binding.happyMartMyPurchasesRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            binding.happyMartMyPurchasesRecycler.addOnScrollListener(object :
+                RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
@@ -530,11 +615,13 @@ class NewHappyMartActivity : AppCompatActivity(), MyPurchasesAdapter.ClickListen
     }
 
     override fun onClick(happyMartTitle: HappyMartTilesData) {
-        startActivity(Intent(this@NewHappyMartActivity,HappyMartCategory::class.java)
-                .putExtra("category",happyMartTitle.CategoryName)
-                .putExtra("id",happyMartTitle.Id.toString())
-                .putExtra("comingFrom","HappyMart"))
-       // finish()
+        startActivity(
+            Intent(this@NewHappyMartActivity, HappyMartCategory::class.java)
+                .putExtra("category", happyMartTitle.CategoryName)
+                .putExtra("id", happyMartTitle.Id.toString())
+                .putExtra("comingFrom", "HappyMart")
+        )
+        // finish()
     }
 
 

@@ -40,6 +40,7 @@ import com.google.gson.JsonParser;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener;
 import com.wyh.happyyousdk.absorb.adapter.HealthHacksHealthTvAdapter;
 import com.wyh.happyyousdk.absorb.adapter.HealthHacksQuickReadsAdapter;
@@ -70,6 +71,7 @@ import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.SnapHelperOneByOne;
 import com.wyh.happyyousdk.utils.dialog.PostSpinDialog;
@@ -166,6 +168,8 @@ public class HealthHacksActivity extends AppCompatActivity implements ScratchLis
 
         cameFrom = getIntent().getStringExtra("cameFrom");
         searchKey = getIntent().getStringExtra(SearchKey);
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
 
         JSONObject customObj = new JSONObject();
         try {

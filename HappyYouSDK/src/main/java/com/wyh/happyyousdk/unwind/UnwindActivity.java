@@ -24,6 +24,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,7 +42,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener;
 
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -62,6 +66,7 @@ import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.play_and_win.PlayAndWinActivity;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.dialog.QuizRewardDialog;
 import com.wyhsdk.sharedPreferences.SharedPreference;
@@ -91,15 +96,6 @@ public class UnwindActivity extends AppCompatActivity implements ScratchListener
     String affirmation, fileName;
     private static final int REQ_PICK_CONTACT = 3;
     boolean redirectToRiddle = false;
-    Bitmap bitmapThought;
-
-
-    Uri uriforjoke;
-    Uri uriforthought;
-    Uri uriforaffrimation;
-
-
-    String shortLink;
     String phone;
     boolean isPositiveBtn = false;
     QuizathonRewardData quizathonRewardData = null;
@@ -123,6 +119,21 @@ public class UnwindActivity extends AppCompatActivity implements ScratchListener
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        binding.laUnwind.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_unwind.json");
+
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_unwind_bg.png")
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        binding.rlMain.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
         binding.includeToolbar.llBack.setOnClickListener(view -> {
             onBackPressed();
         });

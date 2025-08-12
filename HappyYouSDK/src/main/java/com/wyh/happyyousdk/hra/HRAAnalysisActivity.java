@@ -43,6 +43,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.model.request.quizathon.ActivityRewardRequest;
@@ -265,10 +266,33 @@ public class HRAAnalysisActivity extends AppCompatActivity implements ScratchLis
             });
 
 
-            binding.ivBearBodyProfile.setImageDrawable(ContextCompat.getDrawable(context, getImageId(bpScore)));
-            binding.ivBearStress.setImageDrawable(ContextCompat.getDrawable(context, getImageId(lifestyleScore)));
-            binding.ivBearDiet.setImageDrawable(ContextCompat.getDrawable(context, getImageId(dietScore)));
-            binding.ivBearLifestyle.setImageDrawable(ContextCompat.getDrawable(context, getImageId(stressScore)));
+            if (getImageId(bpScore) == 0) {
+                Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context)
+                        + SDKConstants.endPointForImages + "ic_hra_20_60.png").into(binding.ivBearBodyProfile);
+            } else {
+                binding.ivBearBodyProfile.setImageDrawable(ContextCompat.getDrawable(context, getImageId(bpScore)));
+            }
+
+            if (getImageId(lifestyleScore) == 0) {
+                Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context)
+                        + SDKConstants.endPointForImages + "ic_hra_20_60.png").into(binding.ivBearStress);
+            } else {
+                binding.ivBearStress.setImageDrawable(ContextCompat.getDrawable(context, getImageId(lifestyleScore)));
+            }
+
+            if (getImageId(dietScore) == 0) {
+                Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context)
+                        + SDKConstants.endPointForImages + "ic_hra_20_60.png").into(binding.ivBearDiet);
+            } else {
+                binding.ivBearDiet.setImageDrawable(ContextCompat.getDrawable(context, getImageId(dietScore)));
+            }
+
+            if (getImageId(stressScore) == 0) {
+                Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context)
+                        + SDKConstants.endPointForImages + "ic_hra_20_60.png").into(binding.ivBearLifestyle);
+            } else {
+                binding.ivBearLifestyle.setImageDrawable(ContextCompat.getDrawable(context, getImageId(stressScore)));
+            }
 
 
             //BMI
@@ -1064,7 +1088,7 @@ public class HRAAnalysisActivity extends AppCompatActivity implements ScratchLis
         if (bpScore >= 0 && bpScore <= 20)
             return R.drawable.ic_hra_profile_0_20_risk;
         else if (bpScore > 20 && bpScore <= 60)
-            return R.drawable.ic_hra_20_60;
+            return 0;
         else if (bpScore > 60 && bpScore <= 90)
             return R.drawable.ic_hra_profile_60_90_risk;
         else if (bpScore > 90)

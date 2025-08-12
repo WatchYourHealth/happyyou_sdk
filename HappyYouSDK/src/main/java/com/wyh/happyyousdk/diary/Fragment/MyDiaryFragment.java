@@ -39,6 +39,7 @@ import com.wyh.happyyousdk.diary.adapter.NewDiaryListAdapter;
 import com.wyh.happyyousdk.diary.model.DiaryEventListResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListDataResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListResponse;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.request.NewMyDiaryRequest;
@@ -90,6 +91,8 @@ public class MyDiaryFragment extends Fragment  {
         progressDialog.setMessage("Please wait...");
 
         APILogs.INSTANCE.activityTracker(APILogConstant.INSTANCE.getMyzone_unwind_md_mj(), context);
+
+        binding.lottieMain.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
 
 
         binding.diarySearchImg.setOnClickListener(new View.OnClickListener() {

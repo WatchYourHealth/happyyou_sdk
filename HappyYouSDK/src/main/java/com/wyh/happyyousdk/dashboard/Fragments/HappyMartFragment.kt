@@ -1,6 +1,7 @@
 package com.wyh.happyyousdk.dashboard.Fragments
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -17,9 +18,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.common.adapter.IndicatorsAdapter
 
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper
@@ -67,12 +70,16 @@ class HappyMartFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.happy_mart_fragment_layout,container,false)
-
         binding.includeToolbar.ivBack.visibility = View.GONE
         binding.includeToolbar.tvBack.text = "Happy Mart"
         binding.includeToolbar.tvBack.setTextColor(resources.getColor(R.color.white))
         binding.includeToolbar.ivMenu.visibility = View.VISIBLE
         binding.includeToolbar.ivMenu.setColorFilter(resources.getColor(R.color.white))
+
+        //Changed images
+        Glide.with(this)
+            .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_bear_mart.png")
+            .into(binding.laBear)
 
         totalPoints = SharedPref.getPointsHistory()
 

@@ -9,7 +9,9 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -34,13 +36,18 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,6 +58,7 @@ import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.common.adapter.SearchListAdapter;
 import com.wyh.happyyousdk.common.adapter.SearchListAdapterCity;
 import com.wyh.happyyousdk.crypto.RSAEncryption;
@@ -93,7 +101,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
     String EmailID = "";
     private List<FormModel> formList = new ArrayList<>();
     private List<String> stateList = new ArrayList<>();
-    private List<StateModel>stateListWithId = new ArrayList<>();
+    private List<StateModel> stateListWithId = new ArrayList<>();
     private List<GetCityListResponseModel.CityDataModel> cityListWithId = new ArrayList<>();
     ArrayList<String> cityList = new ArrayList<>();
     ArrayAdapter<String> adapter;
@@ -103,12 +111,13 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
     List<String> corporateNameList = new ArrayList<>();
     String dobStr;
     Calendar mainStartCalender;
-    String  mobilNumber="";
-     String otpType="";
-     boolean saveData=false;
-    String userName="",Dob="",Gender="";
-    Calendar prevYear ;
-    boolean radiobuttonStatus=false;
+    String mobilNumber = "";
+    String otpType = "";
+    boolean saveData = false;
+    String userName = "", Dob = "", Gender = "";
+    Calendar prevYear;
+    boolean radiobuttonStatus = false;
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,10 +130,56 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
         apiInterfaceWyh = RetrofitHandler.apiInterface();
-        jsonData=getIntent().getStringExtra("jsonData");
-        CorporateID=getIntent().getStringExtra("CorporateID");
-        CorporateName=getIntent().getStringExtra("CorporateName");
-        EmailID=getIntent().getStringExtra("EmailID");
+        //Changed RL BG
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_corporate_main_new.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.rlMain.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_register_corporate.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.rlAddCorporate.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_register_corporate.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.scvRegScroll.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+        jsonData = getIntent().getStringExtra("jsonData");
+        CorporateID = getIntent().getStringExtra("CorporateID");
+        CorporateName = getIntent().getStringExtra("CorporateName");
+        EmailID = getIntent().getStringExtra("EmailID");
         String stateData = getIntent().getStringExtra("stateData");
         String corporateDetailsString = getIntent().getStringExtra("corporateDetails");
         mainStartCalender = Calendar.getInstance();
@@ -133,17 +188,16 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         if (!SharedPref.getSpinWheelStatus()) {
             binding.rlSpinner1.setVisibility(View.GONE);
             binding.rlspinner2.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             binding.rlSpinner1.setVisibility(View.VISIBLE);
             binding.rlspinner2.setVisibility(View.GONE);
         }
-        if(stateData != null && !stateData.isEmpty()){
+        if (stateData != null && !stateData.isEmpty()) {
             Type type1 = new TypeToken<List<StateModel>>() {
             }.getType();
             stateListWithId = new Gson().fromJson(stateData, type1);
         }
-        if(corporateDetailsString != null && !corporateDetailsString.isEmpty()){
+        if (corporateDetailsString != null && !corporateDetailsString.isEmpty()) {
             Type type1 = new TypeToken<List<GetEmailOTPResp.Data.corporateDetails>>() {
             }.getType();
             corporateDetails = new Gson().fromJson(corporateDetailsString, type1);
@@ -154,8 +208,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         });
 
 
-        for (int i=0;i<stateListWithId.size();i++)
-        {
+        for (int i = 0; i < stateListWithId.size(); i++) {
             stateList.add(stateListWithId.get(i).getStateName());
         }
 
@@ -165,48 +218,48 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                 boolean allQuestionAnswered = true;
                 for (FormModel model : formList) {
                     model.captureAnswerList();
-                    if (model.isIsrequired()&&!model.captureAnswerList() && allQuestionAnswered ) {
+                    if (model.isIsrequired() && !model.captureAnswerList() && allQuestionAnswered) {
                         allQuestionAnswered = false;
                     }
                 }
-                List<FormModel> postFormDOB = formList.stream().filter(form-> form.getQuestionType().equalsIgnoreCase("dob")).collect(Collectors.toList());
-                List<FormModel> postFormName = formList.stream().filter(form-> form.getQuestionType().equalsIgnoreCase("name")).collect(Collectors.toList());
-                List<FormModel> postFormGender = formList.stream().filter(form-> form.getQuestionType().equalsIgnoreCase("gender")).collect(Collectors.toList());
-                List<FormModel> postFormMobile = formList.stream().filter(form-> form.getQuestionType().equalsIgnoreCase("mobilenumber")).collect(Collectors.toList());
-                List<FormModel> postFormPinCode = formList.stream().filter(form-> form.getQuestionType().equalsIgnoreCase("pincode")).collect(Collectors.toList());
-                if(postFormDOB != null && postFormDOB.size()>0&&postFormDOB.get(0).getAnswerList().get(0)!=null){
+                List<FormModel> postFormDOB = formList.stream().filter(form -> form.getQuestionType().equalsIgnoreCase("dob")).collect(Collectors.toList());
+                List<FormModel> postFormName = formList.stream().filter(form -> form.getQuestionType().equalsIgnoreCase("name")).collect(Collectors.toList());
+                List<FormModel> postFormGender = formList.stream().filter(form -> form.getQuestionType().equalsIgnoreCase("gender")).collect(Collectors.toList());
+                List<FormModel> postFormMobile = formList.stream().filter(form -> form.getQuestionType().equalsIgnoreCase("mobilenumber")).collect(Collectors.toList());
+                List<FormModel> postFormPinCode = formList.stream().filter(form -> form.getQuestionType().equalsIgnoreCase("pincode")).collect(Collectors.toList());
+                if (postFormDOB != null && postFormDOB.size() > 0 && postFormDOB.get(0).getAnswerList().get(0) != null) {
 
-                    if (!postFormDOB.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getDOB())){
-                        Dob=postFormDOB.get(0).getAnswerList().get(0);
-                        saveData=true;
+                    if (!postFormDOB.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getDOB())) {
+                        Dob = postFormDOB.get(0).getAnswerList().get(0);
+                        saveData = true;
                     }
                 }
-                if(postFormName != null && postFormName.size()>0&&postFormName.get(0).getAnswerList().get(0)!=null){
+                if (postFormName != null && postFormName.size() > 0 && postFormName.get(0).getAnswerList().get(0) != null) {
                     postFormName.get(0).getAnswerList().get(0);
-                    if (!postFormName.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getUserName())){
-                        userName=postFormName.get(0).getAnswerList().get(0);
-                        saveData=true;
+                    if (!postFormName.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getUserName())) {
+                        userName = postFormName.get(0).getAnswerList().get(0);
+                        saveData = true;
                     }
                 }
-                if(radiobuttonStatus&&postFormGender != null && postFormGender.size()>0&&postFormGender.get(0).getAnswerList().get(0)!=null){
+                if (radiobuttonStatus && postFormGender != null && postFormGender.size() > 0 && postFormGender.get(0).getAnswerList().get(0) != null) {
                     postFormGender.get(0).getAnswerList().get(0);
-                    if (!postFormGender.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getGender())){
-                        Gender=postFormGender.get(0).getAnswerList().get(0);
-                        saveData=true;
+                    if (!postFormGender.get(0).getAnswerList().get(0).equalsIgnoreCase(SharedPref.getGender())) {
+                        Gender = postFormGender.get(0).getAnswerList().get(0);
+                        saveData = true;
                     }
                 }
 
 
-                if(postFormMobile != null && postFormMobile.size()>0&&postFormMobile.get(0).getAnswerList().get(0)!=null){
+                if (postFormMobile != null && postFormMobile.size() > 0 && postFormMobile.get(0).getAnswerList().get(0) != null) {
                     //postFormMobile.get(0).getAnswerList().get(0);
-                    if (postFormMobile.get(0).getAnswerList().get(0).length()<10){
+                    if (postFormMobile.get(0).getAnswerList().get(0).length() < 10) {
                         Toast.makeText(context, "Please enter valid Mobile", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
-                if(postFormPinCode != null && postFormPinCode.size()>0&&postFormPinCode.get(0).getAnswerList().get(0)!=null){
-                   // postFormPinCode.get(0).getAnswerList().get(0);
-                    if (postFormPinCode.get(0).getAnswerList().get(0).length()<6){
+                if (postFormPinCode != null && postFormPinCode.size() > 0 && postFormPinCode.get(0).getAnswerList().get(0) != null) {
+                    // postFormPinCode.get(0).getAnswerList().get(0);
+                    if (postFormPinCode.get(0).getAnswerList().get(0).length() < 6) {
                         Toast.makeText(context, "Please enter valid Pincode", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -220,18 +273,18 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                 if (!allQuestionAnswered) {
                     Toast.makeText(context, "Please fill or select all mandatory the details to continue", Toast.LENGTH_SHORT).show();
                 } else {
-                    SaveFormData( jsonString);
-                    APILogs.INSTANCE.activityTracker("Android_PRE_CORPORATE_SUBMIT_CORPORATE_DETAIL",context);
+                    SaveFormData(jsonString);
+                    APILogs.INSTANCE.activityTracker("Android_PRE_CORPORATE_SUBMIT_CORPORATE_DETAIL", context);
                 }
             }
         });
         binding.spinnerSpinWheel.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
-                CorporateID= String.valueOf(corporateDetails.get(position).getCorpId());
-                CorporateName= String.valueOf(corporateDetails.get(position).getCorporateNames());
-                jsonData="";
-                jsonData= corporateDetails.get(position).getQuestionJson();
+                CorporateID = String.valueOf(corporateDetails.get(position).getCorpId());
+                CorporateName = String.valueOf(corporateDetails.get(position).getCorporateNames());
+                jsonData = "";
+                jsonData = corporateDetails.get(position).getQuestionJson();
                 SetFormData();
 
             }
@@ -244,10 +297,10 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         binding.spinnerNonSpinWheel.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
-                CorporateID= String.valueOf(corporateDetails.get(position).getCorpId());
-                CorporateName= String.valueOf(corporateDetails.get(position).getCorporateNames());
-                jsonData="";
-                jsonData= corporateDetails.get(position).getQuestionJson();
+                CorporateID = String.valueOf(corporateDetails.get(position).getCorpId());
+                CorporateName = String.valueOf(corporateDetails.get(position).getCorporateNames());
+                jsonData = "";
+                jsonData = corporateDetails.get(position).getQuestionJson();
                 SetFormData();
             }
 
@@ -257,19 +310,18 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
             }
         });
     }
+
     private void SaveFormData(String jsonString) {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
 
         //SaveCorporateDetailsReq request = new SaveCorporateDetailsReq(RSAEncryption.rsaEncrypt(EmailID),jsonString);
-        if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
-        {
-            otpType="both";
+        if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo())) {
+            otpType = "both";
+        } else {
+            otpType = "email";
         }
-        else {
-            otpType="email";
-        }
-        SaveCorporateDetailsReqV1 request = new SaveCorporateDetailsReqV1(RSAEncryption.rsaEncrypt(EmailID),RSAEncryption.rsaEncrypt(mobilNumber),otpType,true,jsonString);
+        SaveCorporateDetailsReqV1 request = new SaveCorporateDetailsReqV1(RSAEncryption.rsaEncrypt(EmailID), RSAEncryption.rsaEncrypt(mobilNumber), otpType, true, jsonString);
         Call<GetEmailOTPResp> call = apiInterfaceWyh.SaveCorporateDetailsV1(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<>() {
@@ -279,11 +331,11 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     progressDialog.dismiss();
                 if (response.code() == 200 && response.body() != null && response.body().getSuccess()) {
                     Intent intent = new Intent(context, ActivityCorporateOTPVerification.class);
-                    intent.putExtra("CorporateID",CorporateID);
-                    intent.putExtra("EmailID",EmailID);
-                    intent.putExtra("jsonString",jsonString);
-                    intent.putExtra("mobilNumber",mobilNumber);
-                    intent.putExtra("saveData",saveData);
+                    intent.putExtra("CorporateID", CorporateID);
+                    intent.putExtra("EmailID", EmailID);
+                    intent.putExtra("jsonString", jsonString);
+                    intent.putExtra("mobilNumber", mobilNumber);
+                    intent.putExtra("saveData", saveData);
                     intent.putExtra("userName", userName);
                     intent.putExtra("Dob", Dob);
                     intent.putExtra("Gender", Gender);
@@ -303,7 +355,8 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
             }
         });
     }
-    private void getCityListView(int stateId,TextView view) {
+
+    private void getCityListView(int stateId, TextView view) {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
         GetCityRequestModel request;
@@ -320,7 +373,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     cityList.clear();
                     cityListWithId = response.body().getData();
                     for (int i = 0; i < cityListWithId.size(); i++) {
-                        if(i == 0) {
+                        if (i == 0) {
                             view.setText(cityListWithId.get(i).getCityName());
                         }
                         cityList.add(cityListWithId.get(i).getCityName());
@@ -344,20 +397,17 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
             }
         });
     }
-    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails)
-    {
-        for (int i=0;i<corporateDetails.size();i++)
-        {
+
+    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails) {
+        for (int i = 0; i < corporateDetails.size(); i++) {
             corporateNameList.add(corporateDetails.get(i).getCorporateNames());
         }
-        if (corporateNameList.size()>1)
-        {
+        if (corporateNameList.size() > 1) {
             binding.imSpinnerNonSpinWheel.setVisibility(View.VISIBLE);
             binding.imSpinnerSpinWheel.setVisibility(View.VISIBLE);
             binding.rlSpinner1.setClickable(true);
             binding.rlspinner2.setClickable(true);
-        }
-        else {
+        } else {
             binding.imSpinnerNonSpinWheel.setVisibility(View.INVISIBLE);
             binding.imSpinnerSpinWheel.setVisibility(View.INVISIBLE);
             binding.rlSpinner1.setClickable(false);
@@ -370,14 +420,14 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         binding.spinnerSpinWheel.setAdapter(spinnerSpinWheelAdapter);
         binding.spinnerNonSpinWheel.setAdapter(spinnerNonSpinWheelAdapter);
     }
+
     @SuppressLint("RestrictedApi")
-    public void SetFormData()
-    {
+    public void SetFormData() {
         LayoutInflater inflater = getLayoutInflater();
         LinearLayout layout = findViewById(R.id.formContainer);
         try {
             JSONArray jsonArray = new JSONArray(jsonData);
-            if(layout.getChildCount() > 0) {
+            if (layout.getChildCount() > 0) {
                 layout.removeAllViews();
             }
             formList.clear();
@@ -406,18 +456,15 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     TextView textLabel = itemView.findViewById(R.id.textLabel);
                     TextView textCount = itemView.findViewById(R.id.textCount);
                     TextView tvRequired = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequired.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequired.setVisibility(View.GONE);
                     }
                     EditText editText = itemView.findViewById(R.id.editText);
                     textLabel.setText((model.getQuestion()));
 
-                    if (model.getQuestionType().equalsIgnoreCase("name"))
-                    {
+                    if (model.getQuestionType().equalsIgnoreCase("name")) {
                         editText.setText(SharedPref.getUserName());
                     }
 
@@ -458,7 +505,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                         } catch (Exception ex) {
 
                         }
-                        viewLength[0]= len;
+                        viewLength[0] = len;
                         InputFilter[] filterArray = new InputFilter[1];
                         filterArray[0] = new InputFilter.LengthFilter(len);
                         editText.setFilters(filterArray);
@@ -466,11 +513,10 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     } else {
                         textCount.setVisibility(View.GONE);
                     }
-                    if (model.getQuestionType().equalsIgnoreCase("mobilenumber"))
-                    {
+                    if (model.getQuestionType().equalsIgnoreCase("mobilenumber")) {
                         editText.setText(SharedPref.getDecryptMobileNo());
-                        mobilNumber= editText.getText().toString();
-                        textCount.setText(mobilNumber.length()+"/" + viewLength[0]);
+                        mobilNumber = editText.getText().toString();
+                        textCount.setText(mobilNumber.length() + "/" + viewLength[0]);
                     }
                     editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                         @Override
@@ -487,8 +533,8 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                         @Override
                         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                             if (textCount.getVisibility() == View.VISIBLE) {
-                                if(charSequence != null) {
-                                    textCount.setText((charSequence.length()) + "/" +  viewLength[0]);
+                                if (charSequence != null) {
+                                    textCount.setText((charSequence.length()) + "/" + viewLength[0]);
                                 }
                             }
                         }
@@ -496,11 +542,11 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                         @Override
                         public void afterTextChanged(Editable editable) {
 
-                            if (editable.length() >=  viewLength[0]) {
-                                textCount.setText( viewLength[0] + "/" +  viewLength[0]);
+                            if (editable.length() >= viewLength[0]) {
+                                textCount.setText(viewLength[0] + "/" + viewLength[0]);
                                 //Toast.makeText(context, "Only " + viewLength + " characters are allowed.", Toast.LENGTH_SHORT).show();
                                 // Trim extra characters
-                                editable.delete( viewLength[0], editable.length());
+                                editable.delete(viewLength[0], editable.length());
 
                             }
                             if (model.getQuestionType().equalsIgnoreCase("mobilenumber")) {
@@ -522,11 +568,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                         TextView tvRequiredSp = itemView.findViewById(R.id.tvRequired);
                         Drawable drawableEnd = ContextCompat.getDrawable(context, R.drawable.ic_arrow_drop_down);
                         custom_spinner.setCompoundDrawablesWithIntrinsicBounds(null, null, drawableEnd, null);
-                        if (model.isIsrequired())
-                        {
+                        if (model.isIsrequired()) {
                             tvRequiredSp.setVisibility(View.VISIBLE);
-                        }
-                        else {
+                        } else {
                             tvRequiredSp.setVisibility(View.GONE);
                         }
                         textCountSp.setVisibility(View.GONE);
@@ -549,8 +593,8 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                                 for (FormModel user : formList) {
                                     if ("city".equals(user.getQuestionType())) {
                                         EditText tvCity = getCityView();
-                                        if(tvCity != null) {
-                                            getCityListView(stateListWithId.get(0).getStateId(),tvCity);
+                                        if (tvCity != null) {
+                                            getCityListView(stateListWithId.get(0).getStateId(), tvCity);
                                         }
                                         //custom_spinner.setText(cityList.get(0));
                                         break;
@@ -566,8 +610,8 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                                     public void onItemSelected(String selectedItem, int position) {
                                         if (!custom_spinner.getText().toString().equalsIgnoreCase(selectedItem)) {
                                             EditText tvCity = getCityView();
-                                            if(tvCity != null){
-                                                getCityListView(stateListWithId.get(position).getStateId(),tvCity);
+                                            if (tvCity != null) {
+                                                getCityListView(stateListWithId.get(position).getStateId(), tvCity);
                                             }
                                         }
                                         custom_spinner.setText(selectedItem);
@@ -590,11 +634,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                         TextView spinText = itemView.findViewById(R.id.textLabel);
                         spinText.setText((model.getQuestion()));
                         TextView tvRequiredsp = itemView.findViewById(R.id.tvRequired);
-                        if (model.isIsrequired())
-                        {
+                        if (model.isIsrequired()) {
                             tvRequiredsp.setVisibility(View.VISIBLE);
-                        }
-                        else {
+                        } else {
                             tvRequiredsp.setVisibility(View.GONE);
                         }
                         adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, model.getOptions());
@@ -619,28 +661,25 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     CommonUtils.hideKeyboard((Activity) context);
                     TextView textLabelRadio = itemView.findViewById(R.id.textLabel);
                     TextView tvRequiredRb = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequiredRb.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequiredRb.setVisibility(View.GONE);
                     }
                     textLabelRadio.setText(model.getQuestion());
                     MultiLineRadioGroup flowRadioGroup = itemView.findViewById(R.id.radioGroup);
-                   // List<RadioButton> radioButtons = new ArrayList<>();
+                    // List<RadioButton> radioButtons = new ArrayList<>();
                     for (String option : model.getOptions()) {
                         RadioButton radioButton = new RadioButton(context);
                         radioButton.setText(option);
-                       // radioButtons.add(radioButton);
+                        // radioButtons.add(radioButton);
                         flowRadioGroup.addButtons(radioButton);
 
-                        if (model.getQuestionType().equals("gender") &&SharedPref.getGender()!=null&& !SharedPref.getGender().isEmpty()&&option.equalsIgnoreCase(SharedPref.getGender().equalsIgnoreCase("Male")?"Male":"Female")) {
+                        if (model.getQuestionType().equals("gender") && SharedPref.getGender() != null && !SharedPref.getGender().isEmpty() && option.equalsIgnoreCase(SharedPref.getGender().equalsIgnoreCase("Male") ? "Male" : "Female")) {
                             radioButton.setChecked(true);
-                            radiobuttonStatus=true;
-                        }
-                        else {
-                            radiobuttonStatus=false;
+                            radiobuttonStatus = true;
+                        } else {
+                            radiobuttonStatus = false;
                         }
 
 
@@ -654,12 +693,12 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     }
                     layout.addView(itemView);
                     model.setView(flowRadioGroup);
-                    String value="";
-                    if (!SharedPref.getGender().isEmpty()){
+                    String value = "";
+                    if (!SharedPref.getGender().isEmpty()) {
                         value = SharedPref.getGender().equalsIgnoreCase("Male") ? "Male" : "Female";
                     }
                     RadioButton button = flowRadioGroup.containsButtonGet(value);
-                    if(button != null){
+                    if (button != null) {
                         flowRadioGroup.checkName(button.getText().toString());
                     }
                     itemView.setOnTouchListener((v, event) -> {
@@ -672,11 +711,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     TextView textLabelCheckBox = itemView.findViewById(R.id.textLabel);
                     textLabelCheckBox.setText(model.getQuestion());
                     TextView tvRequiredCB = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequiredCB.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequiredCB.setVisibility(View.GONE);
                     }
                     FlexboxLayout checkBoxGroup = itemView.findViewById(R.id.checkBoxContainer); // Using FlowLayout for better wrapping
@@ -708,11 +745,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     textLabelSwitch.setText(model.getQuestion());
                     Switch switchToggle = itemView.findViewById(R.id.switchToggle);
                     TextView tvRequiredSW = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequiredSW.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequiredSW.setVisibility(View.GONE);
                     }
                     switchToggle.setOnTouchListener(new View.OnTouchListener() {
@@ -731,11 +766,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     textLabelDatePicker.setText(model.getQuestion());
                     DatePicker datePicker = itemView.findViewById(R.id.datePicker);
                     TextView tvRequiredDP = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequiredDP.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequiredDP.setVisibility(View.GONE);
                     }
                     datePicker.setOnTouchListener(new View.OnTouchListener() {
@@ -753,11 +786,9 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     TextView textLabelCl = itemView.findViewById(R.id.textLabel);
                     TextView textCountCl = itemView.findViewById(R.id.textCount);
                     TextView tvRequiredCL = itemView.findViewById(R.id.tvRequired);
-                    if (model.isIsrequired())
-                    {
+                    if (model.isIsrequired()) {
                         tvRequiredCL.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         tvRequiredCL.setVisibility(View.GONE);
                     }
                     textCountCl.setVisibility(View.GONE);
@@ -765,7 +796,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                     editTextCl.setFocusable(false);
                     editTextCl.setClickable(true);
                     textLabelCl.setText((model.getQuestion()));
-                    if (model.getQuestionType().equalsIgnoreCase("dob")&&!SharedPref.getDOB().equalsIgnoreCase("")) {
+                    if (model.getQuestionType().equalsIgnoreCase("dob") && !SharedPref.getDOB().equalsIgnoreCase("")) {
                         String input = SharedPref.getDOB();
                         SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
                         SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
@@ -816,7 +847,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
                                         mainStartCalender.set(Calendar.MONTH, monthOfYear);
                                         mainStartCalender.set(Calendar.DATE, dayOfMonth);
                                     }, year, month, day);
-                             pickerDialog.getDatePicker().setMaxDate(prevYear.getTimeInMillis());
+                            pickerDialog.getDatePicker().setMaxDate(prevYear.getTimeInMillis());
                             pickerDialog.show();
                         }
                     });
@@ -828,6 +859,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
 
         }
     }
+
     public void showSearchableDialog(Context context, List<StateModel> itemList, OnItemSelectedListener listener) {
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -915,7 +947,8 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         }
         dialog.show();
     }
-    private EditText getCityView(){
+
+    private EditText getCityView() {
         List<FormModel> streamModel = formList.stream().filter(cityview -> cityview.getQuestionType().equalsIgnoreCase("city")).collect(Collectors.toList());
         if (streamModel != null && streamModel.size() > 0) {
             Object objectGroup = streamModel.get(0).getSupportingView();
@@ -934,6 +967,7 @@ public class ActivityCorporateRegisterForm extends AppCompatActivity {
         return null;
     }
 }
+
 class FormModel {
     @SerializedName("questionId")
     @Expose
@@ -1008,6 +1042,7 @@ class FormModel {
     @SerializedName("questionType")
     @Expose
     String questionType;
+
     public Object getSupportingView() {
         return supportingView;
     }
@@ -1015,8 +1050,10 @@ class FormModel {
     public void setSupportingView(Object supportingView) {
         this.supportingView = supportingView;
     }
+
     private Object supportingView;
-    public FormModel(int questionId, String question, String viewType, String viewLength,boolean isrequired,String keypadtype,String  questionType, JSONArray optionsJson) {
+
+    public FormModel(int questionId, String question, String viewType, String viewLength, boolean isrequired, String keypadtype, String questionType, JSONArray optionsJson) {
         this.questionId = questionId;
         this.question = question;
         this.viewType = viewType;

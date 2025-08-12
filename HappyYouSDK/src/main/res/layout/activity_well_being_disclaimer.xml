@@ -19,7 +19,7 @@
                 android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@drawable/running"
+                android:src="@drawable/running"
                 android:scaleType="fitXY" />
 
             <ImageView

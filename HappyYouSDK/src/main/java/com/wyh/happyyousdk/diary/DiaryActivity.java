@@ -37,6 +37,7 @@ import com.wyh.happyyousdk.diary.adapter.DiaryListAdapter;
 import com.wyh.happyyousdk.diary.model.DiaryEventListResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListDataResponse;
 import com.wyh.happyyousdk.diary.model.DiaryListResponse;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.diary.DeleteDiaryRequest;
 import com.wyh.happyyousdk.model.response.diary.DeleteDiaryResponse;
@@ -90,6 +91,8 @@ public class DiaryActivity extends AppCompatActivity {
         binding.heading.setVisibility(View.GONE);
         binding.diaryListRecyclerView.setVisibility(View.GONE);
         binding.llNoRecordFound.setVisibility(View.GONE);
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
 
         setToolBar();
 

@@ -6,8 +6,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -19,14 +22,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.gson.Gson;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.WelcomeActivity;
 import com.wyh.happyyousdk.crypto.RSAEncryption;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -36,6 +44,7 @@ import com.wyh.happyyousdk.model.request.GetEmailOTPReq;
 import com.wyh.happyyousdk.model.response.GetEmailOTPResp;
 import com.wyh.happyyousdk.model.response.VerifyEmailOTPResp;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
@@ -53,12 +62,13 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
     ProgressDialog progressDialog;
     APIInterface apiInterfaceWyh;
     List<GetEmailOTPResp.Data.corporateDetails> corporateDetails = new ArrayList<>();
-    String CorporateID="",CorporateName="";
+    String CorporateID = "", CorporateName = "";
     List<String> corporateName = new ArrayList<>();
     AlertDialog dialog;
-    String jsonData="";
-    List<StateModel> stateData= new ArrayList<StateModel>();
+    String jsonData = "";
+    List<StateModel> stateData = new ArrayList<StateModel>();
     String EmailId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,38 +81,52 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
         apiInterfaceWyh = RetrofitHandler.apiInterface();
+
+        //Changed RL BG
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_corporate_main_new.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.rlMain.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+
         binding.rlUpperCard.setOnClickListener(view -> {
             onBackPressed();
         });
         binding.tvSendOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.etEmailID.getText().toString()))
-            {
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.etEmailID.getText().toString())) {
                 //sendOTp();
                 GetCorporateDetails();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
 
         });
         binding.tvResendOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.etEmailID.getText().toString()))
-            {
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.etEmailID.getText().toString())) {
                 corporateDetails.clear();
                 corporateName.clear();
-                CorporateID="";
+                CorporateID = "";
                 //sendOTp();
                 GetCorporateDetails();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
 
         });
         binding.tvNotNow.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_NOT_NOW",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_NOT_NOW", context);
             Intent intent = new Intent(context, NewDashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -110,9 +134,8 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         });
 
 
-
         binding.tvContinue.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE", context);
             /*if (binding.edtOTP.getOTP().length()==6)
             {
                 //verifyOTP();
@@ -126,20 +149,20 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
             }*/
             Intent intent = new Intent(context, ActivityCorporatePostRegisterForm.class);
             intent.putExtra("jsonData", jsonData);
-            intent.putExtra("CorporateID",CorporateID);
-            intent.putExtra("CorporateName",CorporateName);
-            intent.putExtra("EmailID",EmailId);
-            intent.putExtra("stateData",new Gson().toJson(stateData));
-            intent.putExtra("corporateDetails",new Gson().toJson(corporateDetails));
+            intent.putExtra("CorporateID", CorporateID);
+            intent.putExtra("CorporateName", CorporateName);
+            intent.putExtra("EmailID", EmailId);
+            intent.putExtra("stateData", new Gson().toJson(stateData));
+            intent.putExtra("corporateDetails", new Gson().toJson(corporateDetails));
 
             startActivity(intent);
         });
 
         binding.tvEditEmail.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_OTP_EDIT_EMAIL",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_OTP_EDIT_EMAIL", context);
             corporateDetails.clear();
             corporateName.clear();
-            CorporateID="";
+            CorporateID = "";
             binding.edtOTP.setOTP("");
             //binding.etEmailID.setText("");
             binding.llSection1.setVisibility(View.VISIBLE);
@@ -151,9 +174,9 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         binding.spinnerCorporateName.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
-                CorporateID= String.valueOf(corporateDetails.get(position).getCorpId());
-                CorporateName= String.valueOf(corporateDetails.get(position).getCorporateNames());
-                jsonData= corporateDetails.get(position).getQuestionJson();
+                CorporateID = String.valueOf(corporateDetails.get(position).getCorpId());
+                CorporateName = String.valueOf(corporateDetails.get(position).getCorporateNames());
+                jsonData = corporateDetails.get(position).getQuestionJson();
             }
 
             @Override
@@ -162,11 +185,13 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
             }
         });
     }
+
     private void GetCorporateDetails() {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
         EmailId = binding.etEmailID.getText().toString();
-        GetEmailOTPReq request = new GetEmailOTPReq(binding.etEmailID.getText().toString());;
+        GetEmailOTPReq request = new GetEmailOTPReq(binding.etEmailID.getText().toString());
+        ;
 
         Call<GetEmailOTPResp> call = apiInterfaceWyh.getCorporateDetails(SharedPref.getAuthToken(), request);
 
@@ -176,7 +201,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
                 if (response.code() == 200 && response.body() != null && response.body().getSuccess() && !response.body().getData().getClients().isEmpty()) {
-                    corporateDetails=response.body().getData().getClients();
+                    corporateDetails = response.body().getData().getClients();
                     stateData = response.body().getData().getStateList();
                     setSpinnerData(corporateDetails);
                    /* binding.llSection1.setVisibility(View.GONE);
@@ -185,11 +210,11 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
                     binding.llSection2.setVisibility(View.VISIBLE);*/
                     Intent intent = new Intent(context, ActivityCorporatePostRegisterForm.class);
                     intent.putExtra("jsonData", jsonData);
-                    intent.putExtra("CorporateID",CorporateID);
-                    intent.putExtra("CorporateName",CorporateName);
-                    intent.putExtra("EmailID",binding.etEmailID.getText().toString().trim());
-                    intent.putExtra("stateData",new Gson().toJson(stateData));
-                    intent.putExtra("corporateDetails",new Gson().toJson(corporateDetails));
+                    intent.putExtra("CorporateID", CorporateID);
+                    intent.putExtra("CorporateName", CorporateName);
+                    intent.putExtra("EmailID", binding.etEmailID.getText().toString().trim());
+                    intent.putExtra("stateData", new Gson().toJson(stateData));
+                    intent.putExtra("corporateDetails", new Gson().toJson(corporateDetails));
                     startActivity(intent);
                     Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
 
@@ -218,8 +243,8 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
     private void sendOTp() {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
-        GetEmailOTPReq request ;
-        request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()));
+        GetEmailOTPReq request;
+        request = new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()));
         Call<GetEmailOTPResp> call = apiInterfaceWyh.getEmailOTP(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<>() {
@@ -227,8 +252,8 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
             public void onResponse(@NonNull Call<GetEmailOTPResp> call, @NonNull Response<GetEmailOTPResp> response) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                if (response.code() == 200 && response.body() != null && response.body().getSuccess()&& !response.body().getData().getClients().isEmpty()) {
-                    corporateDetails=response.body().getData().getClients();
+                if (response.code() == 200 && response.body() != null && response.body().getSuccess() && !response.body().getData().getClients().isEmpty()) {
+                    corporateDetails = response.body().getData().getClients();
                     setSpinnerData(corporateDetails);
                     binding.llSection1.setVisibility(View.GONE);
                     binding.etEmailID.setVisibility(View.GONE);
@@ -254,7 +279,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
         VerifyEmailOTPReq request;
-        request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
+        request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
         Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<>() {
@@ -264,7 +289,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
                     progressDialog.dismiss();
                 if (response.code() == 200 && response.body() != null && response.body().getSuccess()) {
                     SharedPref.setCorporateRegistered("YES");
-                    SharedPref.setCorporateId(response.body().getData().getCorpId()+"");
+                    SharedPref.setCorporateId(response.body().getData().getCorpId() + "");
                     SharedPref.setCorporateName(response.body().getData().getCorpName());
                     SharedPref.setCorporateImage(response.body().getData().getCorpLogo());
                     Intent intent = new Intent(context, ActivityCorporateAccountMain.class);
@@ -287,17 +312,14 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
             }
         });
     }
-    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails)
-    {
-        for (int i=0;i<corporateDetails.size();i++)
-        {
+
+    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails) {
+        for (int i = 0; i < corporateDetails.size(); i++) {
             corporateName.add(corporateDetails.get(i).getCorporateNames());
         }
-        if (corporateName.size()>1)
-        {
+        if (corporateName.size() > 1) {
             binding.imSpinner.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             binding.imSpinner.setVisibility(View.INVISIBLE);
         }
         ArrayAdapter<String> spinnerSpinWheelAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, corporateName);
@@ -305,6 +327,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         binding.spinnerCorporateName.setAdapter(spinnerSpinWheelAdapter);
 
     }
+
     public static boolean isValidEmail(String email) {
         return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches();
         // Alternative: return email != null && EMAIL_PATTERN.matcher(email).matches();
@@ -320,17 +343,17 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
                 .create();
         dialog.setCancelable(false);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView tvTitle=dialogView.findViewById(R.id.tvTitle);
-        Button btnYes=dialogView.findViewById(R.id.btnYes);
-        Button btnNo=dialogView.findViewById(R.id.btnNo);
+        TextView tvTitle = dialogView.findViewById(R.id.tvTitle);
+        Button btnYes = dialogView.findViewById(R.id.btnYes);
+        Button btnNo = dialogView.findViewById(R.id.btnNo);
         tvTitle.setText("Are you Sure Do you want to Add\n" + "your Corporate?");
         btnYes.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES",context);
-               verifyOTP();
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES", context);
+            verifyOTP();
             dismissDialog();
         });
         btnNo.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO", context);
             dismissDialog();
         });
 
@@ -347,6 +370,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         dialog.show();
 
     }
+
     void dismissDialog() {
         if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();

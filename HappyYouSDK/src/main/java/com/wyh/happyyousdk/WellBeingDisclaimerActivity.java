@@ -26,6 +26,7 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
@@ -69,6 +70,7 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
     ArrayList<CommunityIDs> list = new ArrayList<>();
 
     AlertDialog alertDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +93,9 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
             shownScreen = extras.getBoolean("shownScreen");
         }
 
+        if (cameFrom == null)
+            cameFrom = "";
+
         setToolBar();
     }
 
@@ -105,7 +110,12 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
 
         binding.tvContent.loadData(getResources().getString(getMessage(cameFrom)), "text/html", "utf-8");
 
-        binding.ivImage.setBackgroundResource(getImage(cameFrom));
+        if (cameFrom.equals("KnowYourDAS")) {
+            Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context) +
+                    SDKConstants.endPointForImages + "ic_dass_dis_bg.png").into(binding.ivImage);
+        } else {
+            binding.ivImage.setImageResource(getImage(cameFrom));
+        }
 
         if (shownScreen) {
             binding.btnStartNow.setText("Proceed");
@@ -146,7 +156,7 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
                 break;
             case "KnowYourDAS":
                 if (isAnalysis) {
-                    intent = new Intent(context, Dass21AnalysisActivity.class).putExtra("comingFrom","");
+                    intent = new Intent(context, Dass21AnalysisActivity.class).putExtra("comingFrom", "");
                 } else {
                     intent = new Intent(context, Dass21QuestionsActivity.class);
                 }
@@ -164,7 +174,6 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
                 break;
         }
     }
-
 
 
     private int getMessage(String cameFrom) {
@@ -188,8 +197,6 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
                 return R.drawable.know_your_health;
             case "KnowYourImmunity":
                 return R.drawable.running;
-            case "KnowYourDAS":
-                return R.drawable.ic_dass_dis_bg;
             case "HeartAge":
                 return R.drawable.ic_heart_age_dis_bg;
         }
@@ -200,22 +207,22 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data != null){
-            if(data.hasExtra("request")){
-                Log.d("AuthToken", "Well "+data.getStringExtra("request"));
+        if (data != null) {
+            if (data.hasExtra("request")) {
+                Log.d("AuthToken", "Well " + data.getStringExtra("request"));
             }
-            if(requestCode == 65 && resultCode == RESULT_OK){
-                if(data.hasExtra("request")) {
-                    Log.d("AuthToken", "Well "+data.getStringExtra("request"));
+            if (requestCode == 65 && resultCode == RESULT_OK) {
+                if (data.hasExtra("request")) {
+                    Log.d("AuthToken", "Well " + data.getStringExtra("request"));
                     Intent intent = new Intent();
                     intent.putExtra("request", data.getStringExtra("request"));
-                    setResult(RESULT_OK,intent);
+                    setResult(RESULT_OK, intent);
                     finish();
-                }else{
+                } else {
                     finish();
                 }
             }
-        }else {
+        } else {
             finish();
         }
 

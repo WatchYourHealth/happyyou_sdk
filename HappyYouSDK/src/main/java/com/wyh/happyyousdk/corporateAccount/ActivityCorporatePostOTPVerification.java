@@ -6,8 +6,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -19,13 +22,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.WelcomeActivity;
 import com.wyh.happyyousdk.crypto.RSAEncryption;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -39,6 +47,7 @@ import com.wyh.happyyousdk.model.request.SaveCorporateStatusReq;
 import com.wyh.happyyousdk.model.response.GetEmailOTPResp;
 import com.wyh.happyyousdk.model.response.VerifyEmailOTPResp;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
@@ -59,14 +68,15 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
     String jsonString;
     private CountDownTimer countDownTimer;
     String mobilNumber;
-    private static  long TIME_INTERVAL = 60000;
+    private static long TIME_INTERVAL = 60000;
     private static final long RESEND_INTERVAL = 30000; // 30 seconds
 
-    String otpType="";
+    String otpType = "";
     private boolean isTimerRunning = false;
     private long endTime = 0L;
-    boolean saveData=false;
-    String userName="",Dob="",Gender="";
+    boolean saveData = false;
+    String userName = "", Dob = "", Gender = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,54 +89,63 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
         apiInterfaceWyh = RetrofitHandler.apiInterface();
-        CorporateID=getIntent().getStringExtra("CorporateID");
-        EmailID=getIntent().getStringExtra("EmailID");
-        mobilNumber=getIntent().getStringExtra("mobilNumber");
-        jsonString=getIntent().getStringExtra("jsonString");
-        saveData=getIntent().getBooleanExtra("saveData",false);
-        Dob=getIntent().getStringExtra("Dob");
-        userName=getIntent().getStringExtra("userName");
-        Gender=getIntent().getStringExtra("Gender");
-        Log.e("saveDate",saveData+"");
-        binding.tvOTPMessage.setText("An OTP will be send to your email ID:\n"+EmailID);
+
+        //Changed RL BG
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_corporate_main_new.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.rlMain.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+
+        CorporateID = getIntent().getStringExtra("CorporateID");
+        EmailID = getIntent().getStringExtra("EmailID");
+        mobilNumber = getIntent().getStringExtra("mobilNumber");
+        jsonString = getIntent().getStringExtra("jsonString");
+        saveData = getIntent().getBooleanExtra("saveData", false);
+        Dob = getIntent().getStringExtra("Dob");
+        userName = getIntent().getStringExtra("userName");
+        Gender = getIntent().getStringExtra("Gender");
+        Log.e("saveDate", saveData + "");
+        binding.tvOTPMessage.setText("An OTP will be send to your email ID:\n" + EmailID);
         startResendOTPTimer(binding.tvResendOTP);
-        if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
-        {
+        if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo())) {
             startResendOTPTimer(binding.tvResendOTPMobile);
             binding.llMobile.setVisibility(View.VISIBLE);
-            binding.tvOTPMobileMessage.setText("An OTP will be send your mobile no: \n" +mobilNumber);
-            otpType="both";
-        }
-        else {
+            binding.tvOTPMobileMessage.setText("An OTP will be send your mobile no: \n" + mobilNumber);
+            otpType = "both";
+        } else {
             binding.llMobile.setVisibility(View.GONE);
-            otpType="email";
+            otpType = "email";
         }
         binding.rlUpperCard.setOnClickListener(view -> {
             onBackPressed();
         });
         binding.tvContinue.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE",context);
-            if (binding.edtOTP.getOTP().length()==6)
-            {
-                if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
-                {
-                    if (binding.edOTPMobile.getOTP().length()==6)
-                    {
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE", context);
+            if (binding.edtOTP.getOTP().length() == 6) {
+                if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo())) {
+                    if (binding.edOTPMobile.getOTP().length() == 6) {
                         showCorporateAlert();
 
-                    }
-                    else {
+                    } else {
                         binding.edOTPMobile.requestFocus();
                         Toast.makeText(context, "Please enter valid mobile OTP", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
+                } else {
                     showCorporateAlert();
                 }
                 //showCorporateAlert();
-            }
-
-            else {
+            } else {
                 binding.edtOTP.requestFocus();
                 Toast.makeText(context, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
                 showKeyboard(this);
@@ -139,9 +158,9 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
             }*/
             TIME_INTERVAL = 60000;
             startResendOTPTimer(binding.tvResendOTP);
-            otpType="email";
+            otpType = "email";
             SaveFormData();
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_RESEND_EMAIL",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_RESEND_EMAIL", context);
 
         });
 
@@ -152,14 +171,14 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
             }*/
             TIME_INTERVAL = 60000;
             startResendOTPTimer(binding.tvResendOTPMobile);
-            otpType="mobile";
+            otpType = "mobile";
             SaveFormData();
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_RESEND_MOBILE",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_RESEND_MOBILE", context);
 
         });
 
         binding.tvNotNow.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_NOT_NOW",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_NOT_NOW", context);
             Intent intent = new Intent(context, NewDashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -177,9 +196,9 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
 
-       // SaveCorporateDetailsReq request = new SaveCorporateDetailsReq(RSAEncryption.rsaEncrypt(EmailID),jsonString);
+        // SaveCorporateDetailsReq request = new SaveCorporateDetailsReq(RSAEncryption.rsaEncrypt(EmailID),jsonString);
 
-        SaveCorporateDetailsReqV1 request = new SaveCorporateDetailsReqV1(RSAEncryption.rsaEncrypt(EmailID),RSAEncryption.rsaEncrypt(mobilNumber),otpType,true,jsonString);
+        SaveCorporateDetailsReqV1 request = new SaveCorporateDetailsReqV1(RSAEncryption.rsaEncrypt(EmailID), RSAEncryption.rsaEncrypt(mobilNumber), otpType, true, jsonString);
         Call<GetEmailOTPResp> call = apiInterfaceWyh.SaveCorporateDetailsV1(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<>() {
@@ -216,13 +235,11 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
             progressDialog.show();
         //VerifyEmailOTPReq request;
         VerifyEmailMobileOTPReq request;
-       // request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
-        if (!binding.edOTPMobile.getOTP().isEmpty())
-        {
-            request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()),RSAEncryption.rsaEncrypt(binding.edOTPMobile.getOTP()),saveData,true,jsonString);
-        }
-        else {
-            request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()),"",saveData,false,jsonString);
+        // request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
+        if (!binding.edOTPMobile.getOTP().isEmpty()) {
+            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()), RSAEncryption.rsaEncrypt(binding.edOTPMobile.getOTP()), saveData, true, jsonString);
+        } else {
+            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()), "", saveData, false, jsonString);
         }
 
 
@@ -235,24 +252,19 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
                     progressDialog.dismiss();
                 if (response.code() == 200 && response.body() != null && response.body().getSuccess()) {
                     SharedPref.setCorporateRegistered("YES");
-                    if (response.body().getData()!=null)
-                    {
-                        SharedPref.setCorporateId(response.body().getData().getCorpId()+"");
+                    if (response.body().getData() != null) {
+                        SharedPref.setCorporateId(response.body().getData().getCorpId() + "");
                         SharedPref.setCorporateName(response.body().getData().getCorpName());
                         SharedPref.setCorporateImage(response.body().getData().getCorpLogo());
-                        if (saveData)
-                        {
-                            if (!userName.equalsIgnoreCase(""))
-                            {
+                        if (saveData) {
+                            if (!userName.equalsIgnoreCase("")) {
                                 SharedPref.putIsUserNameUpdated(true);
                                 SharedPref.putUserName(userName);
                             }
-                            if (!Dob.equalsIgnoreCase(""))
-                            {
+                            if (!Dob.equalsIgnoreCase("")) {
                                 SharedPref.putDOB(Dob);
                             }
-                            if (!Gender.equalsIgnoreCase(""))
-                            {
+                            if (!Gender.equalsIgnoreCase("")) {
                                 SharedPref.putGender(Gender);
                             }
 
@@ -268,9 +280,7 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
                     //assert response.body() != null;
                     try {
                         Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
@@ -297,18 +307,18 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
                 .create();
         dialog.setCancelable(false);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView tvTitle=dialogView.findViewById(R.id.tvTitle);
-        Button btnYes=dialogView.findViewById(R.id.btnYes);
-        Button btnNo=dialogView.findViewById(R.id.btnNo);
+        TextView tvTitle = dialogView.findViewById(R.id.tvTitle);
+        Button btnYes = dialogView.findViewById(R.id.btnYes);
+        Button btnNo = dialogView.findViewById(R.id.btnNo);
         tvTitle.setText("Are you Sure Do you want to Add\n" + "your Corporate?");
         btnYes.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES", context);
             //otpType="both";
             verifyOTP();
             dismissDialog();
         });
         btnNo.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO",context);
+            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO", context);
             dismissDialog();
         });
 
@@ -325,17 +335,19 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
         dialog.show();
 
     }
+
     void dismissDialog() {
         if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
     }
+
     private void startResendOTPTimer(TextView targetTextView) {
         targetTextView.setEnabled(false);
         endTime = System.currentTimeMillis() + TIME_INTERVAL;
         countDownTimer = new CountDownTimer(TIME_INTERVAL, 1000) {
             public void onTick(long millisUntilFinished) {
-                TIME_INTERVAL=millisUntilFinished;
+                TIME_INTERVAL = millisUntilFinished;
                 targetTextView.setText("Resend OTP in " + millisUntilFinished / 1000 + " sec");
             }
 
@@ -355,23 +367,25 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
             countDownTimer.cancel();
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
 
-            TIME_INTERVAL = endTime - System.currentTimeMillis();
-            if (TIME_INTERVAL > 0) {
-                startResendOTPTimer(binding.tvResendOTP);
-                startResendOTPTimer(binding.tvResendOTPMobile);
-            } else {
-                binding.tvResendOTP.setEnabled(true);
-                binding.tvResendOTP.setText("Resend");
-                binding.tvResendOTPMobile.setEnabled(true);
-                binding.tvResendOTPMobile.setText("Resend");
-            }
+        TIME_INTERVAL = endTime - System.currentTimeMillis();
+        if (TIME_INTERVAL > 0) {
+            startResendOTPTimer(binding.tvResendOTP);
+            startResendOTPTimer(binding.tvResendOTPMobile);
+        } else {
+            binding.tvResendOTP.setEnabled(true);
+            binding.tvResendOTP.setText("Resend");
+            binding.tvResendOTPMobile.setEnabled(true);
+            binding.tvResendOTPMobile.setText("Resend");
+        }
 
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();

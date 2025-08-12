@@ -19,20 +19,6 @@
             app:headerLayout="@layout/navigation_header"
             app:menu="@menu/menu_navigation_drawer">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/artboard_dark"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <include
-                    android:id="@+id/include_navigation_header"
-                    layout="@layout/navigation_header" />
-
-
-            </LinearLayout>
-
         </com.google.android.material.navigation.NavigationView>
 
 
@@ -1392,9 +1378,9 @@
                                 android:orientation="horizontal">
 
                                 <ImageView
+                                    android:id="@+id/ivHappyMart"
                                     android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_bear_mart">
+                                    android:layout_height="30dp">
 
                                 </ImageView>
 

@@ -513,6 +513,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_steps_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_walking.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.VISIBLE);
@@ -553,7 +554,8 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_water_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
                 binding.rlWaterDetailsIntake.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_water);
+                //Changed lottie animation source
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_water.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
                 binding.llStepsDetails.setVisibility(View.GONE);
@@ -575,7 +577,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.includeToolbar.tvBack.setText("Weight Watcher");
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_water_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_weight_check);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_weight_check.json");
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
@@ -608,7 +610,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_water_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_waving);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_waving.json");
                 binding.laBear.requestLayout();
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
                 binding.laBear.getLayoutParams().height = 600;
@@ -631,7 +633,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_calories_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_carrot);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
@@ -672,7 +674,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_calories_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_carrot);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
@@ -695,7 +697,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.calIntakeOrBurn.setVisibility(View.VISIBLE);
                 binding.llCalorieDetails.setVisibility(View.VISIBLE);
                 binding.laBear.clearAnimation();
-                binding.laBear.setAnimation(R.raw.anim_bear_carrot);
+                binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.laBear.playAnimation();
 
 
@@ -718,7 +720,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_calories_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_carrot);
+                binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
@@ -773,7 +775,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
             binding.calIntakeOrBurn.setVisibility(View.VISIBLE);
             binding.llCalorieDetails.setVisibility(View.VISIBLE);
             binding.laBear.clearAnimation();
-            binding.laBear.setAnimation(R.raw.anim_bear_carrot);
+            binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
             binding.laBear.playAnimation();
 
 

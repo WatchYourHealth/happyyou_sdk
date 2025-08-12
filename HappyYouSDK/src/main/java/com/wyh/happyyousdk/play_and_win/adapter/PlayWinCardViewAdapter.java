@@ -19,6 +19,7 @@ import androidx.databinding.DataBindingUtil;
 import com.bumptech.glide.Glide;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.Utilities.MessageInfoDialog;
 import com.wyh.happyyousdk.SpinWheel.onRewardClick;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -31,6 +32,7 @@ import com.wyh.happyyousdk.model.response.playwin.QuizathonModel;
 import com.wyh.happyyousdk.model.response.playwin.StreakModel;
 import com.wyh.happyyousdk.play_and_win.PlayAndWinActivity;
 import com.wyh.happyyousdk.quizathon.QuizathonViewAllActivity;
+import com.wyh.happyyousdk.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +55,7 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
             R.color.light_orange,
     };
 
-    HashMap<String, Drawable> drawableHashMap = new HashMap<>();
+    HashMap<String, String> drawableHashMap = new HashMap<>();
 
     public PlayWinCardViewAdapter(List<QuizFeedbackModel> quizFeedbackModels, List<QuizathonModel> quizathonModel, List<GetQuizQuestions> questionModelList, Context context, String type, onRewardClick rewardClick) {
         this.quizFeedbackModels = quizFeedbackModels;
@@ -63,17 +65,17 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
         this.type = type;
         this.rewardClick = rewardClick;
 
-        drawableHashMap.put("Water".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.water));
-        drawableHashMap.put("Benefits Of Walking".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.benefitsofwalking));
-        drawableHashMap.put("Diabetes Mellitus".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.diabetes_mellitus));
-        drawableHashMap.put("Diabetic Foot".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.diabeticfoot));
-        drawableHashMap.put("Fruits".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.fruits));
-        drawableHashMap.put("Immunity Boosters".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.immunity));
-        drawableHashMap.put("Nutrition".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.nutrition));
-        drawableHashMap.put("Obesity".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.obesity));
-        drawableHashMap.put("Super Foods".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.suparfood));
-        drawableHashMap.put("Vegetables".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.vegetables));
-        drawableHashMap.put("Headache".toLowerCase(), ContextCompat.getDrawable(context, R.drawable.ic_headache));
+        drawableHashMap.put("Water".toLowerCase(), "water.png");
+        drawableHashMap.put("Benefits Of Walking".toLowerCase(), "benefitsofwalking.png");
+        drawableHashMap.put("Diabetes Mellitus".toLowerCase(), "diabetes_mellitus.png");
+        drawableHashMap.put("Diabetic Foot".toLowerCase(), "diabeticfoot.png");
+        drawableHashMap.put("Fruits".toLowerCase(), "fruits.png");
+        drawableHashMap.put("Immunity Boosters".toLowerCase(), "immunity.png");
+        drawableHashMap.put("Nutrition".toLowerCase(), "nutrition.png");
+        drawableHashMap.put("Obesity".toLowerCase(), "obesity.png");
+        drawableHashMap.put("Super Foods".toLowerCase(), "suparfood.png");
+        drawableHashMap.put("Vegetables".toLowerCase(), "vegetables.png");
+        drawableHashMap.put("Headache".toLowerCase(), "ic_headache.png");
     }
 
     @Override
@@ -139,12 +141,10 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
                     category = category.substring(0, 13) + "...";
                 }
 
-                Drawable drawable = drawableHashMap.get(questionModelList.get(position).getCategoryName().toLowerCase());
-                if (drawable != null) {
-                    Glide.with(context).load(drawable).into(binding.ivQuizLogo);
-                } else {
-                    Glide.with(context).load(ContextCompat.getDrawable(context, R.drawable.ic_quiz_others)).into(binding.ivQuizLogo);
-                }
+                String url = drawableHashMap.get(questionModelList.get(position).getCategoryName().toLowerCase());
+                Glide.with(context)
+                        .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + url)
+                        .into(binding.ivQuizLogo);
                 binding.tvQuizTitle.setText("Health and Lifestyle".toUpperCase());
                 binding.tvQuizTitle.setTextSize(12);
                 binding.tvQuizCategory.setText(title);
@@ -171,8 +171,8 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
                             if (attemptedList != null && attemptedList.size() > 0) {
                                 countAttempted = attemptedList.size();
                             }
-                            binding.tvStreak.setText(countAttempted+"/" + quizathonModel.get(position).getStreakModels().size());
-                        }catch (Exception e){
+                            binding.tvStreak.setText(countAttempted + "/" + quizathonModel.get(position).getStreakModels().size());
+                        } catch (Exception e) {
                             binding.tvStreak.setText("0/" + quizathonModel.get(position).getStreakModels().size());
                         }
                     }
@@ -203,7 +203,7 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
                     binding.ivQuizLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_file_share));
                     binding.tvQuizButtonText.setText(quizathonModel.get(position).getQuizButtonText());
                 }
-                if (quizathonModel.get(position).isQuizCompleted()&&!quizathonModel.get(position).getShowActivity()) {
+                if (quizathonModel.get(position).isQuizCompleted() && !quizathonModel.get(position).getShowActivity()) {
                     binding.imChecked.setVisibility(VISIBLE);
                 }
             }
@@ -223,9 +223,9 @@ public class PlayWinCardViewAdapter extends BaseAdapter {
                                 if (quizathonModel.get(position).isRegistrationAllowed()) {
                                     rewardClick.onRewardClick(quizathonModel.get(position), type);
                                 } else {
-                                    if(quizathonModel.get(position).getIsUserRegistered()){
+                                    if (quizathonModel.get(position).getIsUserRegistered()) {
                                         rewardClick.onRewardClick(quizathonModel.get(position), type);
-                                    }else {
+                                    } else {
                                         MessageInfoDialog messageInfoDialog = new MessageInfoDialog(context, ContextCompat.getDrawable(context, R.drawable.ic_oops), "Oops!", ContextCompat.getString(context, R.string.quiz_reg_over));
                                         messageInfoDialog.show();
                                     }

@@ -218,11 +218,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.wyh.happyyousdk.dashboard.QrInviteActivity"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.wyh.happyyousdk.absorb.RecommandHealthTvDashboradActivity"
             android:theme="@style/Theme.HappyYou"
             android:exported="false" />

@@ -183,67 +183,6 @@
                     android:layout_marginTop="8dp"/>
 
 
-                <RelativeLayout
-                    android:id="@+id/couponlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/coupon_background"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/couponbg" />
-
-
-                    <TextView
-                        android:id="@+id/coupontext"
-                        style="@style/font_24sp_roboto_medium_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="AXNJFUFKDKKDKDJD"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/coupontext"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="14dp"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <ImageView
-                            android:id="@+id/share"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/icsharewhite" />
-
-                        <ImageView
-                            android:id="@+id/copy"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/iccopy" />
-
-
-                    </LinearLayout>
-
-
-                </RelativeLayout>
-
-
             </LinearLayout>
 
 

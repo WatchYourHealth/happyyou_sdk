@@ -57,6 +57,8 @@ public class WelcomeActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_waving.json");
+
         if (SharedPref.getUserName() == null || SharedPref.getUserName() == "") {
             SharedPref.putUserName("User");
         } else {

@@ -35,6 +35,7 @@ import com.wyh.happyyousdk.diary.AddDiaryActivity;
 import com.wyh.happyyousdk.diary.ViewDiaryActivity;
 import com.wyh.happyyousdk.diary.adapter.NewDiaryListAdapter;
 import com.wyh.happyyousdk.diary.model.DiaryEventListResponse;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.request.NewMyDiaryRequest;
@@ -80,6 +81,8 @@ public class WinningFragment extends Fragment {
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
 
         getAllDiary();
 

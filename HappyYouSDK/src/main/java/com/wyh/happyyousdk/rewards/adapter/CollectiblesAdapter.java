@@ -81,7 +81,7 @@ public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapte
 
 
         holder.binding.rlMainLayout.setOnClickListener(view -> {
-            clickListenerInterface.onItemClickScratchCard(rewardsCollectible, R.drawable.scratch_card_pink);
+            clickListenerInterface.onItemClickScratchCard(rewardsCollectible, R.drawable.scratch_card_pink_new);
         });
     }
 

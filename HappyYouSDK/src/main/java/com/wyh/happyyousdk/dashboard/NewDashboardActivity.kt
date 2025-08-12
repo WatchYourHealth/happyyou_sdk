@@ -11,7 +11,9 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -35,6 +37,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.esafirm.imagepicker.features.ImagePicker
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.gson.Gson
@@ -44,7 +48,6 @@ import com.wyh.happyyousdk.*
 import com.wyh.happyyousdk.APIEncryption.APIInterface
 import com.wyh.happyyousdk.APIEncryption.APILogs
 import com.wyh.happyyousdk.APIEncryption.APILogs.activityTracker
-import com.wyh.happyyousdk.APIEncryption.APILogs.sendLogs
 import com.wyh.happyyousdk.APIEncryption.BackgroundWork.CoroutineClass
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.ChallangesModule.Activities.ChallangesActivity
@@ -85,7 +88,6 @@ import com.wyh.happyyousdk.dashboard.RedirectionMethod.getNudgeImage
 import com.wyh.happyyousdk.dashboard.RedirectionMethod.redirectionScreen
 import com.wyh.happyyousdk.dashboard.adapter.*
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper
-import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper.Companion.FACE_SCAN_REQUEST_CODE
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper.Companion.NOTIFICATION_PERMISSION_ID
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper.Companion.PERMISSION_ID
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper.Companion.addReferralCode
@@ -117,7 +119,6 @@ import com.wyh.happyyousdk.model.request.*
 import com.wyh.happyyousdk.model.request.absorb.AddBookmarkRequest
 import com.wyh.happyyousdk.model.request.ehr.FileData
 import com.wyh.happyyousdk.model.request.encrDecr.EncryptionRequest
-import com.wyh.happyyousdk.model.request.faceScan.AddFaceScanVitalsRequest
 import com.wyh.happyyousdk.model.request.hra.GetAnalysisRequest
 import com.wyh.happyyousdk.model.request.kgi_policy.GetPolicyDetailsRequest
 import com.wyh.happyyousdk.model.request.login.AddFCMTokenRequest
@@ -137,7 +138,6 @@ import com.wyh.happyyousdk.model.response.dashboard.FilePopupModel
 import com.wyh.happyyousdk.model.response.dashboard.RewardsResponse
 import com.wyh.happyyousdk.model.response.dashboard_new.ShowAdminRewardsEventsData
 import com.wyh.happyyousdk.model.response.encrDecr.EncryptionResponse
-import com.wyh.happyyousdk.model.response.faceScan.GetFaceKeysResponse
 import com.wyh.happyyousdk.model.response.getAnalysis.GetAnalysisResponse
 import com.wyh.happyyousdk.model.response.kgi_policy.GetPolicyDetailsResponse
 import com.wyh.happyyousdk.model.response.kgi_policy.GetPolicyDetailsUserPolicyDetail
@@ -333,6 +333,11 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         apiInterfaceWyh = ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(context))
             .create(ApiInterfaceWyh::class.java)
         apiInterface = RetrofitHandler.apiInterface()
+
+        Glide.with(context)
+            .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_bear_mart.png")
+            .into(binding.ivHappyMart)
+
         if (SharedPref.getCorporateAccountNotFound()) {
             Log.e(
                 "getCorporateAccountNotFound",
@@ -1830,7 +1835,23 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
     fun sideDrawer() {
         binding.sideDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         binding.navigationDrawer.bringToFront()
-        binding.navigationDrawer.background = getDrawable(R.drawable.ic_hamburger_bg)
+
+        //Changed RL BG
+        Glide.with(context)
+            .asBitmap()
+            .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_hamburger_bg.png")
+            .into(object : CustomTarget<Bitmap?>() {
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: Transition<in Bitmap?>?
+                ) {
+                    val drawable: Drawable = BitmapDrawable(getResources(), resource)
+                    binding.navigationDrawer.background = drawable
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+            })
         tvName = binding.navigationDrawer.getHeaderView(0).findViewById(R.id.tvName)
         levelLayout = binding.navigationDrawer.getHeaderView(0).findViewById(R.id.llLevel)
         referralCopyImg =

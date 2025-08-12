@@ -38,8 +38,10 @@ import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.Sonde.Activities.SondeDashboard;
 import com.wyh.happyyousdk.VideoReaderActivity;
 import com.wyh.happyyousdk.WebActivity;
@@ -68,6 +70,7 @@ import com.wyh.happyyousdk.rewards.PendingActivityDashboard;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.model.request.rewards.RewardsPopupRequest;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Constants;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.SnapHelperOneByOne;
@@ -120,6 +123,11 @@ public class HappyMartActivity extends AppCompatActivity implements MyPurchasesA
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_bear_mart.json")
+                .into(binding.laBear);
+
         binding.includeToolbar.tvBack.setText("Happy Mart");
         binding.includeToolbar.tvBack.setTextColor(getResources().getColor(R.color.white));
         binding.includeToolbar.ivBack.setColorFilter(getResources().getColor(R.color.white));

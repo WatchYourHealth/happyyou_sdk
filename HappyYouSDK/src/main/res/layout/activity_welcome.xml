@@ -16,14 +16,14 @@
             android:paddingHorizontal="32dp">
 
             <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/laBear"
                 android:layout_width="230dp"
                 android:layout_height="230dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="-16dp"
                 app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/anim_bear_waving" />
+                app:lottie_loop="true" />
 
             <ImageView
                 android:id="@+id/imageView"

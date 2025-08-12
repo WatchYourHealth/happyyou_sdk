@@ -6,15 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.5"
-            android:elevation="0dp"
-            android:visibility="gone"
-            android:scaleType="fitXY"
-            android:src="@drawable/artboard_dark" />
-
         <LinearLayout
             android:id="@+id/llCenterBear"
             android:layout_width="match_parent"
