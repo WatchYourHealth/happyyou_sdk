@@ -91,6 +91,8 @@ public class QCProductsActivity extends AppCompatActivity implements QCProductsA
         binding.includeBack.tvBack.setText("Vouchers");
         binding.includeBack.llBack.setOnClickListener(view -> finish());
 
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
+
         totalPoints = getIntent().getIntExtra("points", 0);
 
 

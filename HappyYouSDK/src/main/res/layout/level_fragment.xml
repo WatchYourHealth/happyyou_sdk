@@ -18,10 +18,10 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/rlHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
                     android:layout_marginTop="@dimen/margin_16dp"
-                    android:background="@drawable/ic_tree_cloud_bg"
                     android:orientation="vertical">
 
                     <TextView

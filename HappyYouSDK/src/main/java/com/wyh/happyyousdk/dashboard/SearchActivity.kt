@@ -24,6 +24,7 @@ import com.google.gson.Gson
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.NeedSupportActivity
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.WellBeingDisclaimerActivity
 import com.wyh.happyyousdk.absorb.HealthHacksActivity
 import com.wyh.happyyousdk.absorb.adapter.HealthHacksHealthTvAdapter
@@ -142,6 +143,8 @@ class SearchActivity : AppCompatActivity(){
             ApiClientWyh.getClient(CommonUtils.getBaseUrlForAPI(context)).create<ApiInterfaceWyh>(
                 ApiInterfaceWyh::class.java
             )
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json")
 
         binding.includeToolbar.llBack.setOnClickListener { finish() }
         //binding.includeToolbar.tvBack.text = getString(R.string.search)

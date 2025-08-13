@@ -20,6 +20,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,6 +48,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
@@ -175,6 +178,20 @@ public class EarnAndBurnFragment extends Fragment implements ActivitiesAdapter.C
 
         SharedPreference.init(context);
         SharedPref.init(context);
+
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_tree_cloud_bg.png")
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        binding.rlHeader.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
 
 
         binding.rlActivities.setOnClickListener(view -> {

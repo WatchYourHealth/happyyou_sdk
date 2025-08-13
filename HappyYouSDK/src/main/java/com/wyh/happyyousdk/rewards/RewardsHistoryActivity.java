@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 ;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityRewardsHistoryBinding;
 import com.wyh.happyyousdk.model.request.rewards.GetRewardsDashboardRequest;
@@ -39,6 +40,7 @@ import com.wyh.happyyousdk.model.response.rewards.RewardsHistoryEnG;
 import com.wyh.happyyousdk.model.response.rewards.RewardsHistoryResponse;
 import com.wyh.happyyousdk.model.response.rewards.LevelDashboardResponse;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Constants;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
@@ -89,6 +91,8 @@ public class RewardsHistoryActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         binding.includeToolbar.tvBack.setText("History");
         binding.includeToolbar.llBack.setOnClickListener(view -> finish());

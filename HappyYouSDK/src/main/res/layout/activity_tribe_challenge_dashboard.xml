@@ -22,9 +22,9 @@
                 layout="@layout/layout_back" />
 
             <RelativeLayout
+                android:id="@+id/rlHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:background="@drawable/ic_tree_cloud_bg"
                 android:orientation="vertical">
 
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
@@ -17,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.LegendEntry
 import com.github.mikephil.charting.components.XAxis
@@ -28,11 +32,13 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.gson.Gson
 import com.wyh.happyyousdk.APIEncryption.APIInterface
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
+import com.wyh.happyyousdk.ChallangesModule.Activities.TribeChallengeDashboard
 import com.wyh.happyyousdk.ChallangesModule.Adapter.TribeMemberAdapter
 import com.wyh.happyyousdk.ChallangesModule.Adapter.TribeViewMoreAdapter
 import com.wyh.happyyousdk.ChallangesModule.ClickInterface.TribeChallengeClick
 import com.wyh.happyyousdk.ChallangesModule.helperClass
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity
 import com.wyh.happyyousdk.databinding.ActivityNewTribeChallengeDashboardBinding
@@ -90,6 +96,21 @@ class NewTribeChallengeDashboard : AppCompatActivity(), ScratchListener {
         rankType = "Tribe"
         binding.leaderboardTitle.text = "Community Leaderboard"
         binding.nameTitleTv.text = "Tribe Name "
+
+        Glide.with(this@NewTribeChallengeDashboard)
+            .load(CommonUtils.getBaseUrlForAPI(this@NewTribeChallengeDashboard) + SDKConstants.endPointForImages + "ic_tree_cloud_bg.png")
+            .into(object : CustomTarget<Drawable?>() {
+                override fun onResourceReady(
+                    resource: Drawable,
+                    transition: Transition<in Drawable?>?
+                ) {
+                    binding.rlHeader.setBackground(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+            })
+
         getCommunityData("Tribe",communityID)
 
         binding.includeToolbar.llBack.setOnClickListener { finish() }

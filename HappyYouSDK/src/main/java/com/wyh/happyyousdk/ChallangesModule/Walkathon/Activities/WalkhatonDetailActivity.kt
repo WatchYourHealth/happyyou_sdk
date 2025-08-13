@@ -16,6 +16,7 @@ import com.wyh.happyyousdk.ChallangesModule.Walkathon.Adapters.BranchRankListAda
 import com.wyh.happyyousdk.ChallangesModule.Walkathon.Adapters.GlobalRankListAdapter
 import com.wyh.happyyousdk.ChallangesModule.Walkathon.Helper.Master
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.databinding.ActivityWalkhatonDetailBinding
 import com.wyh.happyyousdk.model.request.ChallengeRankRequest
 import com.wyh.happyyousdk.model.response.BranchRanking
@@ -63,6 +64,8 @@ class WalkhatonDetailActivity : AppCompatActivity() {
 
         isWinnerAnnounced = intent.getBooleanExtra("isWinnerAnnounced", false)
         isEventEnded = intent.getBooleanExtra("isEventEnded", false)
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(this@WalkhatonDetailActivity) + SDKConstants.endPointForImages + "anim_bear_404.json")
 
         /*isWinnerAnnounced = false
         isEventEnded = true*/

@@ -93,6 +93,7 @@ public class DiaryActivity extends AppCompatActivity {
         binding.llNoRecordFound.setVisibility(View.GONE);
 
         binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         setToolBar();
 

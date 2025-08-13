@@ -17,9 +17,9 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/rlHeader"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:background="@drawable/ic_tree_cloud_bg">
+                    android:layout_height="220dp">
 
                     <ImageView
                         android:layout_width="match_parent"

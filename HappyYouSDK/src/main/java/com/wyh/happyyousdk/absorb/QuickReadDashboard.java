@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 ;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.absorb.adapter.AllBlogsAdapter;
 import com.wyh.happyyousdk.absorb.adapter.HealthHacksTagsAdapter;
 import com.wyh.happyyousdk.absorb.adapter.BlogListAdapter;
@@ -42,6 +43,7 @@ import com.wyh.happyyousdk.databinding.ActivityQuickReadDashboardBinding;
 import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.SnapHelperOneByOne;
 
@@ -98,6 +100,8 @@ public class QuickReadDashboard extends AppCompatActivity implements SearchKeyCl
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         binding.includeToolbar.llBack.setOnClickListener(view -> finish());
         binding.includeToolbar.tvBack.setText("Quick Reads");

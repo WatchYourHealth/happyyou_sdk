@@ -2,20 +2,28 @@ package com.wyh.happyyousdk.ChallangesModule.Adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
+import com.wyh.happyyousdk.ChallangesModule.Activities.TribeChallengeDashboard
 import com.wyh.happyyousdk.ChallangesModule.ClickInterface.ActivityClick
 import com.wyh.happyyousdk.ChallangesModule.ClickInterface.InviteClick
 import com.wyh.happyyousdk.model.response.ChallengeActivityResponse
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.databinding.ActivityChallengeDetailBinding
+import com.wyh.happyyousdk.utils.CommonUtils
 import com.wyh.happyyousdk.utils.SharedPref
 
 class ChallengeDetailsAdapter(val context: Context, val click: InviteClick, val activityClick: ActivityClick, val challengeDetailsResponse: ChallengeActivityResponse, val binding : ActivityChallengeDetailBinding ?=null) : RecyclerView.Adapter<ChallengeDetailsAdapter.ViewHolder>() {
@@ -34,6 +42,7 @@ class ChallengeDetailsAdapter(val context: Context, val click: InviteClick, val 
         val bannerPrev = itemView.findViewById<ImageView>(R.id.banner_prev)
         val bannerNext = itemView.findViewById<ImageView>(R.id.banner_next)
         val badgeCount = itemView.findViewById<TextView>(R.id.badge_count_tv)
+        val rlHeader = itemView.findViewById<RelativeLayout>(R.id.rlHeader)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengeDetailsAdapter.ViewHolder {
@@ -46,6 +55,19 @@ class ChallengeDetailsAdapter(val context: Context, val click: InviteClick, val 
         override fun onBindViewHolder(holder: ChallengeDetailsAdapter.ViewHolder, position: Int) {
         setRecyclerView(holder)
         holder.challengeNameTv.text = challengeDetailsResponse.data.userStatus.challengeName
+        Glide.with(context)
+            .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_tree_cloud_bg.png")
+            .into(object : CustomTarget<Drawable?>() {
+                override fun onResourceReady(
+                    resource: Drawable,
+                    transition: Transition<in Drawable?>?
+                ) {
+                    holder.rlHeader.background = resource
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+            })
         holder.challengeParticipantTv.text = "Total Participants: ${challengeDetailsResponse.data.userStatus.totalJoined}"
         holder.challengeRankTv.text = "Rank: ${challengeDetailsResponse.data.userStatus.userRank}"
         holder.completeActivityTv.text = "Activity Completed: ${challengeDetailsResponse.data.userStatus.activityCompleted.toString()}/${challengeDetailsResponse.data.userStatus.totalChallengeActivity.toString()}"

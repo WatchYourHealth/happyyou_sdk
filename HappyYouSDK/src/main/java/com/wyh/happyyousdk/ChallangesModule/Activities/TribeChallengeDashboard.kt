@@ -5,28 +5,28 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.wyh.happyyousdk.APIEncryption.APIInterface
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.ChallangesModule.Adapter.TribeViewMoreAdapter
 import com.wyh.happyyousdk.ChallangesModule.ClickInterface.TribeChallengeClick
 import com.wyh.happyyousdk.R
-
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity
 import com.wyh.happyyousdk.databinding.ActivityTribeChallengeDashboardBinding
 import com.wyh.happyyousdk.databinding.TribeInfoViewMorePopupBinding
@@ -61,6 +61,20 @@ class TribeChallengeDashboard : AppCompatActivity() {
         binding.includeToolbar.llBack.setOnClickListener { finish() }
         binding.includeToolbar.tvBack.text = getString(R.string.challenge)
         binding.includeToolbar.ivMenu.visibility = View.GONE
+
+        Glide.with(this@TribeChallengeDashboard)
+            .load(CommonUtils.getBaseUrlForAPI(this@TribeChallengeDashboard) + SDKConstants.endPointForImages + "ic_tree_cloud_bg.png")
+            .into(object : CustomTarget<Drawable?>() {
+                override fun onResourceReady(
+                    resource: Drawable,
+                    transition: Transition<in Drawable?>?
+                ) {
+                    binding.rlHeader.setBackground(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+            })
 
         apiCalling()
         setupViewPager()
@@ -101,9 +115,10 @@ class TribeChallengeDashboard : AppCompatActivity() {
     }
 
 
-    fun userApiCAll(communityId:Int, periodIndex:Int = 0, isCame:ISLoadingEnum){
+    fun userApiCAll(communityId: Int, periodIndex: Int = 0, isCame: ISLoadingEnum) {
         Log.d("communityId2", "$communityId")
-        viewModel.getCommunityRankDetails(communityId = communityId, challengeID = challengeID,
+        viewModel.getCommunityRankDetails(
+            communityId = communityId, challengeID = challengeID,
             periodIndex = periodIndex,
             rankTypes = "Users",
             isCame = isCame
@@ -111,18 +126,18 @@ class TribeChallengeDashboard : AppCompatActivity() {
     }
 
 
-
-    fun getSpinnerData(){
+    fun getSpinnerData() {
         val tribeNames: ArrayList<String> = ArrayList()
         viewModel.tribeLiveData.observe(this) {
             if (it != null) {
-                if(it.tribeChallengeDashboard.tribeUserDetails.isNotEmpty()){
+                if (it.tribeChallengeDashboard.tribeUserDetails.isNotEmpty()) {
                     tribeLists = it.tribeChallengeDashboard.tribeLists
                     tribeLists.forEach {
                         tribeNames.add(it.communityName)
                     }
 
-                    val tribeSpinnerAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this,
+                    val tribeSpinnerAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
+                        this,
                         R.layout.spinner_item, tribeNames
                     )
                     tribeSpinnerAdapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item)
@@ -135,25 +150,29 @@ class TribeChallengeDashboard : AppCompatActivity() {
     private fun apiCalling() {
         //UserChallengeFragment().getCommunityRankDetails(0, challengeID)
         viewModel.tribeLiveData.observe(this, Observer {
-            val tribeDetails: GetCommunityRankDetailsTribeDetails = it.tribeChallengeDashboard.tribeDetails
-            if (tribeDetails != null){
+            val tribeDetails: GetCommunityRankDetailsTribeDetails =
+                it.tribeChallengeDashboard.tribeDetails
+            if (tribeDetails != null) {
                 //binding.tvCommunityStep.text = "All Tribe Steps: ${tribeDetails.communitySteps}"
                 binding.myRank.text = "My Rank: ${tribeDetails.userRank}"
                 binding.tribeName.text = tribeDetails.tribeName
                 binding.totalRank.text = tribeDetails.tribeRank
-                binding.communityGoal.text = "Community Goal: ${tribeDetails.communitySteps} / ${tribeDetails.challengeGoal}"
+                binding.communityGoal.text =
+                    "Community Goal: ${tribeDetails.communitySteps} / ${tribeDetails.challengeGoal}"
                 binding.tribeSteps.text = "Tribe Steps: ${tribeDetails.tribeSteps}"
             }
         })
 
         viewModel.userDataLiveData.observe(this, Observer {
-            val tribeDetails: GetCommunityRankDetailsTribeDetails = it.tribeChallengeDashboard.tribeDetails
-            if (tribeDetails != null){
+            val tribeDetails: GetCommunityRankDetailsTribeDetails =
+                it.tribeChallengeDashboard.tribeDetails
+            if (tribeDetails != null) {
                 //binding.tvCommunityStep.text = "All Tribe Steps: ${tribeDetails.communitySteps}"
                 binding.myRank.text = "My Rank: ${tribeDetails.userRank}"
                 binding.tribeName.text = tribeDetails.tribeName
                 binding.totalRank.text = tribeDetails.tribeRank
-                binding.communityGoal.text = "Community Goal: ${tribeDetails.communitySteps} / ${tribeDetails.challengeGoal}"
+                binding.communityGoal.text =
+                    "Community Goal: ${tribeDetails.communitySteps} / ${tribeDetails.challengeGoal}"
                 binding.tribeSteps.text = "Tribe Steps: ${tribeDetails.tribeSteps}"
             }
         })

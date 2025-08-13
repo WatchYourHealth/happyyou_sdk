@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,15 +23,20 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 ;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener;
 
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -53,6 +59,7 @@ import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.model.request.rewards.RewardsPopupRequest;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.dialog.PostSpinDialog;
 import com.wyh.happyyousdk.utils.dialog.QuizRewardDialog;
@@ -121,7 +128,7 @@ public class IRAAnalysisActivity extends AppCompatActivity implements ScratchLis
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        
+
 
         String popups = getIntent().getStringExtra("popups");
 
@@ -224,36 +231,54 @@ public class IRAAnalysisActivity extends AppCompatActivity implements ScratchLis
                             binding.tvIraHealthScore.setText(iraHealthScoreResponse.getIraHealthScoreData().getPlaySports());
                             int immunityScore = Integer.parseInt(iraHealthScoreResponse.getIraHealthScoreData().getPlaySports());
 
+                            boolean isBlue = false;
+
                             if (immunityScore >= 0 && immunityScore <= 50) {
-                                binding.llSectionScore.setBackground(getDrawable(R.drawable.ira_analysis_red_bg));
+                                isBlue = false;
                                 binding.circleViewScore.setProgressBarColor(getColor(R.color.dark_pink));
                                 binding.tvRecommendations.setText("Aim to eat a diet high in fruits and vegetables\n\nGet Plenty of Sleep\n\n" +
                                         "In case you are addicted to substances (tobacco, alcohol etc.) – work towards quitting it\n\nWork towards reducing stress levels\n\n" +
                                         "Consider taking health supplements after consulting your health care provider\n\nGo for Walks or indulge in some moderate exercise");
                             } else if (immunityScore > 50 && immunityScore <= 100) {
-                                binding.llSectionScore.setBackground(getDrawable(R.drawable.ira_analysis_red_bg));
+                                isBlue = false;
                                 binding.circleViewScore.setProgressBarColor(getColor(R.color.dark_pink));
                                 binding.tvRecommendations.setText(
                                         "Eat a healthy diet\n\nExercise Regularly\n\nIn case you are addicted to substances (tobacco, alcohol etc.) – work towards quitting it\n\n" +
                                                 "Reduce stress levels\n\nSleep for a minimum of 8 hrs");
                             } else if (immunityScore > 100 && immunityScore <= 150) {
-                                binding.llSectionScore.setBackground(getDrawable(R.drawable.ira_analysis_blue_bg));
+                                isBlue = true;
                                 binding.circleViewScore.setProgressBarColor(getColor(R.color.btn_blue));
                                 binding.tvRecommendations.setText(
                                         "Maintain a healthy diet\n\nMinimize stress Level\n\nSleep for a minimum of 8 hrs\n\n" +
                                                 "Maintain a healthy weight");
                             } else if (immunityScore > 150 && immunityScore <= 200) {
-                                binding.llSectionScore.setBackground(getDrawable(R.drawable.ira_analysis_blue_bg));
+                                isBlue = true;
                                 binding.circleViewScore.setProgressBarColor(getColor(R.color.btn_blue));
                                 binding.tvRecommendations.setText(
                                         "Eat a diet high in fruits and vegetables\n\nExercise regularly");
                             } else if (immunityScore > 200 && immunityScore <= 250) {
+                                isBlue = true;
                                 binding.tvHeader1.setVisibility(View.GONE);
-                                binding.llSectionScore.setBackground(getDrawable(R.drawable.ira_analysis_blue_bg));
                                 binding.circleViewScore.setProgressBarColor(getColor(R.color.btn_blue));
                                 binding.tvRecommendations.setText(
                                         "Wow! Your Immune Score Is Excellent, Keep It Up...");
                             }
+
+                            Glide.with(context)
+                                    .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages
+                                            + (isBlue ? "ira_analysis_blue_bg.png" : "ira_analysis_red_bg.png"))
+                                    .into(new CustomTarget<Drawable>() {
+                                        @Override
+                                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                                            binding.llSectionScore.setBackground(resource);
+                                        }
+
+                                        @Override
+                                        public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                                        }
+                                    });
+
                             binding.tvAssessmentDate.setText(assessmentDate);
 //                            binding.circleViewScore.setMax(250);
                             binding.circleViewScore.setProgress(Integer.parseInt(iraHealthScoreResponse.getIraHealthScoreData().getPlaySports()));

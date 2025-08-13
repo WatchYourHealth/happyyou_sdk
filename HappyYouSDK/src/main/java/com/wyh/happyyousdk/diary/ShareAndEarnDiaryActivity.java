@@ -17,11 +17,13 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 ;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.databinding.ActivityShareAndEarnDiaryBinding;
 import com.wyh.happyyousdk.diary.model.DiaryEventListResponse;
 import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
@@ -62,6 +64,8 @@ public class ShareAndEarnDiaryActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
 
         setToolBar();

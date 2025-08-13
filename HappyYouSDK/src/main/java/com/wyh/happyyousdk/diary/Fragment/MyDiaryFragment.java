@@ -90,6 +90,8 @@ public class MyDiaryFragment extends Fragment  {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
+
         APILogs.INSTANCE.activityTracker(APILogConstant.INSTANCE.getMyzone_unwind_md_mj(), context);
 
         binding.lottieMain.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");

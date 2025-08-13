@@ -27,6 +27,7 @@ import com.wyh.happyyousdk.diary.model.DiaryListResponse;
 import com.wyh.happyyousdk.ehr.adapter.HealthLockerPhotosAdapter;
 import com.wyh.happyyousdk.ehr.adapter.HealthLockerPhotosListAdapter;
 import com.wyh.happyyousdk.ehr.model.ErhPhotosModel;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
@@ -77,6 +78,8 @@ public class HealthLockerPhotosActivity extends AppCompatActivity implements Hea
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         binding.includeBack.tvBack.setText("My Photos");
         binding.includeBack.llBack.setOnClickListener(view -> finish());

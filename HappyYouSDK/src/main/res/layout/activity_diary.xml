@@ -164,12 +164,12 @@
                 android:visibility="gone">
 
                 <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/la404Bear"
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/anim_bear_404" />
+                    app:lottie_loop="true" />
 
                 <TextView
                     style="@style/TextStyleBlack16sp"

@@ -112,7 +112,7 @@ public class WellBeingDisclaimerActivity extends AppCompatActivity {
 
         if (cameFrom.equals("KnowYourDAS")) {
             Glide.with(context).load(CommonUtils.getBaseUrlForAPI(context) +
-                    SDKConstants.endPointForImages + "ic_dass_dis_bg.png").into(binding.ivImage);
+                    SDKConstants.endPointForImages + "ic_dass_dis_bg.jpg").into(binding.ivImage);
         } else {
             binding.ivImage.setImageResource(getImage(cameFrom));
         }

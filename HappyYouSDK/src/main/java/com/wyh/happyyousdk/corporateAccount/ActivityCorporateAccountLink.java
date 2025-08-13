@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -48,18 +49,19 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
     APIInterface apiInterfaceWyh;
     List<String> corporateName = new ArrayList<>();
     List<GetEmailOTPResp.Data.corporateDetails> corporateDetails = new ArrayList<>();
-    String CorporateID="";
-    String CorporateName="";
-    List<StateModel> stateData= new ArrayList<StateModel>();
-    String EmailID="";
+    String CorporateID = "";
+    String CorporateName = "";
+    List<StateModel> stateData = new ArrayList<StateModel>();
+    String EmailID = "";
     public static CountDownTimer countDownTimer;
     int rewardSeconds = 0;
-    int minutes,seconds;
-    String [] totalTime;
+    int minutes, seconds;
+    String[] totalTime;
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
     String jsonData = "";
-    String CorporateData="";
+    String CorporateData = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,14 +85,12 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         //binding.rewardsLayout.setVisibility(View.VISIBLE);
         Log.d("AuthToken", String.valueOf(totalTime));
         try {
-            if(totalTime.length != 0){
+            if (totalTime.length != 0) {
                 minutes = Integer.parseInt(totalTime[0]);
                 seconds = Integer.parseInt(totalTime[1]);
-                startTimer(minutes,seconds);
+                startTimer(minutes, seconds);
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -98,8 +98,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         if (!SharedPref.getSpinWheelStatus()) {
             binding.llSpinWheel.setVisibility(View.GONE);
             binding.llNonSpinWheel.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             binding.llSpinWheel.setVisibility(View.VISIBLE);
             binding.llNonSpinWheel.setVisibility(View.GONE);
         }
@@ -108,7 +107,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             binding.btnNo.setClickable(false);
             if (!SharedPref.getSpinWheelStatus()) {
 
-                APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_YES",context);
+                APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_YES", context);
                 binding.btnNonSpinWheelSendOTP.setAlpha(1F);
                 binding.llActions.setAlpha(0.5F);
                 binding.llActions.setClickable(false);
@@ -117,9 +116,8 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                 binding.btnNonSpinWheelSendOTP.setClickable(true);
                 binding.btnNonSpinWheelSendOTP.setEnabled(true);
                 binding.edtNonSpinWheelEmail.setEnabled(true);
-            }
-            else {
-                APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_YES",context);
+            } else {
+                APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_YES", context);
                 binding.llSpinWheel.setAlpha(1F);
                 binding.llActions.setAlpha(0.5F);
                 binding.llActions.setClickable(false);
@@ -135,91 +133,81 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         });
 
         binding.btnNo.setOnClickListener(view -> {
-            if (!SharedPref.getSpinWheelStatus())
-            {
-                APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_NO",context);
-            }
-            else {
-                APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_NO",context);
+            if (!SharedPref.getSpinWheelStatus()) {
+                APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_NO", context);
+            } else {
+                APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_NO", context);
             }
             SaveCorporateStatus();
         });
 
         binding.tvSkip.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_SKIP",context);
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_SKIP", context);
             SaveCorporateStatus();
         });
         binding.tvSkip2.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_SKIP",context);
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_SKIP", context);
             SaveCorporateStatus();
         });
         binding.tvSkipNonSpinWheel.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_SKIP",context);
+            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_SKIP", context);
             SaveCorporateStatus();
         });
         binding.tvSkipNonSpinWheelOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_SKIP",context);
+            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_SKIP", context);
             SaveCorporateStatus();
         });
         binding.llSpinWheelSendOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.edtSpinWheelEmail.getText().toString()))
-            {
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.edtSpinWheelEmail.getText().toString())) {
                 //sendOTp();
-                EmailID= binding.edtSpinWheelEmail.getText().toString().trim();
+                EmailID = binding.edtSpinWheelEmail.getText().toString().trim();
                 GetCorporateDetails();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
 
         });
         binding.tvResendOTPSpinWheel.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.edtSpinWheelEmail.getText().toString()))
-            {
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.edtSpinWheelEmail.getText().toString())) {
                 sendOTp();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
 
         });
         binding.tvResendOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.edtNonSpinWheelEmail.getText().toString()))
-            {
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.edtNonSpinWheelEmail.getText().toString())) {
                 sendOTp();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
 
         });
 
 
         binding.btnNonSpinWheelSendOTP.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_EMAIL_CONTINUE",context);
-            if (isValidEmail(binding.edtNonSpinWheelEmail.getText().toString()))
-            {
-               // sendOTp();
-                EmailID= binding.edtNonSpinWheelEmail.getText().toString().trim();
+            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_EMAIL_CONTINUE", context);
+            if (isValidEmail(binding.edtNonSpinWheelEmail.getText().toString())) {
+                // sendOTp();
+                EmailID = binding.edtNonSpinWheelEmail.getText().toString().trim();
                 GetCorporateDetails();
-            }
-            else {
-                Toast.makeText(context,"Please enter valid Email ID",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
             }
         });
 
         binding.tvSpinWheelContinue.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_CONTINUE",context);
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_CONTINUE", context);
             Intent intent = new Intent(context, ActivityCorporateRegisterForm.class);
             intent.putExtra("jsonData", jsonData);
-            intent.putExtra("CorporateID",CorporateID);
-            intent.putExtra("CorporateName",CorporateName);
-            intent.putExtra("EmailID",EmailID);
-            intent.putExtra("stateData",new Gson().toJson(stateData));
-            intent.putExtra("corporateDetails",new Gson().toJson(corporateDetails));
+            intent.putExtra("CorporateID", CorporateID);
+            intent.putExtra("CorporateName", CorporateName);
+            intent.putExtra("EmailID", EmailID);
+            intent.putExtra("stateData", new Gson().toJson(stateData));
+            intent.putExtra("corporateDetails", new Gson().toJson(corporateDetails));
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             //Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
@@ -236,14 +224,14 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         });
 
         binding.tvNonSpinWheelContinue.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_CONTINUE",context);
+            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_CONTINUE", context);
             Intent intent = new Intent(context, ActivityCorporateRegisterForm.class);
             intent.putExtra("jsonData", jsonData);
-            intent.putExtra("CorporateID",CorporateID);
-            intent.putExtra("CorporateName",CorporateName);
-            intent.putExtra("EmailID",EmailID);
-            intent.putExtra("stateData",new Gson().toJson(stateData));
-            intent.putExtra("corporateDetails",new Gson().toJson(corporateDetails));
+            intent.putExtra("CorporateID", CorporateID);
+            intent.putExtra("CorporateName", CorporateName);
+            intent.putExtra("EmailID", EmailID);
+            intent.putExtra("stateData", new Gson().toJson(stateData));
+            intent.putExtra("corporateDetails", new Gson().toJson(corporateDetails));
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
@@ -259,10 +247,10 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             }*/
         });
         binding.tvSpinWheelEditEmail.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_EDIT_EMAIL",context);
+            APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_EDIT_EMAIL", context);
             corporateDetails.clear();
             corporateName.clear();
-            CorporateID="";
+            CorporateID = "";
             binding.edtOTPSpinWheel.setOTP("");
             //binding.edtSpinWheelEmail.setText("");
             binding.llSpinWheel.setVisibility(View.VISIBLE);
@@ -272,10 +260,10 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         });
 
         binding.tvNonSpinWheelEditEmail.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_EDIT_EMAIL",context);
+            APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_EDIT_EMAIL", context);
             corporateDetails.clear();
             corporateName.clear();
-            CorporateID="";
+            CorporateID = "";
             //binding.edtNonSpinWheelEmail.setText("");
             binding.edNonSpinWheelOTP.setOTP("");
             binding.llSpinWheel.setVisibility(View.GONE);
@@ -287,9 +275,9 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         binding.spinnerSpinWheel.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
-                CorporateID= String.valueOf(corporateDetails.get(position).getCorpId());
-                CorporateName= String.valueOf(corporateDetails.get(position).getCorporateNames());
-                jsonData= corporateDetails.get(position).getQuestionJson();
+                CorporateID = String.valueOf(corporateDetails.get(position).getCorpId());
+                CorporateName = String.valueOf(corporateDetails.get(position).getCorporateNames());
+                jsonData = corporateDetails.get(position).getQuestionJson();
             }
 
             @Override
@@ -300,9 +288,9 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         binding.spinnerNonSpinWheel.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
-                CorporateID= String.valueOf(corporateDetails.get(position).getCorpId());
-                CorporateName= String.valueOf(corporateDetails.get(position).getCorporateNames());
-                jsonData= corporateDetails.get(position).getQuestionJson();
+                CorporateID = String.valueOf(corporateDetails.get(position).getCorpId());
+                CorporateName = String.valueOf(corporateDetails.get(position).getCorporateNames());
+                jsonData = corporateDetails.get(position).getQuestionJson();
             }
 
             @Override
@@ -315,13 +303,11 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
     private void sendOTp() {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
-        GetEmailOTPReq request ;
-        if (SharedPref.getSpinWheelStatus())
-        {
-            request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()));
-        }
-        else {
-            request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()));
+        GetEmailOTPReq request;
+        if (SharedPref.getSpinWheelStatus()) {
+            request = new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()));
+        } else {
+            request = new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()));
         }
 
         Call<GetEmailOTPResp> call = apiInterfaceWyh.getEmailOTP(SharedPref.getAuthToken(), request);
@@ -331,16 +317,15 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             public void onResponse(@NonNull Call<GetEmailOTPResp> call, @NonNull Response<GetEmailOTPResp> response) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                if (response.code() == 200 && response.body() != null && response.body().getSuccess()&& !response.body().getData().getClients().isEmpty()) {
-                    binding.tvSpinWheel.setText("An OTP will be send to your email ID:\n"+binding.edtSpinWheelEmail.getText().toString());
-                    binding.tvNonSpinWheel.setText("An OTP will be send to your email ID:\n"+binding.edtNonSpinWheelEmail.getText().toString());
-                    corporateDetails=response.body().getData().getClients();
+                if (response.code() == 200 && response.body() != null && response.body().getSuccess() && !response.body().getData().getClients().isEmpty()) {
+                    binding.tvSpinWheel.setText("An OTP will be send to your email ID:\n" + binding.edtSpinWheelEmail.getText().toString());
+                    binding.tvNonSpinWheel.setText("An OTP will be send to your email ID:\n" + binding.edtNonSpinWheelEmail.getText().toString());
+                    corporateDetails = response.body().getData().getClients();
                     setSpinnerData(corporateDetails);
                     if (!SharedPref.getSpinWheelStatus()) {
                         binding.llNonSpinWheel.setVisibility(View.GONE);
                         binding.llNonSpinWheelOTP.setVisibility(View.VISIBLE);
-                    }
-                    else {
+                    } else {
                         binding.llSpinWheel.setVisibility(View.GONE);
                         binding.llSpinWheelOTP.setVisibility(View.VISIBLE);
                         binding.tvTitle1.setText("One Click. Big Benefits.");
@@ -351,7 +336,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                     SharedPref.putCorporateAccountNotFound(true);
                     Intent intent = new Intent(context, WelcomeActivity.class);
                     intent.putExtra("isCameFromRegistration", true);
-                    intent.putExtra("isCameFromSpinWheel",true);
+                    intent.putExtra("isCameFromSpinWheel", true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -368,18 +353,17 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             }
         });
     }
+
     private void GetCorporateDetails() {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
-        GetEmailOTPReq request ;
-        if (SharedPref.getSpinWheelStatus())
-        {
+        GetEmailOTPReq request;
+        if (SharedPref.getSpinWheelStatus()) {
             //request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()));
-            request= new GetEmailOTPReq(binding.edtSpinWheelEmail.getText().toString());
-        }
-        else {
-           // request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()));
-            request= new GetEmailOTPReq(binding.edtNonSpinWheelEmail.getText().toString());
+            request = new GetEmailOTPReq(binding.edtSpinWheelEmail.getText().toString());
+        } else {
+            // request= new GetEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()));
+            request = new GetEmailOTPReq(binding.edtNonSpinWheelEmail.getText().toString());
         }
 
         Call<GetEmailOTPResp> call = apiInterfaceWyh.getCorporateDetails(SharedPref.getAuthToken(), request);
@@ -389,10 +373,10 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             public void onResponse(@NonNull Call<GetEmailOTPResp> call, @NonNull Response<GetEmailOTPResp> response) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                if (response.code() == 200 && response.body() != null && response.body().getSuccess()&& !response.body().getData().getClients().isEmpty()) {
-                    binding.tvSpinWheel.setText("An OTP will be send to your email ID:\n"+binding.edtSpinWheelEmail.getText().toString());
-                    binding.tvNonSpinWheel.setText("An OTP will be send to your email ID:\n"+binding.edtNonSpinWheelEmail.getText().toString());
-                    corporateDetails=response.body().getData().getClients();
+                if (response.code() == 200 && response.body() != null && response.body().getSuccess() && !response.body().getData().getClients().isEmpty()) {
+                    binding.tvSpinWheel.setText("An OTP will be send to your email ID:\n" + binding.edtSpinWheelEmail.getText().toString());
+                    binding.tvNonSpinWheel.setText("An OTP will be send to your email ID:\n" + binding.edtNonSpinWheelEmail.getText().toString());
+                    corporateDetails = response.body().getData().getClients();
                     stateData = response.body().getData().getStateList();
                     setSpinnerData(corporateDetails);
                     /*setSpinnerData(corporateDetails);
@@ -408,18 +392,18 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                     }*/
                     Intent intent = new Intent(context, ActivityCorporateRegisterForm.class);
                     intent.putExtra("jsonData", jsonData);
-                    intent.putExtra("CorporateID",CorporateID);
-                    intent.putExtra("CorporateName",CorporateName);
-                    intent.putExtra("EmailID",EmailID);
-                    intent.putExtra("stateData",new Gson().toJson(stateData));
-                    intent.putExtra("corporateDetails",new Gson().toJson(corporateDetails));
+                    intent.putExtra("CorporateID", CorporateID);
+                    intent.putExtra("CorporateName", CorporateName);
+                    intent.putExtra("EmailID", EmailID);
+                    intent.putExtra("stateData", new Gson().toJson(stateData));
+                    intent.putExtra("corporateDetails", new Gson().toJson(corporateDetails));
                     startActivity(intent);
 
                 } else {
                     SharedPref.putCorporateAccountNotFound(true);
                     Intent intent = new Intent(context, WelcomeActivity.class);
                     intent.putExtra("isCameFromRegistration", true);
-                    intent.putExtra("isCameFromSpinWheel",true);
+                    intent.putExtra("isCameFromSpinWheel", true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -441,12 +425,10 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
         VerifyEmailOTPReq request;
-        if (SharedPref.getSpinWheelStatus())
-        {
-            request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()));
-        }
-        else {
-            request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()),CorporateID,RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()));
+        if (SharedPref.getSpinWheelStatus()) {
+            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()));
+        } else {
+            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()));
         }
 
         Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);
@@ -460,7 +442,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                     SharedPref.setCorporateRegistered("YES");
                     Intent intent = new Intent(context, WelcomeActivity.class);
                     intent.putExtra("isCameFromRegistration", true);
-                    intent.putExtra("isCameFromSpinWheel",true);
+                    intent.putExtra("isCameFromSpinWheel", true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -498,7 +480,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                     SharedPref.setCorporateRegistered("NO");
                     Intent intent = new Intent(context, WelcomeActivity.class);
                     intent.putExtra("isCameFromRegistration", true);
-                    intent.putExtra("isCameFromSpinWheel",true);
+                    intent.putExtra("isCameFromSpinWheel", true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -519,18 +501,14 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
     }
 
 
-    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails)
-    {
-        for (int i=0;i<corporateDetails.size();i++)
-        {
+    public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails) {
+        for (int i = 0; i < corporateDetails.size(); i++) {
             corporateName.add(corporateDetails.get(i).getCorporateNames());
         }
-        if (corporateName.size()>1)
-        {
+        if (corporateName.size() > 1) {
             binding.imSpinnerNonSpinWheel.setVisibility(View.VISIBLE);
             binding.imSpinnerSpinWheel.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             binding.imSpinnerNonSpinWheel.setVisibility(View.INVISIBLE);
             binding.imSpinnerSpinWheel.setVisibility(View.INVISIBLE);
         }
@@ -541,6 +519,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
         binding.spinnerSpinWheel.setAdapter(spinnerSpinWheelAdapter);
         binding.spinnerNonSpinWheel.setAdapter(spinnerNonSpinWheelAdapter);
     }
+
     private void startTimer(int minutes, int seconds) {
         long startTimeInMillis = (minutes * 60 + seconds) * 1000;
         rewardSeconds = 0;
@@ -570,7 +549,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
                 SharedPref.setWheelTimesUp(true);
                 binding.mobileTimerTv.setText("00:00");
                 binding.otpCountdown.setText("00:00");
-               // binding.rewardsLayout.setVisibility(View.GONE);
+                // binding.rewardsLayout.setVisibility(View.GONE);
                /* binding.timeOutLayout.setVisibility(View.VISIBLE);
                 binding.rewardHurryUp.setText("Oops");
                 binding.rewardLoginTv.setText("Login to spin again");*/

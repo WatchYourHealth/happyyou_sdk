@@ -11,6 +11,7 @@ import com.wyh.happyyousdk.APIEncryption.APILogs
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.ChallangesModule.Walkathon.Adapters.UserRankListAdapter
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.databinding.ActivityBranchDetailBinding
 import com.wyh.happyyousdk.model.request.ChallengeRankRequest
 import com.wyh.happyyousdk.model.response.ChallengeRankResponse
@@ -41,6 +42,8 @@ class BranchDetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_branch_detail)
         SharedPref.init(this)
         SharedPreference.init(this)
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(this@BranchDetailActivity) + SDKConstants.endPointForImages + "anim_bear_404.json")
 
         binding.branchCancel.setOnClickListener {
             APILogs.activityTracker("A_WALKATHON_IND_RANK_CLOSED_BTN", this@BranchDetailActivity)

@@ -323,7 +323,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        
+
 
         initialView();
         fetureArrow();
@@ -653,7 +653,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_calories_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(R.raw.anim_bear_meditation);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_meditation.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
@@ -742,7 +742,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 btnTodayMeal = false;
                 binding.llCalorieDetails.setVisibility(View.GONE);
                 binding.laBear.clearAnimation();
-                binding.laBear.setAnimation(R.raw.anim_bear_calorie);
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_calorie.json");
                 binding.laBear.playAnimation();
 
                 binding.btnCalBurned.setTextColor(getColor(R.color.white));
@@ -815,7 +815,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
 //            binding.calIntakeOrBurn.setVisibility(View.GONE);
             binding.llCalorieDetails.setVisibility(View.GONE);
             binding.laBear.clearAnimation();
-            binding.laBear.setAnimation(R.raw.anim_bear_calorie);
+            binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_calorie.json");
             binding.laBear.playAnimation();
 
             binding.btnCalBurned.setTextColor(getColor(R.color.white));
@@ -1831,15 +1831,16 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
             }
         });
     }
-    public  boolean checkIsFromQuizqathon(){
-        if(NewDashboardHelper.Companion.getTrasactionId() != null && !NewDashboardHelper.Companion.getTrasactionId().isEmpty()){
+
+    public boolean checkIsFromQuizqathon() {
+        if (NewDashboardHelper.Companion.getTrasactionId() != null && !NewDashboardHelper.Companion.getTrasactionId().isEmpty()) {
             return true;
         }
         return false;
     }
 
     private void FetchQuizReward() {
-        ActivityRewardRequest activityRewardRequest = new ActivityRewardRequest(NewDashboardHelper.Companion.getTrasactionId(),NewDashboardHelper.Companion.getFeatureName());
+        ActivityRewardRequest activityRewardRequest = new ActivityRewardRequest(NewDashboardHelper.Companion.getTrasactionId(), NewDashboardHelper.Companion.getFeatureName());
         Call<CommonSuccessResponse> call = apiInterfaceWyh.FetchQuizReward(SharedPref.getAuthToken(), activityRewardRequest);
 
         call.enqueue(new Callback<>() {
@@ -1905,9 +1906,8 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                             data.getRewardHeader1(), data.getRewardHeader2(), this, this);
                 } else if (rewardtype.equalsIgnoreCase("Stamps")) {
                     QuizRewardDialog.INSTANCE.showStampsPopupCallBack(data.getRewardHeader1(), data.getRewardHeader2(), data.getRewardTitle(), data.getRewardValue(), this, this, this);
-                }
-                else if (rewardtype.equalsIgnoreCase("future")) {
-                    QuizRewardDialog.INSTANCE.showFutureRewardDialog(context,data.getDialogModel(),data.getClaimDate());
+                } else if (rewardtype.equalsIgnoreCase("future")) {
+                    QuizRewardDialog.INSTANCE.showFutureRewardDialog(context, data.getDialogModel(), data.getClaimDate());
                 }
 
             }

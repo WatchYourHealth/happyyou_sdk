@@ -83,6 +83,7 @@ public class WinningFragment extends Fragment {
         progressDialog.setMessage("Please wait...");
 
         binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bear_rocking_chair_reading_book.json");
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         getAllDiary();
 

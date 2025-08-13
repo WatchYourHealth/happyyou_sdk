@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
@@ -24,6 +26,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.common.adapter.IndicatorsAdapter;
@@ -33,6 +38,7 @@ import com.wyh.happyyousdk.databinding.LayoutLifeStyleWelcomeBinding;
 import com.wyh.happyyousdk.ice.adapter.CPRVideosAdapter;
 import com.wyh.happyyousdk.ice.adapter.DisasterManagementAdapter;
 import com.wyh.happyyousdk.ice.adapter.FetchInjuriesAdapter;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
@@ -46,8 +52,10 @@ import com.wyh.happyyousdk.utils.Analytics;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.SnapHelperOneByOne;
 import com.wyhsdk.sharedPreferences.SharedPreference;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -72,6 +80,21 @@ public class CPRAndFirstAddActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "splash_bg.png")
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        binding.llMain.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+
         fetchCPRDetails();
         fetchInjuries();
         binding.includeBack.llBack.setOnClickListener(view -> finish());
@@ -117,10 +140,10 @@ public class CPRAndFirstAddActivity extends AppCompatActivity {
                         List<FetchInjuriesResp.Datum> fetchInjuries = new ArrayList<>();
                         List<FetchInjuriesResp.Datum> disasterManagement = new ArrayList<>();
 
-                        for(FetchInjuriesResp.Datum item : allData){
-                            if(item.getInjuryName().equalsIgnoreCase("fire guide") || item.getInjuryName().equalsIgnoreCase("Earthquake guide") || item.getInjuryName().equalsIgnoreCase("floods guide")){
+                        for (FetchInjuriesResp.Datum item : allData) {
+                            if (item.getInjuryName().equalsIgnoreCase("fire guide") || item.getInjuryName().equalsIgnoreCase("Earthquake guide") || item.getInjuryName().equalsIgnoreCase("floods guide")) {
                                 disasterManagement.add(item);
-                            }else{
+                            } else {
                                 fetchInjuries.add(item);
                             }
                         }
@@ -325,9 +348,9 @@ public class CPRAndFirstAddActivity extends AppCompatActivity {
                 if (response.code() == 200 && response.body() != null && response.body().isSuccess() &&
                         response.body().getData().getAuthToken() != null && !response.body().getData().getAuthToken().isEmpty()) {
                     Analytics.logEvent(context, context.getClass().getName(), getString(R.string.refresh_token_success));
-                    SharedPref.putAuthToken("Bearer "+response.body().getData().getAuthToken());
+                    SharedPref.putAuthToken("Bearer " + response.body().getData().getAuthToken());
                     SharedPreference.init(context);
-                    SharedPreference.putAuthToken("Bearer "+response.body().getData().getAuthToken());
+                    SharedPreference.putAuthToken("Bearer " + response.body().getData().getAuthToken());
                     fetchCPRDetails();
                     fetchInjuries();
                 } else {

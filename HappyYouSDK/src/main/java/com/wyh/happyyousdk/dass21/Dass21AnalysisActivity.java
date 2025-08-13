@@ -3,6 +3,7 @@ package com.wyh.happyyousdk.dass21;
 import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
@@ -20,6 +21,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,12 +34,15 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 ;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener;
 
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
@@ -62,6 +67,7 @@ import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.dialog.PostSpinDialog;
 import com.wyh.happyyousdk.utils.dialog.QuizRewardDialog;
@@ -158,7 +164,7 @@ public class Dass21AnalysisActivity extends AppCompatActivity implements Scratch
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-            
+
 
             binding.includeBack.ivBack.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.white)));
             binding.includeBack.tvBack.setText("DAS Score");
@@ -244,11 +250,21 @@ public class Dass21AnalysisActivity extends AppCompatActivity implements Scratch
                 e.printStackTrace();
             }
 
+            Glide.with(context)
+                    .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages
+                            + ((isDepressionInGoodRange && isAnxietyInGoodRange && isStressInGoodRange)
+                            ? "ira_analysis_blue_bg.png" : "ira_analysis_red_bg.png"))
+                    .into(new CustomTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            binding.ivTopBg.setBackground(resource);
+                        }
 
-            if (isDepressionInGoodRange && isAnxietyInGoodRange && isStressInGoodRange) {
-                binding.ivTopBg.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ira_analysis_blue_bg));
-            } else
-                binding.ivTopBg.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ira_analysis_red_bg));
+                        @Override
+                        public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                        }
+                    });
 
             binding.btnOk.setOnClickListener(view -> finish());
 

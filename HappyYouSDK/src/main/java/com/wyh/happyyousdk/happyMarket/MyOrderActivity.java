@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.wyh.happyyousdk.R;
 
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityMyOrderBinding;
 import com.wyh.happyyousdk.databinding.LayouHeartAgeInfoBinding;
@@ -72,6 +73,9 @@ public class MyOrderActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
+
         binding.commonToolBar.tvBack.setText("My Order");
         binding.commonToolBar.llBack.setOnClickListener(v -> {
             onBackPressed();

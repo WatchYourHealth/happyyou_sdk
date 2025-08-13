@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,6 +56,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
@@ -159,7 +162,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
     List<FreeVoucher> freeVoucherList = new ArrayList<>();
     RewardsLevel currentLevelActivity, upcomingLevelActivity;
     List<TopUp> topUpList = new ArrayList<>();
-    AlertDialog  alertDialog, levelActivityAlertDialog, levelActivityJournalUploadAlertDialog, levelTopUpAlertDialog;
+    AlertDialog alertDialog, levelActivityAlertDialog, levelActivityJournalUploadAlertDialog, levelTopUpAlertDialog;
 
     ArrayList<FileData> fileDataList = new ArrayList<>();
 
@@ -204,6 +207,20 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_tree_cloud_bg.png")
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        binding.rlHeader.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+
         SharedPref.init(context);
         SharedPreference.init(context);
 
@@ -224,13 +241,13 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
             startActivity(i);
         });
 
-        if(!RewardsActivity.comingFrom.equalsIgnoreCase("")){
-            if(RewardsActivity.comingFrom.equalsIgnoreCase("NewDashboard")){
+        if (!RewardsActivity.comingFrom.equalsIgnoreCase("")) {
+            if (RewardsActivity.comingFrom.equalsIgnoreCase("NewDashboard")) {
                 binding.extraHeight.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 binding.extraHeight.setVisibility(View.GONE);
             }
-        }else{
+        } else {
             binding.extraHeight.setVisibility(View.GONE);
 
         }
@@ -256,7 +273,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         //showRewardsPopupNew("Eat Healthier;Congratulations! You have earned 125 points for completing this event", context);
 
         binding.btnRedeem.setOnClickListener(view -> {
-            if (currentLevelActivity != null  && currentLevelActivity.getLevelID() >= 6) {
+            if (currentLevelActivity != null && currentLevelActivity.getLevelID() >= 6) {
                 Intent intent = new Intent(context, NewHappyMartActivity.class);
                 intent.putExtra("points", totalPoints);
                 intent.putExtra("amount", equivalentAmount);
@@ -288,7 +305,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
     }
 
 
-    private void showConcernInfoLayout(){
+    private void showConcernInfoLayout() {
         CustomYesNoDialog customYesNoDialog = new CustomYesNoDialog(context, R.style.Theme_Dialog);
         customYesNoDialog.show();
         customYesNoDialog.setCancelable(false);
@@ -308,7 +325,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         call.enqueue(new Callback<LevelDashboardResponse>() {
             @Override
             public void onResponse(Call<LevelDashboardResponse> call, Response<LevelDashboardResponse> response) {
-                try{
+                try {
                     if (progressDialog != null && progressDialog.isShowing())
                         progressDialog.dismiss();
                     if (response.code() == 401) {
@@ -343,9 +360,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
 
                             int currentLevel = currentLevelActivity.getLevelID();
 
-                            if(currentLevelActivity.getLevelID() >= 6){
+                            if (currentLevelActivity.getLevelID() >= 6) {
                                 binding.ivInfoLevel.setVisibility(View.GONE);
-                            }else{
+                            } else {
                                 binding.ivInfoLevel.setVisibility(View.VISIBLE);
 
                             }
@@ -412,10 +429,10 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
 //                      checkLevel(currentLevel);
                         }
                     } else {
-                        Analytics.logEvent(context, "","A_105_"+response.code()+"_"+SharedPref.getEncryptedMobileNo());
+                        Analytics.logEvent(context, "", "A_105_" + response.code() + "_" + SharedPref.getEncryptedMobileNo());
                     }
-                }catch (Exception e){
-                    APILogs.INSTANCE.sendLogs(com.wyh.happyyousdk.utils.Constants.EXCEPTION,e.getMessage(),"Exception",context);
+                } catch (Exception e) {
+                    APILogs.INSTANCE.sendLogs(com.wyh.happyyousdk.utils.Constants.EXCEPTION, e.getMessage(), "Exception", context);
                     e.printStackTrace();
                 }
 
@@ -425,8 +442,8 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
             public void onFailure(Call<LevelDashboardResponse> call, Throwable t) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                APILogs.INSTANCE.sendLogs(com.wyh.happyyousdk.utils.Constants.EXCEPTION,t.getMessage(),"Exception",context);
-                Analytics.logEvent(context, "","A_105_Failed_"+SharedPref.getEncryptedMobileNo());
+                APILogs.INSTANCE.sendLogs(com.wyh.happyyousdk.utils.Constants.EXCEPTION, t.getMessage(), "Exception", context);
+                Analytics.logEvent(context, "", "A_105_Failed_" + SharedPref.getEncryptedMobileNo());
             }
         });
     }
@@ -592,9 +609,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).getTopUpName().toLowerCase().contains("challenge") && !data.get(i).getTopUpName().equalsIgnoreCase("Safety challenge"))
                 comingSoon.add(data.get(i));
-            else if(data.get(i).isIsCompleted() && data.get(i).getRecurrenceDays() >= 7)
+            else if (data.get(i).isIsCompleted() && data.get(i).getRecurrenceDays() >= 7)
                 recurring.add(data.get(i));
-            else  if (data.get(i).isIsCompleted())
+            else if (data.get(i).isIsCompleted())
                 completed.add(data.get(i));
             else if (data.get(i).isStarted() && !data.get(i).isIsCompleted())
                 inProgress.add(data.get(i));
@@ -876,7 +893,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         if (tvSteps != null && response.body().getData().getTotalSteps() != 0) {
                             tvSteps.setVisibility(View.VISIBLE);
                             tvSteps.setText("Your steps: " + response.body().getData().getUserSteps() + " / " + response.body().getData().getTotalSteps());
-                        }else if(tvSteps != null && response.body().getData().getTotalCount() != 0){
+                        } else if (tvSteps != null && response.body().getData().getTotalCount() != 0) {
                             tvSteps.setVisibility(View.VISIBLE);
                             tvSteps.setText("Your progress: " + response.body().getData().getUserCount() + " / " + response.body().getData().getTotalCount());
                         }
@@ -961,9 +978,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                     } else {
                         levelActivityAlertDialog.dismiss();
-                        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                             openImagePicker();
-                        }else{
+                        } else {
                             openGalleryOnly();
                         }
                     }
@@ -987,9 +1004,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
                     ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                 } else {
-                    if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                         openImagePicker();
-                    }else{
+                    } else {
                         openGalleryOnly();
                     }
                 }
@@ -1082,9 +1099,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                     } else {
                         levelActivityAlertDialog.dismiss();
-                        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                             openImagePicker();
-                        }else{
+                        } else {
                             openGalleryOnly();
                         }
                     }
@@ -1137,9 +1154,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                     } else {
                         //levelActivityJournalUploadAlertDialog.dismiss();
-                        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                             openImagePicker();
-                        }else{
+                        } else {
                             openGalleryOnly();
                         }
                     }
@@ -1160,10 +1177,10 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
 
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
 
-        if(levelActivity.isStarted() && !levelActivity.isIsCompleted()){
+        if (levelActivity.isStarted() && !levelActivity.isIsCompleted()) {
             levelActivityJournalUploadAlertDialog.getWindow().setLayout((int) (displayRectangle.width() *
                     0.8f), (int) (displayRectangle.height() * 0.8f));
-        }else{
+        } else {
             levelActivityJournalUploadAlertDialog.getWindow().setLayout((int) (displayRectangle.width() *
                     0.8f), (int) (displayRectangle.height() * 0.6f));
         }
@@ -1205,9 +1222,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                     } else {
                         //levelActivityJournalUploadAlertDialog.dismiss();
-                        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                             openImagePicker();
-                        }else{
+                        } else {
                             openGalleryOnly();
                         }
                     }
@@ -1228,10 +1245,10 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
 
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
 
-        if(topUp.isStarted() && !topUp.isIsCompleted()){
+        if (topUp.isStarted() && !topUp.isIsCompleted()) {
             levelActivityJournalUploadAlertDialog.getWindow().setLayout((int) (displayRectangle.width() *
                     0.8f), (int) (displayRectangle.height() * 0.8f));
-        }else{
+        } else {
             levelActivityJournalUploadAlertDialog.getWindow().setLayout((int) (displayRectangle.width() *
                     0.8f), (int) (displayRectangle.height() * 0.6f));
         }
@@ -1423,9 +1440,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
                     ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                 } else {
-                    if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                         openImagePicker();
-                    }else{
+                    } else {
                         openGalleryOnly();
                     }
                 }
@@ -1474,9 +1491,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         ((RewardsActivity) context).checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_CODE, true);
                     } else {
                         //levelActivityJournalUploadAlertDialog.dismiss();
-                        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                             openImagePicker();
-                        }else{
+                        } else {
                             openGalleryOnly();
                         }
                     }
@@ -1515,7 +1532,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     }
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), getString(R.string.rewards_start_activity_failed));
-                    
+
                 }
             }
 
@@ -1655,10 +1672,10 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         }
     }
 
-    public void checkImagePicker(){
-        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU){
+    public void checkImagePicker() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             openImagePicker();
-        }else{
+        } else {
             openGalleryOnly();
         }
     }
@@ -1674,23 +1691,23 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 .start();
     }
 
-    public void openImagePicker(){
-        try{
+    public void openImagePicker() {
+        try {
             Intent intent = new Intent();
-            intent.putExtra(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.putExtra(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent,1);
-        }catch (Exception e){
+            startActivityForResult(intent, 1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    public void saveImage(Uri imageURI){
+    public void saveImage(Uri imageURI) {
         List<MultipartBody.Part> parts = new ArrayList<>();
         FileData fileData = new FileData();
-        fileData.setPath(CommonUtils.getRealPathFromURI(imageURI,context));
+        fileData.setPath(CommonUtils.getRealPathFromURI(imageURI, context));
         FileData fileDataNew = new FileData();
         File file1 = CommonUtils.compressImageToJPEG(context, imageURI);
         fileDataNew.setPath(file1.getPath());
@@ -1721,14 +1738,14 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         if (requestCode == 2121) {
             getRewardsDashboardData();
         }
-        if(requestCode == 1){
-            if(data == null){
+        if (requestCode == 1) {
+            if (data == null) {
                 Toast.makeText(context, "No image Selected", Toast.LENGTH_SHORT).show();
-            }else{
-                if(data.getData() != null){
+            } else {
+                if (data.getData() != null) {
                     Uri imageURI = data.getData();
                     saveImage(imageURI);
-                }else{
+                } else {
                     ClipData mClipData = data.getClipData();
                     for (int i = 0; i < mClipData.getItemCount(); i++) {
                         ClipData.Item item = mClipData.getItemAt(i);
@@ -1745,9 +1762,9 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 FileData fileData = new FileData();
                 fileData.setPath(getFilePathFromImage(image2.get(i)));
                 long singleFileSize = getFileSizeFromPath(fileData.getPath());
-                Log.d("comparedata singleFileSize", singleFileSize+"");
+                Log.d("comparedata singleFileSize", singleFileSize + "");
                 FileData fileDataNew = new FileData();
-                Log.d("comparedata singleFileSize", singleFileSize+"");
+                Log.d("comparedata singleFileSize", singleFileSize + "");
                 File file1 = CommonUtils.compressImageToJPEG(context, image2.get(i).getUri());
                 fileDataNew.setPath(file1.getPath());
                 fileDataNew.setMimeType("application/png");
@@ -1778,8 +1795,6 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
         }
         Log.d("FileData", new Gson().toJson(fileDataList));
     }
-
-
 
 
     @NonNull
@@ -1892,7 +1907,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     break;
                 case "invite":
                     intent7 = new Intent(context, ContactsActivityNew.class);
-                    intent7.putExtra("comingFrom","share");
+                    intent7.putExtra("comingFrom", "share");
                     intent7.putExtra("isFromHRA", true);
                     startActivity(intent7);
                     break;
@@ -1908,7 +1923,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     break;
                 case "unwind":
                     intent7 = new Intent(context, UnwindActivity.class);
-                    intent7.putExtra("comingFrom","level");
+                    intent7.putExtra("comingFrom", "level");
                     startActivity(intent7);
                     break;
                 case "calorieintake":
@@ -1961,7 +1976,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     }
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.rewards_start_activity_failed));
-                    
+
                 }
             }
 
@@ -1978,7 +1993,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
     private void openWebView(String url) {
         Intent i = new Intent(context, WebActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.putExtra("comingFrom","");
+        i.putExtra("comingFrom", "");
         i.putExtra("Url", url);
         context.startActivity(i);
     }
@@ -1989,7 +2004,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 case "invite":
                     Intent intent = new Intent(context, ContactsActivityNew.class);
                     intent.putExtra("isFromHRA", true);
-                    intent.putExtra("comingFrom","share");
+                    intent.putExtra("comingFrom", "share");
                     startActivity(intent);
                     break;
                 case "quiz":
@@ -2055,7 +2070,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     }
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.rewards_start_activity_failed));
-                    
+
                 }
             }
 
@@ -2087,7 +2102,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     }
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.earn_and_burn_rewards_failed));
-                    
+
                 }
             }
 
@@ -2505,7 +2520,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                                 }
 
                                 if (commonSuccessResponse.getRewards() != null && commonSuccessResponse.getRewards().getBonusRewards() != null) {
-                                   NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(RewardsBounce, commonSuccessResponse.getRewards().getBonusRewards()));
+                                    NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(RewardsBounce, commonSuccessResponse.getRewards().getBonusRewards()));
                                 }
 
                                 getRewardsDashboardData();
@@ -2547,7 +2562,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
             public void onFailure(okhttp3.Call call, IOException e) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                
+
             }
 
             @Override
@@ -2611,7 +2626,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
             public void onFailure(okhttp3.Call call, IOException e) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
-                
+
             }
 
             @Override
@@ -2650,12 +2665,12 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
             binding.scratchView.onFullReveal();
         }
 
-        if(freeVoucher.getVoucherCode() != null){
+        if (freeVoucher.getVoucherCode() != null) {
             binding.llCopy.setVisibility(View.VISIBLE);
             binding.btnRedeem.setVisibility(View.GONE);
             binding.llScratchview.setVisibility(View.GONE);
             binding.tvAmount.setVisibility(View.GONE);
-        }else{
+        } else {
             binding.llCopy.setVisibility(View.GONE);
             binding.btnRedeem.setVisibility(View.VISIBLE);
             binding.llScratchview.setVisibility(View.VISIBLE);
@@ -2682,7 +2697,6 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                 alertDialog.dismiss();
             }
         });*/
-
 
 
         binding.btnRedeem.setOnClickListener(view -> {
@@ -2807,7 +2821,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     }
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), getString(R.string.rewards_popup_failed));
-                    
+
                 }
             }
 
@@ -2849,7 +2863,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                         showRewardsPopupDialogBox();
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), getString(R.string.app_feedback_failed));
-                    
+
                 }
             }
 
@@ -2864,8 +2878,8 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
     }
 
 
-    public void deleteImage(){
-        if(imageName != ""){
+    public void deleteImage() {
+        if (imageName != "") {
             CommonUtils.deleteImage(imageName);
             imageName = "";
         }

@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.databinding.UnscratchedAdapterDataBinding;
 import com.wyh.happyyousdk.model.response.rewards.UnscratchedTokensData;
+import com.wyh.happyyousdk.utils.CommonUtils;
 
 import java.util.List;
 
@@ -38,9 +41,13 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "grab_opportunity_banner.png")
+                .into(holder.binding.ivIndicatorSelected);
+
         switch (position) {
             case 0:
-                if(unlockedVoucherList.size() > 0){
+                if (unlockedVoucherList.size() > 0) {
                     holder.binding.llBanner.setVisibility(View.GONE);
                     for (int i = 0; i < 3; i++) {
                         final int index = i;
@@ -64,7 +71,7 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
 //                            holder.binding.rlArticle1.setBackgroundResource(R.drawable.ic_light_orange_button_bg);
                             }
                         } else if (i == 1) {
-                            if (unlockedVoucherList.size()  > 1) {
+                            if (unlockedVoucherList.size() > 1) {
                                 if (i == unlockedVoucherList.size()) {
                                     holder.binding.llbanner2.setVisibility(View.VISIBLE);
                                 } else
@@ -110,15 +117,15 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
                             }
                         }
 
-                        if (unlockedVoucherList.size()  < 2) {
+                        if (unlockedVoucherList.size() < 2) {
                             holder.binding.rlArticle2.setVisibility(View.GONE);
                             holder.binding.rlArticle3.setVisibility(View.GONE);
-                        } else if (unlockedVoucherList.size()  < 3) {
+                        } else if (unlockedVoucherList.size() < 3) {
                             holder.binding.rlArticle2.setVisibility(View.VISIBLE);
                             holder.binding.rlArticle3.setVisibility(View.GONE);
                         }
                     }
-                }else{
+                } else {
                     holder.binding.llBanner.setVisibility(View.VISIBLE);
                     holder.binding.rlArticle1.setVisibility(View.GONE);
                     holder.binding.rlArticle2.setVisibility(View.GONE);
@@ -126,12 +133,12 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
                 }
                 break;
             case 1:
-                if(unlockedVoucherList.size() > 3){
+                if (unlockedVoucherList.size() > 3) {
                     holder.binding.llBanner.setVisibility(View.GONE);
                     for (int i = 3; i < 6; i++) {
                         final int index = i;
                         if (i == 3) {
-                            if (unlockedVoucherList.size()  > 3) {
+                            if (unlockedVoucherList.size() > 3) {
                                 if (i == unlockedVoucherList.size()) {
                                     holder.binding.llbanner1.setVisibility(View.VISIBLE);
                                 } else
@@ -153,7 +160,7 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
                                 holder.binding.rlArticle1.setVisibility(View.GONE);
                             }
                         } else if (i == 4) {
-                            if (unlockedVoucherList.size()  > 4) {
+                            if (unlockedVoucherList.size() > 4) {
                                 if (i == unlockedVoucherList.size()) {
                                     holder.binding.llbanner2.setVisibility(View.VISIBLE);
                                 } else
@@ -176,7 +183,7 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
                                 holder.binding.rlArticle3.setVisibility(View.GONE);
                             }
                         } else {
-                            if (unlockedVoucherList.size()  > 5) {
+                            if (unlockedVoucherList.size() > 5) {
                                 if (i == unlockedVoucherList.size()) {
                                     holder.binding.llbanner3.setVisibility(View.VISIBLE);
                                 } else
@@ -199,7 +206,7 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
                             }
                         }
                     }
-                }else{
+                } else {
                     holder.binding.llBanner.setVisibility(View.VISIBLE);
                     holder.binding.rlArticle1.setVisibility(View.GONE);
                     holder.binding.rlArticle2.setVisibility(View.GONE);
@@ -316,13 +323,11 @@ public class UnscratchedAdapter extends RecyclerView.Adapter<UnscratchedAdapter.
 
     @Override
     public int getItemCount() {
-        if(unlockedVoucherList.size() > 6){
+        if (unlockedVoucherList.size() > 6) {
             return 3;
-        }
-        else if (unlockedVoucherList.size() > 0) {
+        } else if (unlockedVoucherList.size() > 0) {
             return (int) Math.ceil(Double.parseDouble(String.valueOf(unlockedVoucherList.size())) / 3.0) + 1;
-        }
-        else {
+        } else {
             return 1;
         }
     }

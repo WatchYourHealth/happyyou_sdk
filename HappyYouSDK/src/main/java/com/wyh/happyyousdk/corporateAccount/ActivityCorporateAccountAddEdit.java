@@ -98,6 +98,21 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
 
                     }
                 });
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_corporate_email.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.llSection1.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
 
         binding.rlUpperCard.setOnClickListener(view -> {
             onBackPressed();

@@ -13,6 +13,7 @@ import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.Goals.Adapters.IndividualGoalDetailsAdapter
 import com.wyh.happyyousdk.Goals.ClickInterface.DeleteGoal
 import com.wyh.happyyousdk.R
+import com.wyh.happyyousdk.SDKConstants
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity
 import com.wyh.happyyousdk.databinding.ActivityIndividualGoalDetailsBinding
 import com.wyh.happyyousdk.model.request.DeleteGoalRequest
@@ -45,6 +46,8 @@ class IndividualGoalDetails : AppCompatActivity(), DeleteGoal {
         binding.commonToolBar.llBack.setOnClickListener {
             finish()
         }
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(this@IndividualGoalDetails) + SDKConstants.endPointForImages + "anim_bear_404.json")
 
         binding.commonToolBar.tvBack.text = "Individual Goals"
 

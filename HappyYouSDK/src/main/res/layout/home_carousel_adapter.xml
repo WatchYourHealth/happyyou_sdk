@@ -2470,8 +2470,7 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:scaleType="fitXY"
-                android:src="@drawable/abrob_widget" />
+                android:scaleType="fitXY" />
         </LinearLayout>
 
         <!--Cal Count-->

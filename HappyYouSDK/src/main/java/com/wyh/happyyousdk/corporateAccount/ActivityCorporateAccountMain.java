@@ -72,6 +72,21 @@ public class ActivityCorporateAccountMain extends AppCompatActivity {
 
                     }
                 });
+        Glide.with(context)
+                .asBitmap()
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "bg_corporate_email.png")
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Drawable drawable = new BitmapDrawable(getResources(), resource);
+                        binding.llSection2.setBackground(drawable);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
 
         Glide.with(context)
                 .load(SharedPref.getCorporateImage())

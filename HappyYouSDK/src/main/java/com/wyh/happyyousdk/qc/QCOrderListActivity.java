@@ -71,6 +71,8 @@ public class QCOrderListActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
+
         binding.includeBack.tvBack.setText("Order List");
         binding.includeBack.llBack.setOnClickListener(view -> finish());
 

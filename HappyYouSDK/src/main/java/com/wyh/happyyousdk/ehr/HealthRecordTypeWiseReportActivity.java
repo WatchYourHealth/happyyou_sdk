@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 ;
 import com.wyh.happyyousdk.R;
 
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityHealthRecordTypeWiseReportBinding;
 import com.wyh.happyyousdk.ehr.Interface.ItemRemove;
@@ -27,6 +28,7 @@ import com.wyh.happyyousdk.model.response.ehr.AllHealthRecordDetailsList;
 import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 
 import org.json.JSONException;
@@ -67,6 +69,8 @@ public class HealthRecordTypeWiseReportActivity extends AppCompatActivity implem
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        binding.la404Bear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         healthRecordId = this.getIntent().getIntExtra("healthRecordId", 0);
         healthRecordTypeName = this.getIntent().getStringExtra("healthRecordName");

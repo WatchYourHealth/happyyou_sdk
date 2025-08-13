@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 ;
 
+import com.bumptech.glide.Glide;
 import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.SDKConstants;
 
@@ -36,6 +37,7 @@ import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityUnscratchedTokensBinding;
 import com.wyh.happyyousdk.databinding.CustomPopupStampsBinding;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
@@ -89,6 +91,8 @@ public class UnscratchedTokensActivity extends AppCompatActivity implements Scra
 
         SharedPreference.init(context);
         SharedPref.init(context);
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         setToolBar();
 

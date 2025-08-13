@@ -5,14 +5,20 @@ import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.gson.Gson;
 
 import com.wyh.happyyousdk.R;
@@ -21,6 +27,7 @@ import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityIceDashboardBinding;
 import com.wyh.happyyousdk.happyMarket.HappyMartDisclaimerActivity;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest;
@@ -58,6 +65,20 @@ public class ICEDashboardActivity extends AppCompatActivity {
 
         binding.includeBack.tvBack.setText("ICE (In Case of Emergency)");
         binding.includeBack.llBack.setOnClickListener(view -> finish());
+
+        Glide.with(context)
+                .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "splash_bg.png")
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        binding.llMain.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
 
         binding.ivHome.setOnClickListener(view -> {
             Intent intent = new Intent(this, NewDashboardActivity.class);
@@ -109,7 +130,7 @@ public class ICEDashboardActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchEmergencyContactDetails(context,"ice");
+        fetchEmergencyContactDetails(context, "ice");
     }
 
     public void fetchEmergencyContactDetails(Context context, String comingFrom) {
@@ -124,13 +145,13 @@ public class ICEDashboardActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                 if (response.body() != null && response.code() == 200) {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.ice_fetch_emergency_details_success));
-                    if(comingFrom.equalsIgnoreCase("redirection")){
+                    if (comingFrom.equalsIgnoreCase("redirection")) {
                         fetchEmergencyDetailsResp = response.body();
                         SharedPref.putEmergencyContact(response.body().getData().get(0).getPrimaryContactMobile());
                         Intent intent = new Intent(ICEDashboardActivity.this, AddEmergencyContactActivity.class);
                         intent.putExtra("data", new Gson().toJson(fetchEmergencyDetailsResp));
                         startActivity(intent);
-                    }else{
+                    } else {
                         if (response.body().getData() != null && response.body().getData().size() > 0) {
                             fetchEmergencyDetailsResp = response.body();
                             SharedPref.putEmergencyContact(response.body().getData().get(0).getPrimaryContactMobile());
@@ -157,7 +178,8 @@ public class ICEDashboardActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<FetchEmergencyDetailsResp> call, Throwable t) {
                 if (progressDialog != null && progressDialog.isShowing())
-                    progressDialog.dismiss();Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.ice_fetch_emergency_details_failed));
+                    progressDialog.dismiss();
+                Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.ice_fetch_emergency_details_failed));
                 Toast.makeText(ICEDashboardActivity.this, context.getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
             }
         });
@@ -179,10 +201,10 @@ public class ICEDashboardActivity extends AppCompatActivity {
                 if (response.code() == 200 && response.body() != null && response.body().isSuccess() &&
                         response.body().getData().getAuthToken() != null && !response.body().getData().getAuthToken().equals("")) {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.refresh_token_success));
-                    SharedPref.putAuthToken("Bearer "+response.body().getData().getAuthToken());
+                    SharedPref.putAuthToken("Bearer " + response.body().getData().getAuthToken());
                     SharedPreference.init(context);
-                    SharedPreference.putAuthToken("Bearer "+response.body().getData().getAuthToken());
-                    fetchEmergencyContactDetails(context,"ice");
+                    SharedPreference.putAuthToken("Bearer " + response.body().getData().getAuthToken());
+                    fetchEmergencyContactDetails(context, "ice");
                 } else {
                     Analytics.logEvent(context, context.getClass().getName(), context.getString(R.string.refresh_token_failed));
                     /*Toast.makeText(context, context.getResources().getString(R.string.session_time_out), Toast.LENGTH_SHORT).show();

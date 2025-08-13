@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 ;
 import com.wyh.happyyousdk.R;
 
+import com.wyh.happyyousdk.SDKConstants;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.databinding.ActivityNotificationDrawerBinding;
 import com.wyh.happyyousdk.model.response.notification.NotificationDrawerResponse;
@@ -35,6 +36,7 @@ import com.wyh.happyyousdk.model.response.notification.NotificationResponse;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.trends.TrendsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 
 import org.json.JSONException;
@@ -69,6 +71,8 @@ public class NotificationDrawerActivity extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
         binding.notificationListRecyclerView.setVisibility(View.GONE);
         binding.llNoRecordFound.setVisibility(View.GONE);
+
+        binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_404.json");
 
         binding.includeToolbar.tvBack.setTextColor(getResources().getColor(R.color.white));
         binding.includeToolbar.ivBack.setColorFilter(getResources().getColor(R.color.white));
