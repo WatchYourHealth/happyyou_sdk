@@ -69,7 +69,6 @@ import com.wyh.happyyousdk.SpinWheel.onRewardClick
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener
 import com.wyh.happyyousdk.SpinWheel.spinRewardCallBack
 import com.wyh.happyyousdk.absorb.HealthHacksActivity
-import com.wyh.happyyousdk.actometer.ActoMeterCommunityActivity
 import com.wyh.happyyousdk.addFamily.AddFamilyListActivity
 import com.wyh.happyyousdk.common.adapter.IndicatorsAdapter
 import com.wyh.happyyousdk.contacts.ContactsActivityNew
@@ -220,7 +219,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
 
     lateinit var binding: ActivityNewDashboardBinding
     lateinit var knowYourWellBeingAdapter: KnowYourWellBeingAdapter
-    lateinit var profileDetailsAdapter: ProfileDetailsAdapter
     var feedbackResponseData: FeedbackResponseData = FeedbackResponseData()
     var rewardsModel = RewardsModel()
     lateinit var context: Context
@@ -263,7 +261,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
     var user = "self"
     var comingFrom = ""
     var dobStr: String = ""
-    var shortLink = ""
     var message = ""
     var iskgicomingfrom = false
     var isRefreshTokenGenerated = false
@@ -281,17 +278,12 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
     lateinit var alertDialogScratchAndWin: AlertDialog
     lateinit var levelActivityJournalUploadAlertDialog: AlertDialog
     private val CAMERA_PERMISSION_CODE = 100
-    var actOMeterTribeList: ArrayList<ActOMeterTribe> = arrayListOf()
-    var tribeToolTips: ArrayList<TribeToolsTipsModel> = arrayListOf()
     var challengesList: kotlin.collections.ArrayList<challengesData> = arrayListOf()
-    val knowyourWellBeing: Array<String> =
-        arrayOf("Health Risk", "Face Scan", "DAS", "Immunity Score", "Mental Wellness", "View All")
     var actoMeterTribe: ActOMeterTribe = ActOMeterTribe()
     var progressGoals: Int = 0
     var currentLevel: Int = 0
     var totalPoints: Int = 0
     var isUserDetailAPIIsInProgress = false
-    var isDashboardAPIIsInProgress = false
     var isCameFromSpinWheel = false
     var isCorporateUser = 0
     var authDataresp: AuthDataResp = AuthDataResp()
@@ -4886,218 +4878,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 })
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
-        }
-    }
-
-    private fun showPopUpActoMeter(cameFrom: String, actOMeterTribe: ActOMeterTribe) {
-        val alertBuilder = AlertDialog.Builder(context)
-        val binding: ActoMeterViewMoreBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(context),
-            R.layout.acto_meter_view_more, null, false
-        )
-        alertBuilder.setView(binding.root)
-        val alertDialog = alertBuilder.create()
-        alertDialog.setCancelable(true)
-        alertDialog.setOnDismissListener { dialogInterface: DialogInterface? -> alertDialog.dismiss() }
-        binding.individualActometerLayout.visibility = View.GONE
-        setActoMeterData(cameFrom, binding)
-
-        binding.llSteps.setOnClickListener { view ->
-            setActoMeterData(Constants.STEPS, binding)
-        }
-        binding.llCalories.setOnClickListener { view ->
-            setActoMeterData(Constants.CALORIE, binding)
-        }
-        binding.llWater.setOnClickListener { view ->
-            setActoMeterData(Constants.WATER, binding)
-        }
-        binding.ivAdd.setOnClickListener(View.OnClickListener {
-            glasses = binding.tvGlassAmt.text.toString().toDouble().toInt()
-            val actualGlasses: Int = glasses + 1
-            val currentDayWaterCount = (actualGlasses + NewDashboardHelper.waterIntake).toInt()
-            if (actualGlasses > NewDashboardHelper.waterIntakeGoal || NewDashboardHelper.waterIntake > NewDashboardHelper.waterIntakeGoal || currentDayWaterCount > NewDashboardHelper.waterIntakeGoal) {
-                if (!SharedPref.getWaterIntake()) {
-                    NewDashboardHelper.waterAlertDialoge(context)
-                    return@OnClickListener
-                } else {
-                    if (glasses < 30) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            binding.progressBar.setProgress(glasses + 1, true)
-                        } else {
-                            binding.progressBar.progress = glasses + 1
-                        }
-                        binding.tvGlassAmt.setText(format((glasses + 1).toLong().toString()))
-                        if (glasses + 1 >= 16) {
-                            binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.white))
-                        } else {
-                            binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.dark_pink))
-                        }
-                    }
-                }
-            }
-            if (glasses < 30) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    binding.progressBar.setProgress(glasses + 1, true)
-                } else {
-                    binding.progressBar.progress = glasses + 1
-                }
-                binding.tvGlassAmt.setText(format((glasses + 1).toLong().toString()))
-                if (glasses + 1 >= 16) {
-                    binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.white))
-                } else {
-                    binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.dark_pink))
-                }
-            }
-        })
-        binding.ivMinus.setOnClickListener {
-            glasses = binding.tvGlassAmt.text.toString().toDouble().toInt()
-            if (glasses > 0) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    binding.progressBar.setProgress(glasses - 1, true)
-                } else {
-                    binding.progressBar.progress = glasses - 1
-                }
-                binding.tvGlassAmt.setText(format((glasses - 1).toLong().toString()))
-                if (glasses - 1 >= 16) {
-                    binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.white))
-                } else {
-                    binding.tvGlassAmt.setTextColor(context.resources.getColor(R.color.dark_pink))
-                }
-            }
-        }
-
-        binding.btnClosed.setOnClickListener {
-            SharedPref.putWaterIntake(false)
-            alertDialog.dismiss()
-
-        }
-        binding.btnAdd.setOnClickListener { view ->
-            when (selectedPopupTribe) {
-                "WATER" -> {
-                    glasses = binding.tvGlassAmt.text.toString().toDouble().toInt()
-                    if (glasses > 0) {
-                        alertDialog.dismiss()
-                        UploadData(
-                            Constants.WATER,
-                            (binding.tvGlassAmt.text.toString()
-                                .toInt() + NewDashboardHelper.waterIntake).toString().toDouble(),
-                            context
-                        )
-                    } else {
-                        Toast.makeText(
-                            context,
-                            "Please add water intake",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-
-                "CALORIES" -> {
-                    alertDialog.dismiss()
-                    val webViewCal =
-                        Intent(context, WebActivity::class.java)
-                    webViewCal.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    webViewCal.putExtra("comingFrom", "dashboard")
-                    webViewCal.putExtra(
-                        "Url",
-                        resources.getString(R.string.addExerciseUrl)
-                    )
-                    startActivity(webViewCal)
-                }
-
-                "STEPS" -> {
-                    alertDialog.dismiss()
-                    val webViewSteps =
-                        Intent(context, WebActivity::class.java)
-                    webViewSteps.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    webViewSteps.putExtra("comingFrom", "dashboard")
-                    webViewSteps.putExtra(
-                        "Url",
-                        resources.getString(R.string.addExerciseUrl) + "?workout=jogging"
-                    )
-                    startActivity(webViewSteps)
-                }
-
-                else -> {}
-            }
-        }
-        binding.btnViewMore.setOnClickListener { view ->
-            when (selectedPopupTribe) {
-                "WATER" -> {
-                    val index = SharedPref.getUserSelectedTribes()
-                    val intent = Intent(
-                        context,
-                        ActoMeterCommunityActivity::class.java
-                    )
-                    intent.putExtra("adminTribe", actOMeterTribe.communityName)
-                    intent.putExtra("activityType", Constants.WATER)
-                    intent.putExtra("type", Constants.COMMUNITY)
-                    intent.putExtra("position", index)
-                    intent.putExtra("communityId", actOMeterTribe.communityId.toString() + "")
-                    intent.putExtra("communityName", actOMeterTribe.communityName)
-                    intent.putExtra("communityType", actOMeterTribe.communityType)
-                    intent.putExtra("selectedTag", Constants.WATER)
-                    intent.putExtra("cameFrom", true)
-                    startActivity(intent)
-                }
-
-                "STEPS" -> {
-                    val index3 = SharedPref.getUserSelectedTribes()
-                    val intent3 = Intent(context, ActoMeterCommunityActivity::class.java)
-                    intent3.putExtra("adminTribe", actOMeterTribe.communityName)
-                    intent3.putExtra("activityType", Constants.STEPS)
-                    intent3.putExtra("type", Constants.COMMUNITY)
-                    intent3.putExtra("position", index3)
-                    intent3.putExtra("communityId", actOMeterTribe.communityId.toString() + "")
-                    intent3.putExtra("communityName", actOMeterTribe.communityName)
-                    intent3.putExtra("communityType", actOMeterTribe.communityType)
-                    intent3.putExtra("selectedTag", Constants.STEPS) //Bug Fix for point nos 53, 54
-                    intent3.putExtra("cameFrom", true)
-                    startActivity(intent3)
-                }
-            }
-        }
-        if (!alertDialog.isShowing) alertDialog.show()
-        val displayRectangle = Rect()
-        val window = window
-        window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
-        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        alertDialog.window!!.setLayout(
-            (displayRectangle.width() *
-                    0.8f).toInt(), RelativeLayout.LayoutParams.WRAP_CONTENT
-        )
-    }
-
-    private fun setActoMeterData(
-        cameFrom: String,
-        mBinding: ActoMeterViewMoreBinding
-    ) {
-        selectedPopupTribe = cameFrom
-        if (cameFrom == Constants.STEPS) {
-            setActoPopUpColor(true, mBinding.llSteps, mBinding.tvSteps)
-            setActoPopUpColor(false, mBinding.llWater, mBinding.tvWater)
-            setActoPopUpColor(false, mBinding.llCalories, mBinding.tvCalories)
-            mBinding.addWaterLayout.visibility = View.GONE
-        } else if (cameFrom == Constants.CALORIE) {
-            setActoPopUpColor(true, mBinding.llCalories, mBinding.tvCalories)
-            setActoPopUpColor(false, mBinding.llSteps, mBinding.tvSteps)
-            setActoPopUpColor(false, mBinding.llWater, mBinding.tvWater)
-            mBinding.addWaterLayout.visibility = View.GONE
-        } else if (cameFrom == Constants.WATER) {
-            setActoPopUpColor(true, mBinding.llWater, mBinding.tvWater)
-            setActoPopUpColor(false, mBinding.llCalories, mBinding.tvCalories)
-            setActoPopUpColor(false, mBinding.llSteps, mBinding.tvSteps)
-            mBinding.addWaterLayout.visibility = View.VISIBLE
-        }
-    }
-
-    private fun setActoPopUpColor(isSet: Boolean, ll: LinearLayout, tv: TextView) {
-        if (isSet) {
-            ll.setBackgroundResource(R.drawable.blue_rc_bg_8dp)
-            tv.setTextColor(getColor(R.color.white))
-        } else {
-            ll.setBackgroundResource(R.drawable.dark_gray_rc_bg_8dp)
-            tv.setTextColor(getColor(R.color.black))
         }
     }
 

@@ -1,55 +1,31 @@
 package com.wyh.happyyousdk.trends.adapter;
 
-import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
-
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.absorb.QuickReadActivity;
-import com.wyh.happyyousdk.model.request.absorb.ShareBlogRequest;
 import com.wyh.happyyousdk.model.response.absorb.GetDashboardDataResponse;
-import com.wyh.happyyousdk.actometer.ActOMeterActivity;
-import com.wyh.happyyousdk.actometer.ActoMeterCommunityActivity;
 import com.wyh.happyyousdk.databinding.TrendsQuickReadsAdapterBinding;
-import com.wyh.happyyousdk.model.CommonSuccessResponse;
-import com.wyh.happyyousdk.network.ApiClientWyh;
-import com.wyh.happyyousdk.network.ApiInterfaceWyh;
-import com.wyh.happyyousdk.profile.ProfileActivity;
-import com.wyh.happyyousdk.trends.TrendsActivity;
-import com.wyh.happyyousdk.utils.Analytics;
-import com.wyh.happyyousdk.utils.SharedPref;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class TrendsQuickReadsAdapter extends RecyclerView.Adapter<TrendsQuickReadsAdapter.MyViewHolder> {
 
     Context context;
     List<GetDashboardDataResponse.Data.QucikRead> quickReadList;
-    List<Integer> tribeListId = new ArrayList<>();
-    AlertDialog alertDialog;
     boolean isFromProfile, isFromActOCom, isFromActO, isFromTrends;
     private final TrendsQuickReadsAdapter.OnItemClickListener listener;
 

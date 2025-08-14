@@ -32,8 +32,6 @@ import com.wyh.happyyousdk.WebActivity
 import com.wyh.happyyousdk.WellBeingActivity
 import com.wyh.happyyousdk.WellBeingDisclaimerActivity
 import com.wyh.happyyousdk.absorb.HealthHacksActivity
-import com.wyh.happyyousdk.actometer.ActOMeterActivity
-import com.wyh.happyyousdk.actometer.ActoMeterCommunityActivity
 import com.wyh.happyyousdk.addFamily.AddFamilyActivity
 import com.wyh.happyyousdk.addFamily.AddFamilyListActivity
 import com.wyh.happyyousdk.contacts.ContactsActivityNew
@@ -506,23 +504,6 @@ object RedirectionMethod {
 
                         "reads" -> NewDashboardHelper.getAbsorbData(context, "blogs")
 
-                        "Tribe meter" -> {
-                            val intent = Intent(context, ActoMeterCommunityActivity::class.java)
-                            intent.putExtra("adminTribe", redirectionModel.communityName)
-                            intent.putExtra("activityType", STEPS)
-                            intent.putExtra("type", COMMUNITY)
-                            intent.putExtra("position", 0)
-                            intent.putExtra(
-                                "communityId",
-                                redirectionModel.communityID.toString() + ""
-                            )
-                            intent.putExtra("communityName", redirectionModel.communityName)
-                            intent.putExtra("communityType", redirectionModel.communityType)
-                            intent.putExtra("selectedTag", STEPS)
-                            intent.putExtra("cameFrom", true)
-                            context.startActivity(intent)
-                        }
-
                         "Need support" -> context.startActivity(
                             Intent(
                                 context,
@@ -831,18 +812,6 @@ object RedirectionMethod {
                                 ScanQRActivity::class.java
                             )
                         )
-
-                        "Act-o-meter" -> {
-                            context.startActivity(
-                                Intent(context, ActOMeterActivity::class.java)
-                                    .putExtra("activityType", STEPS)
-                                    .putExtra("type", STEPS)
-                                    .putExtra("type", INDIVIDUAL)
-                                    .putExtra("communityId", (-1).toString() + "")
-                                    .putExtra("communityName", "test")
-                                    .putExtra("communityType", "Family")
-                            )
-                        }
 
                         "Mental Wellness" -> {
                             context.startActivity(

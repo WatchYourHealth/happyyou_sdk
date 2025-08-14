@@ -410,11 +410,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.wyh.happyyousdk.actometer.ActoMeterCommunityActivity"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.wyh.happyyousdk.absorb.HealthTVDashboard"
             android:theme="@style/Theme.HappyYou"
             android:exported="false"
@@ -459,11 +454,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.wyh.happyyousdk.rewards.AllEAndGVouchersActivity"
-            android:theme="@style/Theme.HappyYou"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.wyh.happyyousdk.actometer.ActOMeterActivity"
             android:theme="@style/Theme.HappyYou"
             android:exported="false"
             android:screenOrientation="portrait" />
