@@ -1487,64 +1487,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         }
     }
 
-    private fun kgiPolicyDetails() {
-        val kgiInterface = RetrofitHandler.kjiInterfaceJava()
-        var mobileNumber = SharedPref.getKgiMobileNo()
-        if (SharedPref.getKgiMobileNo().isEmpty()) {
-            mobileNumber = SharedPref.getMobileNo()
-        }
-        val request = GetPolicyDetailsRequest(mobileNumber!!)
-        val token = SharedPref.getKgiAuthToken()
-        val call = kgiInterface.kgiPolicyDetails(request)
-        Log.d("policy url: kgi", Gson().toJson(call.request().url()))
-        Log.d("policy req: kgi", Gson().toJson(request))
-        call.enqueue(object : Callback<GetPolicyDetailsResponse?> {
-            override fun onResponse(
-                call: Call<GetPolicyDetailsResponse?>,
-                response: Response<GetPolicyDetailsResponse?>
-            ) {
-                Log.d("policy code: kgi", Gson().toJson(response.code()))
-                Log.d("policy body: kgi", Gson().toJson(response.body()))
-                if (response.code() == 200 && response.body() != null && response.body()!!.success) {
-                    try {
-                        if (response.body()!!.data.userPolicyDetails!!.isNotEmpty()) {
-                            val kgiPoliciesList: List<GetPolicyDetailsUserPolicyDetail>? =
-                                response.body()!!.data.userPolicyDetails
-                            SharedPref.putKGIPolicyDetails(Gson().toJson(response.body()!!.data.userPolicyDetails))
-                            SharedPref.putKGIPolicyVASType(Gson().toJson(response.body()!!.data.userPolicyDetails!![0].vaSCategory))
-                            val kgiPolicyDetails = SharedPref.getKGIPolicyDetails()
-                            if (kgiPolicyDetails.isNotEmpty() || iskgicomingfrom) {
-                                if (!kgiPoliciesList.isNullOrEmpty()) {
-                                    kgiPoliciesList.forEach {
-                                        val policyNumber = it.policyNumber ?: ""
-                                        val policyEndDate = it.policyEndDate ?: ""
-                                        val policyDetails =
-                                            PolicyDetails(policyNumber, policyEndDate)
-                                        if (!allPolicyDetails.contains(policyDetails)) {
-                                            allPolicyDetails.add(policyDetails)
-                                        }
-                                    }
-                                    setPolicyCardUI(NewDashboardHelper.binding, context)
-                                }
-                                binding.viewPolicyBefinit.visibility = View.VISIBLE
-                            } else {
-                                binding.viewPolicyBefinit.visibility = View.GONE
-                            }
-                        } else {
-                            binding.viewPolicyBefinit.visibility = View.GONE
-                        }
-                    } catch (e: Exception) {
-                        binding.viewPolicyBefinit.visibility = View.GONE
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<GetPolicyDetailsResponse?>, t: Throwable) {
-                Log.d("login re Exception: kgi", Gson().toJson(t.message))
-            }
-        })
-    }
-
     fun setKnowYourWellBeing(
         list: ArrayList<String>,
         context: Context,
