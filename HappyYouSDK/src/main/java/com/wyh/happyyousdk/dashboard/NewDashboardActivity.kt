@@ -178,6 +178,7 @@ import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
 import com.wyh.happyyousdk.utils.*
+import com.wyh.happyyousdk.utils.CommonUtils
 import com.wyh.happyyousdk.utils.CommonUtils.deleteImage
 import com.wyh.happyyousdk.utils.CommonUtils.downloadImage
 import com.wyh.happyyousdk.utils.CommonUtils.formatDateFromString
@@ -387,7 +388,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
 
 
 
-        if (SharedPref.getGFitScreenShowedOn() == CommonUtils.todayDateInFormat("dd/MM/yyyy")) {
+        /*if (SharedPref.getGFitScreenShowedOn() == CommonUtils.todayDateInFormat("dd/MM/yyyy")) {
 
         } else if (!SharedPreference.getGoogleFitConnection() && (rewardsModel == null || rewardsModel.reward == null)) {
             SharedPref.putGFitScreenShowedOn(CommonUtils.todayDateInFormat("dd/MM/yyyy"))
@@ -398,7 +399,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 "Connect to Google Fit to stay in sync with your steps",
                 Toast.LENGTH_SHORT
             ).show()
-        }
+        }*/
 
         if (!SharedPref.getReferredBy().isEmpty()) {
             if (SharedPref.getReferredFor() == "ChallengeDetails") {
@@ -819,7 +820,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 "webinar" -> {
                     context.startActivity(
                         Intent(context, WebActivity::class.java)
-                            .putExtra("Url", context.resources.getString(R.string.webinarURL))
+                            .putExtra("Url", CommonUtils.getBaseUrlForWebinar(context))
                             .putExtra("comingFrom", "redirection")
                             .putExtra("loginUrl", "")
                     )
@@ -941,7 +942,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         if (SharedPref.getWebinarStatus()) {
             context.startActivity(
                 Intent(context, WebActivity::class.java)
-                    .putExtra("Url", context.resources.getString(R.string.webinarURL))
+                    .putExtra("Url", CommonUtils.getBaseUrlForWebinar(context))
                     .putExtra("comingFrom", "redirection")
                     .putExtra("loginUrl", "")
             )

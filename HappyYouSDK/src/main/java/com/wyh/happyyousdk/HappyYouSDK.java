@@ -284,7 +284,7 @@ public class HappyYouSDK implements HappyYouInterface {
                                         SharedPref.putPolicyDetails(policyDetails);
                                     }
                                     registerUser(otp);
-                                    SharedPref.putIsUserNameUpdated(false);
+                                    SharedPref.putIsUserNameUpdated(SDKConstants.userName != null && !SDKConstants.userName.isEmpty());
                                 } else {
                                     Log.d("AuthToken", "Otp Response" + new Gson().toJson(object));
                                     SharedPref.putAuthToken("Bearer " + object.getData().getAuthToken());

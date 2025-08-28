@@ -50,7 +50,7 @@ public class OtherFragment extends Fragment implements OtherFeatureAdapter.Featu
     OtherFeatureAdapter otherFeatureAdapter;
 
     ArrayList<String> featureList = new ArrayList<>();
-    String[] feature = new String[]{"Health locker", "Digi coach", "Challenges", "Tribes", "Unwind", "Webinar"};
+    String[] feature = new String[]{"Health locker", "Digi coach", "Challenges", "Unwind", "Webinar"};
     APIInterface apiInterface;
 
     @Nullable
@@ -95,7 +95,7 @@ public class OtherFragment extends Fragment implements OtherFeatureAdapter.Featu
         } else if (featureName.equalsIgnoreCase("webinar")) {
             APILogs.INSTANCE.activityTracker("DASHBOARD_OTHER_WEBINAR", context);
             startActivity(new Intent(context, WebinarWebview.class)
-                    .putExtra("Url", context.getResources().getString(R.string.webinarURL))
+                    .putExtra("Url", CommonUtils.getBaseUrlForWebinar(context))
                     .putExtra("comingFrom", "redirection")
                     .putExtra("loginUrl", ""));
         } else if (featureName.equalsIgnoreCase("Spin & Win")) {

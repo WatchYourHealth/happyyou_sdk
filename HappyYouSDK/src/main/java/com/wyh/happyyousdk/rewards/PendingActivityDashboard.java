@@ -1120,7 +1120,7 @@ public class PendingActivityDashboard extends AppCompatActivity implements AllPe
                     startActivity(intent4);
                     break;
                 case "exercise tracker":
-                    openWebView(getResources().getString(R.string.addExerciseUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddExercise(context));
                     break;
             }
         }

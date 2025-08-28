@@ -1927,10 +1927,10 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     startActivity(intent7);
                     break;
                 case "calorieintake":
-                    openWebView(getResources().getString(R.string.addFoodUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddFood(context));
                     break;
                 case "calorieburn":
-                    openWebView(getResources().getString(R.string.addExerciseUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddExercise(context));
                     break;
             }
         }

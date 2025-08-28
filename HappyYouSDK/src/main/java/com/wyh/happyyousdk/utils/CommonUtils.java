@@ -1012,6 +1012,124 @@ public class CommonUtils {
         return url;
     }
 
+
+    public static String getBaseUrlForAddFood(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.addFoodUrlTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.addFoodUrlUat);
+        } else {
+            url = context.getString(R.string.addFoodUrlProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForAddExercise(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.addExerciseUrlTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.addExerciseUrlUat);
+        } else {
+            url = context.getString(R.string.addExerciseUrlProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForViewFood(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.viewFoodUrlTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.viewFoodUrlUat);
+        } else {
+            url = context.getString(R.string.viewFoodUrlProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForGetVisit(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.getVisitURLTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.getVisitURLUat);
+        } else {
+            url = context.getString(R.string.getVisitURLProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForViewExercise(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.viewExerciseUrlTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.viewExerciseUrlUat);
+        } else {
+            url = context.getString(R.string.viewExerciseUrlProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForWebinar(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.webinarURLTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.webinarURLUat);
+        } else {
+            url = context.getString(R.string.webinarURLProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForMedpayOPD(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.medpayOPDTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.medpayOPDUat);
+        } else {
+            url = context.getString(R.string.medpayOPDProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForMedpayPharmacy(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.medpayPharmacyTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.medpayPharmacyUat);
+        } else {
+            url = context.getString(R.string.medpayPharmacyProd);
+        }
+        return url;
+    }
+
+    public static String getBaseUrlForQCP(Context context) {
+        String url;
+        if (environment.contentEquals("debug")) {
+            url = context.getString(R.string.qcPTest);
+//            url = context.getString(R.string.prod_api_url);
+        } else if (environment.contentEquals("uat")) {
+            url = context.getString(R.string.qcPUat);
+        } else {
+            url = context.getString(R.string.qcPProd);
+        }
+        return url;
+    }
+
     public static void setMargins(View view, int left, int top, int right, int bottom) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();

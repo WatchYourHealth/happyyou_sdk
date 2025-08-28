@@ -16,41 +16,41 @@
     <string name="a2" translatable="false">.kotaklifeinsurance.com/</string>
     <string name="b2" translatable="false">huapi/</string>
 
-    <!--<string name="addFoodUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-food</string>
-    <string name="addExerciseUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-workout</string>
-    <string name="viewFoodUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-meal</string>
-    <string name="getVisitURL">https://kli.getvisitapp.net/kli/sso?userId=</string>
-    <string name="viewExerciseUrl">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-workout</string>
-    <string name="webinarURL">https://happyyouapi.watchyourhealth.com/ui/webinar-list</string>-->
+    <string name="addFoodUrlTest">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-food</string>
+    <string name="addExerciseUrlTest">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/add-workout</string>
+    <string name="viewFoodUrlTest">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-meal</string>
+    <string name="getVisitURLTest">https://kli.getvisitapp.net/kli/sso?userId=</string>
+    <string name="viewExerciseUrlTest">https://happyyouapi.watchyourhealth.com/ui/diet-tracker/todays-workout</string>
+    <string name="webinarURLTest">https://happyyouapi.watchyourhealth.com/ui/webinar-list</string>
 
-    <!--            <string name="addFoodUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>-->
-    <!--            <string name="addExerciseUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>-->
-    <!--            <string name="viewFoodUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>-->
-    <!--            <string name="getVisitURL">https://kli.getvisitapp.net/kli/sso?userId=</string>-->
-    <!--            <string name="webinarURL">https://fitnessuatapi.kotaklifeinsurance.com/huui/webinar-list</string>-->
-    <!--            <string name="viewExerciseUrl">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>-->
+    <string name="addFoodUrlUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>
+    <string name="addExerciseUrlUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>
+    <string name="viewFoodUrlUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>
+    <string name="getVisitURLUat">https://kli.getvisitapp.net/kli/sso?userId=</string>
+    <string name="webinarURLUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/webinar-list</string>
+    <string name="viewExerciseUrlUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>
     <!--KLI  uat url-->
 
     <!--    web view prod-->
 
-    <string name="addFoodUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>
-    <string name="addExerciseUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>
-    <string name="viewFoodUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>
-    <string name="getVisitURL">https://kli.getvisitapp.com/kli/sso?userId=</string>
-    <string name="webinarURL">https://fitness.kotaklifeinsurance.com/huui/webinar-list</string>
-    <string name="viewExerciseUrl">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>
+    <string name="addFoodUrlProd">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-food</string>
+    <string name="addExerciseUrlProd">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/add-workout</string>
+    <string name="viewFoodUrlProd">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-meal</string>
+    <string name="getVisitURLProd">https://kli.getvisitapp.com/kli/sso?userId=</string>
+    <string name="webinarURLProd">https://fitness.kotaklifeinsurance.com/huui/webinar-list</string>
+    <string name="viewExerciseUrlProd">https://fitness.kotaklifeinsurance.com/huui/diet-tracker/todays-workout</string>
 
-    <!--<string name="medpayOPD">https://happyyouapi.watchyourhealth.com/ui/medPay/appointments</string>
-    <string name="medpayPharmacy">https://happyyouapi.watchyourhealth.com/ui/pharmacy/index</string>
-    <string name="qcP">https://happyyouapi.watchyourhealth.com/ui/payment-gateway</string>-->
+    <string name="medpayOPDTest">https://happyyouapi.watchyourhealth.com/ui/medPay/appointments</string>
+    <string name="medpayPharmacyTest">https://happyyouapi.watchyourhealth.com/ui/pharmacy/index</string>
+    <string name="qcPTest">https://happyyouapi.watchyourhealth.com/ui/payment-gateway</string>
 
-    <!--    <string name="medpayOPD">https://fitnessuatapi.kotaklifeinsurance.com/huui/medPay/appointments</string>-->
-    <!--    <string name="medpayPharmacy">https://fitnessuatapi.kotaklifeinsurance.com/huui/pharmacy/index</string>-->
-    <!--    <string name="qcP">https://fitnessuatapi.kotaklifeinsurance.com/huui/payment-gateway</string>-->
+    <string name="medpayOPDUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/medPay/appointments</string>
+    <string name="medpayPharmacyUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/pharmacy/index</string>
+    <string name="qcPUat">https://fitnessuatapi.kotaklifeinsurance.com/huui/payment-gateway</string>
 
-    <string name="medpayOPD">https://fitness.kotaklifeinsurance.com/huui/medPay/appointments</string>
-    <string name="medpayPharmacy">https://fitness.kotaklifeinsurance.com/huui/pharmacy/index</string>
-    <string name="qcP">https://fitness.kotaklifeinsurance.com/huui/payment-gateway</string>
+    <string name="medpayOPDProd">https://fitness.kotaklifeinsurance.com/huui/medPay/appointments</string>
+    <string name="medpayPharmacyProd">https://fitness.kotaklifeinsurance.com/huui/pharmacy/index</string>
+    <string name="qcPProd">https://fitness.kotaklifeinsurance.com/huui/payment-gateway</string>
 
     <string name="android_update_version" translatable="false">android_update_version</string>
     <string name="android_force_update_version" translatable="false">android_force_update_version</string>

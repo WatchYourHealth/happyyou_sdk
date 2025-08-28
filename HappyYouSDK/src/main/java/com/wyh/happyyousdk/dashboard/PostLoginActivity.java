@@ -58,6 +58,7 @@ import com.wyh.happyyousdk.model.response.rewards.LevelDashboardResponse;
 import com.wyh.happyyousdk.model.response.rewards.RewardsLevel;
 import com.wyh.happyyousdk.trends.TrendsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
@@ -274,7 +275,7 @@ public class PostLoginActivity extends AppCompatActivity implements PostLoginAct
                                     startActivity(intent7);
                                     break;*/
                                 case "calorieintake":
-                                    openWebView(getResources().getString(R.string.addFoodUrl));
+                                    openWebView(CommonUtils.getBaseUrlForAddFood(context));
                                     break;
                             }
                         }else {

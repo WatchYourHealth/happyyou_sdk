@@ -476,18 +476,18 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
         binding.btnCalAdd.setOnClickListener(view -> {
             Log.d("btnWorkout", btnWorkout + "");
             if (btnWorkout) {
-                openWebView(getResources().getString(R.string.viewExerciseUrl));
+                openWebView(CommonUtils.getBaseUrlForViewExercise(context));
             } else {
-                openWebView(getResources().getString(R.string.viewFoodUrl));
+                openWebView(CommonUtils.getBaseUrlForViewFood(context));
             }
         });
 
         binding.btnAddTodays.setOnClickListener(view -> {
             Log.d("btnTodayMeal", btnTodayMeal + "");
             if (btnTodayMeal) {
-                openWebView(getResources().getString(R.string.addFoodUrl));
+                openWebView(CommonUtils.getBaseUrlForAddFood(context));
             } else {
-                openWebView(getResources().getString(R.string.addExerciseUrl));
+                openWebView(CommonUtils.getBaseUrlForAddExercise(context));
             }
         });
 
@@ -2567,10 +2567,10 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                     startActivity(intent7);
                     break;
                 case "calorieintake":
-                    openWebView(getResources().getString(R.string.addFoodUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddFood(context));
                     break;
                 case "calorieburn":
-                    openWebView(getResources().getString(R.string.addExerciseUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddExercise(context));
                     break;
             }
         }

@@ -117,17 +117,6 @@ public class EhrActivity extends AppCompatActivity implements ScratchListener {
             startActivity(i);
         });
 
-        binding.rlFaceScanReports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(EhrActivity.this, HealthRecordTypeWiseReportActivity.class);
-                i.putExtra("healthRecordId", faceScanID);
-                i.putExtra("healthRecordName", "FaceScan");
-                i.putExtra("toolbar", "FaceScan Report");
-                startActivity(i);
-            }
-        });
-
 
         binding.btnAddRecord.setOnClickListener(view -> {
             Intent i = new Intent(this, AddNewEhrRecord.class);

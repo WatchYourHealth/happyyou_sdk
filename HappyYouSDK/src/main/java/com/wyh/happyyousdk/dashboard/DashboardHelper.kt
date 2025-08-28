@@ -548,14 +548,14 @@ object DashboardHelper {
                     val i = Intent(activity, WebActivity::class.java)
                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     i.putExtra("comingFrom","nudgeRedirection")
-                    i.putExtra("Url", activity.resources.getString(R.string.addFoodUrl))
+                    i.putExtra("Url", CommonUtils.getBaseUrlForAddFood(activity.applicationContext))
                     activity.startActivity(i)
                 }
                 "calorieburn" -> {
                     val i = Intent(activity, WebActivity::class.java)
                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     i.putExtra("comingFrom","nudgeRedirection")
-                    i.putExtra("Url", activity.resources.getString(R.string.addExerciseUrl))
+                    i.putExtra("Url", CommonUtils.getBaseUrlForAddExercise(activity.applicationContext))
                     activity.startActivity(i)
                 }
             }

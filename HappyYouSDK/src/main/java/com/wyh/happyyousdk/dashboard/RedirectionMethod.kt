@@ -981,7 +981,7 @@ object RedirectionMethod {
                             Intent(context, WebActivity::class.java)
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 .putExtra("comingFrom", "redirection")
-                                .putExtra("Url", context.resources.getString(R.string.addFoodUrl))
+                                .putExtra("Url", CommonUtils.getBaseUrlForAddFood(context))
                         )
 
                         "calories burned" -> context.startActivity(
@@ -991,7 +991,7 @@ object RedirectionMethod {
 
                                 .putExtra(
                                     "Url",
-                                    context.resources.getString(R.string.addExerciseUrl)
+                                    CommonUtils.getBaseUrlForAddExercise(context)
                                 )
                         )
 
@@ -999,7 +999,7 @@ object RedirectionMethod {
                             activityTracker("A_PlayAndWinQuizathon_ActivityPopUpRedirection_Webinar",context)
                             context.startActivity(
                                     Intent(context, WebinarWebview::class.java)
-                                            .putExtra("Url", context.resources.getString(R.string.webinarURL))
+                                            .putExtra("Url", CommonUtils.getBaseUrlForWebinar(context))
                                             .putExtra("comingFrom", "redirection")
                                             .putExtra("loginUrl", "")
                             )

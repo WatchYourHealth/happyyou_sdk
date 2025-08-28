@@ -1486,7 +1486,7 @@ public class EarnAndBurnFragment extends Fragment implements ActivitiesAdapter.C
                     startActivity(intent4);
                     break;
                 case "exercise tracker":
-                    openWebView(getResources().getString(R.string.addExerciseUrl));
+                    openWebView(CommonUtils.getBaseUrlForAddExercise(context));
                     break;
             }
         }

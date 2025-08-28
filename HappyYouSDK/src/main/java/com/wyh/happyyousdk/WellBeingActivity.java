@@ -1,60 +1,40 @@
 package com.wyh.happyyousdk;
 
-import static com.wyh.happyyousdk.utils.CommonUtils.formatDateFromString;
 import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 import static com.wyh.happyyousdk.utils.Constants.IRA_INTEGRATION_ID;
 import static com.wyh.happyyousdk.utils.Constants.IRA_STATUS_COMPLETED;
-import static com.wyh.happyyousdk.utils.Constants.Rewards;
-import static com.wyh.happyyousdk.utils.Constants.RewardsBounce;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 ;
-import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
-import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
 import com.wyh.happyyousdk.Sonde.Activities.RespiratoryCheck;
 import com.wyh.happyyousdk.SpinWheel.rewardDialogCloseListener;
-import com.wyh.happyyousdk.crypto.RSAEncryption;
 
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.dashboard.NudgeDialogue;
@@ -67,24 +47,12 @@ import com.wyh.happyyousdk.databinding.CustomPopupStampsBinding;
 import com.wyh.happyyousdk.databinding.LayoutNewPointsPopUpBinding;
 import com.wyh.happyyousdk.databinding.PopUpScratchCardScratchableBinding;
 import com.wyh.happyyousdk.databinding.ShareOptionPopUpBinding;
-import com.wyh.happyyousdk.databinding.UpdateSerDetailsLayoutBinding;
 import com.wyh.happyyousdk.heartAge.HeartAgeAnalysisActivity;
 import com.wyh.happyyousdk.heartAge.HeartAgeQuestionsActivity;
-import com.wyh.happyyousdk.model.request.CommunityIDs;
-import com.wyh.happyyousdk.model.request.FaceScanRegistrationRequest;
-import com.wyh.happyyousdk.model.request.FacnScanInTribeRequest;
-import com.wyh.happyyousdk.model.request.UserDetailsRequest;
-import com.wyh.happyyousdk.model.request.absorb.ShareBlogRequest;
 import com.wyh.happyyousdk.model.request.heartAge.GetHeartAgeAnalysisRequest;
 import com.wyh.happyyousdk.model.request.quizathon.ActivityRewardRequest;
 import com.wyh.happyyousdk.model.response.AssignRewardsResponse;
-import com.wyh.happyyousdk.model.response.DownloadFaceScanResponse;
-import com.wyh.happyyousdk.model.response.FaceScanInTribeResponse;
-import com.wyh.happyyousdk.model.response.FaceScanRegistrationResponse;
-import com.wyh.happyyousdk.model.response.FeedbackResponseData;
-import com.wyh.happyyousdk.model.response.UserDetailResponse;
 import com.wyh.happyyousdk.model.request.hra.GetAnalysisRequest;
-import com.wyh.happyyousdk.model.response.faceScan.GetFaceKeysResponse;
 import com.wyh.happyyousdk.model.response.heartAge.HeartAgeAnalysisResponse;
 import com.wyh.happyyousdk.hra.HRAAnalysisActivity;
 import com.wyh.happyyousdk.hra.HRAQuestionsActivity;
@@ -97,22 +65,14 @@ import com.wyh.happyyousdk.model.FreeVoucher;
 import com.wyh.happyyousdk.model.PopUpShowModel;
 import com.wyh.happyyousdk.model.request.IntegrationIdRequest;
 import com.wyh.happyyousdk.model.request.VoucherIdRequest;
-import com.wyh.happyyousdk.model.request.faceScan.AddFaceScanVitalsRequest;
 import com.wyh.happyyousdk.model.response.dass21.DassAnalysisResponse;
-import com.wyh.happyyousdk.model.response.faceScan.FaceScanKeyData;
-import com.wyh.happyyousdk.model.response.faceScan.FaceScanKeyResponse;
-import com.wyh.happyyousdk.model.response.faceScan.FetchFaceScanVitalsData;
-import com.wyh.happyyousdk.model.response.faceScan.FetchFaceScanVitalsResponse;
 import com.wyh.happyyousdk.model.response.getAnalysis.GetAnalysisResponse;
 import com.wyh.happyyousdk.model.response.playwin.QuizathonRewardData;
 import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
-import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox;
 import com.wyh.happyyousdk.rewards.PendingActivityDashboard;
 import com.wyh.happyyousdk.rewards.RewardsActivity;
 import com.wyh.happyyousdk.utils.Analytics;
-import com.wyh.happyyousdk.utils.CommonUtils;
-import com.wyh.happyyousdk.utils.Constants;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyh.happyyousdk.utils.dialog.PostSpinDialog;
 import com.wyh.happyyousdk.utils.dialog.QuizRewardDialog;
@@ -121,21 +81,10 @@ import com.wyhsdk.sharedPreferences.SharedPreference;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 import dev.skymansandy.scratchcardlayout.listener.ScratchListener;
 import dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout;
-import okhttp3.Credentials;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -148,34 +97,19 @@ public class WellBeingActivity extends AppCompatActivity implements ScratchListe
     ProgressDialog progressDialog;
     AlertDialog alertDialogStamp, alertDialogBonusStamp, alertDialogBonusRewards;
     ApiInterfaceWyh apiInterfaceWyh;
-    ApiInterfaceWyh apiInterfaceWyhFaceScan;
-
-    List<Integer> tribeListId = new ArrayList<>();
-    AlertDialog alertDialog;
 
 
     GetAnalysisResponse getAnalysisResponse;
     String healthScore = "";
-    String otherGender = "";
     IRAHealthScoreResponse iraHealthScoreResponse;
-    FeedbackResponseData feedbackResponseData;
-    AddFaceScanVitalsRequest request;
     DassAnalysisResponse dassAnalysisResponse;
     VoucherIdRequest voucherIdRequest;
     HeartAgeAnalysisResponse heartAgeAnalysisResponse;
     boolean isStamp = false;
 
-    ArrayList<CommunityIDs> list = new ArrayList<>();
-
     int stampId = -1;
 
     boolean isPositiveBtn = false;
-
-    Calendar mainStartCalender;
-    String gender = "";
-    String user = "self";
-
-    String dobStr;
 
     AssignRewardsResponse.SpinRewardsData spinRewardsData = null;
     QuizathonRewardData quizathonRewardData = null;
@@ -189,7 +123,6 @@ public class WellBeingActivity extends AppCompatActivity implements ScratchListe
         SharedPreference.init(context);
 
         apiInterfaceWyh = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);
-        apiInterfaceWyhFaceScan = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
@@ -228,11 +161,6 @@ public class WellBeingActivity extends AppCompatActivity implements ScratchListe
             Intent intent;
             boolean isAnalysis = (dassAnalysisResponse != null && dassAnalysisResponse.getData() != null);
             gotoIntroPage("KnowYourDAS", "DAS Score", isAnalysis, false);
-        });
-
-        binding.ivInfo4.setOnClickListener(view -> {
-            boolean isAnalysis = (!SharedPref.getUserVitals().isEmpty());
-            gotoIntroPage("FaceScan", "Face Scan", isAnalysis, false);
         });
 
         binding.ivInfo5.setOnClickListener(view -> {

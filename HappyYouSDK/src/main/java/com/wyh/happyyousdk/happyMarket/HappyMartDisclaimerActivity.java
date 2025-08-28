@@ -525,19 +525,18 @@ public class HappyMartDisclaimerActivity extends AppCompatActivity implements Sc
         Analytics.logEvent(context, "Third_party_UUID", "A_" + SharedPref.getAesUuid());
         Intent intent;
         if (HappyMartOPD.equals(cameFrom)) {
-            Analytics.logEvent(context, "Third_party_vender_url", "A_" + getResources().getString(R.string.medpayOPD));
-            openWebView(getResources().getString(R.string.medpayOPD), "");
-            openWebView(getResources().getString(R.string.medpayOPD), "");
+            Analytics.logEvent(context, "Third_party_vender_url", "A_" + CommonUtils.getBaseUrlForMedpayOPD(context));
+            openWebView(CommonUtils.getBaseUrlForMedpayOPD(context), "");
         } else if (HappyMartPharmacy.equals(cameFrom)) {
             if (selectedPartner.equals("medpay")) {
-                Analytics.logEvent(context, "Third_party_vender_url", "A_" + getResources().getString(R.string.medpayPharmacy));
-                openWebView(getResources().getString(R.string.medpayPharmacy), "");
+                Analytics.logEvent(context, "Third_party_vender_url", "A_" + CommonUtils.getBaseUrlForMedpayPharmacy(context));
+                openWebView(CommonUtils.getBaseUrlForMedpayPharmacy(context), "");
             } else {
-                Analytics.logEvent(context, "Third_party_vender_url", "A_" + getResources().getString(R.string.medpayPharmacy));
+                Analytics.logEvent(context, "Third_party_vender_url", "A_" + CommonUtils.getBaseUrlForMedpayPharmacy(context));
                 openWebView("https://pharmeasy.in/online-medicine-order?utm_source=alz-watchyourhealth&utm_medium=alliance&utm_campaign=alz-medicine-18july2023", "");
             }
         } else if (HappyMartTeleconsulatation.equals(cameFrom)) {
-            getUserType(context,context.getString(R.string.getVisitURL));
+            getUserType(context,CommonUtils.getBaseUrlForGetVisit(context));
         }
         else if (HappyMartDiagnostics.equals(cameFrom)) {
            diagonistics();
@@ -583,13 +582,13 @@ public class HappyMartDisclaimerActivity extends AppCompatActivity implements Sc
                     || selectedPartner.equalsIgnoreCase("visitor")){
                         diagonistics();
                     }else if (selectedPartner.equalsIgnoreCase("GetVisit")){
-                       getUserType(context,context.getString(R.string.getVisitURL));
+                       getUserType(context,CommonUtils.getBaseUrlForGetVisit(context));
                     }else if (selectedPartner.equalsIgnoreCase("medpay")){
-                        Analytics.logEvent(context, "Third_party_vender_url", "A_" + getResources().getString(R.string.medpayPharmacy));
-                        openWebView(getResources().getString(R.string.medpayPharmacy), "");
+                        Analytics.logEvent(context, "Third_party_vender_url", "A_" + CommonUtils.getBaseUrlForMedpayPharmacy(context));
+                        openWebView(CommonUtils.getBaseUrlForMedpayPharmacy(context), "");
                     } else if(selectedPartner.equalsIgnoreCase("pharmeasy")){
                         binding.llCoupon.setVisibility(View.VISIBLE);
-                        Analytics.logEvent(context, "Third_party_vender_url", "A_" + getResources().getString(R.string.medpayPharmacy));
+                        Analytics.logEvent(context, "Third_party_vender_url", "A_" + CommonUtils.getBaseUrlForMedpayPharmacy(context));
                         openWebView("https://pharmeasy.in/online-medicine-order?utm_source=alz-watchyourhealth&utm_medium=alliance&utm_campaign=alz-medicine-18july2023", "");
                     } else if(selectedPartner.equalsIgnoreCase("mrf")){
                         String url = "https://themindresearchfoundation.com/wtpd-authenticate?UID=" + SharedPref.getAesUuid();
@@ -641,7 +640,7 @@ public class HappyMartDisclaimerActivity extends AppCompatActivity implements Sc
         } else if(cameFrom.equals(KLI_OTHER)){
             openWebView(url, "");
         } else if (HappyMartTeleconsulatation.equals(cameFrom)) {
-           getUserType(context,context.getString(R.string.getVisitURL));
+           getUserType(context,CommonUtils.getBaseUrlForGetVisit(context));
         } else if (cameFrom.equals(HappyMartOther)) {
             intent = new Intent(context, QCProductsActivity.class);
             intent.putExtra("points", totalPoints);
@@ -656,7 +655,7 @@ public class HappyMartDisclaimerActivity extends AppCompatActivity implements Sc
                 if (selectedPartner.equals("health_assure")) {
                     getHACustomerRegistration(context,enterAmount);
                 } else if(selectedPartner.equalsIgnoreCase("visitor")){
-                   getUserType(context,context.getString(R.string.getVisitURL));
+                   getUserType(context,CommonUtils.getBaseUrlForGetVisit(context));
                 }
                 else {
                     cHCustomerRegistration(context);
@@ -677,7 +676,7 @@ public class HappyMartDisclaimerActivity extends AppCompatActivity implements Sc
                     if (selectedPartner.equals("health_assure")) {
                         getHACustomerRegistration(context,enterAmount);
                     } else if(selectedPartner.equalsIgnoreCase("visitor")){
-                       getUserType(context,context.getString(R.string.getVisitURL));
+                       getUserType(context,CommonUtils.getBaseUrlForGetVisit(context));
                     } else {
                         cHCustomerRegistration(context);
                     }

@@ -31,6 +31,7 @@ import com.wyh.happyyousdk.WebActivity;
 
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityQccartBinding;
+import com.wyh.happyyousdk.utils.CommonUtils;
 import com.wyh.happyyousdk.utils.Master;
 
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
@@ -210,12 +211,12 @@ public class QCCartActivity extends AppCompatActivity {
             } else {
                 //Redeemable amount is lesser than cart amount calculate payable amount and pass to the web view
                 payableAmount = totalAmount - redeemableAmount;
-                openWebView(getResources().getString(R.string.qcP), name, lName, email);
+                openWebView(CommonUtils.getBaseUrlForQCP(context), name, lName, email);
             }
         } else {
             //User don't want to redeem balance so forward the total amount as payable amount to web view
             payableAmount = totalAmount;
-            openWebView(getResources().getString(R.string.qcP), name, lName, email);
+            openWebView(CommonUtils.getBaseUrlForQCP(context), name, lName, email);
         }
     }
 
