@@ -181,9 +181,6 @@ public class AddUserDetailsDialog extends Dialog {
                 public void onResponse(Call<UserDetailResponse> call, Response<UserDetailResponse> response) {
                     CommonUtils.dismissDialoge();
                     SharedPref.putIsUserNameUpdated(true);
-                    DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(), dobStr,
-                            RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                            binding.userDataGender.getSelectedItem().toString());
                     if (response.code() == 200 && response.body() != null && response.isSuccessful()) {
                         dismiss();
                         if (context instanceof QuizathonScoreActivity) {
@@ -209,18 +206,12 @@ public class AddUserDetailsDialog extends Dialog {
                 @Override
                 public void onFailure(Call<UserDetailResponse> call, Throwable t) {
                     dismiss();
-                    DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(), dobStr,
-                            RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                            binding.userDataGender.getSelectedItem().toString());
                 }
             });
 
 
         } catch (Exception e) {
             dismiss();
-            DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(), dobStr,
-                    RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                    binding.userDataGender.getSelectedItem().toString());
             e.printStackTrace();
         }
     }

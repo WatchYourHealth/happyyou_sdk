@@ -204,9 +204,6 @@ public class AddUserDetails extends AppCompatActivity  implements rewardDialogCl
                 public void onResponse(Call<UserDetailResponse> call, Response<UserDetailResponse> response) {
                     CommonUtils.dismissDialoge();
                     SharedPref.putIsUserNameUpdated(true);
-                    DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(), dobStr,
-                            RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                            binding.userDataGender.getSelectedItem().toString());
                     if (response.code() == 200 && response.body() != null && response.isSuccessful()) {
                         if (checkIsFromQuizqathon()) {
                             FetchQuizReward();
@@ -226,18 +223,12 @@ public class AddUserDetails extends AppCompatActivity  implements rewardDialogCl
                 @Override
                 public void onFailure(Call<UserDetailResponse> call, Throwable t) {
                     CommonUtils.dismissDialoge();
-                    DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(),dobStr,
-                            RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                            binding.userDataGender.getSelectedItem().toString());
                 }
             });
 
 
         } catch (Exception e) {
             CommonUtils.dismissDialoge();
-            DataSource.getInstance().kgiUpdateDetails(binding.edtUserDetailsName.getText().toString(), dobStr,
-                    RSAEncryption.rsaEncrypt(binding.edtUserDetailsEmail.getText().toString()),
-                    binding.userDataGender.getSelectedItem().toString());
             e.printStackTrace();
         }
     }
