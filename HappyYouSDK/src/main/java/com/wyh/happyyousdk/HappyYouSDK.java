@@ -67,6 +67,7 @@ public class HappyYouSDK implements HappyYouInterface {
         SDKConstants.userName = userName;
         SDKConstants.ARNNumber = ARNNumber;
         SDKConstants.source = source;
+        SDKConstants.SDKMainContext = context;
         this.context = context;
         apiInterfaceWyh = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
@@ -250,7 +251,7 @@ public class HappyYouSDK implements HappyYouInterface {
         Log.d("json", "object key: " + new Gson().toJson(object));
         EncryptionRequest request = new EncryptionRequest(new String[]{key, String.valueOf(object.getUserkey())});
         Call<EncryptionResponse> call = apiInterface.decryptAES(request);
-        String url = RetrofitHandler.BASE_URL + "EncryptDecrypt/AESDecrypt";
+        String url = CommonUtils.getBaseUrlForAPI(context) + "EncryptDecrypt/AESDecrypt";
         ApiClientWyh.postRequest(url, new Gson().toJson(request), new okhttp3.Callback() {
 
             @Override
