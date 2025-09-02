@@ -91,13 +91,18 @@ public class HappyYouSDK implements HappyYouInterface {
 
     }
 
+    @Override
+    public void logOutUser(){
+        SharedPref.clearSharedPref();
+    }
+
     private String getCurrentTimestamp() {
         SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
         return isoFormat.format(new Date());
     }
 
     public void registerUserSSO() {
-        if (SharedPref.getIsLoggedIn()) {
+        if (SharedPref.getIsLoggedIn() && SDKConstants.mobileNumber.equals(SharedPref.getDecryptMobileNo())) {
             Intent intent = new Intent(context, NewDashboardActivity.class);
             context.startActivity(intent);
         } else {
