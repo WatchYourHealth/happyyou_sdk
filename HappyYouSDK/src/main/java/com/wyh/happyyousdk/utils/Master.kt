@@ -8,6 +8,7 @@ import android.net.Uri
 import android.provider.OpenableColumns
 import android.widget.Toast
 import com.esafirm.imagepicker.features.ImagePicker
+import com.wyh.happyyousdk.HappyYouSDK
 import com.wyh.happyyousdk.R
 import java.io.File
 import java.text.NumberFormat
@@ -75,9 +76,7 @@ object Master {
 
     fun logOut(context: Context) {
         Toast.makeText(context, context.resources.getString(R.string.session_time_out), Toast.LENGTH_SHORT).show()
-        if (context is Activity) {
-            context.finishAffinity()
-        }
+        SharedPref.clearSharedPref()
      /*   val intent = Intent(context, MobileNumberActivity::class.java)
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         context.startActivity(intent)

@@ -170,7 +170,7 @@
     <string name="error_string">Something went wrong, please try again.</string>
     <string name="sync_your_app">Sync your App</string>
     <string name="google_fit_connection">Google Fit</string>
-    <string name="session_time_out">Your session got expired, please login again</string>
+    <string name="session_time_out">Your session got expired</string>
     <string name="string_no">No</string>
     <string name="string_yes">Yes</string>
     <string name="string_ok">Ok</string>
