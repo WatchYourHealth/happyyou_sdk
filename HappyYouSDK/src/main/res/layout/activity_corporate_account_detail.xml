@@ -160,25 +160,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvChangeCorporate"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:padding="5dp"
-                android:text="Change Corporate"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="110dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:background="@color/black" />
         </LinearLayout>
 
 

@@ -2,6 +2,8 @@ package com.wyh.happyyousdk.contacts;
 
 import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 
+import static java.nio.file.Files.createLink;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -34,6 +36,9 @@ import com.wyh.happyyousdk.R;
 import com.wyh.happyyousdk.dashboard.NewDashboardActivity;
 import com.wyh.happyyousdk.dashboard.adapter.ContactAdapter;
 import com.wyh.happyyousdk.databinding.ContactsActivityNewBinding;
+import com.wyh.happyyousdk.model.request.rewards.MobileValidationRequest;
+import com.wyh.happyyousdk.model.response.rewards.MobileValidationData;
+import com.wyh.happyyousdk.model.response.rewards.MobileValidationResponse;
 import com.wyh.happyyousdk.network.ApiClientWyh;
 import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.utils.Analytics;
@@ -46,7 +51,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ContactsActivityNew extends AppCompatActivity {
 
@@ -255,6 +265,7 @@ public class ContactsActivityNew extends AppCompatActivity {
                 public void clickOnContact(String contact) {
 
                     alertDialog.dismiss();
+                    validateMobileNumbers(contact);
                 }
             });
             alertDialog.setCancelable(false);
@@ -288,6 +299,90 @@ public class ContactsActivityNew extends AppCompatActivity {
         }
 
 
+    }
+
+    public void  validateMobileNumbers(String number) {
+        if (progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+        if (phone.contains("+")) {
+            phone = phone.substring(3, phone.length());
+        }
+        List<MobileValidationRequest> mobileValidationRequests = new ArrayList<>();
+        MobileValidationRequest mobileValidationRequest = new MobileValidationRequest(number.replaceAll(" ", ""), "");
+        mobileValidationRequests.add(mobileValidationRequest);
+        Call<MobileValidationResponse> call = apiInterfaceWyh.validateMobileNumbers(SharedPref.getAuthToken(), mobileValidationRequests);
+        call.enqueue(new Callback<>() {
+            @Override
+            public void onResponse(Call<MobileValidationResponse> call, Response<MobileValidationResponse> response) {
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                if (response.code() == 200 && response.body() != null) {
+                    Analytics.logEvent(context, context.getClass().getName(), getString(R.string.validate_community_mobile_success));
+                    List<MobileValidationData> mobileValidationDataList = response.body().getData();
+                    if (Boolean.parseBoolean(mobileValidationDataList.get(0).getIshappyuuser())) {
+                        Toast.makeText(ContactsActivityNew.this, "Contact is already a HappyYou user", Toast.LENGTH_SHORT).show();
+                    } else {
+                        CommonUtils.clickEvent(ContactsActivityNew.this, "Invite", isSMS ? "Message" : "WhatsApp", "0", "Share", mobileValidationDataList.get(0).getMobile());
+                        String message = "";
+                        message = getResources().getString(R.string.download_app_msg_share_invite) + "\nAndroid: https://play.google.com/store/apps/details?id=com.wyh.happyyou"
+                                + " \niOS: https://apps.apple.com/in/app/happyyou-by-kotak-life/id6448199779" + "Your Referral Code is " +
+                                SharedPref.getReferralCode() + " " + getResources().getString(R.string.download_app_msg_powered_by);
+                        if (isWhatsapp) {
+                            sendWhatsappViaDefaultApp(phone, message);
+                        } else if (isSMS) {
+                            sendSMSViaDefaultApp(phone, message);
+                        } else if (isEmail) {
+                            Intent intent = new Intent(Intent.ACTION_SENDTO);
+                            intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
+                            intent.putExtra(Intent.EXTRA_SUBJECT, "Referral Code");
+                            intent.putExtra(Intent.EXTRA_TEXT, message);
+                            if (intent.resolveActivity(getPackageManager()) != null) {
+                                startActivity(intent);
+                            }
+                        }
+                    }
+
+                } else {
+                    Analytics.logEvent(context, context.getClass().getName(), getString(R.string.validate_community_mobile_failed));
+                    Toast.makeText(ContactsActivityNew.this, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MobileValidationResponse> call, Throwable t) {
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                Analytics.logEvent(context, context.getClass().getName(), getString(R.string.validate_community_mobile_failed));
+                Toast.makeText(ContactsActivityNew.this, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void sendSMSViaDefaultApp(String phone, String msg) {
+
+        Uri sms_uri = Uri.parse("smsto:" + phone);
+        Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
+        sms_intent.setType("vnd.android-dir/mms-sms");
+        sms_intent.setData(sms_uri);
+        sms_intent.putExtra("sms_body", msg);
+        startActivity(sms_intent);
+    }
+
+    public void sendWhatsappViaDefaultApp(String phone, String msg) {
+        String selectedPhone = "";
+        if(!phone.contains("+91")){
+            selectedPhone = "+91"+phone;
+        }else{
+            selectedPhone = phone;
+
+        }
+        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=" + selectedPhone + "&text=" + msg);
+        Intent sendIntent = new Intent(Intent.ACTION_VIEW, uri);
+
+
+
+        startActivity(sendIntent);
     }
     
 }

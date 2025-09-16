@@ -41,7 +41,6 @@ public class ActivityCorporateAccountMain extends AppCompatActivity {
     Context context;
     ProgressDialog progressDialog;
     APIInterface apiInterfaceWyh;
-    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,63 +90,12 @@ public class ActivityCorporateAccountMain extends AppCompatActivity {
         Glide.with(context)
                 .load(SharedPref.getCorporateImage())
                 .into(binding.corporateLog);
-        binding.tvChangeCorporate.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CHANGE_CORPORATE", context);
-            showCorporateAlert();
-        });
         binding.rlUpperCard.setOnClickListener(view -> {
             Intent intent = new Intent(context, NewDashboardActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         });
-    }
-
-    private void showCorporateAlert() {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.dialog_corporate_account, null, false);
-
-        // Build the dialog
-        dialog = new AlertDialog.Builder(context)
-                .setView(dialogView)
-                .create();
-        dialog.setCancelable(false);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView tvTitle = dialogView.findViewById(R.id.tvTitle);
-        Button btnYes = dialogView.findViewById(R.id.btnYes);
-        Button btnNo = dialogView.findViewById(R.id.btnNo);
-        tvTitle.setText("Are you Sure Do You Want To Change \nYour Corporate?");
-        btnYes.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES", context);
-            SharedPref.putCorporateAccountNotFound(false);
-            dismissDialog();
-            Intent intent = new Intent(context, ActivityCorporateAccountAddEdit.class);
-            startActivity(intent);
-        });
-        btnNo.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO", context);
-            SharedPref.putCorporateAccountNotFound(false);
-            dismissDialog();
-        });
-
-        dialog.setOnKeyListener((dialog1, keyCode, event) -> {
-            if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                //dialog.setCancelable(true);
-                //dialog.dismiss();  // Dismiss the dialog
-                SharedPref.putCorporateAccountNotFound(false);
-                dismissDialog();// Optionally close the activity
-                return true;
-            }
-            return false;
-        });
-        dialog.show();
-
-    }
-
-    void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
     }
 
     @Override

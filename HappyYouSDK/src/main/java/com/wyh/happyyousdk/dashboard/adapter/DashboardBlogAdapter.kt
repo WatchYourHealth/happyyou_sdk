@@ -23,7 +23,6 @@ class DashboardBlogAdapter(val context: Context,val list: ArrayList<Blogs>,val a
         val likeBlog = itemView.findViewById<ImageView>(R.id.like_blog)
         val readBlog = itemView.findViewById<ImageView>(R.id.read_blog)
         val blogHeading = itemView.findViewById<TextView>(R.id.blog_heading)
-        val share = itemView.findViewById<ImageView>(R.id.share_blog)
         val blogMin = itemView.findViewById<TextView>(R.id.blog_min)
         val blogSec = itemView.findViewById<TextView>(R.id.sec_tv)
 

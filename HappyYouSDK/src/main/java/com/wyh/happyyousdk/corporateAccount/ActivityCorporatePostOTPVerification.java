@@ -147,9 +147,9 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
         });
         binding.tvContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE", context);
-            if (binding.edtOTP.getOTP().length() == 6) {
+            if (binding.edtOTP.getOtp().length() == 6) {
                 if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo())) {
-                    if (binding.edOTPMobile.getOTP().length() == 6) {
+                    if (binding.edOTPMobile.getOtp().length() == 6) {
                         showCorporateAlert();
 
                     } else {
@@ -250,11 +250,11 @@ public class ActivityCorporatePostOTPVerification extends AppCompatActivity {
             progressDialog.show();
         //VerifyEmailOTPReq request;
         VerifyEmailMobileOTPReq request;
-        // request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
-        if (!binding.edOTPMobile.getOTP().isEmpty()) {
-            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()), RSAEncryption.rsaEncrypt(binding.edOTPMobile.getOTP()), saveData, true, jsonString);
+        // request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
+        if (!binding.edOTPMobile.getOtp().isEmpty()) {
+            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()), RSAEncryption.rsaEncrypt(binding.edOTPMobile.getOtp()), saveData, true, jsonString);
         } else {
-            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()), "", saveData, false, jsonString);
+            request = new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID), CorporateID, RSAEncryption.rsaEncrypt(mobilNumber), RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()), "", saveData, false, jsonString);
         }
 
 

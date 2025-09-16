@@ -111,7 +111,7 @@ public class PolicySearchActivity extends AppCompatActivity implements ScratchLi
         });
 
         binding.btnSendOTP.setOnClickListener(view -> {
-            if (binding.edtOTP.getOTP().length()==6) {
+            if (binding.edtOTP.getOtp() != null && binding.edtOTP.getOtp().length()==6) {
                 verifyOTP();
             } else {
                 binding.edtOTP.requestFocus();
@@ -290,7 +290,7 @@ public class PolicySearchActivity extends AppCompatActivity implements ScratchLi
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
 
-        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
+        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
         Call<GetClientRes> call = apiInterfaceWyh.GetPolicyOTP(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<GetClientRes>() {

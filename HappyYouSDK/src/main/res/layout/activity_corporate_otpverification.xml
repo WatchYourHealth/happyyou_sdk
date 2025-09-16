@@ -379,7 +379,7 @@
                                         android:visibility="visible"
                                        >
 
-                                        <in.aabhasjindal.otptextview.OtpTextView
+                                        <com.otpview.OTPTextView
                                             android:id="@+id/edtOTPSpinWheel"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -441,7 +441,7 @@
                                             android:gravity="center"
                                             android:layout_gravity="center">
 
-                                            <in.aabhasjindal.otptextview.OtpTextView
+                                            <com.otpview.OTPTextView
                                                 android:id="@+id/edtOTPSpinWheelMobile"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -702,7 +702,7 @@
                     android:layout_gravity="center"
                     android:gravity="center">
 
-                    <in.aabhasjindal.otptextview.OtpTextView
+                    <com.otpview.OTPTextView
                         android:id="@+id/edNonSpinWheelOTP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -806,7 +806,7 @@
                 android:layout_gravity="center"
                 android:gravity="center">
 
-                <in.aabhasjindal.otptextview.OtpTextView
+                <com.otpview.OTPTextView
                     android:id="@+id/edNonSpinWheelOTPMobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

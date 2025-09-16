@@ -151,7 +151,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
 
         binding.tvContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_EMAIL_CONTINUE", context);
-            /*if (binding.edtOTP.getOTP().length()==6)
+            /*if (binding.edtOTP.getOtp().length()==6)
             {
                 //verifyOTP();
                 showCorporateAlert();
@@ -294,7 +294,7 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
         VerifyEmailOTPReq request;
-        request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
+        request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
         Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);
 
         call.enqueue(new Callback<>() {

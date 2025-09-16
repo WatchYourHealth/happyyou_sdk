@@ -203,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center">
 
-                        <in.aabhasjindal.otptextview.OtpTextView
+                        <com.otpview.OTPTextView
                             android:id="@+id/edtOTP"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

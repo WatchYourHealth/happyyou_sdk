@@ -211,7 +211,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             //Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-            /*if (binding.edtOTPSpinWheel.getOTP().length()==6)
+            /*if (binding.edtOTPSpinWheel.getOtp().length()==6)
             {
                 verifyOTP();
             }
@@ -235,7 +235,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
-           /* if (binding.edNonSpinWheelOTP.getOTP().length()==6)
+           /* if (binding.edNonSpinWheelOTP.getOtp().length()==6)
             {
                 verifyOTP();
             }
@@ -426,9 +426,9 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             progressDialog.show();
         VerifyEmailOTPReq request;
         if (SharedPref.getSpinWheelStatus()) {
-            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()));
+            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()));
         } else {
-            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()));
+            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()));
         }
 
         Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);

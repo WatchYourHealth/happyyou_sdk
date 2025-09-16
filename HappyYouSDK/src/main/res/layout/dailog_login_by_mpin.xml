@@ -42,7 +42,7 @@
                 android:inputType="number"
                 android:maxLength="4"
                 android:visibility="gone" />
-            <in.aabhasjindal.otptextview.OtpTextView
+            <com.otpview.OTPTextView
                 android:id="@+id/edtOTP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

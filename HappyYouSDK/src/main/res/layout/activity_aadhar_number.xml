@@ -89,7 +89,7 @@
                 android:textSize="@dimen/text_size_16sp"
                 android:textStyle="bold" />
 
-           <!-- <in.aabhasjindal.otptextview.OtpTextView
+           <!-- <com.otpview.OTPTextView
                 android:id="@+id/edtAadhaarNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

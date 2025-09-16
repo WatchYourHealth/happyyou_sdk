@@ -63,7 +63,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             />
-        <in.aabhasjindal.otptextview.OtpTextView
+        <com.otpview.OTPTextView
             android:id="@+id/edtSetMPIN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             />
-        <in.aabhasjindal.otptextview.OtpTextView
+        <com.otpview.OTPTextView
             android:id="@+id/edtOTP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

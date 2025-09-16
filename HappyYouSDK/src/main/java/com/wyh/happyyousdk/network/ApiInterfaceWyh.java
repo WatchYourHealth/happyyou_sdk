@@ -42,6 +42,7 @@ import com.wyh.happyyousdk.model.request.quizathon.SaveFeedbackAnswerRequest;
 import com.wyh.happyyousdk.model.request.quizathon.SaveQuizathonAnswerRequest;
 import com.wyh.happyyousdk.model.request.rewards.ActivityProgressRequest;
 import com.wyh.happyyousdk.model.request.rewards.GetRedeemableAmountRequest;
+import com.wyh.happyyousdk.model.request.rewards.MobileValidationRequest;
 import com.wyh.happyyousdk.model.request.riddle.RiddleSaveRequest;
 import com.wyh.happyyousdk.model.response.AddFamilyResponse;
 import com.wyh.happyyousdk.model.response.AddReadingBlogDurationResponse;
@@ -185,6 +186,7 @@ import com.wyh.happyyousdk.model.response.rewards.ActivityProgressResponse;
 import com.wyh.happyyousdk.model.response.rewards.AllCollectiblesResponse;
 import com.wyh.happyyousdk.model.response.rewards.AllVouchersResponse;
 import com.wyh.happyyousdk.model.response.rewards.EandBDashboardResponse;
+import com.wyh.happyyousdk.model.response.rewards.MobileValidationResponse;
 import com.wyh.happyyousdk.model.response.rewards.PendingActivitiesResponse;
 import com.wyh.happyyousdk.model.response.rewards.RedeemableAmountResponse;
 import com.wyh.happyyousdk.model.response.rewards.RewardsHistoryResponse;
@@ -770,4 +772,7 @@ public interface ApiInterfaceWyh {
     Call<SaveQuizathonAnsResponse> SaveStreakQuizAnswer(@Header("Authorization") String Token, @Body SaveQuizathonAnswerRequest request);
     @GET("Login/GetFamilyRelation")
     Call<GetFamilyRelation> getFamilyRelation(@Header("Authorization") String token);
+
+    @POST("Community/ValidateMobile")
+    Call<MobileValidationResponse> validateMobileNumbers(@Header("Authorization") String token, @Body List<MobileValidationRequest> request);
 }

@@ -120,7 +120,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.2.1'
+                version = '1.2.2'
 
                 from components.release
 
@@ -206,6 +206,7 @@ dependencies {
 
     //For OTP field
     api 'com.github.aabhasr1:OtpView:v1.1.2'
+    api 'com.github.appsfeature:otp-view:1.1'
 
     // For OTP auto read
     api 'com.google.android.gms:play-services-auth:20.4.0'

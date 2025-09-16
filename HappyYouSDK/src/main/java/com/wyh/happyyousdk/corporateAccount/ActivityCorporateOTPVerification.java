@@ -165,11 +165,11 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
         });
         binding.tvSpinWheelContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_CONTINUE",context);
-            if (binding.edtOTPSpinWheel.getOTP().length()==6)
+            if (binding.edtOTPSpinWheel.getOtp().length()==6)
             {
                 if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
                 {
-                    if (binding.edtOTPSpinWheelMobile.getOTP().length()==6)
+                    if (binding.edtOTPSpinWheelMobile.getOtp().length()==6)
                     {
                         verifyOTP();
 
@@ -194,12 +194,12 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
 
         binding.tvNonSpinWheelContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_CONTINUE",context);
-            if (binding.edNonSpinWheelOTP.getOTP().length()==6)
+            if (binding.edNonSpinWheelOTP.getOtp().length()==6)
             {
                 //verifyOTP();
                 if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
                 {
-                    if (binding.edNonSpinWheelOTPMobile.getOTP().length()==6)
+                    if (binding.edNonSpinWheelOTPMobile.getOtp().length()==6)
                     {
                         verifyOTP();
 
@@ -319,24 +319,24 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
         VerifyEmailMobileOTPReq request;
         if (SharedPref.getSpinWheelStatus())
         {
-          //  request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()));)
-            if (!binding.edtOTPSpinWheelMobile.getOTP().isEmpty())
+          //  request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()));)
+            if (!binding.edtOTPSpinWheelMobile.getOtp().isEmpty())
             {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheelMobile.getOTP()),saveData,true,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheelMobile.getOtp()),saveData,true,jsonString);
             }
             else {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOTP()),"",saveData,false,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()),"",saveData,false,jsonString);
             }
         }
         else {
-            //request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()));
+            //request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()));
 
-            if (!binding.edNonSpinWheelOTPMobile.getOTP().isEmpty())
+            if (!binding.edNonSpinWheelOTPMobile.getOtp().isEmpty())
             {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTPMobile.getOTP()),saveData,true,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTPMobile.getOtp()),saveData,true,jsonString);
             }
             else {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOTP()),"",saveData,false,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()),"",saveData,false,jsonString);
             }
         }
 

@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.otpview.OTPTextView;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
@@ -448,7 +449,7 @@ public class PolicyViewMore extends AppCompatActivity {
         });
 
         binding.btnSendOTP.setOnClickListener(view -> {
-            if (binding.edtOTP.getOTP().length()==6) {
+            if (binding.edtOTP.getOtp().length()==6) {
                 verifyOTP();
             } else {
                 binding.edtOTP.requestFocus();
@@ -600,10 +601,10 @@ public class PolicyViewMore extends AppCompatActivity {
             imFingerPrint.setVisibility(View.GONE);
             tvOr.setVisibility(View.GONE);
         }
-        OtpTextView edtOTP=dialogView.findViewById(R.id.edtOTP);
+        OTPTextView edtOTP=dialogView.findViewById(R.id.edtOTP);
         imSubmitMPIN.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POLICY_SUBMIT_MPIN",context);
-            if (!edtOTP.getOTP().equals(SharedPref.getPolicyMPin())){
+            if (!edtOTP.getOtp().equals(SharedPref.getPolicyMPin())){
                 Toast.makeText(context, "Please enter Valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -695,7 +696,7 @@ public class PolicyViewMore extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
 
-        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getOTP()));
+        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
         Call<GetClientRes> call = apiInterfaceWyh.GetPolicyOTP( SharedPref.getAuthToken(),request);
 
         call.enqueue(new Callback<GetClientRes>() {
@@ -741,29 +742,29 @@ public class PolicyViewMore extends AppCompatActivity {
             window.setDimAmount(0.9f);// Set dim amount (0.0f = no dim, 1.0f = fully dimmed)
         }
         TextView imSubmit = dialogView.findViewById(R.id.imSubmit);
-        OtpTextView edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
-        OtpTextView edtOTP = dialogView.findViewById(R.id.edtOTP);
+        OTPTextView edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
+        OTPTextView edtOTP = dialogView.findViewById(R.id.edtOTP);
         imSubmit.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POLICY_SUBMIT_MPIN",context);
-            if (edtSetMPIN.getOTP().length()!=4)
+            if (edtSetMPIN.getOtp().length()!=4)
             {
                 Toast.makeText(context, "Please enter valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (edtOTP.getOTP().length()!=4)
+            if (edtOTP.getOtp().length()!=4)
             {
                 Toast.makeText(context, "Please enter Re-enter  MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!edtSetMPIN.getOTP().equals(edtOTP.getOTP())){
+            if (!edtSetMPIN.getOtp().equals(edtOTP.getOtp())){
                 Toast.makeText(context, "The MPINs do not match. Please enter the correct MPIN", Toast.LENGTH_SHORT).show();
             }
             if (SharedPref.getHasBiometric())
             {
-                AddUpdateMPIN(edtOTP.getOTP(),SharedPref.getHasBiometric());
+                AddUpdateMPIN(edtOTP.getOtp(),SharedPref.getHasBiometric());
             }
             else {
-                showCustomFingerDialog(edtOTP.getOTP());
+                showCustomFingerDialog(edtOTP.getOtp());
             }
             //getPolicy();
             dialog.dismiss();
