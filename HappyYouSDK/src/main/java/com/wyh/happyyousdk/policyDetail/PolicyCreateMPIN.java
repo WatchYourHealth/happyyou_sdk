@@ -12,14 +12,14 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.otpview.OTPTextView;
+
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
@@ -32,7 +32,6 @@ import com.wyh.happyyousdk.model.MPINReq;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
-import in.aabhasjindal.otptextview.OtpTextView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,29 +99,29 @@ public class PolicyCreateMPIN extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         TextView imSubmit = dialogView.findViewById(R.id.imSubmit);
-        OTPTextView edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
-        OTPTextView edtOTP = dialogView.findViewById(R.id.edtOTP);
+        EditText edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
+        EditText edtOTP = dialogView.findViewById(R.id.edtOTP);
         imSubmit.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POLICY_SUBMIT_MPIN",context);
-            if (edtSetMPIN.getOtp() != null && edtSetMPIN.getOtp().length()!=4)
+            if (edtSetMPIN.getText() == null || edtSetMPIN.getText().toString().length()!=4)
             {
                 Toast.makeText(context, "Please enter valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (edtOTP.getOtp() != null && edtOTP.getOtp().length()!=4)
+            if (edtOTP.getText() == null || edtOTP.getText().toString().length()!=4)
             {
-                Toast.makeText(context, "Please enter Re-enter  MPIN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Please enter Re-enter MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!edtSetMPIN.getOtp().equals(edtOTP.getOtp())){
+            if (!edtSetMPIN.getText().toString().equals(edtOTP.getText().toString())){
                 Toast.makeText(context, "The MPINs do not match. Please enter the correct MPIN", Toast.LENGTH_SHORT).show();
             }
              //AddUpateMPIN(RSAEncryption.rsaEncrypt(binding.edtSetMPIN.getOTP()));
             if (isFingerprintAvailable(context))
             {
                 Intent intent = new Intent(context, PolicyCreateFingerPrint.class);
-                intent.putExtra("intentOtp",edtSetMPIN.getOtp());
-                intent.putExtra("intentOtpEncrpt",RSAEncryption.rsaEncrypt(edtSetMPIN.getOtp()));
+                intent.putExtra("intentOtp",edtSetMPIN.getText().toString());
+                intent.putExtra("intentOtpEncrpt",RSAEncryption.rsaEncrypt(edtSetMPIN.getText().toString()));
                 if(clientID != null && policyNumber != null && comingFrom != null) {
                     intent.putExtra("clientID", clientID);
                     intent.putExtra("policyNo", policyNumber);
@@ -131,7 +130,7 @@ public class PolicyCreateMPIN extends AppCompatActivity {
                 startActivity(intent);
             }
             else {
-                AddUpdateMPIN(edtSetMPIN.getOtp(),false);
+                AddUpdateMPIN(edtSetMPIN.getText().toString(),false);
             }
 
             dialog.dismiss();

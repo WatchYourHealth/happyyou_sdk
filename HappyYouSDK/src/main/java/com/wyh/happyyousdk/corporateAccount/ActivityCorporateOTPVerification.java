@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
@@ -25,8 +24,6 @@ import com.wyh.happyyousdk.WelcomeActivity;
 import com.wyh.happyyousdk.crypto.RSAEncryption;
 import com.wyh.happyyousdk.databinding.ActivityCorporateOtpverificationBinding;
 import com.wyh.happyyousdk.model.VerifyEmailMobileOTPReq;
-import com.wyh.happyyousdk.model.VerifyEmailOTPReq;
-import com.wyh.happyyousdk.model.request.SaveCorporateDetailsReq;
 import com.wyh.happyyousdk.model.request.SaveCorporateDetailsReqV1;
 import com.wyh.happyyousdk.model.request.SaveCorporateStatusReq;
 import com.wyh.happyyousdk.model.response.GetEmailOTPResp;
@@ -35,7 +32,6 @@ import com.wyh.happyyousdk.utils.Analytics;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 
-import in.aabhasjindal.otptextview.OTPListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -165,11 +161,11 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
         });
         binding.tvSpinWheelContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_SPIN_WHEEL_CORPORATE_OTP_CONTINUE",context);
-            if (binding.edtOTPSpinWheel.getOtp().length()==6)
+            if (binding.edtOTPSpinWheel.getText() != null && binding.edtOTPSpinWheel.getText().toString().length()==6)
             {
                 if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
                 {
-                    if (binding.edtOTPSpinWheelMobile.getOtp().length()==6)
+                    if (binding.edtOTPSpinWheelMobile.getText() != null && binding.edtOTPSpinWheelMobile.getText().toString().length()==6)
                     {
                         verifyOTP();
 
@@ -194,12 +190,12 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
 
         binding.tvNonSpinWheelContinue.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_SKIP_SPIN_CORPORATE_OTP_CONTINUE",context);
-            if (binding.edNonSpinWheelOTP.getOtp().length()==6)
+            if (binding.edNonSpinWheelOTP.getText() != null && binding.edNonSpinWheelOTP.getText().toString().length()==6)
             {
                 //verifyOTP();
                 if (!mobilNumber.equalsIgnoreCase(SharedPref.getDecryptMobileNo()))
                 {
-                    if (binding.edNonSpinWheelOTPMobile.getOtp().length()==6)
+                    if (binding.edNonSpinWheelOTPMobile.getText() != null && binding.edNonSpinWheelOTPMobile.getText().toString().length()==6)
                     {
                         verifyOTP();
 
@@ -320,23 +316,23 @@ public class ActivityCorporateOTPVerification extends AppCompatActivity {
         if (SharedPref.getSpinWheelStatus())
         {
           //  request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()));)
-            if (!binding.edtOTPSpinWheelMobile.getOtp().isEmpty())
+            if (binding.edtOTPSpinWheelMobile.getText() != null && !binding.edtOTPSpinWheelMobile.getText().toString().isEmpty())
             {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheelMobile.getOtp()),saveData,true,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getText().toString()),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheelMobile.getText().toString()),saveData,true,jsonString);
             }
             else {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()),"",saveData,false,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getText().toString()),"",saveData,false,jsonString);
             }
         }
         else {
             //request=new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()));
 
-            if (!binding.edNonSpinWheelOTPMobile.getOtp().isEmpty())
+            if (binding.edNonSpinWheelOTPMobile.getText() != null && !binding.edNonSpinWheelOTPMobile.getText().toString().isEmpty())
             {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTPMobile.getOtp()),saveData,true,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getText().toString()),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTPMobile.getText().toString()),saveData,true,jsonString);
             }
             else {
-                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()),"",saveData,false,jsonString);
+                request=new VerifyEmailMobileOTPReq(RSAEncryption.rsaEncrypt(EmailID),CorporateID,RSAEncryption.rsaEncrypt(mobilNumber),RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getText().toString()),"",saveData,false,jsonString);
             }
         }
 

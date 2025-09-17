@@ -251,7 +251,6 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             corporateDetails.clear();
             corporateName.clear();
             CorporateID = "";
-            binding.edtOTPSpinWheel.setOTP("");
             //binding.edtSpinWheelEmail.setText("");
             binding.llSpinWheel.setVisibility(View.VISIBLE);
             binding.llSpinWheelOTP.setVisibility(View.GONE);
@@ -265,7 +264,7 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
             corporateName.clear();
             CorporateID = "";
             //binding.edtNonSpinWheelEmail.setText("");
-            binding.edNonSpinWheelOTP.setOTP("");
+            binding.edNonSpinWheelOTP.setText("");
             binding.llSpinWheel.setVisibility(View.GONE);
             binding.llSpinWheelOTP.setVisibility(View.GONE);
             binding.llNonSpinWheel.setVisibility(View.VISIBLE);
@@ -413,49 +412,6 @@ public class ActivityCorporateAccountLink extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<GetEmailOTPResp> call, @NonNull Throwable t) {
-                if (progressDialog != null && progressDialog.isShowing())
-                    progressDialog.dismiss();
-                Analytics.logEvent(context, context.getClass().getName(), getString(R.string.search_policy_failed));
-                Toast.makeText(context, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void verifyOTP() {
-        if (progressDialog != null && !progressDialog.isShowing())
-            progressDialog.show();
-        VerifyEmailOTPReq request;
-        if (SharedPref.getSpinWheelStatus()) {
-            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTPSpinWheel.getOtp()));
-        } else {
-            request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.edtNonSpinWheelEmail.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edNonSpinWheelOTP.getOtp()));
-        }
-
-        Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);
-
-        call.enqueue(new Callback<>() {
-            @Override
-            public void onResponse(@NonNull Call<VerifyEmailOTPResp> call, @NonNull Response<VerifyEmailOTPResp> response) {
-                if (progressDialog != null && progressDialog.isShowing())
-                    progressDialog.dismiss();
-                if (response.code() == 200 && response.body() != null && response.body().getSuccess()) {
-                    SharedPref.setCorporateRegistered("YES");
-                    Intent intent = new Intent(context, WelcomeActivity.class);
-                    intent.putExtra("isCameFromRegistration", true);
-                    intent.putExtra("isCameFromSpinWheel", true);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                } else {
-                    assert response.body() != null;
-                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(context, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<VerifyEmailOTPResp> call, @NonNull Throwable t) {
                 if (progressDialog != null && progressDialog.isShowing())
                     progressDialog.dismiss();
                 Analytics.logEvent(context, context.getClass().getName(), getString(R.string.search_policy_failed));

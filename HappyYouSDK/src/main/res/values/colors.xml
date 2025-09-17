@@ -53,6 +53,7 @@
     <color name="banner_border_color">#F29143</color>
     <color name="cyan_blue">#7ED6D9</color>
     <color name="card_grey">#339A9A9A</color>
+    <color name="grey">#9A9A9A</color>
     <color name="Armada_grey">#EDEDED</color>
     <color name="policy_inactive">#4DFF9292</color>
     <color name="policy_active">#D7ECD7</color>

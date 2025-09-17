@@ -75,8 +75,8 @@ public class PostLoginActivitiesAdapter extends RecyclerView.Adapter<PostLoginAc
                 holder.binding.rlLoginBounce.setBackground(ContextCompat.getDrawable(context, R.drawable.login_bonus_claimed));
                 holder.binding.ivLock.setVisibility(View.GONE);
                 holder.binding.tvLock1.setText("Claimed");
-                holder.binding.tvArticle1.setTextColor(context.getResources().getColor(in.aabhasjindal.otptextview.R.color.grey));
-                holder.binding.ivImage1.setColorFilter(context.getResources().getColor(in.aabhasjindal.otptextview.R.color.grey));
+                holder.binding.tvArticle1.setTextColor(context.getResources().getColor(R.color.card_grey));
+                holder.binding.ivImage1.setColorFilter(context.getResources().getColor(R.color.card_grey));
             }
             holder.binding.tvArticle1.setText(levelActivity.getActivityName());
             Glide.with(context)

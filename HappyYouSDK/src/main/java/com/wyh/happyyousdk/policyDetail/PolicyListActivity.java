@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,12 +21,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
-import com.otpview.OTPTextView;
 import com.wyh.happyyousdk.APIEncryption.APIInterface;
 import com.wyh.happyyousdk.APIEncryption.APILogs;
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler;
@@ -49,8 +46,6 @@ import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 import java.util.List;
 
-import in.aabhasjindal.otptextview.OTPListener;
-import in.aabhasjindal.otptextview.OtpTextView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -106,7 +101,7 @@ public class PolicyListActivity extends AppCompatActivity {
             //getPolicy();
         }
         binding.btnSendOTP.setOnClickListener(view -> {
-            if (binding.edtOTP.getOtp().length()==6) {
+            if (binding.edtOTP.getText() != null && binding.edtOTP.getText().toString().length()==6) {
                 verifyOTP();
             } else {
                 binding.edtOTP.requestFocus();
@@ -278,13 +273,11 @@ public class PolicyListActivity extends AppCompatActivity {
             imFingerPrint.setVisibility(View.GONE);
             tvOr.setVisibility(View.GONE);
         }
-        OTPTextView edtOTP=dialogView.findViewById(R.id.edtOTP);
+        EditText edtOTP=dialogView.findViewById(R.id.edtOTP);
         edtOTP.requestFocus();
-        edtOTP.requestFocusOTP();
-        EditText hiddenOTP = dialogView.findViewById(R.id.hiddenOTP);
         imSubmitMPIN.setOnClickListener(view -> {
             APILogs.INSTANCE.activityTracker("Android_POLICY_SUBMIT_MPIN",context);
-            if (edtOTP.getOtp() == null || !edtOTP.getOtp().toString().equals(SharedPref.getPolicyMPin())){
+            if (edtOTP.getText() == null || !edtOTP.getText().toString().equals(SharedPref.getPolicyMPin())){
                 Toast.makeText(context, "Please enter Valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -382,7 +375,7 @@ public class PolicyListActivity extends AppCompatActivity {
         if (progressDialog != null && !progressDialog.isShowing())
             progressDialog.show();
 
-        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
+        VerifyOTP request = new VerifyOTP(RSAEncryption.rsaEncrypt(binding.edtOTP.getText().toString()));
         Call<GetClientRes> call = apiInterfaceWyh.GetPolicyOTP( SharedPref.getAuthToken(),request);
 
         call.enqueue(new Callback<GetClientRes>() {
@@ -395,7 +388,7 @@ public class PolicyListActivity extends AppCompatActivity {
                     binding.tvMessage.setText(response.body().getMsg());
                     binding.imTransparent1.setVisibility(View.GONE);
                     binding.getStartedLayout.setVisibility(View.GONE);
-                    binding.edtOTP.setOTP("");
+                    binding.edtOTP.setText("");
                     showCustomCreateMPINDialog();
 
 
@@ -429,34 +422,34 @@ public class PolicyListActivity extends AppCompatActivity {
             window.setDimAmount(0.9f);// Set dim amount (0.0f = no dim, 1.0f = fully dimmed)
         }
         TextView imSubmit = dialogView.findViewById(R.id.imSubmit);
-        OTPTextView edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
-        OTPTextView edtOTP = dialogView.findViewById(R.id.edtOTP);
+        EditText edtSetMPIN = dialogView.findViewById(R.id.edtSetMPIN);
+        EditText edtOTP = dialogView.findViewById(R.id.edtOTP);
         imSubmit.setOnClickListener(view -> {
-            if (edtSetMPIN.getOtp().length()!=4)
+            if (edtSetMPIN.getText() == null || edtSetMPIN.getText().toString().length()!=4)
             {
                 Toast.makeText(context, "Please enter valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (edtOTP.getOtp().length()!=4)
+            if (edtOTP.getText() == null || edtOTP.getText().toString().length()!=4)
             {
                 Toast.makeText(context, "Please enter valid MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!edtSetMPIN.getOtp().equals(edtOTP.getOtp())){
+            if (!edtSetMPIN.getText().toString().equals(edtOTP.getText().toString())){
                 Toast.makeText(context, "The MPINs do not match. Please enter the correct MPIN", Toast.LENGTH_SHORT).show();
                 return;
             }
             //AddUpateMPIN(RSAEncryption.rsaEncrypt(binding.edtSetMPIN.getOTP()));
             if (SharedPref.getHasBiometric())
             {
-                AddUpdateMPIN(edtOTP.getOtp(),SharedPref.getHasBiometric());
+                AddUpdateMPIN(edtOTP.getText().toString(),SharedPref.getHasBiometric());
             }
             else {
                 if (isFingerprintAvailable(context)){
-                    showCustomFingerDialog(edtOTP.getOtp());
+                    showCustomFingerDialog(edtOTP.getText().toString());
                 }
                 else {
-                    AddUpdateMPIN(edtOTP.getOtp(),SharedPref.getHasBiometric());
+                    AddUpdateMPIN(edtOTP.getText().toString(),SharedPref.getHasBiometric());
                 }
 
             }

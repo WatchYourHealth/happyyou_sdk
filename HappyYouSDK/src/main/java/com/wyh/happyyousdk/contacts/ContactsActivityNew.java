@@ -132,13 +132,21 @@ public class ContactsActivityNew extends AppCompatActivity {
             isEmail = false;
         });
 
-        binding.btnShareViaEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isSMS = false;
-                isWhatsapp = false;
-                isEmail = true;
-
+        binding.btnShareViaEmail.setOnClickListener(view -> {
+            isSMS = false;
+            isWhatsapp = false;
+            isEmail = true;
+            String message = "";
+            message = getResources().getString(R.string.download_app_msg_share_invite) + "\nAndroid: https://play.google.com/store/apps/details?id=com.wyh.happyyou"
+                    + " \niOS: https://apps.apple.com/in/app/happyyou-by-kotak-life/id6448199779" + "Your Referral Code is " +
+                    SharedPref.getReferralCode() + " " + getResources().getString(R.string.download_app_msg_powered_by);
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Referral Code");
+            intent.putExtra(Intent.EXTRA_TEXT, message);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
             }
         });
 

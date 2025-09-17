@@ -24,15 +24,20 @@ public class VerifyOtpRequest {
     @Expose
     private String userkey;
 
+    @SerializedName("Source")
+    @Expose
+    private String source;
 
 
-    public VerifyOtpRequest(String mobile, String otp, String deviceModel, String oSVersion, String appVersion, String userkey) {
+
+    public VerifyOtpRequest(String mobile, String otp, String deviceModel, String oSVersion, String appVersion, String userkey, String source) {
         this.mobile = mobile;
         this.otp = otp;
         this.deviceModel = deviceModel;
         this.oSVersion = oSVersion;
         this.appVersion = appVersion;
         this.userkey = userkey;
+        this.source = source;
     }
 
     public String getMobile() {
@@ -81,5 +86,21 @@ public class VerifyOtpRequest {
 
     public void setUserkey(String userkey) {
         this.userkey = userkey;
+    }
+
+    public String getoSVersion() {
+        return oSVersion;
+    }
+
+    public void setoSVersion(String oSVersion) {
+        this.oSVersion = oSVersion;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

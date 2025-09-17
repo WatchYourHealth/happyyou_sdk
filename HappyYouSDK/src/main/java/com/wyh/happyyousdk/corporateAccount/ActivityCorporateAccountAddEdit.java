@@ -178,7 +178,6 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
             corporateDetails.clear();
             corporateName.clear();
             CorporateID = "";
-            binding.edtOTP.setOTP("");
             //binding.etEmailID.setText("");
             binding.llSection1.setVisibility(View.VISIBLE);
             binding.etEmailID.setVisibility(View.VISIBLE);
@@ -290,44 +289,6 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
         });
     }
 
-    private void verifyOTP() {
-        if (progressDialog != null && !progressDialog.isShowing())
-            progressDialog.show();
-        VerifyEmailOTPReq request;
-        request = new VerifyEmailOTPReq(RSAEncryption.rsaEncrypt(binding.etEmailID.getText().toString()), CorporateID, RSAEncryption.rsaEncrypt(binding.edtOTP.getOtp()));
-        Call<VerifyEmailOTPResp> call = apiInterfaceWyh.verifyEmailOTP(SharedPref.getAuthToken(), request);
-
-        call.enqueue(new Callback<>() {
-            @Override
-            public void onResponse(@NonNull Call<VerifyEmailOTPResp> call, @NonNull Response<VerifyEmailOTPResp> response) {
-                if (progressDialog != null && progressDialog.isShowing())
-                    progressDialog.dismiss();
-                if (response.code() == 200 && response.body() != null && response.body().getSuccess()) {
-                    SharedPref.setCorporateRegistered("YES");
-                    SharedPref.setCorporateId(response.body().getData().getCorpId() + "");
-                    SharedPref.setCorporateName(response.body().getData().getCorpName());
-                    SharedPref.setCorporateImage(response.body().getData().getCorpLogo());
-                    Intent intent = new Intent(context, ActivityCorporateAccountMain.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                } else {
-                    assert response.body() != null;
-                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<VerifyEmailOTPResp> call, @NonNull Throwable t) {
-                if (progressDialog != null && progressDialog.isShowing())
-                    progressDialog.dismiss();
-                Analytics.logEvent(context, context.getClass().getName(), getString(R.string.search_policy_failed));
-                Toast.makeText(context, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     public void setSpinnerData(List<GetEmailOTPResp.Data.corporateDetails> corporateDetails) {
         for (int i = 0; i < corporateDetails.size(); i++) {
             corporateName.add(corporateDetails.get(i).getCorporateNames());
@@ -346,49 +307,5 @@ public class ActivityCorporateAccountAddEdit extends AppCompatActivity {
     public static boolean isValidEmail(String email) {
         return email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches();
         // Alternative: return email != null && EMAIL_PATTERN.matcher(email).matches();
-    }
-
-    private void showCorporateAlert() {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.dialog_corporate_account, null, false);
-
-        // Build the dialog
-        dialog = new AlertDialog.Builder(context)
-                .setView(dialogView)
-                .create();
-        dialog.setCancelable(false);
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView tvTitle = dialogView.findViewById(R.id.tvTitle);
-        Button btnYes = dialogView.findViewById(R.id.btnYes);
-        Button btnNo = dialogView.findViewById(R.id.btnNo);
-        tvTitle.setText("Are you Sure Do you want to Add\n" + "your Corporate?");
-        btnYes.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_YES", context);
-            verifyOTP();
-            dismissDialog();
-        });
-        btnNo.setOnClickListener(view -> {
-            APILogs.INSTANCE.activityTracker("Android_POST_LOGIN_CORPORATE_CONFIRM_NO", context);
-            dismissDialog();
-        });
-
-        dialog.setOnKeyListener((dialog1, keyCode, event) -> {
-            if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                //dialog.setCancelable(true);
-                //dialog.dismiss();  // Dismiss the dialog
-                SharedPref.putCorporateAccountNotFound(false);
-                dismissDialog();// Optionally close the activity
-                return true;
-            }
-            return false;
-        });
-        dialog.show();
-
-    }
-
-    void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
     }
 }

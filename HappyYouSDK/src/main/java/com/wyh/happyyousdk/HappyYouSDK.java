@@ -149,7 +149,9 @@ public class HappyYouSDK implements HappyYouInterface {
             String osVersion = Build.VERSION.RELEASE + "(" + Build.VERSION.SDK_INT + ")";
             String appVersion = SDKConstants.appVersionName;
             Log.d("AuthToken", "MobileNumber - " + mobileNo + ", OTP - " + otp);
-            VerifyOtpRequest request = new VerifyOtpRequest(mobileNo.replaceAll("\\s", ""), otp.replaceAll("\\s", ""), deviceModel.replaceAll("\\s", ""), osVersion.replaceAll("\\s", ""), appVersion.replaceAll("\\s", ""), userKey.replaceAll("\\s", ""));
+            VerifyOtpRequest request = new VerifyOtpRequest(mobileNo.replaceAll("\\s", ""), otp.replaceAll("\\s", ""),
+                    deviceModel.replaceAll("\\s", ""), osVersion.replaceAll("\\s", ""),
+                    appVersion.replaceAll("\\s", ""), userKey.replaceAll("\\s", ""), SDKConstants.source);
             APIInterface apiInterface = RetrofitHandler.apiInterface();
 
             apiInterface.VerifyOTPV5(request).enqueue(new Callback<ResponseBody>() {
