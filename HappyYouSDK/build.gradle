@@ -120,7 +120,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.2.3'
+                version = '1.2.4'
 
                 from components.release
 
@@ -243,7 +243,8 @@ dependencies {
 
     //Android YT video player
     //implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
-    api 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.1'
+    api 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.2'
+    api 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.31'
 
     api 'com.airbnb.android:lottie:5.2.0'
 
