@@ -19,7 +19,7 @@ data class UserDetailData(val userDetails: UserDetail, val policyDetails: ArrayL
                           val showAdminRewardsEvents: ArrayList<ShowAdminRewardsEventsData>, var quizathonRewardList: ArrayList<ClaimReClaimRewardModel>,var activitpopuplist: ArrayList<ClaimReClaimRewardModel>, val rewards: RewardsModel, val enGTokens:  EnGTokensModel, val banners : ArrayList<GetBannerResponse.Data>, val referrals: Referrals, val wellbeingActivity : ArrayList<String>, val authData: AuthDataResp, val clientsPolicyData:ArrayList<ClientResponseDashboard>)
 
 data class UserDetail(val name: String,val profileImage: String,val gender: String, val age: String,val abhaNumber: String,val referralCode: String, val currentLevel: String, val totalPoints: String,val connectionCount: String,val stampCount: String,val tribeCount: String,
-val referalCount: String,val dareReferalCount: String,val otherCount: String,val corporateLogo: String,val isCorporateEmployee:Int,val corporateName:String,val corporateId:String,val marshUrl : String, val opdId : Int)
+val referalCount: String,val dareReferalCount: String,val otherCount: String,val corporateLogo: String,val isCorporateEmployee:Int,val corporateName:String,val corporateId:String,val marshUrl : String, val opdId : Int, val opdTileName: String?)
 
 data class PolicyDetails(val policyNo: String, var policyExpiryDate: String)
 

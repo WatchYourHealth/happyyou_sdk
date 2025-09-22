@@ -119,8 +119,6 @@ public class UnwindActivity extends AppCompatActivity implements ScratchListener
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
-        binding.laUnwind.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_unwind.json");
-
         Glide.with(context)
                 .load(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "ic_unwind_bg.png")
                 .into(new CustomTarget<Drawable>() {

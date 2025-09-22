@@ -1395,6 +1395,8 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                     binding.opdLl.visibility = View.GONE
                 }
             }
+            if(response.data.userDetails.opdTileName != null && response.data.userDetails.opdTileName!!.isNotEmpty())
+                binding.tvOpdTileName.text = response.data.userDetails.opdTileName
         }
     }
 
