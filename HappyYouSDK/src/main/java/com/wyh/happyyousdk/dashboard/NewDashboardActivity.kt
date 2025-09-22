@@ -302,6 +302,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
     private var builder: AlertDialog.Builder? = null
     var index = 0
     var currentValueZenZone: String = "0"
+    var opdTileName: String = "OPD Services"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
@@ -1395,8 +1396,10 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                     binding.opdLl.visibility = View.GONE
                 }
             }
-            if(response.data.userDetails.opdTileName != null && response.data.userDetails.opdTileName!!.isNotEmpty())
-                binding.tvOpdTileName.text = response.data.userDetails.opdTileName
+            if(response.data.userDetails.opdTileName != null && response.data.userDetails.opdTileName!!.isNotEmpty()) {
+                opdTileName = response.data.userDetails.opdTileName.toString()
+                binding.tvOpdTileName.text = opdTileName
+            }
         }
     }
 
@@ -2433,7 +2436,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
             activityTracker("A_OnDashboard_OPD", context)
             startActivity(
                 Intent(context, HappyMartCategory::class.java)
-                    .putExtra("category", "OPD")
+                    .putExtra("category", opdTileName)
                     .putExtra("id", "14")
                     .putExtra("comingFrom", "dashboard")
             )
