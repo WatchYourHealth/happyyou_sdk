@@ -41,7 +41,6 @@ public class OtherFeatureAdapter extends RecyclerView.Adapter<OtherFeatureAdapte
         icons.add(R.drawable.icons_health_locker);
         icons.add(R.drawable.icons_digi_coach);
         icons.add(R.drawable.icons_challenges);
-        icons.add(R.drawable.icons_tribes);
         icons.add(R.drawable.icons_unwind);
         icons.add(R.drawable.webinar_icon);
         icons.add(R.drawable.spin_nd_wheel);
