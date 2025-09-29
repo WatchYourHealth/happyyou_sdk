@@ -26,6 +26,9 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -49,6 +52,7 @@ import com.wyh.happyyousdk.APIEncryption.APIInterface
 import com.wyh.happyyousdk.APIEncryption.APILogs
 import com.wyh.happyyousdk.APIEncryption.APILogs.activityTracker
 import com.wyh.happyyousdk.APIEncryption.BackgroundWork.CoroutineClass
+import com.wyh.happyyousdk.APIEncryption.BackgroundWork.LocalStorageTask
 import com.wyh.happyyousdk.APIEncryption.RetrofitHandler
 import com.wyh.happyyousdk.ChallangesModule.Activities.ChallangesActivity
 import com.wyh.happyyousdk.ChallangesModule.Activities.ChallengeDetailActivity
@@ -113,13 +117,13 @@ import com.wyh.happyyousdk.hra.HRAAnalysisActivity
 import com.wyh.happyyousdk.hra.HRAQuestionsActivity
 import com.wyh.happyyousdk.ice.ICEDashboardActivity
 import com.wyh.happyyousdk.ice.SOSActivity
+import com.wyh.happyyousdk.main.AppVisibilityTracker
 import com.wyh.happyyousdk.model.*
 import com.wyh.happyyousdk.model.request.*
 import com.wyh.happyyousdk.model.request.absorb.AddBookmarkRequest
 import com.wyh.happyyousdk.model.request.ehr.FileData
 import com.wyh.happyyousdk.model.request.encrDecr.EncryptionRequest
 import com.wyh.happyyousdk.model.request.hra.GetAnalysisRequest
-import com.wyh.happyyousdk.model.request.kgi_policy.GetPolicyDetailsRequest
 import com.wyh.happyyousdk.model.request.login.AddFCMTokenRequest
 import com.wyh.happyyousdk.model.request.login.ApiSessionLogRequest
 import com.wyh.happyyousdk.model.request.login.RefreshTokenRequest
@@ -138,8 +142,6 @@ import com.wyh.happyyousdk.model.response.dashboard.RewardsResponse
 import com.wyh.happyyousdk.model.response.dashboard_new.ShowAdminRewardsEventsData
 import com.wyh.happyyousdk.model.response.encrDecr.EncryptionResponse
 import com.wyh.happyyousdk.model.response.getAnalysis.GetAnalysisResponse
-import com.wyh.happyyousdk.model.response.kgi_policy.GetPolicyDetailsResponse
-import com.wyh.happyyousdk.model.response.kgi_policy.GetPolicyDetailsUserPolicyDetail
 import com.wyh.happyyousdk.model.response.login.RefreshTokenResponse
 import com.wyh.happyyousdk.model.response.playwin.ClaimReClaimRewardModel
 import com.wyh.happyyousdk.model.response.playwin.QuizathonModel
@@ -175,11 +177,9 @@ import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox.Companion.getInstance
 import com.wyh.happyyousdk.rewards.RewardsActivity
 import com.wyh.happyyousdk.sendActivityData.SendDataToServerReceiver
 import com.wyh.happyyousdk.syncDevice.ConnectApp
-import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
 import com.wyh.happyyousdk.utils.*
-import com.wyh.happyyousdk.utils.CommonUtils
 import com.wyh.happyyousdk.utils.CommonUtils.deleteImage
 import com.wyh.happyyousdk.utils.CommonUtils.downloadImage
 import com.wyh.happyyousdk.utils.CommonUtils.formatDateFromString
@@ -193,6 +193,8 @@ import com.wyh.happyyousdk.utils.dialog.QuizRewardDialog.showStampsPopupCallBack
 import com.wyh.happyyousdk.utils.dialog.RegistrationDialog
 import com.wyh.happyyousdk.utils.viewtooltip.ViewTooltip
 import com.wyh.happyyousdk.utils.wheelview.WheelItem
+import com.wyhsdk.HealthConnect.HealthConnectUtil
+import com.wyhsdk.main.NewSleepLogic
 import com.wyhsdk.main.WatchYourHealth
 import com.wyhsdk.sharedPreferences.SharedPreference
 import com.wyhsdk.utils.Utilities
@@ -204,13 +206,18 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.io.IOException
-import java.lang.String.format
 import java.net.URLConnection
 import java.text.DecimalFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.CompletableFuture
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import java.util.function.Consumer
+import java.util.function.Function
 import kotlin.math.ceil
 
 
@@ -304,6 +311,15 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
     var index = 0
     var currentValueZenZone: String = "0"
     var opdTileName: String = "OPD Services"
+    var healthConnectUtil: HealthConnectUtil? = null
+    var HealthPerCount: Int = 0
+
+    private val permissionLauncher = registerForActivityResult<Intent?, ActivityResult?>(
+        StartActivityForResult(),
+        ActivityResultCallback { result: ActivityResult? -> }
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
@@ -316,6 +332,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         SharedPreference.init(context)
 
 
+        healthConnectUtil = HealthConnectUtil(this, this, permissionLauncher)
 
         NewDashboardHelper.scratchListener = this@NewDashboardActivity
         NewDashboardHelper.rewardDialogCloselistener = this@NewDashboardActivity
@@ -504,11 +521,25 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
 
 
     private fun getGoogleFitData() {
-        NewDashboardHelper.getFitPermission(context as Activity)
+
+        Handler().postDelayed(Runnable {
+            try {
+                //healthConnectUtil = new HealthConnectUtil(ActivityHomeDashBoardNew.this, ActivityHomeDashBoardNew.this, permissionLauncher);
+                if (!(context as Activity).isFinishing()) {
+                    if (healthConnectUtil != null && healthConnectUtil!!.checkHealthConnectSdkStatusA(false)) {
+                        checkHealthConnectPermission()
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                ex.printStackTrace()
+            }
+        }, 1000)
+
+//        NewDashboardHelper.getFitPermission(context as Activity)
         NewDashboardHelper.getSteps()
         NewDashboardHelper.getSleep()
         NewDashboardHelper.getStand()
-        fetchStepsData() // For HC
+//        fetchStepsData() // For HC
         //Commented for HC
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
@@ -524,6 +555,148 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         }*/
         val intent1 = Intent(applicationContext, SendDataToServerReceiver::class.java)
         applicationContext.sendBroadcast(intent1)
+    }
+
+    fun checkHealthConnectPermission() {
+        // Calling the Kotlin wrapper function
+        val futureResult: CompletableFuture<Boolean> =
+            healthConnectUtil?.checkPermissionsDisconnectForJava() ?: CompletableFuture.completedFuture(false)
+
+        // Handling the result
+        futureResult.thenAccept(Consumer { isPermissionGranted: Boolean? ->
+            if (isPermissionGranted ?: false) {
+                println("Permissions granted!")
+                runOnUiThread(object : Runnable {
+                    override fun run() {
+                        HealthConnectSteps()
+                    }
+                })
+            }
+        }).exceptionally(Function { throwable: Throwable? ->
+            // Handle any errors
+            println("Error occurred: " + throwable!!.message)
+            null
+        })
+    }
+
+    fun HealthConnectSteps() {
+        if (!SharedPreference.getAllStepDataSync()) {
+            val startTime =
+                LocalDateTime.now().minusDays(30).withMinute(0).withHour(0).withSecond(0)
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            val endTime = LocalDateTime.now()
+            if (AppVisibilityTracker().isAppinForeground) {
+                healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
+                healthConnectUtil!!.aggregateStepsIntoHour(startTime, endTime)
+                healthConnectUtil!!.aggregateStepsIntoMinutes(startTime, endTime)
+            }
+            LocalStorageTask(context).getStand()
+            LocalStorageTask(context).getMinuteSteps(context)
+            Handler().postDelayed(object : Runnable {
+                override fun run() {
+                    sleepExecutorService()
+                }
+            }, 5000)
+
+            //if (!watchYourHealth.isSleepPresent(SOURCE_GOOGLEFIT, todayDateInFormat("yyyy-MM-dd")))
+            try {
+                val handler2 = Handler()
+                // Call getSteps method
+                handler2.postDelayed(object : Runnable {
+                    override fun run() {
+                        if (NewDashboardHelper.watchYourHealth.getUnsyncedSteps()
+                                .length() > 0
+                        ) {
+                            SharedPreference.putIsSyncStatusOn(true)
+                        }
+
+                        val intent = Intent(
+                            this@NewDashboardActivity,
+                            SendDataToServerReceiver::class.java
+                        )
+                        sendBroadcast(intent)
+                        SharedPreference.putAllStepDataSync(true)
+                        LocalStorageTask(context).getSteps()
+                    }
+                }, 5000)
+            } catch (e: java.lang.Exception) {
+                e.printStackTrace()
+            }
+        } else {
+            getDaysSteps()
+            LocalStorageTask(context).getHourlySteps(context)
+            LocalStorageTask(context).getMinuteSteps(context)
+            val startTime =
+                LocalDateTime.now().minusDays(totalStepsDays.toLong()).withMinute(0).withHour(0)
+                    .withSecond(0)
+            val startTimeHours =
+                LocalDateTime.now().minusDays(LocalStorageTask(context).totalStandDays.toLong()).withMinute(0).withHour(0)
+                    .withSecond(0)
+            val startTimeMinute =
+                LocalDateTime.now().minusDays(LocalStorageTask(context).totalMinuteStepsDays.toLong()).withMinute(0)
+                    .withHour(0).withSecond(0)
+            val endTime = LocalDateTime.now()
+            if (AppVisibilityTracker().isAppinForeground) {
+                healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
+                healthConnectUtil!!.aggregateStepsIntoHour(startTimeHours, endTime)
+                healthConnectUtil!!.aggregateStepsIntoMinutes(startTimeMinute, endTime)
+            }
+            LocalStorageTask(context).getStand()
+            Handler().postDelayed(object : Runnable {
+                override fun run() {
+                    sleepExecutorService()
+                }
+            }, 5000)
+            //if (!watchYourHealth.isSleepPresent(SOURCE_GOOGLEFIT, todayDateInFormat("yyyy-MM-dd")))
+            try {
+                val handler2 = Handler()
+                // Call getSteps method
+                handler2.postDelayed(object : Runnable {
+                    override fun run() {
+                        if (NewDashboardHelper.watchYourHealth.getUnsyncedSteps()
+                                .length() > 0
+                        ) {
+                            SharedPreference.putIsSyncStatusOn(true)
+                        }
+                        val intent = Intent(
+                            this@NewDashboardActivity,
+                            SendDataToServerReceiver::class.java
+                        )
+                        sendBroadcast(intent)
+                        SharedPreference.putAllStepDataSync(true)
+                        LocalStorageTask(context).getSteps()
+                    }
+                }, 5000)
+            } catch (e: java.lang.Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun sleepExecutorService() {
+        try {
+            val executor = Executors.newSingleThreadExecutor()
+            val handler = Handler(Looper.getMainLooper())
+
+            executor.execute(object : Runnable {
+                override fun run() {
+                    //Background work here
+
+                    NewSleepLogic.getNewSleepTime(
+                        this@NewDashboardActivity,
+                        LocalStorageTask(context).totalMinuteStepsDays,
+                        true
+                    )
+                    handler.post(object : Runnable {
+                        override fun run() {
+                            //UI Thread work here
+                        }
+                    })
+                }
+            })
+        } catch (ex: java.lang.Exception) {
+            ex.printStackTrace()
+        }
     }
 
     private fun requestNotificationPermission() {
@@ -958,7 +1131,8 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         }
 
         //GoogleFit
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//        fetchStepsData()
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACTIVITY_RECOGNITION
@@ -970,7 +1144,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
             }
         } else {
             fetchStepsData()
-        }
+        }*/
 
         if (SharedPref.getUserDetailResponse().isNotEmpty()) {
             var userDetailResponse = Gson().fromJson(
@@ -1928,17 +2102,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == NewDashboardHelper.REQUEST_CODE_ACTIVITY_RECOGNITION) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                NewDashboardHelper.watchYourHealth.connectAPIClient()
-            } else {
-                Toast.makeText(
-                    context,
-                    "Physical activity permission required to use step counts.",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
 
         if (requestCode == PERMISSION_ID) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
