@@ -581,11 +581,14 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 LocalDateTime.now().minusDays(30).withMinute(0).withHour(0).withSecond(0)
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
             val endTime = LocalDateTime.now()
-            if (AppVisibilityTracker().isAppinForeground) {
+            healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
+            healthConnectUtil!!.aggregateStepsIntoHour(startTime, endTime)
+            healthConnectUtil!!.aggregateStepsIntoMinutes(startTime, endTime)
+            /*if (AppVisibilityTracker().isAppinForeground) {
                 healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
                 healthConnectUtil!!.aggregateStepsIntoHour(startTime, endTime)
                 healthConnectUtil!!.aggregateStepsIntoMinutes(startTime, endTime)
-            }
+            }*/
             LocalStorageTask(context).getStand()
             LocalStorageTask(context).getMinuteSteps(context)
             Handler().postDelayed(object : Runnable {
@@ -632,11 +635,14 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 LocalDateTime.now().minusDays(LocalStorageTask(context).totalMinuteStepsDays.toLong()).withMinute(0)
                     .withHour(0).withSecond(0)
             val endTime = LocalDateTime.now()
-            if (AppVisibilityTracker().isAppinForeground) {
+            healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
+            healthConnectUtil!!.aggregateStepsIntoHour(startTimeHours, endTime)
+            healthConnectUtil!!.aggregateStepsIntoMinutes(startTimeMinute, endTime)
+            /*if (AppVisibilityTracker().isAppinForeground) {
                 healthConnectUtil!!.aggregateStepsIntoDays(startTime, endTime)
                 healthConnectUtil!!.aggregateStepsIntoHour(startTimeHours, endTime)
                 healthConnectUtil!!.aggregateStepsIntoMinutes(startTimeMinute, endTime)
-            }
+            }*/
             LocalStorageTask(context).getStand()
             Handler().postDelayed(object : Runnable {
                 override fun run() {

@@ -117,11 +117,14 @@ public class ConnectApp extends AppCompatActivity {
                 LocalDateTime startTime = LocalDateTime.now().minusDays(30).withMinute(0).withHour(0).withSecond(0);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 LocalDateTime endTime = LocalDateTime.now();
-                if (appVisibilityTracker.isAppinForeground()) {
+                healthConnectUtil.aggregateStepsIntoDays(startTime, endTime);
+                healthConnectUtil.aggregateStepsIntoHour(startTime, endTime);
+                healthConnectUtil.aggregateStepsIntoMinutes(startTime, endTime);
+                /*if (appVisibilityTracker.isAppinForeground()) {
                     healthConnectUtil.aggregateStepsIntoDays(startTime, endTime);
                     healthConnectUtil.aggregateStepsIntoHour(startTime, endTime);
                     healthConnectUtil.aggregateStepsIntoMinutes(startTime, endTime);
-                }
+                }*/
                 getStand();
                 getActiveHours();
                 getMinuteSteps();
@@ -152,10 +155,12 @@ public class ConnectApp extends AppCompatActivity {
                 LocalDateTime startTimeHours = LocalDateTime.now().minusDays(totalStandDays).withMinute(0).withHour(0).withSecond(0);
                 LocalDateTime startTimeMinute = LocalDateTime.now().minusDays(totalMinuteStepsDays).withMinute(0).withHour(0).withSecond(0);
                 LocalDateTime endTime = LocalDateTime.now();
-                if (appVisibilityTracker.isAppinForeground()) {
+                healthConnectUtil.aggregateStepsIntoDays(startTime, endTime);
+                healthConnectUtil.aggregateStepsIntoHour(startTimeHours, endTime);
+                /*if (appVisibilityTracker.isAppinForeground()) {
                     healthConnectUtil.aggregateStepsIntoDays(startTime, endTime);
                     healthConnectUtil.aggregateStepsIntoHour(startTimeHours, endTime);
-                }
+                }*/
                 getStand();
                 getActiveHours();
                 if (!watchYourHealth.isSleepPresent(SOURCE_GOOGLEFIT, todayDateInFormat("yyyy-MM-dd")))
