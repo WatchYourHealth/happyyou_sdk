@@ -207,13 +207,13 @@ class LocalStorageTask(context: Context) {
                     val days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS).toInt()
                     Log.d("AuthToken", "getHourlySteps $days")
                     totalStandDays = days
-                    CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context)
+//                    CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context)
                 } catch (e: ParseException) {
                     e.printStackTrace()
                 }
             } else {
-                totalStandDays = -1
-                CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context)
+                totalStandDays = 30
+//                CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context)
             }
         }catch (e: Exception){
             e.toString()
@@ -240,13 +240,13 @@ class LocalStorageTask(context: Context) {
                     } else {
                         totalMinuteStepsDays = 30
                     }
-                    CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context)
+//                    CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context)
                 } catch (e: ParseException) {
                     e.printStackTrace()
                 }
             } else {
                 totalMinuteStepsDays = 30
-                CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context)
+//                CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context)
             }
         }catch (e: Exception){
             e.toString()

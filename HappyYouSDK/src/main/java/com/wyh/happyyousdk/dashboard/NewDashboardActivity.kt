@@ -490,10 +490,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
 
         clickEvents()
 
-        if (SharedPreference.getGoogleFitConnection()) {
-            getGoogleFitData()
-        }
-
         binding.llAddPolicy.setOnClickListener {
             activityTracker("Android_DASHBOARD_ADD_POLICY_BTN", context)
             val intent = Intent(context, PolicySearchActivity::class.java)
@@ -1131,6 +1127,11 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         }
 
         //GoogleFit
+        if (SharedPreference.getGoogleFitConnection()) {
+            getGoogleFitData()
+        }
+
+
 //        fetchStepsData()
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (ContextCompat.checkSelfPermission(
