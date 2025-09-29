@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.connectapp.ConnectApp">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_back" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includeToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/includeToolbar">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="6dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:paddingBottom="16dp"
+                        android:weightSum="4">
+
+                        <ImageView
+                            android:id="@+id/fitLogo"
+                            android:layout_width="32sp"
+                            android:layout_height="32sp"
+                            android:layout_marginStart="16sp"
+                            android:layout_marginTop="16sp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_healthconnect"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlHealthconnectSection"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="12dp"
+                            app:layout_constraintBottom_toBottomOf="@id/fitLogo"
+                            app:layout_constraintStart_toEndOf="@+id/fitLogo"
+                            app:layout_constraintTop_toTopOf="@id/fitLogo">
+
+                            <TextView
+                                android:id="@+id/googleFit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:lineHeight="20sp"
+                                android:text="Health Connect"
+                                android:textColor="@color/black"
+                                android:textFontWeight="500"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/fitConnection"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/googleFit"
+                                android:layout_marginTop="2dp"
+                                android:text="Recommended"
+                                android:textColor="@color/jade_green"
+                                android:textFontWeight="500"
+                                android:textSize="12sp" />
+                        </RelativeLayout>
+
+                        <Switch
+                            android:id="@+id/HCSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginEnd="16sp"
+                            android:gravity="right"
+                            android:theme="@style/SwitchThemeReminder"
+                            app:layout_constraintBottom_toBottomOf="@+id/fitLogo"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fitLogo"
+                            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                        <Button
+                            android:id="@+id/btnInstall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/blue_rc_bg_8dp"
+                            android:letterSpacing="0.06"
+                            android:lineHeight="16dp"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:text="Install"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textFontWeight="500"
+                            android:textSize="12dp"
+                            app:layout_constraintBottom_toBottomOf="@id/fitLogo"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/fitLogo" />
+
+                        <View
+                            android:id="@+id/health_connect_section_seperator"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="#DCDCDC"
+                            app:layout_constraintTop_toBottomOf="@id/rlHealthconnectSection" />
+
+                        <TextView
+                            android:id="@+id/tvHealthConnectSync"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginVertical="12dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="sans-serif"
+                            android:lineHeight="16dp"
+                            android:text="@string/health_connect_sync_message"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/health_connect_section_seperator" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="@dimen/dimen_16_dp"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/fit"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/health_connect_section_seperator" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="20sp"
+                    android:text="How to Connect"
+                    android:textColor="@color/black"
+                    android:textFontWeight="500"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="18sp"
+                    android:text="@string/follow_the_steps"
+                    android:textColor="@color/black"
+                    android:textFontWeight="400"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16sp"
+                        android:layout_height="16sp"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginEnd="6sp"
+                        android:src="@drawable/ic_check_breath_info" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="top"
+                        android:text="Sync Health Connect"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="18sp"
+                    android:text="@string/uses_google_health_connect"
+                    android:textColor="@color/black"
+                    android:textFontWeight="400"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="14sp"
+                        android:layout_gravity="top"
+                        android:layout_marginEnd="8sp"
+                        android:src="@drawable/ic_step_1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:lineHeight="20sp"
+                            android:text="@string/install_health_connect"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start"
+                            android:lineHeight="16sp"
+                            android:text="@string/connect_step_1_desc"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="14sp"
+                        android:layout_gravity="top"
+                        android:layout_marginEnd="8sp"
+                        android:src="@drawable/ic_step_2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:lineHeight="20sp"
+                            android:text="@string/connect_health_connect_to_chola_ms"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start"
+                            android:lineHeight="16sp"
+                            android:text="@string/go_to_connect_apps"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="14sp"
+                        android:layout_gravity="top"
+                        android:layout_marginEnd="8sp"
+                        android:src="@drawable/ic_step_3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:lineHeight="20sp"
+                            android:text="@string/connect_step3_title"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start"
+                            android:lineHeight="16sp"
+                            android:text="@string/connect_step3_desc"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="14sp"
+                        android:layout_gravity="top"
+                        android:layout_marginEnd="8sp"
+                        android:src="@drawable/ic_step_4" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:lineHeight="20sp"
+                            android:text="@string/connect_step4_title"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start"
+                            android:lineHeight="16sp"
+                            android:text="@string/connect_step4_desc"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34sp"
+                        android:layout_height="14sp"
+                        android:layout_gravity="top"
+                        android:layout_marginEnd="8sp"
+                        android:src="@drawable/ic_step_5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:lineHeight="20sp"
+                            android:text="@string/connect_step5_title"
+                            android:textColor="@color/black"
+                            android:textFontWeight="400"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start"
+                            android:lineHeight="16sp"
+                            android:text="@string/connect_step5_desc"
+                            android:textColor="@color/grey"
+                            android:textFontWeight="400"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

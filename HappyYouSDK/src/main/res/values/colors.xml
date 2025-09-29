@@ -35,6 +35,9 @@
     <color name="light_orange">#EFB874</color>
     <color name="orange">#f4a23e</color>
     <color name="orange_new">#f49242</color>
+    <color name="jade_green">#2AB863</color>
+    <color name="alert_red">#FF472E</color>
+    <color name="green_teal">#00C077</color>
     <color name="joke_blue">#36759D</color>
     <color name="affirmation_skyblue">#A7DFDF</color>
     <color name="happy_dark_grey">#adc2cd</color>

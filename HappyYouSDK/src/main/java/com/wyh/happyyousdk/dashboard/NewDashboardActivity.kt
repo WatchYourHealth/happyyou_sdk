@@ -174,6 +174,7 @@ import com.wyh.happyyousdk.reminders.RemindersActivity
 import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox.Companion.getInstance
 import com.wyh.happyyousdk.rewards.RewardsActivity
 import com.wyh.happyyousdk.sendActivityData.SendDataToServerReceiver
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
@@ -507,19 +508,20 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         NewDashboardHelper.getSteps()
         NewDashboardHelper.getSleep()
         NewDashboardHelper.getStand()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        fetchStepsData() // For HC
+        //Commented for HC
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
                 != PackageManager.PERMISSION_GRANTED
             ) {
-                /*String[] permissions = {Manifest.permission.ACTIVITY_RECOGNITION};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE_ACTIVITY_RECOGNITION);*/
+                *//*String[] permissions = {Manifest.permission.ACTIVITY_RECOGNITION};
+                ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE_ACTIVITY_RECOGNITION);*//*
             } else {
                 fetchStepsData()
             }
         } else {
             fetchStepsData()
-        }
+        }*/
         val intent1 = Intent(applicationContext, SendDataToServerReceiver::class.java)
         applicationContext.sendBroadcast(intent1)
     }
@@ -663,7 +665,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 }
 
                 "syncdevice" -> {
-                    val intent = Intent(context, SyncDeviceActivity::class.java)
+                    val intent = Intent(context, ConnectApp::class.java)
                     context.startActivity(intent)
                 }
 
@@ -1829,7 +1831,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
                 startActivity(intent)
             } else if (it.itemId === R.id.menu_sync_device) {
                 binding.sideDrawer.closeDrawer(Gravity.RIGHT)
-                val intent = Intent(context, SyncDeviceActivity::class.java)
+                val intent = Intent(context, ConnectApp::class.java)
                 startActivity(intent)
             } else if (it.itemId === R.id.menu_corporate_account) {
                 binding.sideDrawer.closeDrawer(Gravity.RIGHT)
@@ -2416,7 +2418,7 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         }
 
         binding.syncYourDeviceTv.setOnClickListener {
-            startActivity(Intent(context, SyncDeviceActivity::class.java))
+            startActivity(Intent(context, ConnectApp::class.java))
         }
 
         binding.addZenzoneLayout.setOnClickListener {

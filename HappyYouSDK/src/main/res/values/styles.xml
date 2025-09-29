@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="CustomAlertDialogTransparent" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -10,6 +11,11 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:background">@drawable/one_sided_curved_border_pink</item>
+    </style>
+
+    <style name="SwitchThemeReminder" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/light_pink
+        </item>
     </style>
 
     <style name="CustomAlertDialogNew" parent="Theme.AppCompat.Light.Dialog.Alert">

@@ -942,6 +942,20 @@
     <string name="information">Information</string>
     <string name="device_merchendise"><![CDATA[Devices & Merchandise]]></string>
     <string name="quiz_reg_over">Quiz registration is now closed. You are not eligible to participate in the quiz</string>
+    <string name="health_connect_sync_message">Connect your favorite fitness tracker apps to Google Health Connect to sync them with our app</string>
+    <string name="follow_the_steps">Follow the steps below to sync your health apps with our app:</string>
+    <string name="uses_google_health_connect">App uses Google Health Connect to sync data from most of your health apps, so we recommend you to connect Health Connect first</string>
+    <string name="install_health_connect">Install Health Connect</string>
+    <string name="connect_step_1_desc">In case you don’t have Health Connect installed, download it, create your account then come back to the app</string>
+    <string name="connect_health_connect_to_chola_ms">Connect Health Connect to the app</string>
+    <string name="go_to_connect_apps">Go to Connect Apps and switch the toggle to connect</string>
+    <string name="connect_step3_title">Allow all permissions in Health Connect</string>
+    <string name="connect_step3_desc">You should see a pop up for permissions regarding the Health Connect integration. Turn the integration On and then allow all permissions.</string>
+    <string name="connect_step4_title">Add an activity data source to Health Connect</string>
+    <string name="connect_step4_desc">Give Google Fit, Fitbit or other health apps permission to write data into Health Connect</string>
+    <string name="connect_step5_title">Check Health Connect is receiving data</string>
+    <string name="connect_step5_desc">See all your data sources and ensure they have the correct permissions.</string>
+
 
     //Meta Removed 17/03/2025
     <!--    <string name="facebook_app_id">971024678288343</string>
