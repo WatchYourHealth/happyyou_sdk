@@ -69,6 +69,7 @@ import com.wyh.happyyousdk.databinding.CustomPopupRewardsBinding;
 import com.wyh.happyyousdk.databinding.CustomPopupStampsBinding;
 import com.wyh.happyyousdk.ehr.EhrActivity;
 import com.wyh.happyyousdk.happyMarket.NewHappyMartActivity;
+import com.wyh.happyyousdk.syncDevice.ConnectApp;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.ehr.FileData;
 import com.wyh.happyyousdk.hra.HRAAnalysisActivity;
@@ -1085,7 +1086,7 @@ public class PendingActivityDashboard extends AppCompatActivity implements AllPe
                     startActivity(intent2);
                     break;
                 case "googlefit":
-                    Intent intent3 = new Intent(context, SyncDeviceActivity.class);
+                    Intent intent3 = new Intent(context, ConnectApp.class);
                     startActivity(intent3);
                     break;
                 case "quiz":

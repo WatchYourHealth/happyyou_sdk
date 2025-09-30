@@ -23,6 +23,7 @@ import com.wyh.happyyousdk.model.response.BranchRanking
 import com.wyh.happyyousdk.model.response.ChallengeRankData
 import com.wyh.happyyousdk.model.response.ChallengeRankResponse
 import com.wyh.happyyousdk.model.response.GlobalRanking
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.utils.CommonUtils
 import com.wyh.happyyousdk.utils.SharedPref
@@ -134,7 +135,7 @@ class WalkhatonDetailActivity : AppCompatActivity() {
 
         binding.syncDevice.setOnClickListener {
             APILogs.activityTracker("A_WALKATHON_LB_SYNC_DEVICE", this@WalkhatonDetailActivity)
-            startActivity(Intent(this, SyncDeviceActivity::class.java))
+            startActivity(Intent(this, ConnectApp::class.java))
         }
 
         binding.branchLayout.setOnClickListener {

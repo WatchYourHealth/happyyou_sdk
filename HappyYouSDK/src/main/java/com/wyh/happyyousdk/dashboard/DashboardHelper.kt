@@ -39,6 +39,7 @@ import com.wyh.happyyousdk.network.ApiInterfaceWyh
 import com.wyh.happyyousdk.quizathon.QuizathonViewAllActivity
 import com.wyh.happyyousdk.rewards.MoreTopUpsActivity
 import com.wyh.happyyousdk.rewards.RewardsActivity
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
@@ -520,7 +521,7 @@ object DashboardHelper {
                     activity.startActivity(intent6)
                 }
                 "syncdevice" -> {
-                    val intent7 = Intent(activity, SyncDeviceActivity::class.java)
+                    val intent7 = Intent(activity, ConnectApp::class.java)
                     activity.startActivity(intent7)
                 }
                 "invite" -> {

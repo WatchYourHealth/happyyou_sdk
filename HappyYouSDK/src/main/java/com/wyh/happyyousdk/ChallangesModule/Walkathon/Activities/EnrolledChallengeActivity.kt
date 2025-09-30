@@ -27,6 +27,7 @@ import com.wyh.happyyousdk.model.request.EnrollUserRequest
 import com.wyh.happyyousdk.model.request.EnrolledHistoryResponse
 import com.wyh.happyyousdk.model.response.EnrollUserResponse
 import com.wyh.happyyousdk.model.response.EnrolledQRModel
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.utils.CommonUtils
 import com.wyh.happyyousdk.utils.SharedPref
@@ -73,7 +74,7 @@ class EnrolledChallengeActivity : AppCompatActivity() {
 
         binding.syncDeviceLayout.setOnClickListener {
             activityTracker("A_ENROLLMENT_SYNC_DEVICE", this@EnrolledChallengeActivity)
-            startActivity(Intent(this, SyncDeviceActivity::class.java))
+            startActivity(Intent(this, ConnectApp::class.java))
         }
 
         binding.infoImg.setOnClickListener {

@@ -89,6 +89,7 @@ import com.wyh.happyyousdk.rewards.RewardsActivity
 import com.wyh.happyyousdk.rewards.RewardsCollectiblesActivity
 import com.wyh.happyyousdk.rewards.RewardsHistoryActivity
 import com.wyh.happyyousdk.rewards.UnscratchedTokensActivity
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
@@ -266,7 +267,7 @@ object RedirectionMethod {
                         "syncdevice", "Sync your device" -> context.startActivity(
                             Intent(
                                 context,
-                                SyncDeviceActivity::class.java
+                                ConnectApp::class.java
                             )
                         )
 

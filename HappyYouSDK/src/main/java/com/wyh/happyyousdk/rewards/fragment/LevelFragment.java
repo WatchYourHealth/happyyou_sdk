@@ -86,6 +86,7 @@ import com.wyh.happyyousdk.databinding.PopUpScratchCardScratchableBinding;
 import com.wyh.happyyousdk.diary.AddDiaryActivity;
 import com.wyh.happyyousdk.ehr.EhrActivity;
 import com.wyh.happyyousdk.happyMarket.NewHappyMartActivity;
+import com.wyh.happyyousdk.syncDevice.ConnectApp;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.ehr.FileData;
 import com.wyh.happyyousdk.happyMarket.HappyMartDisclaimerActivity;
@@ -1899,7 +1900,7 @@ public class LevelFragment extends Fragment implements LevelActivitiesAdapter.Cl
                     break;
                 case "syncdevice":
                     Intent intent7;
-                    intent7 = new Intent(context, SyncDeviceActivity.class);
+                    intent7 = new Intent(context, ConnectApp.class);
                     startActivity(intent7);
                     /*if(SharedPref.getGoogleFitStatus()){
 

@@ -72,6 +72,7 @@ import com.wyh.happyyousdk.network.ApiInterfaceWyh
 import com.wyh.happyyousdk.notification.NotificationDrawerActivity
 import com.wyh.happyyousdk.policyDetails.PolicyDetailsActivity
 import com.wyh.happyyousdk.profile.ProfileActivity
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.unwind.UnwindActivity
@@ -1218,7 +1219,7 @@ class SearchActivity : AppCompatActivity(){
                 } else if (it.equals("add family", ignoreCase = true)) {
                     startActivity(Intent(this@SearchActivity, AddFamilyActivity::class.java))
                 } else if (it.equals("sync your device", ignoreCase = true)) {
-                    startActivity(Intent(this@SearchActivity, SyncDeviceActivity::class.java))
+                    startActivity(Intent(this@SearchActivity, ConnectApp::class.java))
                 } else if (it.equals("kotak policy", ignoreCase = true)) {
                     startActivity(
                         Intent(

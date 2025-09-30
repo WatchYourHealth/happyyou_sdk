@@ -102,6 +102,7 @@ import com.wyh.happyyousdk.network.ApiClientWyh
 import com.wyh.happyyousdk.network.ApiInterfaceWyh
 import com.wyh.happyyousdk.rewards.FeedbackPopupDialogBox.Companion.getInstance
 import com.wyh.happyyousdk.rewards.RewardsActivity
+import com.wyh.happyyousdk.syncDevice.ConnectApp
 import com.wyh.happyyousdk.syncDevice.SyncDeviceActivity
 import com.wyh.happyyousdk.trends.TrendsActivity
 import com.wyh.happyyousdk.utils.Analytics
@@ -452,7 +453,7 @@ class NewDashboardHelper {
             }
             if (rewards.contains("First Login")) {
                 alertDialogFirstLogin.setOnDismissListener(DialogInterface.OnDismissListener {
-                    val intent = Intent(context, SyncDeviceActivity::class.java)
+                    val intent = Intent(context, ConnectApp::class.java)
                     intent.putExtra("isFirst", true)
                     context.startActivity(intent)
                     NewDashboardActivity().rewardsModel = RewardsModel()

@@ -112,6 +112,7 @@ import com.wyh.happyyousdk.dashboard.NudgeDialogue;
 import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.musicLib.MoreMusicListActivity;
 import com.wyh.happyyousdk.musicLib.adapter.MusicLibAdapter;
+import com.wyh.happyyousdk.syncDevice.ConnectApp;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.absorb.AddBookmarkRequest;
 import com.wyh.happyyousdk.model.request.absorb.GetDashboardDataRequest;
@@ -339,9 +340,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
         if (activityType.equals(STEPS)) {
             if (SharedPreference.getGoogleFitConnection()) {
                 getGoogleFitData();
-            } else {
-                getFitPermission();
-
             }
         }
 
@@ -2230,22 +2228,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 Toast.makeText(context, "Camera Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
-        if (requestCode == REQUEST_CODE_ACTIVITY_RECOGNITION) {
-            // If request is cancelled, the result arrays are empty.
-            //Log.v("Data", "onRequestPermisson called");
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission was granted, yay! Do the
-                watchYourHealth.connectAPIClient();
-//                SharedPreference.putGoogleFitConnection(true);
-                getSteps();
-            } else {
-                // permission denied, boo! Disable the
-                // functionality that depends on this permission.
-                Toast.makeText(this, "Physical activity permission required to use step counts.",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     @Override
@@ -2286,57 +2268,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
             }
         }
         Log.d("FileData", new Gson().toJson(fileDataList));
-    }
-
-    private void getFitPermission() {
-        Handler handler = new Handler();
-        if (!SharedPref.getFitBitConnection()) {
-            if (ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.ACTIVITY_RECOGNITION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Permission is not granted
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
-                            REQUEST_CODE_ACTIVITY_RECOGNITION);
-                } else {
-                    //Log.v("Data", "Inside Loop MONTH");
-                    watchYourHealth.connectAPIClient();
-                    boolean googleFitConnection = SharedPreference.getGoogleFitConnection();
-                    if (googleFitConnection) {
-                        //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //Do something after 45 seconds
-                                //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                                new CoroutineClass().runBackGroundTask(WatchYourHealth.MONTH, context);
-                                handler.postDelayed(this, 10000 * 30);
-                            }
-                        }, 10000 * 30);
-                    }
-                }
-            } else {
-                watchYourHealth.connectAPIClient();
-                boolean googleFitConnection = SharedPreference.getGoogleFitConnection();
-                if (googleFitConnection) {
-                    /*if (!SharedPref.getGoogleFitBadge()) {
-                        assignBadge("3", "tech", "GoogleFit", "Health");
-                    }*/
-                    //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Log.v("Data", "Inside Loop MONTH");
-                            //Do something after 45 seconds
-                            //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                            new CoroutineClass().runBackGroundTask(WatchYourHealth.MONTH, context);
-                            handler.postDelayed(this, 10000 * 30);
-                        }
-                    }, 10000 * 30);
-                }
-            }
-        }
     }
 
     private void fetchStepsData() {
@@ -2539,7 +2470,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                     break;
                 case "syncdevice":
                     Intent intent7;
-                    intent7 = new Intent(context, SyncDeviceActivity.class);
+                    intent7 = new Intent(context, ConnectApp.class);
                     startActivity(intent7);
                     /*if(SharedPref.getGoogleFitStatus()){
 

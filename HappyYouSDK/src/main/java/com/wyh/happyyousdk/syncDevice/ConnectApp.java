@@ -1,30 +1,54 @@
 package com.wyh.happyyousdk.syncDevice;
 
+import static com.wyh.happyyousdk.network.ApiClientWyh.getCertificatePinner;
+import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 import static com.wyh.happyyousdk.utils.CommonUtils.todayDateInFormat;
 import static com.wyh.happyyousdk.utils.Constants.ACTIVE_STEPS_COUNT;
+import static com.wyh.happyyousdk.utils.Constants.Rewards;
+import static com.wyh.happyyousdk.utils.Constants.RewardsBounce;
+import static com.wyh.happyyousdk.utils.Constants.TAG_REWARD_EVENT;
+import static com.wyh.happyyousdk.utils.Constants.TokenStamp;
+import static com.wyh.happyyousdk.utils.Constants.TokenStampBounce;
 import static com.wyhsdk.main.NewSleepLogic.getNewSleepTime;
 import static com.wyhsdk.utils.Constants.SOURCE_GOOGLEFIT;
 import static com.wyhsdk.utils.Utilities.getTodayDateNew;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.webkit.CookieManager;
 import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.gson.Gson;
 import com.wyh.happyyousdk.R;
+import com.wyh.happyyousdk.dashboard.PostLoginActivity;
+import com.wyh.happyyousdk.dashboard.helper.NewDashboardHelper;
 import com.wyh.happyyousdk.databinding.ActivityConnectAppBinding;
+import com.wyh.happyyousdk.databinding.LayoutNewPointsPopUpBinding;
 import com.wyh.happyyousdk.main.AppVisibilityTracker;
+import com.wyh.happyyousdk.model.CommonSuccessResponse;
+import com.wyh.happyyousdk.model.PopUpShowModel;
+import com.wyh.happyyousdk.network.ApiClientWyh;
+import com.wyh.happyyousdk.network.ApiInterfaceWyh;
 import com.wyh.happyyousdk.sendActivityData.SendDataToServerReceiver;
 import com.wyh.happyyousdk.utils.SharedPref;
 import com.wyhsdk.HealthConnect.HealthConnectUtil;
@@ -32,6 +56,7 @@ import com.wyhsdk.main.WatchYourHealth;
 import com.wyhsdk.sharedPreferences.SharedPreference;
 import com.wyhsdk.utils.Constants;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -41,11 +66,21 @@ import java.util.Date;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
-public class ConnectApp extends AppCompatActivity {
+import dev.skymansandy.scratchcardlayout.listener.ScratchListener;
+import dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+
+public class ConnectApp extends AppCompatActivity implements ScratchListener {
     ActivityConnectAppBinding binding;
     public HealthConnectUtil healthConnectUtil;
     WatchYourHealth watchYourHealth;
     int totalStepsDays, totalStandDays, totalMinuteStepsDays;
+    ProgressDialog progressDialog;
+    AlertDialog alertDialogRewardPopup;
+    Context context;
     boolean hourlyStep = false;
     AppVisibilityTracker appVisibilityTracker;
     private final ActivityResultLauncher<Intent> permissionLauncher = registerForActivityResult(
@@ -62,15 +97,22 @@ public class ConnectApp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPref.init(getApplicationContext());
         SharedPreference.init(getApplicationContext());
+        context = this;
         appVisibilityTracker = new AppVisibilityTracker();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_connect_app);
+
+        progressDialog = new ProgressDialog(this, R.style.ProgressBarTheme);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Please wait...");
+
         healthConnectUtil = new HealthConnectUtil(this, this, permissionLauncher);
         watchYourHealth = new WatchYourHealth(ConnectApp.this, SharedPref.getUuid());
         watchYourHealth.initializeAPIClient(savedInstanceState);
         binding.includeToolbar.llBack.setOnClickListener(view -> finish());
         binding.btnInstall.setOnClickListener(v -> healthConnectUtil.checkHealthConnectSdkStatusA(true));
 
-        binding.HCSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {});
+        binding.HCSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        });
     }
 
     @Override
@@ -146,8 +188,7 @@ public class ConnectApp extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-            }
-            else {
+            } else {
                 getDaysSteps();
                 getHourlySteps();
                 getMinuteSteps();
@@ -173,7 +214,8 @@ public class ConnectApp extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     public void getHourlySteps() {
@@ -366,6 +408,7 @@ public class ConnectApp extends AppCompatActivity {
                                 try {
                                     if (SharedPreference.getGoogleFitConnection()) {
                                         //binding.btnInstall.setVisibility(View.GONE);
+                                        updateRewards();
                                         binding.fitConnection.setText("Connected");
                                         binding.fitConnection.setTextColor(getResources().getColor(R.color.green_teal));
                                         setFitChecked(true);
@@ -443,15 +486,159 @@ public class ConnectApp extends AppCompatActivity {
         Constants.authInProgress = false;
         healthConnectUtil.showPermissionDeniedDialog(1);
 
-        SharedPreference.putGoogleFitConnection(false);
+        /*SharedPreference.putGoogleFitConnection(false);
         binding.HCSwitch.setChecked(false);
         binding.fitConnection.setTextColor(getResources().getColor(R.color.alert_red));
-        binding.fitConnection.setText("Disconnected");
+        binding.fitConnection.setText("Disconnected");*/
     }
 
     public void connectWithGoogleFit() {
         if (!SharedPref.getFitBitConnection()) {
             healthConnectUtil.checkHealthConnectSdkStatus();
+        }
+    }
+
+    private void updateRewards() {
+        if (progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .certificatePinner(getCertificatePinner())
+                .build();
+        RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                .addFormDataPart("ActivityUploads", "")
+                .addFormDataPart("eventName", "SyncDevice")
+                .addFormDataPart("eventCategory", TAG_REWARD_EVENT)
+                .build();
+        Request request = new Request.Builder()
+                .url(getBaseUrlForAPI(this) + "Rewards/EarnRewards")
+                .method("POST", body)
+                .addHeader("Authorization", SharedPref.getAuthToken())
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(okhttp3.Call call, IOException e) {
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                finish();
+                //Toast.makeText(context, getResources().getString(R.string.error_string), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                if (response.code() == 200 && response.body() != null) {
+                    if (response.code() == 200 && response.body() != null) {
+                        CommonSuccessResponse commonSuccessResponse = new Gson().fromJson(response.body().string(), CommonSuccessResponse.class);
+                        if (commonSuccessResponse.getRewards() != null && commonSuccessResponse.getRewards().getReward() != null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (commonSuccessResponse.getRewards() != null && commonSuccessResponse.getRewards().getReward() != null) {
+                                        NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(Rewards, commonSuccessResponse.getRewards().getReward()));
+                                    }
+                                    if (commonSuccessResponse.getRewards() != null && commonSuccessResponse.getRewards().getBonusRewards() != null) {
+                                        NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(RewardsBounce, commonSuccessResponse.getRewards().getBonusRewards()));
+                                    }
+                                    showRewardsPopupDialogBox();
+                                }
+                            });
+                        } else if (commonSuccessResponse.getEnGTokens() != null && commonSuccessResponse.getEnGTokens().getTokens() != null) {
+                            NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(TokenStamp, commonSuccessResponse.getEnGTokens().getTokens()));
+                        } else if (commonSuccessResponse.getEnGTokens() != null && commonSuccessResponse.getEnGTokens().getBonusTokens() != null) {
+                            NewDashboardHelper.Companion.getPopUpShowModels().add(new PopUpShowModel(TokenStampBounce, commonSuccessResponse.getEnGTokens().getBonusTokens()));
+                        } else {
+                            finish();
+                        }
+
+                    } else
+                        finish();
+                }
+            }
+        });
+    }
+
+    private void showRewardsPopupDialogBox() {
+        PopUpShowModel firstData = NewDashboardHelper.Companion.getPopUpShowModels().get(0);
+        showRewardsPopupNew(firstData.getValue(), context);
+    }
+
+    private void showRewardsPopupNew(String rewards, Context context) {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+
+        LayoutNewPointsPopUpBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.layout_new_points_pop_up, null, false);
+        alertBuilder.setView(binding.getRoot());
+        alertDialogRewardPopup = alertBuilder.create();
+        alertDialogRewardPopup.setCancelable(false);
+        if (!alertDialogRewardPopup.isShowing())
+            alertDialogRewardPopup.show();
+
+        NewDashboardHelper.Companion.getPopUpShowModels().remove(0);
+
+        String title = rewards.split(";")[0];
+        String message = rewards.split(";")[1];
+
+        String points = message.replaceAll("[^0-9]", "");
+
+//        binding.btnPositive.setText("Collect");
+
+
+        alertDialogRewardPopup.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                finish();
+
+            }
+        });
+
+
+        binding.tvPoints.setText(points);
+        binding.tvEventName.setText(title);
+
+        binding.ivClose.setOnClickListener(view -> {
+            alertDialogRewardPopup.dismiss();
+        });
+
+
+        binding.btnPositive.setOnClickListener(view -> {
+            alertDialogRewardPopup.dismiss();
+        });
+        binding.scratchView.setScratchListener(ConnectApp.this);
+
+        binding.btnNegative.setOnClickListener(view -> alertDialogRewardPopup.dismiss());
+
+        Rect displayRectangle = new Rect();
+        Window window = getWindow();
+
+
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        alertDialogRewardPopup.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        alertDialogRewardPopup.getWindow().setLayout((int) (displayRectangle.width() * 0.67f), RelativeLayout.LayoutParams.WRAP_CONTENT);
+    }
+
+    @Override
+    public void onScratchComplete() {
+
+    }
+
+    @Override
+    public void onScratchStarted() {
+
+    }
+
+    @Override
+    public void onScratchProgress(@NonNull ScratchCardLayout scratchCardLayout, int i) {
+        if (i > 20) {
+            scratchCardLayout.onFullReveal();
+            final Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(() -> {
+                if (alertDialogRewardPopup != null && alertDialogRewardPopup.isShowing()) {
+                    alertDialogRewardPopup.dismiss();
+                }
+            }, 3000);
         }
     }
 }

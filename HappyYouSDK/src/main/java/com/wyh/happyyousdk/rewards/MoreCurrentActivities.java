@@ -76,6 +76,7 @@ import com.wyh.happyyousdk.hra.HRAAnalysisActivity;
 import com.wyh.happyyousdk.hra.HRAQuestionsActivity;
 import com.wyh.happyyousdk.ira.IRAAnalysisActivity;
 import com.wyh.happyyousdk.ira.IraActivity;
+import com.wyh.happyyousdk.syncDevice.ConnectApp;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.CommonSuccessResponse;
 import com.wyh.happyyousdk.model.PopUpShowModel;
@@ -861,7 +862,7 @@ public class MoreCurrentActivities extends AppCompatActivity implements MoreCurr
                     startActivity(intent6);
                     break;
                 case "syncdevice":
-                    Intent intent7 = new Intent(context, SyncDeviceActivity.class);
+                    Intent intent7 = new Intent(context, ConnectApp.class);
                     startActivity(intent7);
                     break;
                 case "invite":

@@ -71,6 +71,7 @@ import com.wyh.happyyousdk.databinding.CustomPopupStampsBinding;
 import com.wyh.happyyousdk.databinding.EarnAndBurnFragmentBinding;
 import com.wyh.happyyousdk.ehr.EhrActivity;
 import com.wyh.happyyousdk.happyMarket.NewHappyMartActivity;
+import com.wyh.happyyousdk.syncDevice.ConnectApp;
 import com.wyh.happyyousdk.utils.Master;
 import com.wyh.happyyousdk.model.request.ehr.FileData;
 import com.wyh.happyyousdk.hra.HRAAnalysisActivity;
@@ -1448,7 +1449,7 @@ public class EarnAndBurnFragment extends Fragment implements ActivitiesAdapter.C
                     startActivity(intent2);
                     break;
                 case "googlefit":
-                    Intent intent3 = new Intent(context, SyncDeviceActivity.class);
+                    Intent intent3 = new Intent(context, ConnectApp.class);
                     startActivity(intent3);
                     /*if(SharedPref.getGoogleFitStatus()){
 
