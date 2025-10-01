@@ -67,10 +67,6 @@ class LocalStorageTask(context: Context) {
             } catch (e: ParseException) {
                 e.printStackTrace()
             }
-        } else {
-            CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR, context)
-
-            //DashboardActivity.ViewStepsCount(WatchYourHealth.YEAR).execute()
         }
     }
 

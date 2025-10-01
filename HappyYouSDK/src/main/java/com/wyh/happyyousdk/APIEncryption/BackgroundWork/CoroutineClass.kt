@@ -26,9 +26,6 @@ class CoroutineClass {
     fun runBackGroundTask(dateFormat : Int, context: Context){
         watchYourHealth = WatchYourHealth(context, SharedPref.getUuid())
         CoroutineScope(Dispatchers.IO).launch {
-            if(SharedPreference.getGoogleFitConnection()){
-                watchYourHealth.connectAPIClient()
-            }
 
             when(dateFormat) {
                 WatchYourHealth.DAY_OF_WEEK_IN_MONTH ->{

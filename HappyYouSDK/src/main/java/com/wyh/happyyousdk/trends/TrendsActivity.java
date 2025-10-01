@@ -2195,19 +2195,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
         //getFitPermission();
         getSteps();
         getSleep();
-        getStand();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                /*String[] permissions = {Manifest.permission.ACTIVITY_RECOGNITION};
-                ActivityCompat.requestPermissions(HomeActivity.this, permissions, REQUEST_CODE_ACTIVITY_RECOGNITION);*/
-            } else {
-                fetchStepsData();
-            }
-        } else {
-            fetchStepsData();
-        }
 
         Intent intent1 = new Intent(getApplicationContext(), SendDataToServerReceiver.class);
         getApplicationContext().sendBroadcast(intent1);
@@ -2268,28 +2255,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
             }
         }
         Log.d("FileData", new Gson().toJson(fileDataList));
-    }
-
-    private void fetchStepsData() {
-        final Handler handler2 = new Handler();
-        handler2.postDelayed(() -> {
-            SharedPreference.init(context);
-            boolean googleFitConnection = SharedPreference.getGoogleFitConnection();
-            //Log.v("Data", "Permission : " + googleFitConnection);
-            /*if (!SharedPref.getGoogleFitBadge()) {
-                assignBadge("3", "tech", "GoogleFit", "health");
-            }*/
-            if (googleFitConnection) {
-                if (!SharedPreference.getAllStepDataSync()) {
-                    //new ViewStepsCount(WatchYourHealth.YEAR).execute();
-                    new CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR, context);
-                } else {
-                    getDaysSteps();
-                    //new ViewStepsCount(WatchYourHealth.LAST_DATA).execute();
-                    new CoroutineClass().runBackGroundTask(WatchYourHealth.LAST_DATA, context);
-                }
-            }
-        }, 10000 * 30);
     }
 
     private void getSleep() {
@@ -3055,148 +3020,6 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
 
         levelActivityJournalUploadAlertDialog.getWindow().setLayout((int) (displayRectangle.width() *
                 0.8f), (int) (displayRectangle.height() * 0.8f));
-    }
-
-
-    public void getHourlySteps() {
-        if (watchYourHealth.isHourlyStepExist()) {
-            try {
-                String lastDate = watchYourHealth.getLastStandDate();
-                //String lastDate = "2019-11-20";
-                String todayDateNew = getTodayDateNew();
-                //Toast.makeText(getApplicationContext(), lastDate, Toast
-                // .LENGTH_LONG).show();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-                Date date = sdf.parse(lastDate);
-                Date date1 = sdf.parse(todayDateNew);
-                long diff = date1.getTime() - date.getTime();
-                int days = (int) TimeUnit.DAYS.convert(diff,
-                        TimeUnit.MILLISECONDS);
-                totalStandDays = days;
-                //new ViewStepsCount(WatchYourHealth.YEAR_HOUR).execute();
-                new CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        } else {
-            totalStandDays = -1;
-            //new ViewStepsCount(WatchYourHealth.YEAR_HOUR).execute();
-            new CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR_HOUR, context);
-        }
-    }
-
-    private void getStand() {
-        String minHourlyStepsDate = watchYourHealth.getMinHourlyStepsDate();
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date startDate = formatter.parse(minHourlyStepsDate);
-            Date endDate = formatter.parse(getTodayDateNew());
-
-            Calendar start = Calendar.getInstance();
-            start.setTime(startDate);
-            Calendar end = Calendar.getInstance();
-            end.setTime(endDate);
-            //end.add(Calendar.DATE, 1);
-            //Date newEndDate = end.getTime();
-            ////Log.v("DAte",""+end);
-            for (Date date = start.getTime(); start.before(end); start.add(Calendar.DATE,
-                    1), date = start.getTime()) {
-                // Do your job here with `date`.
-                SimpleDateFormat spf = new SimpleDateFormat("yyyy-MM-dd");
-                String convertDate = spf.format(date);
-                //System.out.println("Stand Date : " + convertDate);
-                //String todayDateNew = Utilities.getTodayDateNew();
-                int standCount = watchYourHealth.getTodayHourlyStandCount(convertDate,
-                        com.wyh.happyyousdk.utils.Constants.STEPS_COUNT);
-                //System.out.println("Stand Count : " + standCount);
-                watchYourHealth.insertStandCount(standCount, convertDate, true);
-
-                int activeStandCount = watchYourHealth.getTodayHourlyStandCount(convertDate,
-                        com.wyh.happyyousdk.utils.Constants.ACTIVE_STEPS_COUNT);
-                //System.out.println("Active Stand Count : " + activeStandCount);
-                watchYourHealth.insertActiveHourCount(activeStandCount, convertDate);
-            }
-        } catch (Exception e) {
-            //Log.e("Stand Exception", e.getMessage());
-        }
-
-        int standCount = watchYourHealth.getTodayHourlyStandCount(getTodayDateNew(), com.wyh.happyyousdk.utils.Constants.STEPS_COUNT);
-        watchYourHealth.insertStandCount(standCount, getTodayDateNew(), true);
-        int stand = watchYourHealth.getStand();
-        if (stand != 0) {
-//            tvStandingHoursValue.setText(stand + " Hrs");
-        } else {
-//            tvStandingHoursValue.setText("0 Hrs");
-        }
-
-        int activeStandCount = watchYourHealth.getTodayHourlyStandCount(getTodayDateNew(),
-                com.wyh.happyyousdk.utils.Constants.ACTIVE_STEPS_COUNT);
-        watchYourHealth.insertActiveHourCount(activeStandCount, getTodayDateNew());
-        /*int activeHour = watchYourHealth.getActiveHour();
-        if (activeHour != 0) {
-            tvActiveHoursValue.setText(activeHour + " Hrs");
-        } else {
-            tvActiveHoursValue.setText("0 Hrs");
-        }*/
-    }
-
-    private void getDaysSteps() {
-        if (watchYourHealth.isStepExist()) {
-            try {
-                String lastDate = watchYourHealth.getLastStepsDate();
-                //String lastDate = "2019-11-20";
-                String todayDateNew = getTodayDateNew();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-                Date date = sdf.parse(lastDate);
-                Date date1 = sdf.parse(todayDateNew);
-                long diff = date1.getTime() - date.getTime();
-                int days = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-                totalStepsDays = days;
-                //Toast.makeText(HomeActivity.this,""+totalStepsDays,Toast.LENGTH_SHORT).show();
-                //new ViewStepsCount(WatchYourHealth.LAST_DATA).execute();
-                //System.out.println("Days Data: " + totalStepsDays);
-                //new ViewStepsCount(WatchYourHealth.LAST_DATA).execute();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        } else {
-            //new ViewStepsCount(WatchYourHealth.YEAR).execute();
-            new CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR, context);
-        }
-    }
-
-    public void getMinuteSteps() {
-        if (watchYourHealth.isMinuteStepExist()) {
-            try {
-                String lastDate = watchYourHealth.getLastMinuteStepsDate();
-                //String lastDate = "2019-11-20";
-                String todayDateNew = getTodayDateNew();
-                //Toast.makeText(MainService.this, lastDate, Toast.LENGTH_LONG).show();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-                if (lastDate != null) {
-                    Date date = sdf.parse(lastDate);
-                    Date date1 = sdf.parse(todayDateNew);
-                    long diff = date1.getTime() - date.getTime();
-                    int days = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-                    totalMinuteStepsDays = days;
-                    Log.v("Sleep Last Date", lastDate + "." + days);
-                } else {
-                    totalMinuteStepsDays = 30;
-                }
-                //new ViewStepsCount(WatchYourHealth.SLEEP_DATA).execute();
-                new CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        } else {
-            totalMinuteStepsDays = 30;
-            //new ViewStepsCount(WatchYourHealth.SLEEP_DATA).execute();
-            new CoroutineClass().runBackGroundTask(WatchYourHealth.SLEEP_DATA, context);
-        }
     }
 
 

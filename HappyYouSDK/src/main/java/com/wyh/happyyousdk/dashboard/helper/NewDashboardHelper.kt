@@ -271,66 +271,6 @@ class NewDashboardHelper {
             binding.dashboardMenu.tvUnwind.setVisibility(View.GONE)
         }
 
-        fun getFitPermission(context: Activity) {
-            backgroundHandler = Handler()
-            if (!SharedPref.getFitBitConnection()) {
-                if (ContextCompat.checkSelfPermission(
-                        context,
-                        Manifest.permission.ACTIVITY_RECOGNITION
-                    )
-                    != PackageManager.PERMISSION_GRANTED
-                ) {
-                    // Permission is not granted
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        ActivityCompat.requestPermissions(
-                            context, arrayOf<String>(Manifest.permission.ACTIVITY_RECOGNITION),
-                            REQUEST_CODE_ACTIVITY_RECOGNITION
-                        )
-                    } else {
-                        //Log.v("Data", "Inside Loop MONTH");
-                        watchYourHealth.connectAPIClient()
-                        val googleFitConnection = SharedPreference.getGoogleFitConnection()
-                        if (googleFitConnection) {
-                            //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                            backgroundHandler!!.postDelayed(object : Runnable {
-                                override fun run() {
-                                    //Do something after 45 seconds
-                                    Log.d("AuthToken", "Handler running")
-                                    CoroutineClass().runBackGroundTask(
-                                        WatchYourHealth.MONTH,
-                                        context
-                                    )
-                                    //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                                    backgroundHandler!!.postDelayed(this, (1000 * 30).toLong())
-                                }
-                            }, 1000)
-                        }
-                    }
-                } else {
-                    watchYourHealth.connectAPIClient()
-                    val googleFitConnection = SharedPreference.getGoogleFitConnection()
-                    if (googleFitConnection) {
-                        /*if (!SharedPref.getGoogleFitBadge()) {
-                        assignBadge("3", "tech", "GoogleFit", "Health");
-                    }*/
-                        //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                        backgroundHandler!!.postDelayed(object : Runnable {
-                            override fun run() {
-                                //Do something after 45 seconds
-                                Log.d("AuthToken", "Handler running")
-                                CoroutineClass().runBackGroundTask(
-                                    WatchYourHealth.MONTH,
-                                    context
-                                )
-                                //new ViewStepsCount(WatchYourHealth.MONTH).execute();
-                                backgroundHandler!!.postDelayed(this, (1000 * 30).toLong())
-                            }
-                        }, 1000)
-                    }
-                }
-            }
-        }
-
 
         fun getSteps() {
             //watchYourHealth = new WatchYourHealth(this);

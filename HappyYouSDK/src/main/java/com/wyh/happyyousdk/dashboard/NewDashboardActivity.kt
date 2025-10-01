@@ -782,8 +782,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
             } catch (e: ParseException) {
                 e.printStackTrace()
             }
-        } else {
-            CoroutineClass().runBackGroundTask(WatchYourHealth.YEAR, context)
         }
     }
 
