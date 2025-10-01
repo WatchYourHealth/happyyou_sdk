@@ -120,7 +120,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.3.4'
+                version = '1.3.5'
 
                 from components.release
 
