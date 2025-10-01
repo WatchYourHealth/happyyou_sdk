@@ -408,7 +408,9 @@ public class ConnectApp extends AppCompatActivity implements ScratchListener {
                                 try {
                                     if (SharedPreference.getGoogleFitConnection()) {
                                         //binding.btnInstall.setVisibility(View.GONE);
-                                        updateRewards();
+                                        if(!SharedPref.getIsUpdateRewardsCalled()){
+                                            updateRewards();
+                                        }
                                         binding.fitConnection.setText("Connected");
                                         binding.fitConnection.setTextColor(getResources().getColor(R.color.green_teal));
                                         setFitChecked(true);
@@ -530,6 +532,7 @@ public class ConnectApp extends AppCompatActivity implements ScratchListener {
                     progressDialog.dismiss();
                 if (response.code() == 200 && response.body() != null) {
                     if (response.code() == 200 && response.body() != null) {
+                        SharedPref.setIsUpdateRewardsCalled(true);
                         CommonSuccessResponse commonSuccessResponse = new Gson().fromJson(response.body().string(), CommonSuccessResponse.class);
                         if (commonSuccessResponse.getRewards() != null && commonSuccessResponse.getRewards().getReward() != null) {
                             runOnUiThread(new Runnable() {

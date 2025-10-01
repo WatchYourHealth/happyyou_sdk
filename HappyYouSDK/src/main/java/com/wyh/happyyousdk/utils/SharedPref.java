@@ -249,6 +249,7 @@ public class SharedPref {
     public static String CorporateAccountNotFound = "CorporateAccountNotFound";
     public static String marshURL = "marshURL";
     public static String policyRenewableURL = "policyRenewableURL";
+    public static String isUpdateRewardsCalled = "isUpdateRewardsCalled";
     private static final String LAST_DIALOG_DATE_KEY = "lastDialogDate";
 
     public static void init(Context context) {
@@ -1982,6 +1983,17 @@ public class SharedPref {
 
     public static String getPolicyRenewableURL() {
         return mSharedPref.getString(policyRenewableURL, "");
+    }
+
+
+    public static void setIsUpdateRewardsCalled(boolean value) {
+        SharedPreferences.Editor editor = mSharedPref.edit();
+        editor.putBoolean(isUpdateRewardsCalled, value);
+        editor.apply();
+    }
+
+    public static Boolean getIsUpdateRewardsCalled() {
+        return mSharedPref.getBoolean(isUpdateRewardsCalled, false);
     }
 
 }
