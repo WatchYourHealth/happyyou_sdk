@@ -19,8 +19,8 @@ class LocalStorageTask(context: Context) {
     var totalStepsDays: Int = 0
     var hourlyStep: Boolean = false
     var totalCalorieBurned: Int = 0
-    var totalStandDays: Int = 30;
-    var totalMinuteStepsDays: Int = 30;
+    var totalStandDays: Int = 0
+    var totalMinuteStepsDays: Int = 0
 
     init {
         watchYourHealth = WatchYourHealth(context, SharedPref.getUuid())
