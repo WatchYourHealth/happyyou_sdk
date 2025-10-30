@@ -32,6 +32,10 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -117,7 +121,6 @@ import com.wyh.happyyousdk.hra.HRAAnalysisActivity
 import com.wyh.happyyousdk.hra.HRAQuestionsActivity
 import com.wyh.happyyousdk.ice.ICEDashboardActivity
 import com.wyh.happyyousdk.ice.SOSActivity
-import com.wyh.happyyousdk.main.AppVisibilityTracker
 import com.wyh.happyyousdk.model.*
 import com.wyh.happyyousdk.model.request.*
 import com.wyh.happyyousdk.model.request.absorb.AddBookmarkRequest
@@ -330,6 +333,36 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         claimReclaimDialog = ClaimReClaimDialog(context)
         SharedPref.init(context)
         SharedPreference.init(context)
+
+        window.getDecorView().findViewById<View?>(android.R.id.content)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        ViewCompat.setOnApplyWindowInsetsListener(
+            binding.root,
+            OnApplyWindowInsetsListener { v: View?, insets: WindowInsetsCompat? ->
+                val bars = insets!!.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                )
+                v!!.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+                binding.root.setBackgroundColor(resources.getColor(R.color.colorPrimaryDark))
+                insets
+            })
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+//        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+//            var bars = insets.getInsets(
+//                WindowInsetsCompat.Type.systemBars()
+//            );
+//            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+//            int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+//            if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+//                // Dark Mode
+//                statusBarBackgroundColor = Color.parseColor("#000000");
+//            } else {
+//                // Light Mode
+//                statusBarBackgroundColor = Color.parseColor("#113F67");
+//            }
+//            rootView.setBackgroundColor(statusBarBackgroundColor);
+//            return insets;
+//        });
 
 
         healthConnectUtil = HealthConnectUtil(this, this, permissionLauncher)

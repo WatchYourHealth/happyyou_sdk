@@ -5,6 +5,10 @@ import static com.wyh.happyyousdk.utils.CommonUtils.getBaseUrlForAPI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.app.ProgressDialog;
@@ -50,6 +54,18 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
         context = this;
+
+        getWindow().getDecorView().findViewById(android.R.id.content);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets bars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+            );
+            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            binding.getRoot().setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+            return insets;
+        });
+
         SharedPref.init(context);
 
         apiInterfaceWyh = ApiClientWyh.getClient(getBaseUrlForAPI(context)).create(ApiInterfaceWyh.class);

@@ -9,6 +9,10 @@ import static com.wyh.happyyousdk.utils.Constants.TAG_REWARD_EVENT;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +22,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -88,6 +94,17 @@ public class RecommandHealthTvDashboradActivity extends AppCompatActivity implem
         progressDialog = new ProgressDialog(context, R.style.ProgressBarTheme);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
+
+        getWindow().getDecorView().findViewById(android.R.id.content);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets bars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+            );
+            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            binding.getRoot().setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+            return insets;
+        });
 
         binding.includeToolbar.llBack.setOnClickListener(view -> finish());
         binding.includeToolbar.tvBack.setText("Recommended Health TV Video");
