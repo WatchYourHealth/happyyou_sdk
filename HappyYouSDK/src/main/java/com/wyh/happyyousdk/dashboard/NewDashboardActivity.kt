@@ -334,18 +334,18 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
         SharedPref.init(context)
         SharedPreference.init(context)
 
-        window.getDecorView().findViewById<View?>(android.R.id.content)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        ViewCompat.setOnApplyWindowInsetsListener(
-            binding.root,
-            OnApplyWindowInsetsListener { v: View?, insets: WindowInsetsCompat? ->
-                val bars = insets!!.getInsets(
-                    WindowInsetsCompat.Type.systemBars()
-                )
-                v!!.setPadding(bars.left, bars.top, bars.right, bars.bottom)
-                binding.root.setBackgroundColor(resources.getColor(R.color.colorPrimaryDark))
-                insets
-            })
+//        window.getDecorView().findViewById<View?>(android.R.id.content)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        ViewCompat.setOnApplyWindowInsetsListener(
+//            binding.root,
+//            OnApplyWindowInsetsListener { v: View?, insets: WindowInsetsCompat? ->
+//                val bars = insets!!.getInsets(
+//                    WindowInsetsCompat.Type.systemBars()
+//                )
+//                v!!.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+//                binding.root.setBackgroundColor(resources.getColor(R.color.colorPrimaryDark))
+//                insets
+//            })
 //        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 //        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
 //            var bars = insets.getInsets(

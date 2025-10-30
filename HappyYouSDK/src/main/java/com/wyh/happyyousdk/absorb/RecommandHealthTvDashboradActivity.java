@@ -95,16 +95,16 @@ public class RecommandHealthTvDashboradActivity extends AppCompatActivity implem
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait...");
 
-        getWindow().getDecorView().findViewById(android.R.id.content);
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
-            Insets bars = insets.getInsets(
-                    WindowInsetsCompat.Type.systemBars()
-            );
-            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
-            binding.getRoot().setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-            return insets;
-        });
+//        getWindow().getDecorView().findViewById(android.R.id.content);
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+//        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+//            Insets bars = insets.getInsets(
+//                    WindowInsetsCompat.Type.systemBars()
+//            );
+//            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+//            binding.getRoot().setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+//            return insets;
+//        });
 
         binding.includeToolbar.llBack.setOnClickListener(view -> finish());
         binding.includeToolbar.tvBack.setText("Recommended Health TV Video");
