@@ -88,10 +88,10 @@ android {
     }
 
     packagingOptions {
-        pickFirst 'lib/arm64-v8a/libopencv_java4.so'
+//        pickFirst 'lib/arm64-v8a/libopencv_java4.so'
 //        pickFirst 'lib/x86_64/libopencv_java4.so'
 //        pickFirst 'lib/arm64-v8a/libc++_shared.so'
-        pickFirst 'lib/armeabi-v7a/libopencv_java4.so'
+//        pickFirst 'lib/armeabi-v7a/libopencv_java4.so'
 //        pickFirst 'lib/x86/libopencv_java4.so'
 //        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
 //        pickFirst "lib/x86/libc++_shared.so"
@@ -120,7 +120,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.4.1'
+                version = '1.4.2'
 
                 from components.release
 
@@ -263,10 +263,6 @@ dependencies {
     api "androidx.camera:camera-camera2:${camerax_version}"
     api "androidx.camera:camera-lifecycle:${camerax_version}"
     api "androidx.camera:camera-view:${camerax_view_version}"
-
-    //opencv
-    def opencv_version = '4.3.0'
-    api "com.github.iamareebjamal:opencv-android:${opencv_version}"
 
     //Scratch View
     //implementation 'in.codeshuffle.scratchcardlayout:ScratchCardLayout:1.0.8'
