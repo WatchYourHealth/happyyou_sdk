@@ -8,8 +8,6 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat.finishAffinity
-import com.nekolaboratory.EmulatorDetector
-import com.scottyab.rootbeer.RootBeer
 import com.trackier.sdk.TrackierSDK
 import com.trackier.sdk.TrackierSDK.initialize
 import com.trackier.sdk.TrackierSDKConfig
@@ -57,7 +55,7 @@ class ApplicationClass : Application() {
             }
 
             override fun onActivityResumed(activity: Activity) {
-                rootCheck()
+
             }
 
             override fun onActivityPaused(activity: Activity) {
@@ -76,65 +74,6 @@ class ApplicationClass : Application() {
 
             }
         })
-    }
-
-    fun rootCheck() {
-        try {
-            Log.d("AuthToken", "Root Checked")
-            val rootBeer = RootBeer(this)
-            if (SDKConstants.environment !== "debug") {
-                if (EmulatorDetector.isEmulator(applicationContext)) {
-                    val alertDialog = AlertDialog.Builder(this)
-                    alertDialog.setTitle("Emulator")
-                    alertDialog.setCancelable(false)
-                    alertDialog.setMessage("This application is not allowed to run on an emulator.")
-                    alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                        dialog.dismiss()
-                        val sharedPreferences =
-                            getSharedPreferences("mydata", MODE_PRIVATE)
-                        sharedPreferences.edit().clear().apply()
-                        SharedPref.clearSharedPref()
-                        finishAffinity(context as Activity)
-                    }
-                    alertDialog.show()
-                } else if (rootBeer.isRooted || rootBeer.isRootedWithBusyBoxCheck || rootBeer.checkSuExists()) {
-                    //if (new CheckRootedDevice(this).isRTWithoutBBCheck()) {
-                    // device is rooted
-                    val alertDialog = AlertDialog.Builder(this)
-                    alertDialog.setTitle("Root device")
-                    alertDialog.setCancelable(false)
-                    alertDialog.setMessage("This application is not allowed on root device.")
-                    alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                        dialog.dismiss()
-                        val sharedPreferences =
-                            getSharedPreferences("mydata", MODE_PRIVATE)
-                        sharedPreferences.edit().clear().apply()
-                        SharedPref.clearSharedPref()
-                        finishAffinity(context as Activity)
-                    }
-                    alertDialog.show()
-                } else if (RootCheck.isDeviceRooted()) {
-                    //if (new CheckRootedDevice(this).isRTWithoutBBCheck()) {
-                    // device is rooted
-                    val alertDialog = AlertDialog.Builder(this)
-                    alertDialog.setTitle("Root device")
-                    alertDialog.setCancelable(false)
-                    alertDialog.setMessage("This application is not allowed on root device.")
-                    alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                        dialog.dismiss()
-                        val sharedPreferences =
-                            getSharedPreferences("mydata", MODE_PRIVATE)
-                        sharedPreferences.edit().clear().apply()
-                        SharedPref.clearSharedPref()
-                        finishAffinity(context as Activity)
-                    }
-                    alertDialog.show()
-                }
-            }
-        } catch (e: Exception) {
-            e.toString()
-        }
-
     }
 
     override fun onTerminate() {

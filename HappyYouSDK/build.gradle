@@ -120,7 +120,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.WatchYourHealth'
                 artifactId = 'happyyou_sdk'
-                version = '1.4.2'
+                version = '1.4.9'
 
                 from components.release
 
@@ -277,13 +277,9 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:3.9.0"
     api "com.squareup.okhttp3:logging-interceptor:3.9.0"
 
-    //To detect emulator
-    api 'com.github.mofneko:EmulatorDetector:1.1.0'
-
-    api 'com.scottyab:rootbeer-lib:0.1.0' //To detect Device is Rooted or not
-
     //api "com.github.barteksc:android-pdf-viewer:2.8.2"
-    api 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
+//    api 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
+    api 'com.dmitryborodin:pdfview-android:1.1.0'
 
     api 'org.greenrobot:eventbus:3.2.0'
 

@@ -49,8 +49,6 @@ import com.bumptech.glide.request.transition.Transition
 import com.esafirm.imagepicker.features.ImagePicker
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.gson.Gson
-import com.nekolaboratory.EmulatorDetector
-import com.scottyab.rootbeer.RootBeer
 import com.wyh.happyyousdk.*
 import com.wyh.happyyousdk.APIEncryption.APIInterface
 import com.wyh.happyyousdk.APIEncryption.APILogs
@@ -1058,54 +1056,6 @@ class NewDashboardActivity : AppCompatActivity(), ScratchListener, KYWClick, Cha
 
     override fun onResume() {
         super.onResume()
-        val rootBeer = RootBeer(context)
-        if (SDKConstants.environment !== "debug") {
-            if (EmulatorDetector.isEmulator(applicationContext)) {
-                val alertDialog = AlertDialog.Builder(this)
-                alertDialog.setTitle("Emulator")
-                alertDialog.setCancelable(false)
-                alertDialog.setMessage("This application is not allowed to run on an emulator.")
-                alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                    dialog.dismiss()
-                    val sharedPreferences = getSharedPreferences("mydata", MODE_PRIVATE)
-                    sharedPreferences.edit().clear().apply()
-                    SharedPref.clearSharedPref()
-                    finishAffinity()
-                }
-                alertDialog.show()
-            } else if (rootBeer.isRooted || rootBeer.isRootedWithBusyBoxCheck || rootBeer.checkSuExists()) {
-                //if (new CheckRootedDevice(this).isRTWithoutBBCheck()) {
-                // device is rooted
-                val alertDialog = AlertDialog.Builder(this)
-                alertDialog.setTitle("Root device")
-                alertDialog.setCancelable(false)
-                alertDialog.setMessage("This application is not allowed on root device.")
-                alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                    dialog.dismiss()
-                    val sharedPreferences = getSharedPreferences("mydata", MODE_PRIVATE)
-                    sharedPreferences.edit().clear().apply()
-                    SharedPref.clearSharedPref()
-                    finishAffinity()
-                }
-                alertDialog.show()
-            } else if (RootCheck.isDeviceRooted()) {
-                //if (new CheckRootedDevice(this).isRTWithoutBBCheck()) {
-                // device is rooted
-                val alertDialog = AlertDialog.Builder(context)
-                alertDialog.setTitle("Root device")
-                alertDialog.setCancelable(false)
-                alertDialog.setMessage("This application is not allowed on root device.")
-                alertDialog.setPositiveButton("Exit") { dialog: DialogInterface, which: Int ->
-                    dialog.dismiss()
-                    val sharedPreferences =
-                        getSharedPreferences("mydata", MODE_PRIVATE)
-                    sharedPreferences.edit().clear().apply()
-                    SharedPref.clearSharedPref()
-                    finishAffinity()
-                }
-                alertDialog.show()
-            }
-        }
 
         if (!SharedPref.getRedirectionKey().isEmpty()) {
             if (SharedPref.getRedirectionKey().contains("unwind")) {

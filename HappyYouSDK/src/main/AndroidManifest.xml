@@ -64,6 +64,30 @@
             android:theme="@style/Theme.HappyYou"
             android:exported="false" />
         <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizClaimActivityRewardList"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.TimeBoundScoreActivity"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.QuizathonTimeboundScoreActivity"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.quizathon.FeedbackActivityRewardList"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.musicLib.MusicLibPlayerActivity"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
+            android:name="com.wyh.happyyousdk.musicLib.MoreMusicListActivity"
+            android:theme="@style/Theme.HappyYou"
+            android:exported="false" />
+        <activity
             android:name="com.wyh.happyyousdk.play_and_win.PlayAndWinActivity"
             android:theme="@style/Theme.HappyYou"
             android:exported="false" />

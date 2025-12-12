@@ -695,7 +695,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.calIntakeOrBurn.setVisibility(View.VISIBLE);
                 binding.llCalorieDetails.setVisibility(View.VISIBLE);
                 binding.laBear.clearAnimation();
-                binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.laBear.playAnimation();
 
 
@@ -718,7 +718,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
                 binding.tvGraphTopMsg.setVisibility(View.GONE);
                 binding.ivActivityBg.setImageDrawable(getDrawable(R.drawable.bg_calories_without_bear));
                 binding.laBear.setVisibility(View.VISIBLE);
-                binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
+                binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
                 binding.rlSleepDetails.setVisibility(View.GONE);
                 binding.llTodaySteps.setVisibility(View.GONE);
                 binding.rlWaterDetailsIntake.setVisibility(View.GONE);
@@ -773,7 +773,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
             binding.calIntakeOrBurn.setVisibility(View.VISIBLE);
             binding.llCalorieDetails.setVisibility(View.VISIBLE);
             binding.laBear.clearAnimation();
-            binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
+            binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_carrot.json");
             binding.laBear.playAnimation();
 
 
@@ -813,7 +813,7 @@ public class TrendsActivity extends AppCompatActivity implements ScratchListener
 //            binding.calIntakeOrBurn.setVisibility(View.GONE);
             binding.llCalorieDetails.setVisibility(View.GONE);
             binding.laBear.clearAnimation();
-            binding.laBear.setAnimation(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_calorie.json");
+            binding.laBear.setAnimationFromUrl(CommonUtils.getBaseUrlForAPI(context) + SDKConstants.endPointForImages + "anim_bear_calorie.json");
             binding.laBear.playAnimation();
 
             binding.btnCalBurned.setTextColor(getColor(R.color.white));

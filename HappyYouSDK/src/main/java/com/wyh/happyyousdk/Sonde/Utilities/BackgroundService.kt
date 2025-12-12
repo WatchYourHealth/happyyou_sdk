@@ -1,11 +1,9 @@
 package com.wyh.happyyousdk.Sonde.Utilities
 
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import com.google.android.exoplayer2.util.Log
-import com.wyh.happyyousdk.ChallangesModule.Utils.ApplicationClass
 import com.wyh.happyyousdk.Sonde.Activities.AnalysisScreen
 
 class BackgroundService : Service() {
